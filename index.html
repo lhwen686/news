@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 驱动双语新闻聚合器</title>
+    <!-- 引入 Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+            background-color: #f8fafc;
+        }
+        .zh-text {
+            font-family: 'Inter', 'Noto Serif SC', serif;
+        }
+        /* 增加平滑的锚点滚动 */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="text-gray-800 antialiased">
+    <!-- 导航栏 / 头部 -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-3">
+                    <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15M9 11l3 3L22 4"></path></svg>
+                    Daily Insight
+                </h1>
+                <p class="mt-1 text-sm text-slate-500">AI-Translated Academic & Tech Highlights · 全球权威资讯双语速递</p>
+            </div>
+            
+            <!-- 快捷导航 -->
+            <nav class="mt-4 md:mt-0 flex gap-4">
+                
+                <a href="#cat-医疗" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors bg-slate-100 hover:bg-indigo-50 px-3 py-1.5 rounded-full">
+                    医疗
+                </a>
+                
+                <a href="#cat-科技" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors bg-slate-100 hover:bg-indigo-50 px-3 py-1.5 rounded-full">
+                    科技
+                </a>
+                
+                <a href="#cat-金融" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors bg-slate-100 hover:bg-indigo-50 px-3 py-1.5 rounded-full">
+                    金融
+                </a>
+                
+                <a href="#cat-游戏" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors bg-slate-100 hover:bg-indigo-50 px-3 py-1.5 rounded-full">
+                    游戏
+                </a>
+                
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主体内容 -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <!-- 板块: 医疗 -->
+        <section id="cat-医疗" class="mb-16 scroll-mt-24">
+            <div class="flex items-center mb-8">
+                <h2 class="text-2xl font-bold text-slate-800 tracking-wide">医疗 板块</h2>
+                <div class="ml-4 flex-grow h-px bg-slate-200"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 gap-8">
+                
+                <!-- 单条新闻卡片 -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+                    
+                    <!-- 卡片 Header: 来源和原链接 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            NEJM
+                        </span>
+                        <a href="https://www.nejm.org/doi/full/10.1056/NEJMicm2503296?af=R&rss=currentIssue" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors group">
+                            阅读原文
+                            <svg class="ml-1.5 w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                    
+                    <!-- 卡片 Body: 双语对照 -->
+                    <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100 flex-grow">
+                        
+                        <!-- 英文原文区块 (左/上) -->
+                        <div class="p-8 md:w-1/2 flex flex-col gap-4">
+                            <h3 class="text-xl font-bold text-slate-900 font-serif leading-snug">
+                                Expiratory Central Airway Collapse
+                            </h3>
+                            
+                            <div class="prose prose-sm prose-slate text-slate-600 max-w-none">
+                                New England Journal of Medicine, Ahead of Print. <br />
+                            </div>
+                            
+                        </div>
+                        
+                        <!-- 中文翻译区块 (右/下) -->
+                        <div class="p-8 md:w-1/2 flex flex-col gap-4 bg-slate-50/50">
+                            <h3 class="text-xl font-bold text-slate-900 zh-text leading-snug">
+                                准确、专业的医学翻译如下：<br><br>**呼气性中心气道塌陷**<br><br>**解释与理由：**<br><br>1.  **Expiratory (呼气性):** "呼气性" (hūqìxìng) 是医学上标准的形容词形式，表示与呼气相关的。<br>2.  **Central (中心):** "中心" (zhōngxīn) 在医学中常用来指代主要或核心的结构，如中心静脉、中心神经系统等。在此语境下，它准确地指代了气道的主要部分，即气管和主支气管，区别于外周气道。<br>3.  **Airway (气道):** "气道" (qìdào) 是呼吸系统用来传输空气的管道，是医学上非常通用的术语。<br>4.  **Collapse (塌陷):** "塌陷" (tāxiàn) 是医学上描述器官或结构（如肺泡、气道、血管等）失去正常形态、内腔缩小或闭合的专业术语。它准确传达了气道结构因压力或其他因素而向内塌缩的状态。<br><br>将这几个词组合起来，"呼气性中心气道塌陷" 是对原文最精确、最符合临床习惯和专业规范的翻译。
+                            </h3>
+                            
+                            <div class="prose prose-sm prose-slate text-slate-700 max-w-none zh-text leading-relaxed">
+                                《新英格兰医学杂志》，优先在线发表。<br><br>（或： 《新英格兰医学杂志》，文章抢先在线发表。）
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </article>
+                
+                <!-- 单条新闻卡片 -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+                    
+                    <!-- 卡片 Header: 来源和原链接 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            NEJM
+                        </span>
+                        <a href="https://www.nejm.org/doi/full/10.1056/NEJMp2415615?af=R&rss=currentIssue" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors group">
+                            阅读原文
+                            <svg class="ml-1.5 w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                    
+                    <!-- 卡片 Body: 双语对照 -->
+                    <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100 flex-grow">
+                        
+                        <!-- 英文原文区块 (左/上) -->
+                        <div class="p-8 md:w-1/2 flex flex-col gap-4">
+                            <h3 class="text-xl font-bold text-slate-900 font-serif leading-snug">
+                                Private Equity’s Transformation of American Medicine — Implications for Health Equity
+                            </h3>
+                            
+                            <div class="prose prose-sm prose-slate text-slate-600 max-w-none">
+                                New England Journal of Medicine, Ahead of Print. <br />
+                            </div>
+                            
+                        </div>
+                        
+                        <!-- 中文翻译区块 (右/下) -->
+                        <div class="p-8 md:w-1/2 flex flex-col gap-4 bg-slate-50/50">
+                            <h3 class="text-xl font-bold text-slate-900 zh-text leading-snug">
+                                好的，以下是这段英文的严谨、专业的中文翻译：<br><br>**私募股权对美国医疗体系的变革——对健康公平的启示与影响**<br><br>---<br><br>**翻译说明：**<br><br>1.  **Private Equity：** 译为“私募股权”，这是金融领域的标准专业术语，比“私人股权”更准确。<br>2.  **Transformation：** 译为“变革”，它强调了私募股权介入医疗领域所带来的深层次、系统性的改变，而非仅仅是表面的“转变”或“改造”。在医学新闻语境下，这种“变革”往往带有褒贬兼具的复杂含义。<br>3.  **American Medicine：** 译为“美国医疗体系”。“Medicine”在这里不仅仅指医学这门学科，更多的是指一个国家的医疗服务、供给和管理系统。添加“体系”使其更完整和准确。<br>4.  **Implications for Health Equity：** 译为“对健康公平的启示与影响”。<br>    *   **Implications：** 在分析性文章或标题中，"implications" 常常指潜在的、未来可能产生的后果、意义或带来的思考。翻译为“启示与影响”能更好地捕捉其深度和广度，既包括可能产生的后果，也包括对理解某一现象（如健康公平）的深层意义。<br>    *   **Health Equity：** 译为“健康公平”，这是公共卫生和伦理领域的标准术语，指每个人都有公平公正的机会达到其可能达到的最高健康水平，没有因社会、经济、环境等因素造成的健康差异。
+                            </h3>
+                            
+                            <div class="prose prose-sm prose-slate text-slate-700 max-w-none zh-text leading-relaxed">
+                                《新英格兰医学杂志》，优先在线发表。<br><br>**说明：**<br>*   **新英格兰医学杂志 (New England Journal of Medicine)**：这是该期刊的官方且普遍接受的中文译名。<br>*   **优先在线发表 (Ahead of Print)**：这个短语在学术出版领域指的是文章已经通过同行评审、修改和排版，但尚未被分配到具体的印刷期号，而是提前在期刊网站上发布。中文的“优先在线发表”或“在线优先出版”是对此最准确、最专业的翻译，符合医疗/医学新闻的严谨性要求。相比“预印本”（通常指未经同行评审的草稿）或过于直白的“印刷前”，这个译法更能体现其作为正式出版物一部分的地位。
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </article>
+                
+            </div>
+        </section>
+        
+        <!-- 板块: 科技 -->
+        <section id="cat-科技" class="mb-16 scroll-mt-24">
+            <div class="flex items-center mb-8">
+                <h2 class="text-2xl font-bold text-slate-800 tracking-wide">科技 板块</h2>
+                <div class="ml-4 flex-grow h-px bg-slate-200"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 gap-8">
+                
+                <!-- 单条新闻卡片 -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+                    
+                    <!-- 卡片 Header: 来源和原链接 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            The Verge
+                        </span>
+                        <a href="https://www.theverge.com/tech/887040/polymarket-iran-war-betting-invaluable" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors group">
+                            阅读原文
+                            <svg class="ml-1.5 w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                    
+                    <!-- 卡片 Body: 双语对照 -->
+                    <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100 flex-grow">
+                        
+                        <!-- 英文原文区块 (左/上) -->
+                        <div class="p-8 md:w-1/2 flex flex-col gap-4">
+                            <h3 class="text-xl font-bold text-slate-900 font-serif leading-snug">
+                                Polymarket defends its decision to allow betting on war as ‘invaluable’
+                            </h3>
+                            
+                            <div class="prose prose-sm prose-slate text-slate-600 max-w-none">
+                                Polymarket has been allowing people to bet on when the US would strike Iran next. Obviously, now that it's actually happened and people have died, the prediction betting market is feeling some pressure. The site has been at the center of controversy before, including suspicions of insider trading on the Super Bowl halftime show and [&#8230;]
+                            </div>
+                            
+                        </div>
+                        
+                        <!-- 中文翻译区块 (右/下) -->
+                        <div class="p-8 md:w-1/2 flex flex-col gap-4 bg-slate-50/50">
+                            <h3 class="text-xl font-bold text-slate-900 zh-text leading-snug">
+                                Polymarket 为其允许就战争下注的决定辩护，称此举“无价”。
+                            </h3>
+                            
+                            <div class="prose prose-sm prose-slate text-slate-700 max-w-none zh-text leading-relaxed">
+                                Polymarket此前一直允许人们就美国何时会再次袭击伊朗进行下注。显然，鉴于袭击已经发生并造成人员伤亡，这个预测博彩市场正承受着一定的压力。该网站此前也曾多次卷入争议，包括其在超级碗中场秀上涉嫌内幕交易等问题。
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </article>
+                
+                <!-- 单条新闻卡片 -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+                    
+                    <!-- 卡片 Header: 来源和原链接 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            The Verge
+                        </span>
+                        <a href="https://www.theverge.com/science/887037/vera-c-rubin-observatory-800000-alerts" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors group">
+                            阅读原文
+                            <svg class="ml-1.5 w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                    
+                    <!-- 卡片 Body: 双语对照 -->
+                    <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100 flex-grow">
+                        
+                        <!-- 英文原文区块 (左/上) -->
+                        <div class="p-8 md:w-1/2 flex flex-col gap-4">
+                            <h3 class="text-xl font-bold text-slate-900 font-serif leading-snug">
+                                The Rubin Observatory’s alert system sent 800,000 pings on its first night
+                            </h3>
+                            
+                            <div class="prose prose-sm prose-slate text-slate-600 max-w-none">
+                                The Vera C. Rubin Observatory's automated alert system is online and already bombarding astronomers with things to look at in the night sky. The system went live publicly on Tuesday, February 24th, and on the first night dropped some 800,000 alerts about asteroids, supernovas, and feasting black holes. And that number is only expected to [&#8230;]
+                            </div>
+                            
+                        </div>
+                        
+                        <!-- 中文翻译区块 (右/下) -->
+                        <div class="p-8 md:w-1/2 flex flex-col gap-4 bg-slate-50/50">
+                            <h3 class="text-xl font-bold text-slate-900 zh-text leading-snug">
+                                鲁宾天文台的警报系统在其首夜发送了八十万次警报。
+                            </h3>
+                            
+                            <div class="prose prose-sm prose-slate text-slate-700 max-w-none zh-text leading-relaxed">
+                                维拉·C·鲁宾天文台（Vera C. Rubin Observatory）的自动化预警系统已经上线，并正不断向天文学家们推送海量夜空观测目标，令他们应接不暇。该系统于2月24日星期二正式向公众启用，仅在第一个夜晚就发出了约80万条警报，内容涉及小行星、超新星以及正在吞噬物质的黑洞。而这一数字预计只会 [...]
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </article>
+                
+            </div>
+        </section>
+        
+        <!-- 板块: 金融 -->
+        <section id="cat-金融" class="mb-16 scroll-mt-24">
+            <div class="flex items-center mb-8">
+                <h2 class="text-2xl font-bold text-slate-800 tracking-wide">金融 板块</h2>
+                <div class="ml-4 flex-grow h-px bg-slate-200"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 gap-8">
+                
+                <!-- 单条新闻卡片 -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+                    
+                    <!-- 卡片 Header: 来源和原链接 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            Yahoo Finance
+                        </span>
+                        <a href="https://finance.yahoo.com/news/biocryst-bcrx-soars-10-8-122852095.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors group">
+                            阅读原文
+                            <svg class="ml-1.5 w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                    
+                    <!-- 卡片 Body: 双语对照 -->
+                    <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100 flex-grow">
+                        
+                        <!-- 英文原文区块 (左/上) -->
+                        <div class="p-8 md:w-1/2 flex flex-col gap-4">
+                            <h3 class="text-xl font-bold text-slate-900 font-serif leading-snug">
+                                BioCryst (BCRX) Soars 10.8% on Swing to Profits
+                            </h3>
+                            
+                        </div>
+                        
+                        <!-- 中文翻译区块 (右/下) -->
+                        <div class="p-8 md:w-1/2 flex flex-col gap-4 bg-slate-50/50">
+                            <h3 class="text-xl font-bold text-slate-900 zh-text leading-snug">
+                                BioCryst (BCRX) 因扭亏为盈，股价飙升10.8%。
+                            </h3>
+                            
+                        </div>
+                        
+                    </div>
+                </article>
+                
+                <!-- 单条新闻卡片 -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+                    
+                    <!-- 卡片 Header: 来源和原链接 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            Yahoo Finance
+                        </span>
+                        <a href="https://finance.yahoo.com/news/dentsply-xray-rebounds-15-5-123121117.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors group">
+                            阅读原文
+                            <svg class="ml-1.5 w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                    
+                    <!-- 卡片 Body: 双语对照 -->
+                    <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100 flex-grow">
+                        
+                        <!-- 英文原文区块 (左/上) -->
+                        <div class="p-8 md:w-1/2 flex flex-col gap-4">
+                            <h3 class="text-xl font-bold text-slate-900 font-serif leading-snug">
+                                Dentsply (XRAY) Rebounds 15.5% on Share Buyback
+                            </h3>
+                            
+                        </div>
+                        
+                        <!-- 中文翻译区块 (右/下) -->
+                        <div class="p-8 md:w-1/2 flex flex-col gap-4 bg-slate-50/50">
+                            <h3 class="text-xl font-bold text-slate-900 zh-text leading-snug">
+                                Dentsply（XRAY）受股票回购提振，股价反弹15.5%。
+                            </h3>
+                            
+                        </div>
+                        
+                    </div>
+                </article>
+                
+            </div>
+        </section>
+        
+        <!-- 板块: 游戏 -->
+        <section id="cat-游戏" class="mb-16 scroll-mt-24">
+            <div class="flex items-center mb-8">
+                <h2 class="text-2xl font-bold text-slate-800 tracking-wide">游戏 板块</h2>
+                <div class="ml-4 flex-grow h-px bg-slate-200"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 gap-8">
+                
+                <!-- 单条新闻卡片 -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+                    
+                    <!-- 卡片 Header: 来源和原链接 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            Polygon
+                        </span>
+                        <a href="https://www.polygon.com/gods-of-egypt-10-year-anniversary/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors group">
+                            阅读原文
+                            <svg class="ml-1.5 w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                    
+                    <!-- 卡片 Body: 双语对照 -->
+                    <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100 flex-grow">
+                        
+                        <!-- 英文原文区块 (左/上) -->
+                        <div class="p-8 md:w-1/2 flex flex-col gap-4">
+                            <h3 class="text-xl font-bold text-slate-900 font-serif leading-snug">
+                                10 years ago, Gods of Egypt launched a firestorm about movie whitewashing
+                            </h3>
+                            
+                            <div class="prose prose-sm prose-slate text-slate-600 max-w-none">
+                                Emerald Fennell's Wuthering Heights provoked the latest internet firestorm about whitewashing, but Alex Proyas' flop Gods of Egypt led the way.
+                            </div>
+                            
+                        </div>
+                        
+                        <!-- 中文翻译区块 (右/下) -->
+                        <div class="p-8 md:w-1/2 flex flex-col gap-4 bg-slate-50/50">
+                            <h3 class="text-xl font-bold text-slate-900 zh-text leading-snug">
+                                10年前，《埃及众神》因其电影选角“洗白”问题而掀起了一场舆论风暴。
+                            </h3>
+                            
+                            <div class="prose prose-sm prose-slate text-slate-700 max-w-none zh-text leading-relaxed">
+                                Emerald Fennell执导的《呼啸山庄》引发了关于“洗白”的最新网络风暴，但Alex Proyas执导的票房惨败之作《埃及众神》其实早有先例，率先掀起了相关讨论。
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </article>
+                
+                <!-- 单条新闻卡片 -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+                    
+                    <!-- 卡片 Header: 来源和原链接 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            Polygon
+                        </span>
+                        <a href="https://www.polygon.com/world-of-warcraft-midnight-wow-release-time-est-pst/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors group">
+                            阅读原文
+                            <svg class="ml-1.5 w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                    
+                    <!-- 卡片 Body: 双语对照 -->
+                    <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100 flex-grow">
+                        
+                        <!-- 英文原文区块 (左/上) -->
+                        <div class="p-8 md:w-1/2 flex flex-col gap-4">
+                            <h3 class="text-xl font-bold text-slate-900 font-serif leading-snug">
+                                World of Warcraft: Midnight release time in your time zone
+                            </h3>
+                            
+                            <div class="prose prose-sm prose-slate text-slate-600 max-w-none">
+                                Learn when you can start playing World of Warcraft: Midnight in your time zone and what to expect from Blizzard's most ambitious expansion in years.
+                            </div>
+                            
+                        </div>
+                        
+                        <!-- 中文翻译区块 (右/下) -->
+                        <div class="p-8 md:w-1/2 flex flex-col gap-4 bg-slate-50/50">
+                            <h3 class="text-xl font-bold text-slate-900 zh-text leading-snug">
+                                魔兽世界：您所在时区的午夜上线时间
+                            </h3>
+                            
+                            <div class="prose prose-sm prose-slate text-slate-700 max-w-none zh-text leading-relaxed">
+                                了解《魔兽世界：午夜》何时会在您所在的时区上线，以及暴雪这款近几年来最雄心勃勃的资料片将带来哪些内容。
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </article>
+                
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center mt-8">
+        <p class="text-sm">Generated by AI Agent &bull; Tailwind CSS &bull; Jinja2</p>
+    </footer>
+</body>
+</html>
