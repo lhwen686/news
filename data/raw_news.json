@@ -2,6 +2,36 @@
     "医疗": [],
     "科技": [
         {
+            "title": "Portable Sonos Play speaker leaks on Canadian Best Buy",
+            "link": "https://www.theverge.com/tech/887220/sonos-play-leak",
+            "summary": "An unannounced Sonos speaker called Play has been spotted on the Canadian Best Buy site. The Sonos Play looks like a slightly shrunk-down version of the Move 2 with a loop on the back for toting it around. While nothing is confirmed yet, it's listed at CAD $399.99 with a release date of March 31st, [&#8230;]",
+            "source": "The Verge"
+        },
+        {
+            "title": "Kalshi voids some bets on Khamenei’s ouster because it’s ‘directly tied to death’",
+            "link": "https://www.theverge.com/tech/887210/kalshi-void-bets-khamenei-death",
+            "summary": "In a statement on X, Kalshi CEO Tarek Mansour said his company would pay out positions on \"Ali Khamenei out as Supreme Leader?\" at the last trading price before his death. Mansour said that Kalshi doesn't \"list markets directly tied to death\" and that its rules are designed to \"prevent people from profiting from death.\" [&#8230;]",
+            "source": "The Verge"
+        },
+        {
+            "title": "Lego’s Smart Brick is here, and it transforms these new Star Wars sets",
+            "link": "https://www.theverge.com/gadgets/886014/lego-smart-brick-star-wars-set-price-availability-release-date-buy",
+            "summary": "Lego's new Smart Brick is a pretty big deal. It packs a miniature computer, a microphone, and NFC tech into a classic 2&#215;4 Lego brick, which can power all sorts of new experiences with select sets. It has so much promise that we awarded it \"best in show\" at CES 2026, and now, eight Star [&#8230;]",
+            "source": "The Verge"
+        },
+        {
+            "title": "Soundcore’s Space 2 are an evolution of its budget headphones",
+            "link": "https://www.theverge.com/tech/886180/soundcore-space-2-announcement-mwc-2026",
+            "summary": "We finally have an update to the Soundcore Space One that launched two and a half years ago. At MWC 2026, Soundcore has announced the Space 2, which will be available in the US on April 21st in three colors - linen white, jet black, and seafoam green - for $129.99. That's $30 more than [&#8230;]",
+            "source": "The Verge"
+        },
+        {
+            "title": "Honor claims its Robot Phone will launch later this year",
+            "link": "https://www.theverge.com/gadgets/887140/honor-robot-phone-mwc-release-date-specs",
+            "summary": "Honor has revealed more details of its so-called Robot Phone at MWC 2026, and finally showed a working unit in action alongside a dancing humanoid robot. Specs are still thin on the ground, but the company has confirmed it plans to release the phone in the second half of this year - though I've been [&#8230;]",
+            "source": "The Verge"
+        },
+        {
             "title": "Resident Evil Requiem leans too much on the series’ past",
             "link": "https://www.theverge.com/games/885811/resident-evil-requiem-grace-leon-nostalgia-ending",
             "summary": "Resident Evil turns 30 this year. The series is full of history - the new Resident Evil Requiem is technically the ninth mainline game, but there are a bunch of spinoffs, remakes, movies, and even a TV show - which can make it fun to follow for fans. But it's also intimidating for people like [&#8230;]",
@@ -24,46 +54,251 @@
             "link": "https://www.theverge.com/tech/887104/honor-magic-v6-thinnest-battery-launch-mwc",
             "summary": "For the third year running, Honor has announced what it says is the world's thinnest book-style folding phone. For the second year, it's combined that with the biggest battery in any foldable too. This year, for its third and final trick, the company went ahead and made sure it was the first foldable with an [&#8230;]",
             "source": "The Verge"
-        },
-        {
-            "title": "Polymarket defends its decision to allow betting on war as ‘invaluable’",
-            "link": "https://www.theverge.com/tech/887040/polymarket-iran-war-betting-invaluable",
-            "summary": "Polymarket has been allowing people to bet on when the US would strike Iran next. Obviously, now that it's actually happened and people have died, the prediction betting market is feeling some pressure. The site has been at the center of controversy before, including suspicions of insider trading on the Super Bowl halftime show and [&#8230;]",
-            "source": "The Verge"
-        },
-        {
-            "title": "The Rubin Observatory’s alert system sent 800,000 pings on its first night",
-            "link": "https://www.theverge.com/science/887037/vera-c-rubin-observatory-800000-alerts",
-            "summary": "The Vera C. Rubin Observatory's automated alert system is online and already bombarding astronomers with things to look at in the night sky. The system went live publicly on Tuesday, February 24th, and on the first night dropped some 800,000 alerts about asteroids, supernovas, and feasting black holes. And that number is only expected to [&#8230;]",
-            "source": "The Verge"
-        },
-        {
-            "title": "You can still grab great deals on Bose headphones and Astro Bot this weekend",
-            "link": "https://www.theverge.com/gadgets/886520/bose-quietcomfort-headphones-samsung-galaxy-s26-ultra-deal-sale",
-            "summary": "Welcome to the weekend, friends! While the rest of our team was checking out Samsung’s forthcoming Galaxy S26 lineup and prepping for Apple’s “special experience” next week, we’ve been sifting through Woot’s “Video Games for All” sale and a truly weird slate of deals that, frankly, don’t have a throughline. (Some of us have also [&#8230;]",
-            "source": "The Verge"
-        },
-        {
-            "title": "Xiaomi’s tracker doesn’t need a case to clip to your keys",
-            "link": "https://www.theverge.com/tech/884567/xiaomi-tag-tracker-apple-find-my-google-hub-bluetooth",
-            "summary": "Xiaomi has announced its first Bluetooth tracker, and while the Xiaomi Tag has a more elongated design than the Apple AirTag, that lets you use it in more places right out of the box. On one end of the tracker you'll find an integrated metal loop that can be attached to a keyring or clipped [&#8230;]",
-            "source": "The Verge"
-        },
-        {
-            "title": "Xiaomi’s Leica Leitzphone mostly earns the name",
-            "link": "https://www.theverge.com/gadgets/886131/xiaomi-leica-leitzphone-17-ultra-review",
-            "summary": "Xiaomi and Leica's long-running phone partnership just got a little closer. Alongside the new international release of its 17 Ultra flagship, Xiaomi has been entrusted with manufacturing a separate version that is the first Leica Leitzphone to release outside of Japan, following three Sharp-made models exclusive to the country. In truth, the Leitzphone is a [&#8230;]",
-            "source": "The Verge"
-        },
-        {
-            "title": "Xiaomi 17 is a small(ish) phone with a big(ish) battery",
-            "link": "https://www.theverge.com/gadgets/886322/xiaomi-17-release-specs-price-mwc-ultra-leica",
-            "summary": "Xiaomi has just given a global launch to two of its latest flagship phones, the Xiaomi 17 and 17 Ultra, along with a Leica-branded Leitzphone edition of the Ultra. There's no sign, however, of the 17 Pro, which launched in China with an additional display mounted next to the rear cameras. The 17 and 17 [&#8230;]",
-            "source": "The Verge"
         }
     ],
-    "金融": [],
+    "金融": [
+        {
+            "title": "History Says Stocks Always Rebound, Even After Deep Downturns. Here's the Proof",
+            "link": "https://finance.yahoo.com/news/history-says-stocks-always-rebound-215000773.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Dow Jones Futures, Oil Prices Loom; Trump Says Iran's New Leaders 'Want To Talk'",
+            "link": "https://www.investors.com/market-trend/stock-market-today/trump-us-israel-massive-attacks-iran-dow-jones-futures-oil-prices/?src=A00220&yptr=yahoo",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "February jobs data, Broadcom earnings, and AI fears abound: What to watch this week",
+            "link": "https://finance.yahoo.com/news/february-jobs-data-broadcom-earnings-and-ai-fears-abound-what-to-watch-this-week-124739613.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "\"A stark contrast\": Wall Street weighs winners and losers amid AI-driven tech sell-off",
+            "link": "https://finance.yahoo.com/news/a-stark-contrast-wall-street-weighs-winners-and-losers-amid-ai-driven-tech-sell-off-160017420.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Why Rigetti Computing Stock Surged This Week",
+            "link": "https://finance.yahoo.com/news/why-rigetti-computing-stock-surged-214725177.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Amazon India slashes seller referral fees in retail growth push",
+            "link": "https://finance.yahoo.com/news/amazon-india-slashes-seller-referral-203149282.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "OPEC+ boosts oil production after attacks on Iran and throughout region",
+            "link": "https://finance.yahoo.com/news/opec-boosts-oil-production-attacks-195550407.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Jobs, Geopolitics and Other Key Things to Watch this Week",
+            "link": "https://finance.yahoo.com/news/jobs-geopolitics-other-key-things-180002397.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "This Luxury Good Reseller's CFO Sold a Luxurious Amount of Shares",
+            "link": "https://finance.yahoo.com/news/luxury-good-resellers-cfo-sold-213826630.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Tesla's China EV Rivals Hit By Lunar New Year Holidays, But Nio Stands Out",
+            "link": "https://www.investors.com/news/teslas-china-ev-rivals-byd-xpeng-xiaomi-lunar-new-year-nio-strong/?src=A00220&yptr=yahoo",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Professional credentials and certifications are booming, but 'many of them are crap'",
+            "link": "https://finance.yahoo.com/news/professional-credentials-and-certifications-are-booming-but-many-of-them-are-crap-170138114.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Is Marriott International Stock Outperforming the S&P 500?",
+            "link": "https://finance.yahoo.com/news/marriott-international-stock-outperforming-p-161320233.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "How Is Ecolab's Stock Performance Compared to Other Basic Material Stocks?",
+            "link": "https://finance.yahoo.com/news/ecolabs-stock-performance-compared-other-160840997.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "$104 Billion Is Flowing to International Stocks. Should You Join in?",
+            "link": "https://finance.yahoo.com/news/104-billion-flowing-international-stocks-213500460.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Northrop Grumman Stock: Is NOC Outperforming the Industrial Sector?",
+            "link": "https://finance.yahoo.com/news/northrop-grumman-stock-noc-outperforming-160313285.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Is Becton, Dickinson and Company Stock Outperforming the Dow?",
+            "link": "https://finance.yahoo.com/news/becton-dickinson-company-stock-outperforming-155902917.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Significant Insider Activity at East West Bancorp (EWBC) in February",
+            "link": "https://finance.yahoo.com/news/significant-insider-activity-east-west-150518225.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "SEI Investments (SEIC) Partners With Pravati Capital on Finance Platform",
+            "link": "https://finance.yahoo.com/news/sei-investments-seic-partners-pravati-150516721.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Michael Burry Compares Nvidia's $95 Billion Purchase Commitments To Cisco's Dot-Com Peak: 'This Is Not Business as Usual. This Is Risk.'",
+            "link": "https://finance.yahoo.com/news/michael-burry-compares-nvidias-95-213054783.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Best high-yield savings interest rates today, March 1, 2026 (Earn up to 4% APY)",
+            "link": "https://finance.yahoo.com/personal-finance/article/best-high-yield-savings-interest-rates-today-sunday-march-1-2026-110012501.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Mortgage and refinance interest rates today, March 1, 2026: Looking for a rate in the 5s? (How's 5.81% or 5.32%?)",
+            "link": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-refinance-interest-rates-today-sunday-march-1-2026-110036998.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "HELOC and home equity loan rates Sunday, March 1, 2026: Years-low rates drive huge demand for second mortgages",
+            "link": "https://finance.yahoo.com/personal-finance/mortgages/article/heloc-home-equity-loan-interest-rates-today-sunday-march-1-2026-110054762.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Could AI Crash the Economy in 2 Years? One Research Firm Says Yes.",
+            "link": "https://finance.yahoo.com/news/could-ai-crash-economy-2-212000083.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Best CD rates today, March 1, 2026 (lock in up to 4% APY)",
+            "link": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-sunday-march-1-2026-110056548.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Best money market account rates today, March 1, 2026 (best account provides 4.01% APY)",
+            "link": "https://finance.yahoo.com/personal-finance/banking/article/best-money-market-account-rates-today-sunday-march-1-2026-110057822.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Her Family Loaned Them $2.1M To Build Their Companies. She Says Her Husband Secretly Used It To Day Trade. 'He Tanked Over $113,000'",
+            "link": "https://finance.yahoo.com/news/her-family-loaned-them-2-211610604.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Netflix Stock Soared Last Friday. Time to Buy?",
+            "link": "https://finance.yahoo.com/news/netflix-stock-soared-last-friday-211100939.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Murphy USA SVP Sells $344k Worth of Shares",
+            "link": "https://finance.yahoo.com/news/murphy-usa-svp-sells-344k-210917023.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "2 No-Brainer Energy Stocks to Buy Right Now",
+            "link": "https://finance.yahoo.com/news/2-no-brainer-energy-stocks-210500402.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Dollar Surges as Traders Brace for War Impact",
+            "link": "https://finance.yahoo.com/news/dollar-surges-traders-brace-war-201322505.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Cryptocurrencies Under Pressure as Iran Strikes Stir Uncertainty",
+            "link": "https://finance.yahoo.com/news/bitcoin-stages-tepid-recovery-iran-111039997.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Norwegian Cruise Line Earnings Are Coming. Brace for a Wave of Stock Volatility.",
+            "link": "https://www.barrons.com/articles/norwegian-cruise-line-earnings-stock-price-85d23c72?siteid=yhoof2&yptr=yahoo",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "Pi Coin Price Prediction: What To Expect In March 2026?",
+            "link": "https://finance.yahoo.com/news/pi-coin-price-prediction-expect-205200663.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        },
+        {
+            "title": "McDonald's gives consumers more of what they want",
+            "link": "https://finance.yahoo.com/news/mcdonalds-gives-consumers-more-want-204700502.html",
+            "summary": "",
+            "source": "Yahoo Finance"
+        }
+    ],
     "游戏": [
+        {
+            "title": "Tons of Cartoon Network and Warner Bros. Shows Are Now Streaming for Free on Tubi",
+            "link": "https://www.ign.com/articles/tons-of-cartoon-network-and-warner-bros-shows-are-now-streaming-for-free-on-tubi",
+            "summary": "After being dropped from HBO Max, a slate of Cartoon Network classics have found a new streaming home on Tubi.",
+            "source": "IGN"
+        },
+        {
+            "title": "Magic's wildest TMNT deep cut references the 1996 anime Mutant Turtles: Superman Legend",
+            "link": "https://www.polygon.com/mtg-tmnt-leonardo-cutting-edge-1996-anime-mutant-turtles-superman-legend/",
+            "summary": "Magic: The Gathering's new Teenage Mutant Ninja Turtles set includes a variant of Leonardo, Cutting Edge that makes him look like a buff superhero.",
+            "source": "Polygon"
+        },
+        {
+            "title": "The Pokémon anime still hasn’t adapted the best moment from the games",
+            "link": "https://www.polygon.com/pokemon-anime-gold-vs-red-ethan-best-moment-games/",
+            "summary": "The Pokémon Company still hasn’t adapted Red vs. Gold from Pokémon Gold & Silver into the anime.",
+            "source": "Polygon"
+        },
+        {
+            "title": "Star Wars: Republic Commando deserved a sequel",
+            "link": "https://www.polygon.com/star-wars-republic-commando-deserved-better/",
+            "summary": "Star Wars: Republic Commando is a fan favorite, and the best Star Wars game to never receive a follow-up.",
+            "source": "Polygon"
+        },
+        {
+            "title": "Here's hoping Toy Story 5 makes up for Toy Story 4, the bastard son of the Pixar franchise",
+            "link": "https://www.polygon.com/toy-story-5-woody-back-fix-toy-story-4/",
+            "summary": "I wish Toy Story 4 didn't exist. That's why I can't wait for Toy Story 5.",
+            "source": "Polygon"
+        },
+        {
+            "title": "Object Pokémon are secretly some of the series’ best",
+            "link": "https://www.polygon.com/object-pokemon-are-the-best-chandelure-klefki-drifloon/",
+            "summary": "Object Pokémon, like Klefki or Vanillite, have been underappreciated by fans for too long. They deserve love too.",
+            "source": "Polygon"
+        },
         {
             "title": "Rashida Jones says Pixar's Andrew Stanton gave her the best writing advice",
             "link": "https://www.polygon.com/rashida-jones-daveed-diggs-interview-blink-of-an-eye/",
@@ -80,42 +315,6 @@
             "title": "World of Warcraft: Midnight release time in your time zone",
             "link": "https://www.polygon.com/world-of-warcraft-midnight-wow-release-time-est-pst/",
             "summary": "Learn when you can start playing World of Warcraft: Midnight in your time zone and what to expect from Blizzard's most ambitious expansion in years.",
-            "source": "Polygon"
-        },
-        {
-            "title": "10 anime to watch if you love Pokémon (that aren't the Pokémon show)",
-            "link": "https://www.polygon.com/anime-like-pokemon-digimon-bakugan-beyblade-zatch-bell-list/",
-            "summary": "There's a wide variety of Pokémon look-a-likes to choose from.",
-            "source": "Polygon"
-        },
-        {
-            "title": "The 10 most nostalgic cards in Magic’s TMNT set",
-            "link": "https://www.polygon.com/mtg-magic-the-gathering-teenage-mutant-ninja-tiurtles-tmnt-best-cards/",
-            "summary": "A lifelong TMNT superfan with no Magic experience picks the 10 most best cards from the Ninja Turtles set",
-            "source": "Polygon"
-        },
-        {
-            "title": "Wes Craven’s New Nightmare is still the best legacy sequel ever made",
-            "link": "https://www.polygon.com/wes-craven-new-nightmare-legacy-sequels-scream/",
-            "summary": "New Nightmare paved the way for Scream, and a whole lot more",
-            "source": "Polygon"
-        },
-        {
-            "title": "Pokémon's best battle of all time hinges on an unforgettable twist",
-            "link": "https://www.polygon.com/pokemon-best-battle-red-gen-2-aura/",
-            "summary": "The battle against Red at the end of the Gen 2 games remains an unmatched moment in the franchise.",
-            "source": "Polygon"
-        },
-        {
-            "title": "Planet of Lana 2: Children of the Leaf uses an invented language to enhance its story",
-            "link": "https://www.polygon.com/planet-of-lana-2-language-interview/",
-            "summary": "Wishfully Studios co-director Klas Martin Eriksson says eschewing dialogue forces players to pay close attention",
-            "source": "Polygon"
-        },
-        {
-            "title": "Resident Evil Requiem’s GOTY 2026 chances are becoming clearer",
-            "link": "https://www.polygon.com/resident-evil-requiem-goty-contender-2026/",
-            "summary": "RE Requiem is the first 2026 game with a strong chance of a Game of the Year nomination at The Game Awards, but will it stay in the fight?",
             "source": "Polygon"
         }
     ]
