@@ -6,6 +6,7 @@ from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 import feedparser
 from newspaper import Article, Config
+from bs4 import BeautifulSoup
 
 # 配置 User-Agent 以防止被反爬屏蔽
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
@@ -40,6 +41,8 @@ RSS_FEEDS = {
         "Investing.com": "https://www.investing.com/rss/news.rss"
     },
     "游戏": {
+        "Steam Official": "https://store.steampowered.com/feeds/news.xml",
+        "Clash of Clans News": "https://news.google.com/rss/search?q=Clash+of+Clans+update+OR+blog+site:supercell.com+OR+site:clashofclans.com&hl=en-US&gl=US&ceid=US:en",
         "Eurogamer": "https://www.eurogamer.net/feed/news",
         "Nintendo Life": "https://www.nintendolife.com/feeds/news",
         "PC Gamer": "https://www.pcgamer.com/rss/",
@@ -101,6 +104,18 @@ def fetch_full_text(url):
             return text
     except Exception as e:
         pass
+        
+    # --- BeautifulSoup Fallback (针对无法解析的站点) ---
+    try:
+        resp = requests.get(url, headers={'User-Agent': USER_AGENT}, timeout=10)
+        soup = BeautifulSoup(resp.content, 'html.parser')
+        paragraphs = soup.find_all('p')
+        text = "\n".join([p.get_text().strip() for p in paragraphs if p.get_text().strip()])
+        if len(text) > 50:
+            return text
+    except Exception as e:
+        pass
+
     return None
 
 def fetch_and_parse_rss():
@@ -126,6 +141,9 @@ def fetch_and_parse_rss():
                     feed = feedparser.parse(source_url)
                     
                 recent_entries = filter_last_24_hours(feed.entries)
+                if not recent_entries and source_name in ["Steam Official", "Clash of Clans News"]:
+                    # 针对更新不频繁的官方源，若24小时内无新闻，选取最新的5条
+                    recent_entries = feed.entries[:5]
                 
                 # 如果没有符合24h的，但是必须强求，我们也只能放宽一下（或这里保持严格不变，指望后面的源能凑够）
                 
@@ -139,7 +157,26 @@ def fetch_and_parse_rss():
                         
                     full_text = fetch_full_text(link)
                     
+                    if not full_text:
+                        # 尝试直接从 RSS item 内容中提取正文作为最后手段 (BeautifulSoup 清洗 HTML)
+                        raw_html = ""
+                        if "content" in entry and len(entry.content) > 0:
+                            raw_html = entry.content[0].get("value", "")
+                        elif "summary" in entry:
+                            raw_html = entry.summary
+                        
+                        if raw_html:
+                            soup = BeautifulSoup(raw_html, "html.parser")
+                            fallback_text = soup.get_text(separator="\n", strip=True)
+                            if len(fallback_text) > 50:
+                                full_text = fallback_text
+
                     if full_text:
+                        # Steam 特定过滤逻辑：跳过少于 200 字的文章
+                        if source_name == "Steam Official" and len(full_text) < 200:
+                            print(f"      [跳过] Steam 新闻字数太少 ({len(full_text)} 字): {link}")
+                            continue
+
                         extracted_info = {
                             "title": entry.get("title", ""),
                             "link": link,
