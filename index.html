@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,47 +8,62 @@
     <!-- 引入 Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- 引入 Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap"
+        rel="stylesheet">
     <style>
-        body { 
-            font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             background-color: #f8fafc;
         }
+
         .zh-text {
             font-family: 'Inter', 'Noto Serif SC', serif;
         }
+
         /* 增加平滑的锚点滚动 */
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
+
 <body class="text-gray-800 antialiased">
     <!-- 导航栏 / 头部 -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center">
             <div>
                 <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-3">
-                    <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15M9 11l3 3L22 4"></path></svg>
+                    <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15M9 11l3 3L22 4">
+                        </path>
+                    </svg>
                     Daily Insight
                 </h1>
                 <p class="mt-1 text-sm text-slate-500">AI-Translated Academic & Tech Highlights · 全球权威资讯双语速递</p>
             </div>
-            
+
             <!-- 快捷导航 -->
             <nav class="mt-4 md:mt-0 flex gap-4">
                 
-                <a href="#cat-医疗" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors bg-slate-100 hover:bg-indigo-50 px-3 py-1.5 rounded-full">
+                <a href="#cat-医疗"
+                    class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors bg-slate-100 hover:bg-indigo-50 px-3 py-1.5 rounded-full">
                     医疗
                 </a>
                 
-                <a href="#cat-科技" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors bg-slate-100 hover:bg-indigo-50 px-3 py-1.5 rounded-full">
+                <a href="#cat-科技"
+                    class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors bg-slate-100 hover:bg-indigo-50 px-3 py-1.5 rounded-full">
                     科技
                 </a>
                 
-                <a href="#cat-金融" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors bg-slate-100 hover:bg-indigo-50 px-3 py-1.5 rounded-full">
+                <a href="#cat-金融"
+                    class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors bg-slate-100 hover:bg-indigo-50 px-3 py-1.5 rounded-full">
                     金融
                 </a>
                 
-                <a href="#cat-游戏" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors bg-slate-100 hover:bg-indigo-50 px-3 py-1.5 rounded-full">
+                <a href="#cat-游戏"
+                    class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors bg-slate-100 hover:bg-indigo-50 px-3 py-1.5 rounded-full">
                     游戏
                 </a>
                 
@@ -64,95 +80,217 @@
                 <h2 class="text-2xl font-bold text-slate-800 tracking-wide">医疗 板块</h2>
                 <div class="ml-4 flex-grow h-px bg-slate-200"></div>
             </div>
-            
+
             <div class="grid grid-cols-1 gap-8">
                 
                 <!-- 单条新闻卡片 -->
-                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
-                    
-                    <!-- 卡片 Header: 来源和原链接 -->
+                <article
+                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+
+                    <!-- 卡片 Header: 来源标识 -->
                     <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
-                            NEJM
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            MedicalXpress
                         </span>
-                        <a href="https://www.nejm.org/doi/full/10.1056/NEJMicm2503296?af=R&rss=currentIssue" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors group">
-                            阅读原文
-                            <svg class="ml-1.5 w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </div>
+
+                    <!-- 卡片 Body: 中文标题和摘要 -->
+                    <div class="p-8 flex flex-col gap-5 flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
+                            美国医疗保健有所改善，但费用和健康状况因疾病而异
+                        </h3>
+
+                        
+                        <div
+                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <strong>150 字摘要：</strong><br>
+                            美国一项研究显示，1996至2016年医疗进步使人均健康寿命延长1.3年，但终生医疗支出增加23.4万美元，每健康年花费18.2万美元。艾滋病、缺血性心脏病等治疗成本效益高，乳腺癌等甚至实现健康改善与支出减少。但药物滥用等疾病则高投入低效益。研究强调应聚焦医疗投入效益，而非总量，以优化资源配置，提升医疗价值。
+                        </div>
+                        
+                    </div>
+
+                    <!-- 卡片 Footer: 静态页面链接按钮 -->
+                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
+                        <a href="articles/news_0.html"
+                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
+                            阅读全文 (Read Full Text)
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
                         </a>
                     </div>
-                    
-                    <!-- 卡片 Body: 双语对照 -->
-                    <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100 flex-grow">
-                        
-                        <!-- 英文原文区块 (左/上) -->
-                        <div class="p-8 md:w-1/2 flex flex-col gap-4">
-                            <h3 class="text-xl font-bold text-slate-900 font-serif leading-snug">
-                                Expiratory Central Airway Collapse
-                            </h3>
-                            
-                            <div class="prose prose-sm prose-slate text-slate-600 max-w-none">
-                                New England Journal of Medicine, Ahead of Print. <br />
-                            </div>
-                            
-                        </div>
-                        
-                        <!-- 中文翻译区块 (右/下) -->
-                        <div class="p-8 md:w-1/2 flex flex-col gap-4 bg-slate-50/50">
-                            <h3 class="text-xl font-bold text-slate-900 zh-text leading-snug">
-                                准确、专业的医学翻译如下：<br><br>**呼气性中心气道塌陷**<br><br>**解释与理由：**<br><br>1.  **Expiratory (呼气性):** "呼气性" (hūqìxìng) 是医学上标准的形容词形式，表示与呼气相关的。<br>2.  **Central (中心):** "中心" (zhōngxīn) 在医学中常用来指代主要或核心的结构，如中心静脉、中心神经系统等。在此语境下，它准确地指代了气道的主要部分，即气管和主支气管，区别于外周气道。<br>3.  **Airway (气道):** "气道" (qìdào) 是呼吸系统用来传输空气的管道，是医学上非常通用的术语。<br>4.  **Collapse (塌陷):** "塌陷" (tāxiàn) 是医学上描述器官或结构（如肺泡、气道、血管等）失去正常形态、内腔缩小或闭合的专业术语。它准确传达了气道结构因压力或其他因素而向内塌缩的状态。<br><br>将这几个词组合起来，"呼气性中心气道塌陷" 是对原文最精确、最符合临床习惯和专业规范的翻译。
-                            </h3>
-                            
-                            <div class="prose prose-sm prose-slate text-slate-700 max-w-none zh-text leading-relaxed">
-                                《新英格兰医学杂志》，优先在线发表。<br><br>（或： 《新英格兰医学杂志》，文章抢先在线发表。）
-                            </div>
-                            
-                        </div>
-                        
-                    </div>
+
                 </article>
                 
                 <!-- 单条新闻卡片 -->
-                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
-                    
-                    <!-- 卡片 Header: 来源和原链接 -->
+                <article
+                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+
+                    <!-- 卡片 Header: 来源标识 -->
                     <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
-                            NEJM
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            MedicalXpress
                         </span>
-                        <a href="https://www.nejm.org/doi/full/10.1056/NEJMp2415615?af=R&rss=currentIssue" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors group">
-                            阅读原文
-                            <svg class="ml-1.5 w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </div>
+
+                    <!-- 卡片 Body: 中文标题和摘要 -->
+                    <div class="p-8 flex flex-col gap-5 flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
+                            脑部扫描揭示为何即使饱腹仍难以抵抗零食
+                        </h3>
+
+                        
+                        <div
+                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <strong>150 字摘要：</strong><br>
+                            东英吉利大学《食欲》杂志一项脑电图（EEG）研究发现，人脑即使饱腹，对诱人食物线索的奖励反应仍强烈，奖赏区不受饱足感影响。这解释了不饥饿时过度进食的现象。研究表明，肥胖及体重管理挑战并非仅是意志力问题，更是大脑的习得性反应。
+                        </div>
+                        
+                    </div>
+
+                    <!-- 卡片 Footer: 静态页面链接按钮 -->
+                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
+                        <a href="articles/news_1.html"
+                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
+                            阅读全文 (Read Full Text)
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
                         </a>
                     </div>
-                    
-                    <!-- 卡片 Body: 双语对照 -->
-                    <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100 flex-grow">
+
+                </article>
+                
+                <!-- 单条新闻卡片 -->
+                <article
+                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+
+                    <!-- 卡片 Header: 来源标识 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            MedicalXpress
+                        </span>
+                    </div>
+
+                    <!-- 卡片 Body: 中文标题和摘要 -->
+                    <div class="p-8 flex flex-col gap-5 flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
+                            民调发现，近半美国人不知加工肉类与结直肠癌有关联
+                        </h3>
+
                         
-                        <!-- 英文原文区块 (左/上) -->
-                        <div class="p-8 md:w-1/2 flex flex-col gap-4">
-                            <h3 class="text-xl font-bold text-slate-900 font-serif leading-snug">
-                                Private Equity’s Transformation of American Medicine — Implications for Health Equity
-                            </h3>
-                            
-                            <div class="prose prose-sm prose-slate text-slate-600 max-w-none">
-                                New England Journal of Medicine, Ahead of Print. <br />
-                            </div>
-                            
-                        </div>
-                        
-                        <!-- 中文翻译区块 (右/下) -->
-                        <div class="p-8 md:w-1/2 flex flex-col gap-4 bg-slate-50/50">
-                            <h3 class="text-xl font-bold text-slate-900 zh-text leading-snug">
-                                好的，以下是这段英文的严谨、专业的中文翻译：<br><br>**私募股权对美国医疗体系的变革——对健康公平的启示与影响**<br><br>---<br><br>**翻译说明：**<br><br>1.  **Private Equity：** 译为“私募股权”，这是金融领域的标准专业术语，比“私人股权”更准确。<br>2.  **Transformation：** 译为“变革”，它强调了私募股权介入医疗领域所带来的深层次、系统性的改变，而非仅仅是表面的“转变”或“改造”。在医学新闻语境下，这种“变革”往往带有褒贬兼具的复杂含义。<br>3.  **American Medicine：** 译为“美国医疗体系”。“Medicine”在这里不仅仅指医学这门学科，更多的是指一个国家的医疗服务、供给和管理系统。添加“体系”使其更完整和准确。<br>4.  **Implications for Health Equity：** 译为“对健康公平的启示与影响”。<br>    *   **Implications：** 在分析性文章或标题中，"implications" 常常指潜在的、未来可能产生的后果、意义或带来的思考。翻译为“启示与影响”能更好地捕捉其深度和广度，既包括可能产生的后果，也包括对理解某一现象（如健康公平）的深层意义。<br>    *   **Health Equity：** 译为“健康公平”，这是公共卫生和伦理领域的标准术语，指每个人都有公平公正的机会达到其可能达到的最高健康水平，没有因社会、经济、环境等因素造成的健康差异。
-                            </h3>
-                            
-                            <div class="prose prose-sm prose-slate text-slate-700 max-w-none zh-text leading-relaxed">
-                                《新英格兰医学杂志》，优先在线发表。<br><br>**说明：**<br>*   **新英格兰医学杂志 (New England Journal of Medicine)**：这是该期刊的官方且普遍接受的中文译名。<br>*   **优先在线发表 (Ahead of Print)**：这个短语在学术出版领域指的是文章已经通过同行评审、修改和排版，但尚未被分配到具体的印刷期号，而是提前在期刊网站上发布。中文的“优先在线发表”或“在线优先出版”是对此最准确、最专业的翻译，符合医疗/医学新闻的严谨性要求。相比“预印本”（通常指未经同行评审的草稿）或过于直白的“印刷前”，这个译法更能体现其作为正式出版物一部分的地位。
-                            </div>
-                            
+                        <div
+                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <strong>150 字摘要：</strong><br>
+                            一项最新民意调查显示，近半美国人未意识到加工肉类会增加结直肠癌风险，而该癌症已成为50岁以下成年人癌症死亡的主因。多数受访者支持加工肉类贴警示标签。文章强调，植物性饮食、高纤维摄入、保持健康体重及规律运动能显著降低结直肠癌风险。呼吁医疗专业人员加强饮食与癌症关联的宣教，推广富含蔬果、谷物和豆类的饮食。
                         </div>
                         
                     </div>
+
+                    <!-- 卡片 Footer: 静态页面链接按钮 -->
+                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
+                        <a href="articles/news_2.html"
+                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
+                            阅读全文 (Read Full Text)
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                </article>
+                
+                <!-- 单条新闻卡片 -->
+                <article
+                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+
+                    <!-- 卡片 Header: 来源标识 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            MedicalXpress
+                        </span>
+                    </div>
+
+                    <!-- 卡片 Body: 中文标题和摘要 -->
+                    <div class="p-8 flex flex-col gap-5 flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
+                            问答：什么是青光眼以及需要注意的主要症状有哪些？
+                        </h3>
+
+                        
+                        <div
+                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <strong>150 字摘要：</strong><br>
+                            全球青光眼病例预计将显著增加，这种由眼内液压损伤视神经引起的疾病，若不及时治疗将导致不可逆的视力丧失甚至失明。据估算，2040年全球将有2200万人因青光眼失明。青光眼分为慢性（早期无症状）和急性，危险因素包括年龄、家族史和某些疾病。鉴于慢性青光眼早期无明显症状，定期进行眼科检查对于早期诊断和干预至关重要，可有效阻止病情恶化并保护视力。
+                        </div>
+                        
+                    </div>
+
+                    <!-- 卡片 Footer: 静态页面链接按钮 -->
+                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
+                        <a href="articles/news_3.html"
+                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
+                            阅读全文 (Read Full Text)
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                </article>
+                
+                <!-- 单条新闻卡片 -->
+                <article
+                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+
+                    <!-- 卡片 Header: 来源标识 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            MedicalXpress
+                        </span>
+                    </div>
+
+                    <!-- 卡片 Body: 中文标题和摘要 -->
+                    <div class="p-8 flex flex-col gap-5 flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
+                            构建具有增强药物代谢酶活性的人肝细胞模型
+                        </h3>
+
+                        
+                        <div
+                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <strong>150 字摘要：</strong><br>
+                            日本东邦大学研究团队开发了一种新型HepaRG细胞模型，显著增强了CYP2D6药物代谢酶活性。该模型将CYP2D6代谢能力提升约8000倍，达到成人肝组织水平，并可通过GFP可视化实时监测。此高活性人肝细胞模型能更准确评估CYP2D6介导的药物性肝毒性，尤其能预测个体间差异造成的毒性，为早期药物安全性评估和替代动物实验提供了重要的体外模型。
+                        </div>
+                        
+                    </div>
+
+                    <!-- 卡片 Footer: 静态页面链接按钮 -->
+                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
+                        <a href="articles/news_4.html"
+                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
+                            阅读全文 (Read Full Text)
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+
                 </article>
                 
             </div>
@@ -164,95 +302,217 @@
                 <h2 class="text-2xl font-bold text-slate-800 tracking-wide">科技 板块</h2>
                 <div class="ml-4 flex-grow h-px bg-slate-200"></div>
             </div>
-            
+
             <div class="grid grid-cols-1 gap-8">
                 
                 <!-- 单条新闻卡片 -->
-                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
-                    
-                    <!-- 卡片 Header: 来源和原链接 -->
+                <article
+                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+
+                    <!-- 卡片 Header: 来源标识 -->
                     <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
-                            The Verge
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            TechCrunch
                         </span>
-                        <a href="https://www.theverge.com/tech/887040/polymarket-iran-war-betting-invaluable" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors group">
-                            阅读原文
-                            <svg class="ml-1.5 w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </div>
+
+                    <!-- 卡片 Body: 中文标题和摘要 -->
+                    <div class="p-8 flex flex-col gap-5 flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
+                            安索罗普为自己设下的陷阱
+                        </h3>
+
+                        
+                        <div
+                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <strong>150 字摘要：</strong><br>
+                            AI公司Anthropic因拒用AI于监控和自主无人机，被美国政府切断合作并列入黑名单，凸显AI监管困境。Max Tegmark教授批评AI巨头抵制监管、放弃安全承诺，指出美国AI监管远逊食品安全，失控超级智能是国家安全威胁。鉴于AI发展超预期，他呼吁对AI系统实施“临床试验”式严格监管，确保AI福祉。行业安全承诺面临严峻考验。
+                        </div>
+                        
+                    </div>
+
+                    <!-- 卡片 Footer: 静态页面链接按钮 -->
+                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
+                        <a href="articles/news_5.html"
+                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
+                            阅读全文 (Read Full Text)
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
                         </a>
                     </div>
-                    
-                    <!-- 卡片 Body: 双语对照 -->
-                    <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100 flex-grow">
-                        
-                        <!-- 英文原文区块 (左/上) -->
-                        <div class="p-8 md:w-1/2 flex flex-col gap-4">
-                            <h3 class="text-xl font-bold text-slate-900 font-serif leading-snug">
-                                Polymarket defends its decision to allow betting on war as ‘invaluable’
-                            </h3>
-                            
-                            <div class="prose prose-sm prose-slate text-slate-600 max-w-none">
-                                Polymarket has been allowing people to bet on when the US would strike Iran next. Obviously, now that it's actually happened and people have died, the prediction betting market is feeling some pressure. The site has been at the center of controversy before, including suspicions of insider trading on the Super Bowl halftime show and [&#8230;]
-                            </div>
-                            
-                        </div>
-                        
-                        <!-- 中文翻译区块 (右/下) -->
-                        <div class="p-8 md:w-1/2 flex flex-col gap-4 bg-slate-50/50">
-                            <h3 class="text-xl font-bold text-slate-900 zh-text leading-snug">
-                                Polymarket 为其允许就战争下注的决定辩护，称此举“无价”。
-                            </h3>
-                            
-                            <div class="prose prose-sm prose-slate text-slate-700 max-w-none zh-text leading-relaxed">
-                                Polymarket此前一直允许人们就美国何时会再次袭击伊朗进行下注。显然，鉴于袭击已经发生并造成人员伤亡，这个预测博彩市场正承受着一定的压力。该网站此前也曾多次卷入争议，包括其在超级碗中场秀上涉嫌内幕交易等问题。
-                            </div>
-                            
-                        </div>
-                        
-                    </div>
+
                 </article>
                 
                 <!-- 单条新闻卡片 -->
-                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
-                    
-                    <!-- 卡片 Header: 来源和原链接 -->
+                <article
+                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+
+                    <!-- 卡片 Header: 来源标识 -->
                     <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
-                            The Verge
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            TechCrunch
                         </span>
-                        <a href="https://www.theverge.com/science/887037/vera-c-rubin-observatory-800000-alerts" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors group">
-                            阅读原文
-                            <svg class="ml-1.5 w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </div>
+
+                    <!-- 卡片 Body: 中文标题和摘要 -->
+                    <div class="p-8 flex flex-col gap-5 flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
+                            为什么Netflix放弃了收购华纳兄弟的交易？
+                        </h3>
+
+                        
+                        <div
+                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <strong>150 字摘要：</strong><br>
+                            Netflix意外放弃竞购华纳兄弟探索，使得派拉蒙影业有望胜出。Netflix此举出于财务纪律，股东疑虑（股价波动）及派拉蒙高价竞标是主因。据称，其联席CEO萨兰多斯或采纳了前总统特朗普的建议。目前，华纳兄弟员工担忧大规模裁员及CNN面临政治压力。
+                        </div>
+                        
+                    </div>
+
+                    <!-- 卡片 Footer: 静态页面链接按钮 -->
+                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
+                        <a href="articles/news_6.html"
+                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
+                            阅读全文 (Read Full Text)
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
                         </a>
                     </div>
-                    
-                    <!-- 卡片 Body: 双语对照 -->
-                    <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100 flex-grow">
+
+                </article>
+                
+                <!-- 单条新闻卡片 -->
+                <article
+                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+
+                    <!-- 卡片 Header: 来源标识 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            TechCrunch
+                        </span>
+                    </div>
+
+                    <!-- 卡片 Body: 中文标题和摘要 -->
+                    <div class="p-8 flex flex-col gap-5 flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
+                            华纳兄弟探索公司里程碑式出售案须知
+                        </h3>
+
                         
-                        <!-- 英文原文区块 (左/上) -->
-                        <div class="p-8 md:w-1/2 flex flex-col gap-4">
-                            <h3 class="text-xl font-bold text-slate-900 font-serif leading-snug">
-                                The Rubin Observatory’s alert system sent 800,000 pings on its first night
-                            </h3>
-                            
-                            <div class="prose prose-sm prose-slate text-slate-600 max-w-none">
-                                The Vera C. Rubin Observatory's automated alert system is online and already bombarding astronomers with things to look at in the night sky. The system went live publicly on Tuesday, February 24th, and on the first night dropped some 800,000 alerts about asteroids, supernovas, and feasting black holes. And that number is only expected to [&#8230;]
-                            </div>
-                            
-                        </div>
-                        
-                        <!-- 中文翻译区块 (右/下) -->
-                        <div class="p-8 md:w-1/2 flex flex-col gap-4 bg-slate-50/50">
-                            <h3 class="text-xl font-bold text-slate-900 zh-text leading-snug">
-                                鲁宾天文台的警报系统在其首夜发送了八十万次警报。
-                            </h3>
-                            
-                            <div class="prose prose-sm prose-slate text-slate-700 max-w-none zh-text leading-relaxed">
-                                维拉·C·鲁宾天文台（Vera C. Rubin Observatory）的自动化预警系统已经上线，并正不断向天文学家们推送海量夜空观测目标，令他们应接不暇。该系统于2月24日星期二正式向公众启用，仅在第一个夜晚就发出了约80万条警报，内容涉及小行星、超新星以及正在吞噬物质的黑洞。而这一数字预计只会 [...]
-                            </div>
-                            
+                        <div
+                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <strong>150 字摘要：</strong><br>
+                            好莱坞正上演一场惊天并购案。债务缠身的华纳兄弟探索公司（WBD）在激烈竞价后，最终接受了戴维·埃里森旗下的派拉蒙影业1110亿美元的全盘收购。派拉蒙将获得WBD所有核心资产，包括HBO、CNN等。此交易将形成一个高负债的媒体巨头，面临大规模裁员及严格的监管挑战，且埃里森家族与特朗普政府关系也引发外界争议。
                         </div>
                         
                     </div>
+
+                    <!-- 卡片 Footer: 静态页面链接按钮 -->
+                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
+                        <a href="articles/news_7.html"
+                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
+                            阅读全文 (Read Full Text)
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                </article>
+                
+                <!-- 单条新闻卡片 -->
+                <article
+                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+
+                    <!-- 卡片 Header: 来源标识 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            TechCrunch
+                        </span>
+                    </div>
+
+                    <!-- 卡片 Body: 中文标题和摘要 -->
+                    <div class="p-8 flex flex-col gap-5 flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
+                            Anthropic 的 Claude 在五角大楼争议后，在 App Store 排名升至第二
+                        </h3>
+
+                        
+                        <div
+                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <strong>150 字摘要：</strong><br>
+                            Anthropic的聊天机器人Claude在苹果美国App Store榜单中跃升至第二，恰逢该公司与五角大楼就AI军事用途谈判引发关注。Anthropic曾寻求限制其AI模型用于大规模监控或自主武器，反遭特朗普政府禁用，被列供应链威胁。此后，OpenAI宣布与五角大楼达成协议，声称包含类似安全保障。
+                        </div>
+                        
+                    </div>
+
+                    <!-- 卡片 Footer: 静态页面链接按钮 -->
+                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
+                        <a href="articles/news_8.html"
+                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
+                            阅读全文 (Read Full Text)
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                </article>
+                
+                <!-- 单条新闻卡片 -->
+                <article
+                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+
+                    <!-- 卡片 Header: 来源标识 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            TechCrunch
+                        </span>
+                    </div>
+
+                    <!-- 卡片 Body: 中文标题和摘要 -->
+                    <div class="p-8 flex flex-col gap-5 flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
+                            驱动人工智能热潮的数十亿美元基础设施交易
+                        </h3>
+
+                        
+                        <div
+                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <strong>150 字摘要：</strong><br>
+                            AI产品对算力需求巨大，正推动全球万亿美元级AI基础设施建设竞赛。英伟达CEO黄仁勋预测，到本十年末行业投资将高达3-4万亿美元。科技巨头竞相投入：微软曾对OpenAI投资近140亿美元（以Azure云为主），OpenAI后与Oracle签署了3000亿美元算力协议。英伟达通过投资OpenAI等客户巩固其GPU市场地位。Meta等公司也斥巨资建设超大规模数据中心。超大规模企业2026年预计投入近7000亿美元的资本支出，这引发投资者对回报和债务的担忧，但科技公司认为AI基础设施投入对未来发展至关重要。
+                        </div>
+                        
+                    </div>
+
+                    <!-- 卡片 Footer: 静态页面链接按钮 -->
+                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
+                        <a href="articles/news_9.html"
+                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
+                            阅读全文 (Read Full Text)
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+
                 </article>
                 
             </div>
@@ -264,79 +524,217 @@
                 <h2 class="text-2xl font-bold text-slate-800 tracking-wide">金融 板块</h2>
                 <div class="ml-4 flex-grow h-px bg-slate-200"></div>
             </div>
-            
+
             <div class="grid grid-cols-1 gap-8">
                 
                 <!-- 单条新闻卡片 -->
-                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
-                    
-                    <!-- 卡片 Header: 来源和原链接 -->
+                <article
+                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+
+                    <!-- 卡片 Header: 来源标识 -->
                     <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
                             Yahoo Finance
                         </span>
-                        <a href="https://finance.yahoo.com/news/biocryst-bcrx-soars-10-8-122852095.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors group">
-                            阅读原文
-                            <svg class="ml-1.5 w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </div>
+
+                    <!-- 卡片 Body: 中文标题和摘要 -->
+                    <div class="p-8 flex flex-col gap-5 flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
+                            Planet Fitness 公司 (PLNT)：看涨理论
+                        </h3>
+
+                        
+                        <div
+                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <strong>150 字摘要：</strong><br>
+                            对Planet Fitness (PLNT) 的看涨观点认为，其低成本、无压力健身模式成功吸引大量休闲用户。公司凭借轻资产特许经营模式实现全球快速扩张，截至2025年门店约2900家、会员2080万。新店开设与同店销售增长驱动营收利润持续增长，并产生强劲自由现金流。尽管股价近期下跌，但其可扩展性、国际市场潜力及同店销售势头仍是长期增长的核心动力。
+                        </div>
+                        
+                    </div>
+
+                    <!-- 卡片 Footer: 静态页面链接按钮 -->
+                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
+                        <a href="articles/news_10.html"
+                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
+                            阅读全文 (Read Full Text)
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
                         </a>
                     </div>
-                    
-                    <!-- 卡片 Body: 双语对照 -->
-                    <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100 flex-grow">
-                        
-                        <!-- 英文原文区块 (左/上) -->
-                        <div class="p-8 md:w-1/2 flex flex-col gap-4">
-                            <h3 class="text-xl font-bold text-slate-900 font-serif leading-snug">
-                                BioCryst (BCRX) Soars 10.8% on Swing to Profits
-                            </h3>
-                            
-                        </div>
-                        
-                        <!-- 中文翻译区块 (右/下) -->
-                        <div class="p-8 md:w-1/2 flex flex-col gap-4 bg-slate-50/50">
-                            <h3 class="text-xl font-bold text-slate-900 zh-text leading-snug">
-                                BioCryst (BCRX) 因扭亏为盈，股价飙升10.8%。
-                            </h3>
-                            
-                        </div>
-                        
-                    </div>
+
                 </article>
                 
                 <!-- 单条新闻卡片 -->
-                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
-                    
-                    <!-- 卡片 Header: 来源和原链接 -->
+                <article
+                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+
+                    <!-- 卡片 Header: 来源标识 -->
                     <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
                             Yahoo Finance
                         </span>
-                        <a href="https://finance.yahoo.com/news/dentsply-xray-rebounds-15-5-123121117.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors group">
-                            阅读原文
-                            <svg class="ml-1.5 w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </div>
+
+                    <!-- 卡片 Body: 中文标题和摘要 -->
+                    <div class="p-8 flex flex-col gap-5 flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
+                            六种方法利用税收抵免从美国国税局获得退款 — 一位税务专业人士表示
+                        </h3>
+
+                        
+                        <div
+                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <strong>150 字摘要：</strong><br>
+                            报税退款取决于正确申报税收抵免，许多人因缺乏了解而错失机会。税务专家Perez指出五类主要抵免助您退税：包括儿童税收抵免（最高2000美元）、劳动所得税抵免（中低收入者）、美国教育机会税收抵免（大学学费）、保费税收抵免（医保市场购险）以及儿童和被抚养人护理抵免（日托费用）。掌握并利用这些抵免能有效降低税负或获得退款。
+                        </div>
+                        
+                    </div>
+
+                    <!-- 卡片 Footer: 静态页面链接按钮 -->
+                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
+                        <a href="articles/news_11.html"
+                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
+                            阅读全文 (Read Full Text)
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
                         </a>
                     </div>
-                    
-                    <!-- 卡片 Body: 双语对照 -->
-                    <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100 flex-grow">
+
+                </article>
+                
+                <!-- 单条新闻卡片 -->
+                <article
+                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+
+                    <!-- 卡片 Header: 来源标识 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            Yahoo Finance
+                        </span>
+                    </div>
+
+                    <!-- 卡片 Body: 中文标题和摘要 -->
+                    <div class="p-8 flex flex-col gap-5 flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
+                            生命时间集团控股公司 (LTH)：看涨论点
+                        </h3>
+
                         
-                        <!-- 英文原文区块 (左/上) -->
-                        <div class="p-8 md:w-1/2 flex flex-col gap-4">
-                            <h3 class="text-xl font-bold text-slate-900 font-serif leading-snug">
-                                Dentsply (XRAY) Rebounds 15.5% on Share Buyback
-                            </h3>
-                            
-                        </div>
-                        
-                        <!-- 中文翻译区块 (右/下) -->
-                        <div class="p-8 md:w-1/2 flex flex-col gap-4 bg-slate-50/50">
-                            <h3 class="text-xl font-bold text-slate-900 zh-text leading-snug">
-                                Dentsply（XRAY）受股票回购提振，股价反弹15.5%。
-                            </h3>
-                            
+                        <div
+                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <strong>150 字摘要：</strong><br>
+                            市场看好Life Time Group Holdings (LTH)，因其在美加提供一站式高端健康、健身及康养服务的独特大型综合俱乐部模式。公司不追求门店快速扩张，而是专注于通过提升会员定价、利用率及附加消费，最大化约170家现有门店的效益。该策略精准瞄准高收入客群，推动过去三年营收增长近19.4%，利润率显著提升，彰显其在利基市场的强大竞争优势和定价权。在细分健身市场中，LTH通过提供深度体验来获取盈利，区别于注重可负担性的低成本健身房。
                         </div>
                         
                     </div>
+
+                    <!-- 卡片 Footer: 静态页面链接按钮 -->
+                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
+                        <a href="articles/news_12.html"
+                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
+                            阅读全文 (Read Full Text)
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                </article>
+                
+                <!-- 单条新闻卡片 -->
+                <article
+                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+
+                    <!-- 卡片 Header: 来源标识 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            Yahoo Finance
+                        </span>
+                    </div>
+
+                    <!-- 卡片 Body: 中文标题和摘要 -->
+                    <div class="p-8 flex flex-col gap-5 flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
+                            塞拉尼斯公司 (CE): 看涨论点
+                        </h3>
+
+                        
+                        <div
+                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <strong>150 字摘要：</strong><br>
+                            Celanese (CE) 曾因行业逆风和高价收购股价大跌。但看涨者认为，市场对其需求疲软、产能过剩及高债务的担忧被夸大。公司盈利历史稳健，2025年预计自由现金流可观，并正积极去杠杆。随着汽车、房地产等行业复苏，需求将回升，产能削减也将改善供需。CE作为深度价值周期股，股价有望翻倍。
+                        </div>
+                        
+                    </div>
+
+                    <!-- 卡片 Footer: 静态页面链接按钮 -->
+                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
+                        <a href="articles/news_13.html"
+                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
+                            阅读全文 (Read Full Text)
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                </article>
+                
+                <!-- 单条新闻卡片 -->
+                <article
+                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+
+                    <!-- 卡片 Header: 来源标识 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            Yahoo Finance
+                        </span>
+                    </div>
+
+                    <!-- 卡片 Body: 中文标题和摘要 -->
+                    <div class="p-8 flex flex-col gap-5 flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
+                            Gartner公司（IT）：看涨理论
+                        </h3>
+
+                        
+                        <div
+                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <strong>150 字摘要：</strong><br>
+                            英文新闻看好Gartner公司，核心在于其在决策智能平台（DIP）市场的作用。Gartner首次发布DIP魔力象限报告，将DIP正式定义为一种整合数据、分析、AI和人类判断，端到端管理决策的软件，并将其提升为运营资产。报告预测，到2030年，明确建模的业务决策将更受信赖且效率更高，凸显结构化决策在AI时代的重要性。DIP能帮助企业将AI洞察转化为可靠行动，降低风险，加速决策并提升透明度。Gartner报告中DIP领域的领导者，预计将因市场采纳加速而营收增长，为投资者带来战略和财务上的看涨机会。
+                        </div>
+                        
+                    </div>
+
+                    <!-- 卡片 Footer: 静态页面链接按钮 -->
+                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
+                        <a href="articles/news_14.html"
+                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
+                            阅读全文 (Read Full Text)
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+
                 </article>
                 
             </div>
@@ -348,95 +746,217 @@
                 <h2 class="text-2xl font-bold text-slate-800 tracking-wide">游戏 板块</h2>
                 <div class="ml-4 flex-grow h-px bg-slate-200"></div>
             </div>
-            
+
             <div class="grid grid-cols-1 gap-8">
                 
                 <!-- 单条新闻卡片 -->
-                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
-                    
-                    <!-- 卡片 Header: 来源和原链接 -->
+                <article
+                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+
+                    <!-- 卡片 Header: 来源标识 -->
                     <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
-                            Polygon
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            Eurogamer
                         </span>
-                        <a href="https://www.polygon.com/gods-of-egypt-10-year-anniversary/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors group">
-                            阅读原文
-                            <svg class="ml-1.5 w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </div>
+
+                    <!-- 卡片 Body: 中文标题和摘要 -->
+                    <div class="p-8 flex flex-col gap-5 flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
+                            前《Highguard》关卡设计师称，“累人的”竞技3v3玩法“是让许多玩家流失的最大原因”
+                        </h3>
+
+                        
+                        <div
+                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <strong>150 字摘要：</strong><br>
+                            《Highguard》前关卡设计师Alex Graner指出，游戏失败主因是过度偏向竞技，尤其主打3v3模式。这导致游戏对玩家沟通、团队协作及操作技巧要求极高，规则复杂，令休闲玩家难适应，缺乏固定队友者迅速流失。游戏上线两周后，腾讯即撤回对开发商Wildlight的资金支持，引发大规模裁员。腾讯在该项目中的参与曾被保密，其撤资直接终结了《Highguard》的困境。
+                        </div>
+                        
+                    </div>
+
+                    <!-- 卡片 Footer: 静态页面链接按钮 -->
+                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
+                        <a href="articles/news_15.html"
+                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
+                            阅读全文 (Read Full Text)
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
                         </a>
                     </div>
-                    
-                    <!-- 卡片 Body: 双语对照 -->
-                    <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100 flex-grow">
-                        
-                        <!-- 英文原文区块 (左/上) -->
-                        <div class="p-8 md:w-1/2 flex flex-col gap-4">
-                            <h3 class="text-xl font-bold text-slate-900 font-serif leading-snug">
-                                10 years ago, Gods of Egypt launched a firestorm about movie whitewashing
-                            </h3>
-                            
-                            <div class="prose prose-sm prose-slate text-slate-600 max-w-none">
-                                Emerald Fennell's Wuthering Heights provoked the latest internet firestorm about whitewashing, but Alex Proyas' flop Gods of Egypt led the way.
-                            </div>
-                            
-                        </div>
-                        
-                        <!-- 中文翻译区块 (右/下) -->
-                        <div class="p-8 md:w-1/2 flex flex-col gap-4 bg-slate-50/50">
-                            <h3 class="text-xl font-bold text-slate-900 zh-text leading-snug">
-                                10年前，《埃及众神》因其电影选角“洗白”问题而掀起了一场舆论风暴。
-                            </h3>
-                            
-                            <div class="prose prose-sm prose-slate text-slate-700 max-w-none zh-text leading-relaxed">
-                                Emerald Fennell执导的《呼啸山庄》引发了关于“洗白”的最新网络风暴，但Alex Proyas执导的票房惨败之作《埃及众神》其实早有先例，率先掀起了相关讨论。
-                            </div>
-                            
-                        </div>
-                        
-                    </div>
+
                 </article>
                 
                 <!-- 单条新闻卡片 -->
-                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
-                    
-                    <!-- 卡片 Header: 来源和原链接 -->
+                <article
+                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+
+                    <!-- 卡片 Header: 来源标识 -->
                     <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
-                            Polygon
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            Eurogamer
                         </span>
-                        <a href="https://www.polygon.com/world-of-warcraft-midnight-wow-release-time-est-pst/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors group">
-                            阅读原文
-                            <svg class="ml-1.5 w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </div>
+
+                    <!-- 卡片 Body: 中文标题和摘要 -->
+                    <div class="p-8 flex flex-col gap-5 flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
+                            毁灭战士：黑暗时代 的DLC内容庞大，"基本上堪比一部续作"
+                        </h3>
+
+                        
+                        <div
+                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <strong>150 字摘要：</strong><br>
+                            《毁灭战士：黑暗时代》游戏总监雨果·马丁透露，即将推出的DLC内容“巨大无比”，简直“就像一部续作”。他理解玩家等待已久，承诺带来“大量全新内容”。马丁强调，这款DLC将“与主游戏截然不同”，甚至可能包含一种类似长矛的新武器，暗示玩家将体验到与主游戏迥异的玩法。同时，《毁灭战士：黑暗时代》本身作为id Software史上最成功的发布之一，玩家数量已突破300万，达到此数字的速度是《毁灭战士：永恒》的七倍。
+                        </div>
+                        
+                    </div>
+
+                    <!-- 卡片 Footer: 静态页面链接按钮 -->
+                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
+                        <a href="articles/news_16.html"
+                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
+                            阅读全文 (Read Full Text)
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
                         </a>
                     </div>
-                    
-                    <!-- 卡片 Body: 双语对照 -->
-                    <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100 flex-grow">
+
+                </article>
+                
+                <!-- 单条新闻卡片 -->
+                <article
+                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+
+                    <!-- 卡片 Header: 来源标识 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            Eurogamer
+                        </span>
+                    </div>
+
+                    <!-- 卡片 Body: 中文标题和摘要 -->
+                    <div class="p-8 flex flex-col gap-5 flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
+                            Bluepoint曾提议重制《血源》，但被FromSoftware而非索尼拒绝。
+                        </h3>
+
                         
-                        <!-- 英文原文区块 (左/上) -->
-                        <div class="p-8 md:w-1/2 flex flex-col gap-4">
-                            <h3 class="text-xl font-bold text-slate-900 font-serif leading-snug">
-                                World of Warcraft: Midnight release time in your time zone
-                            </h3>
-                            
-                            <div class="prose prose-sm prose-slate text-slate-600 max-w-none">
-                                Learn when you can start playing World of Warcraft: Midnight in your time zone and what to expect from Blizzard's most ambitious expansion in years.
-                            </div>
-                            
-                        </div>
-                        
-                        <!-- 中文翻译区块 (右/下) -->
-                        <div class="p-8 md:w-1/2 flex flex-col gap-4 bg-slate-50/50">
-                            <h3 class="text-xl font-bold text-slate-900 zh-text leading-snug">
-                                魔兽世界：您所在时区的午夜上线时间
-                            </h3>
-                            
-                            <div class="prose prose-sm prose-slate text-slate-700 max-w-none zh-text leading-relaxed">
-                                了解《魔兽世界：午夜》何时会在您所在的时区上线，以及暴雪这款近几年来最雄心勃勃的资料片将带来哪些内容。
-                            </div>
-                            
+                        <div
+                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <strong>150 字摘要：</strong><br>
+                            索尼近日关闭了Bluepoint Games工作室。据报告，Bluepoint曾提议重制《血源》，但遭FromSoftware拒绝。FromSoftware虽认可重制财务可行，但因宫崎英高不愿他人触碰该作而否决。在此之后，Bluepoint向索尼提交的《旺达与巨像》更新及《对马岛之魂》衍生作提案，也因资源顾虑被否。最终，Bluepoint关闭，《血源》重制计划未能实现。
                         </div>
                         
                     </div>
+
+                    <!-- 卡片 Footer: 静态页面链接按钮 -->
+                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
+                        <a href="articles/news_17.html"
+                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
+                            阅读全文 (Read Full Text)
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                </article>
+                
+                <!-- 单条新闻卡片 -->
+                <article
+                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+
+                    <!-- 卡片 Header: 来源标识 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            Nintendo Life
+                        </span>
+                    </div>
+
+                    <!-- 卡片 Body: 中文标题和摘要 -->
+                    <div class="p-8 flex flex-col gap-5 flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
+                            超级肉肉男孩今年将虐心3D平台跳跃带到Switch 2
+                        </h3>
+
+                        
+                        <div
+                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <strong>150 字摘要：</strong><br>
+                            《超级肉肉哥》系列将推出一款全新的3D游戏，预计2026年问世。开发者Sluggerfly和发行商Headup本周确认，这款名为《超级肉肉哥3D》的新作将支持Switch 2平台。虽然游戏以不同视角呈现残酷的平台跳跃玩法，但其核心体验保持不变。这包括“残酷但公平的关卡”、Boss战以及黑暗世界关卡。游戏配乐将有死亡核乐队Despised Icon的Steve Marcois参与。玩家可以在相关视频中看到Switch 2上的扩展玩法演示。
+                        </div>
+                        
+                    </div>
+
+                    <!-- 卡片 Footer: 静态页面链接按钮 -->
+                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
+                        <a href="articles/news_18.html"
+                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
+                            阅读全文 (Read Full Text)
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                </article>
+                
+                <!-- 单条新闻卡片 -->
+                <article
+                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
+
+                    <!-- 卡片 Header: 来源标识 -->
+                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <span
+                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
+                            Nintendo Life
+                        </span>
+                    </div>
+
+                    <!-- 卡片 Body: 中文标题和摘要 -->
+                    <div class="p-8 flex flex-col gap-5 flex-grow">
+                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
+                            图集：Switch 2 版《宝可梦 风与浪》一览
+                        </h3>
+
+                        
+                        <div
+                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <strong>150 字摘要：</strong><br>
+                            Game Freak在宝可梦30周年庆典上公布了新主线游戏《宝可梦：风与浪》。该作将于2027年独占登陆Switch 2，拥有一个全新的开放世界，玩家可以探索美丽的岛屿和广阔的海洋，并邂逅、捕捉和训练新的宝可梦。任天堂官方页面已发布了预告片和多张游戏截图。
+                        </div>
+                        
+                    </div>
+
+                    <!-- 卡片 Footer: 静态页面链接按钮 -->
+                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
+                        <a href="articles/news_19.html"
+                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
+                            阅读全文 (Read Full Text)
+                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+
                 </article>
                 
             </div>
@@ -449,4 +969,5 @@
         <p class="text-sm">Generated by AI Agent &bull; Tailwind CSS &bull; Jinja2</p>
     </footer>
 </body>
+
 </html>
