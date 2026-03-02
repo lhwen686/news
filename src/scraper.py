@@ -58,8 +58,8 @@ OUTPUT_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 def parse_time(entry_time_struct, entry_time_str):
     if entry_time_struct:
         try:
-            dt = datetime.fromtimestamp(calendar.timegm(entry_time_struct))
-            return dt.replace(tzinfo=timezone.utc)
+            dt = datetime.fromtimestamp(calendar.timegm(entry_time_struct), tz=timezone.utc)
+            return dt
         except Exception:
             pass
             
