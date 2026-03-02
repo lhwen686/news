@@ -97,6 +97,7 @@ def process_news():
             full_text_en = item.get("full_text", "")
             source = item.get("source", "")
             link = item.get("link", "")
+            image_url = item.get("image_url", "")
             
             safe_title = title_en[:50]
             print(f"\n[{category}] 正在处理第 {idx+1}/{len(items)} 条: {safe_title}...")
@@ -177,7 +178,8 @@ def process_news():
                 "full_text_zh": full_text_zh,
                 "explanation_zh": explanation_zh,
                 "source": source,
-                "link": link
+                "link": link,
+                "image_url": image_url
             }
             processed_data.append(processed_item)
             total_processed += 1

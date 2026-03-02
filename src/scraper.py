@@ -96,12 +96,13 @@ def fetch_full_text(url):
         config = Config()
         config.user_agent = USER_AGENT
         config.request_timeout = 10
-        article = Article(url, config=config, fetch_images=False)
+        article = Article(url, config=config, fetch_images=True)
         article.download()
         article.parse()
         text = article.text.strip()
+        image_url = article.top_image if hasattr(article, 'top_image') and article.top_image else ""
         if len(text) > 50:
-            return text
+            return text, image_url
     except Exception as e:
         pass
         
@@ -111,12 +112,14 @@ def fetch_full_text(url):
         soup = BeautifulSoup(resp.content, 'html.parser')
         paragraphs = soup.find_all('p')
         text = "\n".join([p.get_text().strip() for p in paragraphs if p.get_text().strip()])
+        og_image = soup.find("meta", property="og:image")
+        image_url = og_image["content"] if og_image and og_image.get("content") else ""
         if len(text) > 50:
-            return text
+            return text, image_url
     except Exception as e:
         pass
 
-    return None
+    return None, ""
 
 def fetch_and_parse_rss():
     all_news = {category: [] for category in RSS_FEEDS.keys()}
@@ -155,7 +158,11 @@ def fetch_and_parse_rss():
                     if not link:
                         continue
                         
-                    full_text = fetch_full_text(link)
+                    full_text_result = fetch_full_text(link)
+                    if isinstance(full_text_result, tuple):
+                        full_text, image_url = full_text_result
+                    else:
+                        full_text, image_url = full_text_result, ""
                     
                     if not full_text:
                         # 尝试直接从 RSS item 内容中提取正文作为最后手段 (BeautifulSoup 清洗 HTML)
@@ -182,7 +189,8 @@ def fetch_and_parse_rss():
                             "link": link,
                             "summary": entry.get("summary", "") or entry.get("description", ""),
                             "source": source_name,
-                            "full_text": full_text
+                            "full_text": full_text,
+                            "image_url": image_url
                         }
                         category_entries.append(extracted_info)
                         print(f"      [成功] 获取正文: {extracted_info['title']}")

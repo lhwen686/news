@@ -72,6 +72,14 @@
                 </h2>
             </header>
 
+            <!-- 沉浸式头图 -->
+            {% if item.image_url %}
+            <div class="px-8 pt-8 md:px-12 bg-white">
+                <img src="{{ item.image_url }}" alt="Immersive Header Image"
+                    class="w-full max-h-96 object-cover rounded-xl shadow-sm">
+            </div>
+            {% endif %}
+
             <!-- AI 深度解析区 -->
             {% if item.explanation_zh %}
             <div class="px-8 pt-8 md:px-12 md:pt-12 bg-white">
