@@ -139,22 +139,33 @@ def process_news():
                 summary_zh = call_llm_with_retry(client, summary_prompt)
                 time.sleep(2)
                 
-                # --- 3. 翻译完整正文 ---
-                print("  -> 翻译完整正文中...")
-                full_trans_req = "请将以下英文新闻完整正文翻译成流畅的中文，并严格保留原有的段落排版"
+                # --- 3. 翻译完整正文及AI深度解析 ---
+                print("  -> 翻译完整正文及生成 AI 深度解析中...")
+                full_trans_req = "请将以下英文新闻完整正文翻译成流畅的中文，并严格保留原有的段落排版。在翻译完成后，基于文章内容生成一段 150-250 字的『AI 深度解析』，深入浅出地解释文章中的核心专业概念（如医学机制、技术原理或商业逻辑）及其行业影响。"
                 if is_medical:
-                    full_trans_req += "（非常重要：由于是医疗/医学新闻，请务必使用严谨、专业的医学术语和临床通用准则进行翻译）"
+                    full_trans_req += "（非常重要：由于是医疗/医学新闻，请务必使用严谨、专业的医学术语和临床通用准则进行翻译和解析）"
                 
-                full_trans_prompt = f"""系统指令：你是一个专业的翻译引擎。请直接输出以下英文长文的中文流畅翻译。不要输出任何除了翻译结果以外的字符、符号、解释或原始指令。
-绝对禁止使用 Markdown 粗体（**）和列表符号（-）。禁止将结果包装在 JSON 参数结构中。只输出原生、裸露的中文文本翻译。
+                full_trans_prompt = f"""系统指令：你是一个专业的翻译及解析引擎。请先输出以下英文长文的中文流畅翻译。翻译结束后，【必须】在一个新行插入单独的分隔符 ===AI_EXPLANATION===，然后再输出一段 150-250 字的 AI 深度解析。不要输出任何除了翻译、分隔符和解析以外的字符。
+绝对禁止使用 Markdown 粗体（**）和列表符号（-）。禁止将结果包装在 JSON 参数结构中。只输出原生文字。
 
 ---待翻译文本开始---
 【目标要求】：{full_trans_req}
 【英文原文】：{full_text_en}
 ---待翻译文本结束---"""
-                full_text_zh = call_llm_with_retry(client, full_trans_prompt)
+                raw_response = call_llm_with_retry(client, full_trans_prompt)
+                
+                # --- 解析翻译和AI深度解析 ---
+                explanation_zh = ""
+                full_text_zh = raw_response
+                if '===AI_EXPLANATION===' in raw_response:
+                    parts = raw_response.split('===AI_EXPLANATION===')
+                    full_text_zh = parts[0].strip()
+                    if len(parts) > 1:
+                        explanation_zh = parts[1].strip()
             else:
-                print("  -> [跳过] 此条目没有 full_text，无法生成摘要和全文翻译。")
+                print("  -> [跳过] 此条目没有 full_text，无法生成摘要、全文翻译及解析。")
+                explanation_zh = ""
+                full_text_zh = ""
 
             processed_item = {
                 "category": category,
@@ -164,6 +175,7 @@ def process_news():
                 "summary_zh": summary_zh,
                 "full_text_en": full_text_en,
                 "full_text_zh": full_text_zh,
+                "explanation_zh": explanation_zh,
                 "source": source,
                 "link": link
             }
