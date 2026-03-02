@@ -158,11 +158,13 @@ def process_news():
                 # --- 解析翻译和AI深度解析 ---
                 explanation_zh = ""
                 full_text_zh = raw_response
-                if '===AI_EXPLANATION===' in raw_response:
-                    parts = raw_response.split('===AI_EXPLANATION===')
+                
+                # 使用更强大的正则表达式切分，兼容大小写、空格、Markdown粗体以及各种长度的等号
+                split_pattern = r'[\*\s=]*AI_EXPLANATION[\*\s=]*'
+                parts = re.split(split_pattern, raw_response, maxsplit=1, flags=re.IGNORECASE)
+                if len(parts) > 1:
                     full_text_zh = parts[0].strip()
-                    if len(parts) > 1:
-                        explanation_zh = parts[1].strip()
+                    explanation_zh = parts[1].strip()
             else:
                 print("  -> [跳过] 此条目没有 full_text，无法生成摘要、全文翻译及解析。")
                 explanation_zh = ""
