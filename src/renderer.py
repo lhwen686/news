@@ -1,8 +1,8 @@
 import json
 import os
-from jinja2 import Environment, FileSystemLoader
-
 import shutil
+from collections import defaultdict
+from jinja2 import Environment, FileSystemLoader
 
 # 配置路径
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,12 +31,9 @@ def render_html():
         item['id'] = idx
 
     # 按类别对数据进行分组 (供 index.html 使用)
-    grouped_news = {}
+    grouped_news = defaultdict(list)
     for item in data:
-        cat = item['category']
-        if cat not in grouped_news:
-             grouped_news[cat] = []
-        grouped_news[cat].append(item)
+        grouped_news[item['category']].append(item)
 
     print(f"加载了 {len(data)} 条新闻数据，分为 {len(grouped_news)} 个板块。")
     print("正在使用 Jinja2 渲染 HTML ...")
@@ -49,12 +46,10 @@ def render_html():
     # 1. 渲染各单篇独立详情页
     print("  -> 开始渲染详情页...")
     for item in data:
-         # 利用 article 模板和单独的 item 渲染
-         item_html = article_template.render(item=item)
-         item_path = os.path.join(ARTICLES_DIR, f"news_{item['id']}.html")
-         
-         with open(item_path, 'w', encoding='utf-8') as f:
-              f.write(item_html)
+        item_html = article_template.render(item=item)
+        item_path = os.path.join(ARTICLES_DIR, f"news_{item['id']}.html")
+        with open(item_path, 'w', encoding='utf-8') as f:
+            f.write(item_html)
               
     print(f"  -> {len(data)} 篇详情 HTML 页面成功生成在 {ARTICLES_DIR}。")
 
