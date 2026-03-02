@@ -1,6 +1,6 @@
+import calendar
 import json
 import os
-import time
 import requests
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
@@ -55,7 +55,6 @@ OUTPUT_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 def parse_time(entry_time_struct, entry_time_str):
     if entry_time_struct:
         try:
-            import calendar
             dt = datetime.fromtimestamp(calendar.timegm(entry_time_struct))
             return dt.replace(tzinfo=timezone.utc)
         except Exception:
@@ -123,7 +122,7 @@ def fetch_and_parse_rss():
                 try:
                     resp = requests.get(source_url, headers=headers, timeout=10)
                     feed = feedparser.parse(resp.content)
-                except:
+                except Exception:
                     feed = feedparser.parse(source_url)
                     
                 recent_entries = filter_last_24_hours(feed.entries)
@@ -167,7 +166,7 @@ def fetch_and_parse_rss():
 def save_data(data):
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-         json.dump(data, f, ensure_ascii=False, indent=4)
+        json.dump(data, f, ensure_ascii=False, indent=4)
     print(f"\n抓取完成，数据已保存至 {OUTPUT_FILE}")
 
 def main():
@@ -178,8 +177,8 @@ def main():
     print("\n【抓取统计分析】")
     total_count = 0
     for category, count in category_stats.items():
-         print(f"- {category}:  成功获取了 {count} 条内容")
-         total_count += count
+        print(f"- {category}:  成功获取了 {count} 条内容")
+        total_count += count
          
     print(f"总计今日新闻: {total_count} 条")
 

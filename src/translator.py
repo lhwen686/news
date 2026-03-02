@@ -26,24 +26,19 @@ def clean_llm_text(text):
         return text
         
     cleaned = text
-    # 1. 强行剔除 JSON 外壳，例如 {"translation": "..."}
-    cleaned = re.sub(r'^\{\s*"[^"]*"\s*:\s*"', '', cleaned)
-    cleaned = re.sub(r'^\{\s*\'[^\']*\'\s*:\s*\'', '', cleaned)
-    cleaned = re.sub(r'"\s*\}$', '', cleaned)
-    cleaned = re.sub(r'\'\s*\}$', '', cleaned)
-    
+    # 1. 强行剔除 JSON 外壳，例如 {"translation": "..."} 或 {'translation': '...'}
+    cleaned = re.sub(r'''^\{\s*["'][^"']*["']\s*:\s*["']?''', '', cleaned)
+    cleaned = re.sub(r'''["']?\s*\}$''', '', cleaned)
+
     # 2. 强行剔除可能复读的系统指令和格式标签
     cleaned = re.sub(r'【系统强制约束.*?】', '', cleaned, flags=re.DOTALL)
     cleaned = re.sub(r'系统指令：.*?\n', '', cleaned, flags=re.DOTALL)
     cleaned = cleaned.replace('---待翻译文本开始---', '').replace('---待翻译文本结束---', '')
     cleaned = cleaned.replace('示例输入：Hello World', '').replace('示例输出：你好世界', '')
-    
+
     # 3. 去除 Markdown 粗体斜体和标题
     cleaned = cleaned.replace('**', '').replace('__', '')
     cleaned = cleaned.replace('### ', '').replace('## ', '').replace('# ', '')
-    
-    # 4. 去除可能残留的前置引号或乱七八糟的 JSON 残联 (形如 {"summary": ")
-    cleaned = re.sub(r'^\{\s*"[^"]*"\s*:\s*', '', cleaned)
     
     # 返回干净字符串
     return cleaned.strip()
@@ -103,7 +98,7 @@ def process_news():
             source = item.get("source", "")
             link = item.get("link", "")
             
-            safe_title = title_en[:50].encode('gbk', 'replace').decode('gbk')
+            safe_title = title_en[:50]
             print(f"\n[{category}] 正在处理第 {idx+1}/{len(items)} 条: {safe_title}...")
             
             # --- 1. 翻译标题 ---
