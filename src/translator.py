@@ -155,16 +155,27 @@ def process_news():
 ---待翻译文本结束---"""
                 raw_response = call_llm_with_retry(client, full_trans_prompt)
                 
+                # 检查返回值是否为 None 或空字符串 (防御性编程)
+                if not raw_response:
+                    print("  -> [警告] 获取正文或 AI 解析失败，跳过该文章")
+                    time.sleep(3)
+                    continue
+
                 # --- 解析翻译和AI深度解析 ---
                 explanation_zh = ""
                 full_text_zh = raw_response
                 
                 # 使用更强大的正则表达式切分，兼容大小写、空格、Markdown粗体以及各种长度的等号
                 split_pattern = r'[\*\s=]*AI_EXPLANATION[\*\s=]*'
-                parts = re.split(split_pattern, raw_response, maxsplit=1, flags=re.IGNORECASE)
-                if len(parts) > 1:
-                    full_text_zh = parts[0].strip()
-                    explanation_zh = parts[1].strip()
+                try:
+                    parts = re.split(split_pattern, raw_response, maxsplit=1, flags=re.IGNORECASE)
+                    if len(parts) > 1:
+                        full_text_zh = parts[0].strip()
+                        explanation_zh = parts[1].strip()
+                except Exception as e:
+                    print(f"  -> [警告] 获取正文或 AI 解析失败，跳过该文章 (异常捕获: {e})")
+                    time.sleep(3)
+                    continue
             else:
                 print("  -> [跳过] 此条目没有 full_text，无法生成摘要、全文翻译及解析。")
                 explanation_zh = ""
