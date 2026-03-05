@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer" />
-    <title>述评：改进非劣效性试验的考量 - Daily Insight</title>
+    <title>研究人员开发出通用型机器学习工具，实现复杂临床诊断自动化 - Daily Insight</title>
     <!-- 引入 Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- 引入 Google Fonts -->
@@ -63,17 +63,22 @@
             <header class="px-8 py-10 md:px-12 md:py-16 bg-slate-50 border-b border-slate-100 text-center">
                 <span
                     class="inline-block px-3 py-1 mb-6 rounded-full text-sm font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
-                    The Lancet
+                    News-Medical
                 </span>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 zh-text leading-tight mb-6 mt-2">
-                    述评：改进非劣效性试验的考量
+                    研究人员开发出通用型机器学习工具，实现复杂临床诊断自动化
                 </h1>
                 <h2 class="text-xl md:text-2xl font-bold text-slate-500 font-serif leading-snug">
-                    [Comment] Considerations for improving non-inferiority trials
+                    Researchers develop versatile machine learning tool to automate complex clinical diagnostics
                 </h2>
             </header>
 
             <!-- 沉浸式头图 -->
+            
+            <div class="px-8 pt-8 md:px-12 bg-white">
+                <img src="https://www.news-medical.net/image-handler/picture/2017/1/CT_machine_is_prepared_for_the_patient_shooting-sfam_photo_698c003ae3d54b69bf4c077708d403e4-620x480.jpg" alt="Immersive Header Image"
+                    class="w-full max-h-96 object-cover rounded-xl shadow-sm">
+            </div>
             
 
             <!-- AI 深度解析区 -->
@@ -89,7 +94,7 @@
                         <h3 class="text-xl font-bold zh-text">💡 AI 深度解析 (AI Insight)</h3>
                     </div>
                     <div class="text-indigo-900 zh-text leading-relaxed text-[15px] font-medium">
-                        非劣效性试验是一种重要的临床研究设计，旨在证明新疗法在有效性上不劣于（即不比）现有标准疗法，而非证明其优越性。其核心专业概念在于，当新疗法在安全性、依从性、给药途径或成本等方面具有显著优势，且其疗效可与现有标准媲美时，此设计尤为适用。这类试验面临的关键方法学挑战包括非劣效性界值的设定，该界值必须在临床上合理且预先确定，以避免将临床上意义重大的劣势误判为非劣效。此外，活性对照药的选择和统计分析方法的严谨性也至关重要，以防范“生物学漂移”效应，即随着时间推移逐渐接受效果递减的疗法。<br><br>对行业而言，非劣效性试验具有深远影响。它拓宽了药物研发的路径，鼓励制药公司开发不仅提升疗效，还能改善患者体验、降低副作用或优化成本效益的新产品。这为患者提供了更多个性化的治疗选择，特别是在现有疗法耐受性差或存在禁忌症的情况下。同时，监管机构对此类试验的审阅极为严格，要求高标准的证据来确保非劣效性声明的真实性，从而保障公共健康和药物的实际临床价值，影响着新药的上市批准和医疗实践指南的制定。
+                        这篇新闻报道的核心专业概念围绕着一个名为Merlin的“基础模型”（Foundation Model）在医学影像领域的创新应用。Merlin是一种先进的机器学习模型，其技术原理在于通过学习海量的、关联了放射学报告和医学诊断编码的三维腹部CT扫描数据，来理解视觉影像特征与疾病诊断及预后之间的复杂关联。它能够处理复杂的3D影像数据，并从中提取可泛化的疾病特征，这使其超越了传统上针对特定任务训练的专用模型。<br><br>其行业影响深远。首先，Merlin的引入能够显著简化临床工作流程，减轻放射科医生的解读负担，并有效应对美国医生短缺的问题。其次，该模型在诊断和预后方面的卓越表现，尤其是在预测慢性病发作和识别潜在生物标志物方面的能力，预示着它能发现人眼难以察觉的细微病变特征，从而提高早期疾病检测和干预的精准性。此外，Merlin的通用性和跨领域表现（如在未训练过的胸部CT上也能表现出色），为未来医学AI模型的研发设定了新标准，鼓励更广泛的创新和应用。随着监管审批的逐步推进，此类基础模型有望在医学影像辅助诊断中发挥越来越关键的作用。
                     </div>
                 </div>
             </div>
@@ -110,7 +115,7 @@
                     </div>
                     
                     <div class="text-md font-serif text-slate-700">
-                        Non-inferiority trials are a valuable type of clinical trial to evaluate new treatments that might have differing benefits. Such trials are increasingly used, but have methodological challenges in their design and analysis that should be considered to support the highest-quality research and publications.1,2 Here, we outline key points for consideration.
+                        A research team funded by the National Institutes of Health (NIH) has developed a versatile machine learning model that could one day greatly expand what medical scans can tell us about disease. Scientists used their tool, named Merlin, to assess 3D abdominal computed tomography (CT) scans, accomplishing tasks as simple as identifying anatomical features to as complex as predicting disease onset years in advance. Despite being developed as a general-purpose CT model, Merlin surpassed a gauntlet of similar automated tools in tasks they were specifically built to handle.<br><br>The team trained their model on a unique set of patient CT scans linked to radiology reports and medical diagnosis codes collected from the Stanford University School of Medicine. The researchers note that it is the largest collection of abdominal CT data to date.<br><br>Rich datasets like this are necessary to push the limits of what artificial intelligence models can accomplish in medicine. This work exemplifies how meticulously crafted training data can enable remarkable insights that significantly streamline workflows and assist in clinical decision-making." Bruce Tromberg, Ph.D., Director of NIH's National Institute of Biomedical Imaging and Bioengineering (NIBIB)<br><br>CT is a common form of medical imaging, often performed in the early stage of medical evaluations. To obtain a diagnosis, a radiologist must interpret the results and, oftentimes, additional tests and clinical assessments are needed too. At baseline, this process is lengthy and only becomes more cumbersome when accounting for the growing shortage of physicians in the United States.<br><br>"With Merlin, you could potentially go beyond traditional radiology and jump straight from imaging to a possible diagnosis. And that's just one potential use," said co-first author Louis Blankemeier, Ph.D., who conducted this work while a graduate student at Stanford University.<br><br>Merlin represents a new class of models, commonly referred to as foundation models, that are trained using large-scale, unlabeled datasets, which span many kinds of information.<br><br>In the new work, the researchers tested Merlin across six broad categories of activities, spanning more than 750 individual tasks that entailed diagnostics, prognostics, and quality assessment.<br><br>To prepare Merlin for the wide breadth of tasks, the researchers initially trained it on their clinical data trove which connected more than 15,000 3D abdominal CT scans paired with their radiology reports and nearly one million diagnostic codes. Using this information as study material, Merlin learned about relationships between visual and written data.<br><br>The researchers then quizzed Merlin on more than 50,000 previously unseen abdominal CT scans - coming from one of four different hospitals - to learn how closely their model could match the human-produced conclusions associated with each scan.<br><br>"Merlin tackled some tasks, such as predicting diagnosis codes, head-on, while other more complicated tasks, such as drafting radiology reports from scratch or identifying and outlining organs in a 3D space, called for additional training," said co-first author Ashwin Kumar, a graduate student at Stanford University.<br><br>The team also deployed state-of-the-art models, specializing in each task type, to serve as points of comparison.<br><br>On average across 692 different diagnostic codes, Merlin successfully predicted which of two scans was more likely to be associated with a particular code over 81% of the time, outperforming several variants of two other models. For a subset of 102 codes, Merlin's performance rose to 90%.<br><br>In another category, the team pushed Merlin to predict the onset of chronic diseases, such as diabetes, osteoporosis, and heart disease, in healthy patients based solely on CT scans.<br><br>The study authors found that, when comparing scans from different subjects, Merlin could identify patients who were at higher risk of developing a particular disease in the next five years 75% of the time, versus 68% for the other model. These findings hint that the model can detect key features in scans that may be lost to human eyes, suggesting that the tool could help identify new biomarkers for disease, Blankemeier explained.<br><br>The researchers ramped up the difficulty further by challenging Merlin to interpret CT scans of the chest, a body part completely absent from its CT study material. Merlin's unique ability to identify generalizable features of disease allowed it to perform as well as or better than models trained exclusively on chest scans.<br><br>Despite being a jack-of-all-trades, Merlin exceeded or matched the specialist models across all tasks. The authors attribute Merlin's magic touch to its architecture and training data, which allowed it to process complex 3D scans and build associations between visual and written information.<br><br>The researchers have high hopes that their approach could soon leverage prior precedent to obtain regulatory approval for simpler tasks but also plan to refine Merlin to better handle more complicated challenges, such as report writing.<br><br>While the tool is powerful out of the box, they encourage users to fine-tune the model with their own data to address their specific needs.<br><br>"Our model and the data will provide the community a robust backbone to build upon," said senior author Akshay Chaudhari, Ph.D., a professor of radiology and biomedical data science at Stanford University. "From here, the sky's the limit."<br><br>This research was supported by NIBIB through grants R01EB002524 and P41EB027060, by the Medical Imaging and Data Resource Center (MIDRC) under contract 75N92020C00021, by the National Health, Lung, and Blood Institute (NHLBI) through grants R01HL167974 and R01HL169345, and by the National Institute of Arthritis and Musculoskeletal and Skin Diseases (NIAMS) through grants R01AR077604 and R01AR079431.
                     </div>
                     
                 </div>
@@ -127,7 +132,7 @@
                     </div>
                     
                     <div class="text-lg zh-text text-slate-800 font-medium">
-                        非劣效性试验是一种评估可能具有不同益处的新疗法的宝贵临床试验类型。这类试验正日益普及，但在其设计和分析中存在方法学挑战，这些挑战应予考虑以支持最高质量的研究和出版物。1,2 在此，我们概述了需要考虑的关键点。
+                        由美国国立卫生研究院（NIH）资助的一个研究团队开发了一种多功能机器学习模型，该模型未来有望极大扩展医学扫描在疾病诊断方面所能提供的信息。科学家们利用这款名为Merlin的工具评估三维腹部计算机断层扫描（CT），其任务范围从识别解剖特征这类简单工作，到提前数年预测疾病发作这类复杂任务，均能胜任。尽管Merlin是作为一款通用型CT模型开发的，但在其专门处理的任务中，它超越了众多同类自动化工具。<br><br>该团队利用斯坦福大学医学院收集的一组独特的患者CT扫描数据对模型进行训练，这些数据与放射学报告和医学诊断编码相关联。研究人员指出，这是迄今为止最大的腹部CT数据集合。<br><br>美国国立卫生研究院国家生物医学成像与生物工程研究所（NIBIB）主任Bruce Tromberg博士表示：“如此丰富的数据集对于推动人工智能模型在医学领域所能达到的极限至关重要。这项工作展示了精心设计训练数据如何能够带来卓越的洞察力，从而显著简化工作流程并辅助临床决策。”<br><br>CT是一种常见的医学影像检查形式，通常在医学评估的早期阶段进行。为了获得诊断，放射科医生必须解读结果，而且通常还需要额外的检查和临床评估。这一过程本身就很漫长，考虑到美国医生日益短缺，其繁琐程度只会增加。<br><br>共同第一作者、斯坦福大学研究生Louis Blankemeier博士表示：“有了Merlin，你有可能超越传统的放射学范畴，直接从影像跳到可能的诊断。而这仅仅是其一项潜在用途。”<br><br>Merlin代表了一种新型模型，通常被称为基础模型，它们利用大规模、无标签数据集进行训练，涵盖了多种信息类型。<br><br>在这项新研究中，研究人员在六大类活动中对Merlin进行了测试，涵盖了超过750项涉及诊断、预后和质量评估的独立任务。<br><br>为了让Merlin胜任广泛的任务，研究人员最初用其临床数据宝库对其进行训练，该宝库连接了超过15,000份三维腹部CT扫描及其放射学报告和近一百万个诊断代码。Merlin利用这些信息作为学习材料，理解视觉数据和书面数据之间的关系。<br><br>随后，研究人员用来自四家不同医院的50,000多份此前未见的腹部CT扫描对Merlin进行测试，以了解其模型与每份扫描相关的人工诊断结论的匹配程度。<br><br>共同第一作者、斯坦福大学研究生Ashwin Kumar表示：“Merlin直接处理了一些任务，例如预测诊断代码，而其他更复杂的任务，例如从零开始起草放射学报告或在三维空间中识别并勾勒器官，则需要额外的训练。”<br><br>该团队还部署了专门处理各类任务的先进模型，作为比较基准。<br><br>在692个不同的诊断代码中，Merlin平均有超过81%的时间成功预测出两份扫描中哪一份更可能与特定代码相关联，超越了其他两种模型的多个变体。对于102个代码的子集，Merlin的性能提升至90%。<br><br>在另一类别中，该团队让Merlin仅凭CT扫描预测健康患者慢性疾病（如糖尿病、骨质疏松症和心脏病）的发生。<br><br>研究作者发现，在比较不同受试者的扫描时，Merlin在75%的情况下能够识别出未来五年内患某种特定疾病风险较高的患者，而另一模型的这一比例为68%。Blankemeier解释说，这些发现暗示该模型能够检测出扫描中可能被肉眼忽视的关键特征，表明该工具可能有助于识别新的疾病生物标志物。<br><br>研究人员进一步提升了难度，挑战Merlin解读胸部CT扫描——这是其CT学习材料中完全没有的身体部位。Merlin识别疾病可泛化特征的独特能力使其表现与专门针对胸部扫描训练的模型一样好甚至更好。<br><br>尽管Merlin是多面手，但在所有任务中，它都超越或匹敌了专业模型。作者将Merlin的“魔力”归因于其架构和训练数据，这使其能够处理复杂的三维扫描并建立视觉信息和书面信息之间的关联。<br><br>研究人员寄予厚望，认为他们的方法很快就能利用先例为更简单的任务获得监管批准，但也计划改进Merlin，以更好地应对报告撰写等更复杂的挑战。<br><br>尽管该工具开箱即用功能强大，但他们鼓励用户根据自身数据对模型进行微调，以满足其特定需求。<br><br>资深作者、斯坦福大学放射学和生物医学数据科学教授Akshay Chaudhari博士表示：“我们的模型和数据将为业界提供一个坚实的基础，供其在此基础上进行开发。从现在开始，未来拥有无限可能。”<br><br>这项研究得到了NIBIB的资助（拨款R01EB002524和P41EB027060），医疗影像和数据资源中心（MIDRC）的资助（合同75N92020C00021），国家心肺血液研究所（NHLBI）的资助（拨款R01HL167974和R01HL169345），以及国家关节炎、肌肉骨骼和皮肤病研究所（NIAMS）的资助（拨款R01AR077604和R01AR079431）。
                     </div>
                     
                 </div>
@@ -136,7 +141,7 @@
 
             <!-- 卡片底部链接 -->
             <footer class="px-8 py-8 md:px-12 bg-slate-50 border-t border-slate-100 text-center">
-                <a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(26)00306-5/fulltext?rss=yes" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.news-medical.net/news/20260304/Researchers-develop-versatile-machine-learning-tool-to-automate-complex-clinical-diagnostics.aspx" target="_blank" rel="noopener noreferrer"
                     class="inline-flex items-center text-base font-semibold text-indigo-600 hover:text-white hover:bg-indigo-600 border border-indigo-600 px-6 py-3 rounded-full transition-all duration-300 group">
                     View Source Webpage / 访问原始网页
                     <svg class="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
