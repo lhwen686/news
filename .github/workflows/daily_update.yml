@@ -11,10 +11,16 @@ on:
 
 permissions:
   contents: write
+  pages: write      # 添加 Pages 部署所需权限以确保内建工作流成功
+  id-token: write   # 提升安全性配置，适配 OIDC 自动部署
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    
+    # 明确声明部署环境，有助于触发 GitHub Pages 本身的部署流程和展示环境状态
+    environment:
+      name: github-pages
 
     steps:
     - name: Checkout repository
@@ -47,5 +53,11 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./
-        keep_files: true
-        commit_message: "Automated daily update of processed news and HTML"
+        
+        # 将 keep_files 改为 false，确保彻底清理历史污染的文件，保持纯净状态
+        keep_files: false
+        
+        # 精准排除源码、缓存和不需要的配置文件。避免污染 gh-pages
+        exclude_assets: '.github,src,templates,venv,data,requirements.txt,test_env.py,.gitignore,.nojekyll,*.py'
+        
+        commit_message: "Automated daily HTML update 🚀"
