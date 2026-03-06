@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer" />
-    <title>派早报：Apple 推出 MacBook Neo、Setapp 调整商业模式等 - Daily Insight</title>
+    <title>一日一技｜用 NAS 与 LanCache 构建本地游戏缓存服务器 - Daily Insight</title>
     <!-- 引入 Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- 引入 Google Fonts -->
@@ -66,17 +66,17 @@
                     少数派
                 </span>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 zh-text leading-tight mb-6 mt-2">
-                    派早报：Apple 推出 MacBook Neo、Setapp 调整商业模式等
+                    一日一技｜用 NAS 与 LanCache 构建本地游戏缓存服务器
                 </h1>
                 <h2 class="text-xl md:text-2xl font-bold text-slate-500 font-serif leading-snug">
-                    派早报：Apple 推出 MacBook Neo、Setapp 调整商业模式等
+                    一日一技｜用 NAS 与 LanCache 构建本地游戏缓存服务器
                 </h2>
             </header>
 
             <!-- 沉浸式头图 -->
             
             <div class="px-8 pt-8 md:px-12 bg-white">
-                <img src="https://rssfile.sspai.com/04/03/2026/article/9e91d9fa-8c43-f430-a02a-ea9c1a5b1a8d.jpeg?imageMogr2/auto-orient/ignore-error/1" alt="Immersive Header Image"
+                <img src="https://rssfile.sspai.com/2026/03/03/2b7fe95db4ad8fe93f3ae45bacd36bc2.jpg?imageMogr2/auto-orient/ignore-error/1" alt="Immersive Header Image"
                     class="w-full max-h-96 object-cover rounded-xl shadow-sm">
             </div>
             
@@ -94,7 +94,7 @@
                         <h3 class="text-xl font-bold zh-text">💡 AI 深度解析 (AI Insight)</h3>
                     </div>
                     <div class="text-indigo-900 zh-text leading-relaxed text-[15px] font-medium">
-                        Anthropic在其Claude Code工具中引入的“语音模式”标志着编程范式的重大演进。其核心专业概念在于将传统“直觉编程”进一步推向“语音编程”，实现通过自然语言进行代码输入和指令控制。这意味着开发人员不再局限于键盘输入，而是可以通过口述直接与AI编程助手交互，极大地提升了交互效率和便捷性。该功能直接内置于底层架构，确保了深度集成和流畅体验。从行业影响来看，此举将显著提高开发效率，减少开发者在打字上的时间消耗和认知负荷，尤其对长时间工作或有特定身体需求的开发者而言，具有划时代的意义。Anthropic免费向现有高级用户开放，旨在增强产品竞争力、提升用户粘性，并可能促使其他AI编程工具迅速跟进，共同推动编程界向更自然、更智能的人机交互方式迈进。
+                        本文详细介绍了利用开源项目LanCache搭建本地游戏缓存服务器的专业技术方案。其核心原理是结合DNS重定向与Nginx智能缓存机制。具体而言，LanCache通过充当局域网DNS服务器，将Steam、EA等游戏平台的下载域名解析到本地缓存服务器的IP地址。当游戏客户端发起下载请求时，它实际上连接的是本地Nginx实例。首次下载时，Nginx从互联网获取文件并缓存本地；后续同一局域网内的设备再次下载相同内容时，Nginx直接从本地磁盘高速传输，完全不占用外部网络带宽。部署上，文章以威联通NAS为例，通过Docker容器化技术和Macvlan网络模式实现了便捷搭建。这种方案解决了校园网或CPE用户流量昂贵、下载速度慢的问题，提升了多人共享环境下的游戏下载效率和体验。其行业影响在于，这种本地缓存不仅降低了用户的带宽成本，提升了下载速度，也为游戏内容分发提供了一种高效的局域网优化方案，对于带宽资源有限或需反复下载相同内容的用户群体具有显著的实用价值。
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                     </div>
                     
                     <div class="text-md font-serif text-slate-700">
-                        3 月 3 日，Anthropic 发布公告，宣布在其编程工具 Claude Code 中逐步推送全新的「语音模式」，意味着广受开发者欢迎的「直觉编程」正在向更高效的「语音编程」时代演进。<br><br>该语音模块直接内置于 Claude Code 的底层架构中，用户在顺利获得内测权限后，系统会在欢迎界面醒目位置显示开启提示。在实际操作环节中，开发者只需长按键盘上的空格键便能直接说话并录入开发需求，随后松开按键即可将语音指令迅速发送给 AI 执行。<br><br>费用方面，Anthropic 明确强调，语音交互功能并不会向用户收取任何额外的订阅费用。随着产品推广的逐步深入，现有的 Pro、Max、Team 以及针对大型机构的 Enterprise 层级用户，都将免费体验到这一提升开发效率的全新特性。来源
+                        Matrix 首页推荐<br><br>Matrix 是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选 Matrix 最优质的文章，展示来自用户的最真实的体验和观点。<br><br>文章代表作者个人观点，少数派仅对标题和排版略作修改。<br><br>春节假期里，正在上大学的大侄子跟我抱怨，说现在大学还在使用流量扣费的校园网，宿舍里几个同学下载游戏的时候都叫苦不迭，不仅流量费用贵，而且大家的下载速度还慢，很是不爽。<br><br>说起这个，我就想到自己家里几台PC主机+笔记本下载游戏的时候，也有类似的情况。<br><br>虽然Steam游戏有局域网内流式传输的功能，但是要使用的话得保持一台设备通电开机，而且像是育碧的Uplay和暴雪战网之类的平台可没这种功能。<br><br>所以我就趁着假期研究了一下，摸索出一套使用LanCache这个项目在本地搭建游戏缓存服务器的教程，只需要有一台设备下载过游戏，局域网内其他设备再次下载时，就能从本地缓存中获取内容。<br><br>这样一方面可以大大减少外网带宽的占用，对使用流量的校园网或者CPE用户很是友好，另一方面也能加快下载速度，减少等待的时间，希望能帮到用得上的朋友。<br><br>一、LanCache介绍<br><br>LanCache是一套在GitHub上开源免费的局域网缓存解决方案，它基于Nginx‌，通过DNS劫持技术，可以将Steam、EA app（原Origin）、育碧、拳头、暴雪战网等平台的下载域名解析到本地缓存服务器的IP地址，而非直接访问互联网。<br><br>这样当首次下载游戏时，游戏文件就会被缓存到本地的服务器中，后续在局域网中再次下载时，就能在本地服务器直接读取内容，实现一次下载、多人共享。<br><br>具体来说，LanCache 的运行依赖于两个核心组件：缓存服务器（Cache Server）和 DNS 转发器（DNS Redirector）。<br><br>它的工作步骤如下：<br><br>DNS 劫持：LanCache 充当了局域网内的 DNS 服务器。当你的电脑尝试访问 Steam 的内容服务器（如 content.steampowered.com）时，LanCache 的 DNS 转发器会将该域名解析到本地缓存服务器的 IP，而不是互联网 IP。 透明代理：游戏客户端（如 Steam 客户端）认为它在连接官方服务器，但实际上它连接的是你本地运行的 Nginx 实例。 智能缓存：<br><br>首次下载：本地没有文件，Nginx 会从互联网下载文件，并同步流式传输给你的电脑，同时在本地磁盘保留一份拷贝。<br><br>后续下载：当第二台电脑请求相同文件时，Nginx 发现磁盘已有缓存，直接从本地以极速发送数据，完全不占用外网流量。<br><br>二、LanCache部署方式<br><br>这里我以家里的威联通Qu805为例，为大家展示LanCache的docker部署过程，操作步骤非常简单，其他品牌的软路由或者NAS也能轻松搞定。<br><br>首先我们要给LanCache新建一个保存配置文件的文件夹，这个位置大家可以自行决定，我是在Container新建了一个LanCache文件夹，并在其中新建了cache和logs两个文件夹用于目录映射。<br><br>另外有一个折腾了我好几天才部署成功的难点，我们也需要提前处理一下。<br><br>LanCache这个项目，使用的是GitHub中的cache-domains项目作为配置生成器，从而创建配置数据，然后才可以将其加载到本地网络现有的 DNS 基础架构中。<br><br>换句话说，如果没有魔法飞棍来保证GitHub通畅的话，可能会出现LanCache的DNS服务无法正常运行的问题。<br><br>所以为了保险，我们可以提前下载cache-domains项目，<br><br>然后将解压后的所有文件都上传到NAS，比如我存放在了/Container/LanCache/domains文件夹里。<br><br>接着我们登录威联通NAS后台，打开Container Station容器工作站，点击左侧的「应用程序」，然后点击右侧黑色「创建」按钮。<br><br>在弹出的代码输入框中，我们输入以下YAML代码，这里需要注意代码中的IP和文件夹部分，大家可以根据自己局域网和设备的实际情况进行修改。<br><br>x-restart-policy: &restart-policy "no" services: dns: image: lancachenet/lancache-dns:latest restart: *restart-policy # DNS服务使用 monolithic 的共享 IP network_mode: service:monolithic # 目录挂载，根据实际情况填写。格式：NAS本地路径:容器内路径 volumes: - /share/Container/lancache/domains:/data/cachedomains # IP根据实际情况填写 environment: - USE_GENERIC_CACHE=true - LANCACHE_IP=192.168.10.209 - DNS_BIND_IP=192.168.10.209 # 这里使用阿里云的公共DNS，如果所在地有更快的运营商DNS，也可以自行替换 - UPSTREAM_DNS=223.5.5.5 - TZ=Asia/Shanghai monolithic: image: lancachenet/monolithic:latest restart: *restart-policy ports: - 80:80/tcp - 443:443/tcp # 目录挂载，根据实际情况填写。格式：NAS本地路径:容器内路径 volumes: - /share/Container/lancache/domains:/data/cachedomains - /share/Container/lancache/cache:/data/cache - /share/Container/lancache/logs:/data/logs networks: lancache_net: ipv4_address: 192.168.10.209 # IP根据实际情况填写 environment: - USE_GENERIC_CACHE=true - LANCACHE_IP=192.168.10.209 - CACHE_DISK_SIZE=200g - MIN_FREE_DISK=10g - CACHE_INDEX_SIZE=250m - CACHE_MAX_AGE=3650d - TZ=Asia/Shanghai ## 定义网络 (Macvlan 模式) networks: lancache_net: driver: macvlan driver_opts: ## 你的 QNAP 网卡名称 (请确保 qvs0 是正确的虚拟交换机接口) parent: qvs0 ipam: config: # 根据你的局域网实际网段和网关填写 - subnet: 192.168.10.0/24 gateway: 192.168.10.1<br><br>这里由于LanCache项目需要占用80和443端口，所以我们通过Macvlan创建另外一个 IP，代码中我使用的是192.168.10.209，大家不要直接照搬，先看看自己局域网的网段。<br><br>代码粘贴无误后，记得点击下方的 “验证”按钮，确保YAML格式正确，最后点击创建按钮，系统就会自动拉取这个非常精简的镜像并启动服务，咱们可以在容器列表中看到lancache-dns和lancache-monolithic这两个容器正在运行，状态显示为绿色小圆点。<br><br>三、LanCache使用方法<br><br>1.修改DNS<br><br>LanCache正确部署后，使用方法是非常简单的，我们只需要将电脑的DNS指向刚才我们给LanCache配置的网址即可，比如这里我使用的就是代码中的 192.168.10.209：<br><br>需要注意的是，如果这台部署了LanCache的NAS关机或重启，那电脑将会因为解析不到DNS而无法上网，这种情况下把电脑DNS改回自动获取即可。<br><br>2.初次下载<br><br>DNS设置好后，随便打开个网页，测试网络通畅，说明LanCache已经可以正常工作了。<br><br>接下来我们就可以打开Steam或者其他游戏平台，下载一个游戏试试。<br><br>如下图所示，可以看到在首次下载游戏时，Qu805是处于边接收、边发送的状态，说明游戏文件已经流经了NAS，并且在NAS中进行了缓存。<br><br>3.二次下载<br><br>当我们二次下载LanCache缓存过的游戏时，可以看到NAS网口的发送速度超过了100MB/s，此时文件完全从本地NAS的中获取，不仅速度更快，而且也不用消耗外网流量。<br><br>4.补充<br><br>有朋友可能会说，每次都需要用电脑先下载一次游戏后才能加速，还是有点儿繁琐，那么GitHub上一个叫做steam-lancache-prefill的项目可以代替Steam客户端来触发这个下载缓存的操作，实现预填充功能，有兴趣的朋友可以自行探索一下。<br><br>总结<br><br>本期为大家分享的这套利用NAS构建本地游戏缓存服务器的方法，非常适合宿舍、家庭或者公司这类多人下载相同游戏的共享环境，也可以用来解决带宽或者流量受限的问题，大家有需要的话可以尝试一下，还是相当好用的。<br><br>> 下载 少数派 2.0 客户端、关注 少数派公众号，解锁全新阅读体验 📰<br><br>> 实用、好用的 正版软件，少数派为你呈现 🚀
                     </div>
                     
                 </div>
@@ -132,7 +132,7 @@
                     </div>
                     
                     <div class="text-lg zh-text text-slate-800 font-medium">
-                        3 月 3 日，Anthropic 发布公告，宣布在其编程工具 Claude Code 中逐步推送全新的「语音模式」，意味着广受开发者欢迎的「直觉编程」正在向更高效的「语音编程」时代演进。<br><br>该语音模块直接内置于 Claude Code 的底层架构中，用户在顺利获得内测权限后，系统会在欢迎界面醒目位置显示开启提示。在实际操作环节中，开发者只需长按键盘上的空格键便能直接说话并录入开发需求，随后松开按键即可将语音指令迅速发送给 AI 执行。<br><br>费用方面，Anthropic 明确强调，语音交互功能并不会向用户收取任何额外的订阅费用。随着产品推广的逐步深入，现有的 Pro、Max、Team 以及针对大型机构的 Enterprise 层级用户，都将免费体验到这一提升开发效率的全新特性。来源
+                        Matrix 首页推荐<br><br>Matrix 是少数派旗下的创作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选 Matrix 最优质的文章，展示来自用户的最真实体验和观点。<br><br>文章代表作者个人观点，少数派仅对标题和排版略作修改。<br><br>春节假期里，正在上大学的大侄子跟我抱怨，说现在大学还在使用按流量计费的校园网，宿舍里几个同学下载游戏的时候都苦不堪言，不仅流量费用贵，而且大家的下载速度还慢，很是恼火。<br><br>说起这个，我就想到自己家里几台PC主机加笔记本下载游戏的时候，也有类似的情况。<br><br>虽然Steam游戏有局域网内流式传输的功能，但是要使用的话得保持一台设备通电开机，而且像是育碧的Uplay和暴雪战网之类的平台可没这种功能。<br><br>所以我就趁着假期研究了一下，摸索出了一套利用LanCache项目在本地搭建游戏缓存服务器的教程，只需要有一台设备下载过游戏，局域网内其他设备再次下载时，就能从本地缓存中获取内容。<br><br>这样一方面可以大大减少外网带宽的占用，对使用流量的校园网或者CPE用户很是友好，另一方面也能加快下载速度，减少等待的时间，希望能帮到用得上的朋友。<br><br>一、LanCache介绍<br><br>LanCache是一套在GitHub上开源免费的局域网缓存解决方案，它基于Nginx，通过DNS重定向技术，可以将Steam、EA app（原Origin）、育碧、拳头、暴雪战网等平台的下载域名解析到本地缓存服务器的IP地址，而非直接访问互联网。<br><br>这样当首次下载游戏时，游戏文件就会被缓存到本地的服务器中，后续在局域网中再次下载时，就能在本地服务器直接读取内容，实现一次下载、多人共享。<br><br>具体来说，LanCache的运行依赖于两个核心组件：缓存服务器（Cache Server）和 DNS 转发器（DNS Redirector）。<br><br>它的工作步骤如下：<br><br>DNS 劫持：LanCache 充当了局域网内的 DNS 服务器。当你的电脑尝试访问 Steam 的内容服务器（如 content.steampowered.com）时，LanCache 的 DNS 转发器会将该域名解析到本地缓存服务器的 IP，而不是互联网 IP。 透明代理：游戏客户端（如 Steam 客户端）认为它在连接官方服务器，但实际上它连接的是你本地运行的 Nginx 实例。 智能缓存：<br><br>首次下载：本地没有文件，Nginx 会从互联网下载文件，并同步流式传输给你的电脑，同时在本地磁盘保留一份拷贝。<br><br>后续下载：当第二台电脑请求相同文件时，Nginx 发现磁盘已有缓存，直接从本地以极速发送数据，完全不占用外网流量。<br><br>二、LanCache部署方式<br><br>这里我以家里的威联通Qu805为例，为大家展示LanCache的Docker部署过程，操作步骤非常简单，其他品牌的软路由或者NAS也能轻松搞定。<br><br>首先我们要给LanCache新建一个保存配置文件的文件夹，这个位置大家可以自行决定，我是在Container新建了一个LanCache文件夹，并在其中新建了cache和logs两个文件夹用于目录映射。<br><br>另外有一个折腾了我好几天才部署成功的难点，我们也需要提前处理一下。<br><br>LanCache这个项目，使用的是GitHub中的cache-domains项目作为配置生成器，从而创建配置数据，然后才可以将其加载到本地网络现有的 DNS 基础架构中。<br><br>换句话说，如果没有魔法飞棍来保证GitHub通畅的话，可能会出现LanCache的DNS服务无法正常运行的问题。<br><br>所以为了保险，我们可以提前下载cache-domains项目，<br><br>然后将解压后的所有文件都上传到NAS，比如我存放在了/Container/LanCache/domains文件夹里。<br><br>接着我们登录威联通NAS后台，打开Container Station 容器工作站，点击左侧的“应用程序”，然后点击右侧黑色“创建”按钮。<br><br>在弹出的代码输入框中，我们输入以下YAML代码，这里需要注意代码中的IP和文件夹部分，大家可以根据自己局域网和设备的实际情况进行修改。<br><br>x-restart-policy: &restart-policy "no" services: dns: image: lancachenet/lancache-dns:latest restart: *restart-policy DNS服务使用 monolithic 的共享 IP network_mode: service:monolithic 目录挂载，根据实际情况填写。格式：NAS本地路径:容器内路径 volumes: - /share/Container/lancache/domains:/data/cachedomains IP根据实际情况填写 environment: - USE_GENERIC_CACHE=true - LANCACHE_IP=192.168.10.209 - DNS_BIND_IP=192.168.10.209 这里使用阿里云的公共DNS，如果所在地有更快的运营商DNS，也可以自行替换 - UPSTREAM_DNS=223.5.5.5 - TZ=Asia/Shanghai monolithic: image: lancachenet/monolithic:latest restart: *restart-policy ports: - 80:80/tcp - 443:443/tcp 目录挂载，根据实际情况填写。格式：NAS本地路径:容器内路径 volumes: - /share/Container/lancache/domains:/data/cachedomains - /share/Container/lancache/cache:/data/cache - /share/Container/lancache/logs:/data/logs networks: lancache_net: ipv4_address: 192.168.10.209 IP根据实际情况填写 environment: - USE_GENERIC_CACHE=true - LANCACHE_IP=192.168.10.209 - CACHE_DISK_SIZE=200g - MIN_FREE_DISK=10g - CACHE_INDEX_SIZE=250m - CACHE_MAX_AGE=3650d - TZ=Asia/Shanghai 定义网络 (Macvlan 模式) networks: lancache_net: driver: macvlan driver_opts: 你的 QNAP 网卡名称 (请确保 qvs0 是正确的虚拟交换机接口) parent: qvs0 ipam: config: 根据你的局域网实际网段和网关填写 - subnet: 192.168.10.0/24 gateway: 192.168.10.1<br><br>这里由于LanCache项目需要占用80和443端口，所以我们通过Macvlan创建另一个独立IP地址，代码中我使用的是192.168.10.209，大家不要直接照搬，先看看自己局域网的网段。<br><br>代码粘贴无误后，记得点击下方的“验证”按钮，确保YAML格式正确，最后点击创建按钮，系统就会自动拉取此精简镜像并启动服务，咱们可以在容器列表中看到lancache-dns和lancache-monolithic这两个容器正在运行，状态显示为绿色小圆点。<br><br>三、LanCache使用方法<br><br>1.修改DNS<br><br>LanCache正确部署后，使用方法是非常简单的，我们只需要将电脑的DNS指向刚才我们给LanCache配置的IP地址即可，比如这里我使用的就是代码中的 192.168.10.209：<br><br>需要注意的是，如果这台部署了LanCache的NAS关机或重启，那电脑将会因为解析不到DNS而无法上网，这种情况下把电脑DNS改回自动获取即可。<br><br>2.初次下载<br><br>DNS设置好后，随便打开个网页，测试网络通畅，说明LanCache已经可以正常工作了。<br><br>接下来我们就可以打开Steam或者其他游戏平台，下载一个游戏试试。<br><br>如下图所示，可以看到在首次下载游戏时，Qu805处于边接收边发送的状态，说明游戏文件已经流经了NAS，并且在NAS中进行了缓存。<br><br>3.二次下载<br><br>当我们二次下载LanCache缓存过的游戏时，可以看到NAS网口发送速度超过100MB/s，此时文件完全从本地NAS中获取，不仅速度更快，而且也不用消耗外网流量。<br><br>4.补充<br><br>有朋友可能会说，每次都需要用电脑先下载一次游戏后才能加速，还是有点儿繁琐，那么GitHub上一个叫做steam-lancache-prefill的项目可以代替Steam客户端来触发这个下载缓存的操作，实现预填充功能，有兴趣的朋友可以自行探索一下。<br><br>总结<br><br>本期为大家分享的这套利用NAS构建本地游戏缓存服务器的方法，非常适合宿舍、家庭或者公司这类多人下载相同游戏的共享环境，也可以用来解决带宽或者流量受限的问题，大家有需要的话可以尝试一下，还是相当好用的。<br><br>> 下载 少数派 2.0 客户端、关注 少数派公众号，解锁全新阅读体验 📰<br><br>> 实用、好用的 正版软件，少数派为你呈现 🚀
                     </div>
                     
                 </div>
@@ -141,7 +141,7 @@
 
             <!-- 卡片底部链接 -->
             <footer class="px-8 py-8 md:px-12 bg-slate-50 border-t border-slate-100 text-center">
-                <a href="https://sspai.com/post/106844" target="_blank" rel="noopener noreferrer"
+                <a href="https://sspai.com/post/106796" target="_blank" rel="noopener noreferrer"
                     class="inline-flex items-center text-base font-semibold text-indigo-600 hover:text-white hover:bg-indigo-600 border border-indigo-600 px-6 py-3 rounded-full transition-all duration-300 group">
                     View Source Webpage / 访问原始网页
                     <svg class="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
