@@ -76,7 +76,7 @@
             <!-- 沉浸式头图 -->
             
             <div class="px-8 pt-8 md:px-12 bg-white">
-                <img src="https://store.akamai.steamstatic.com/public/shared/images/responsive/steam_share_image.jpg" alt="Immersive Header Image"
+                <img src="https://store.fastly.steamstatic.com/public/shared/images/responsive/steam_share_image.jpg" alt="Immersive Header Image"
                     class="w-full max-h-96 object-cover rounded-xl shadow-sm">
             </div>
             
@@ -94,7 +94,7 @@
                         <h3 class="text-xl font-bold zh-text">💡 AI 深度解析 (AI Insight)</h3>
                     </div>
                     <div class="text-indigo-900 zh-text leading-relaxed text-[15px] font-medium">
-                        这篇游戏更新日志揭示了游戏开发与维护中的多个核心技术环节。从技术层面看，诸如“预测错误”（prediction error）是网络游戏常见的问题，它影响客户端与服务器之间行为同步的准确性，修复能确保玩家操作的响应性和公平性。“LOD问题”（Level of Detail）和“贴图问题”（skinning issues）则关乎游戏视觉表现和性能优化，前者通过简化远处模型的细节来提高帧率，后者确保角色动画与模型外观的无缝衔接。“材质参数缺失”和“碰撞错误”是图形渲染和物理引擎层面的修正，直接影响游戏世界的真实感和互动逻辑。值得注意的是，文中提及的“社区修复”凸显了玩家社区在游戏生命周期中的重要作用，尤其对于运营多年的游戏，社区贡献不仅能减轻开发团队的负担，还能增强玩家的归属感和参与度。<br>从行业影响来看，这类例行更新是“即时服务型游戏”（live service games）模型成功的基石。持续的错误修复、性能优化和内容调整，即使是对老游戏，也能有效延长其生命周期，维持玩家活跃度。这不仅体现了开发者对产品质量和玩家体验的承诺，也通过保持游戏新鲜感和稳定性，巩固了其在竞争激烈的市场中的地位。这种迭代式维护策略对于建立长期玩家关系和品牌忠诚度至关重要。
+                        这篇文章是《军团要塞2》的更新日志，集中体现了在线游戏开发与维护中的核心技术挑战和解决方案。其中包含的专业概念涵盖了图形渲染、性能优化及多人游戏同步。例如，“Z轴冲突”（z-fighting）是3D图形渲染的常见瑕疵，当两个物体深度值极为接近时，可能导致画面闪烁或错误显示，修复此类问题旨在提升视觉沉浸感。“稀有特效”（Unusual effects）的更新，特别是提及“父子粒子系统”的问题修复，揭示了复杂视觉效果构建的精细度，确保游戏中高价值的虚拟物品能准确无误地呈现。“纹理映射”（mipmapping）的修复，则是对优化图形渲染效率和减少纹理锯齿的关键改进，直接影响画面质量。<br><br>在性能优化方面，“将高成本的水替换为低成本的水以提高帧率”是典型的游戏资源优化策略，通过降低计算负载来改善游戏流畅度，扩大游戏对不同硬件配置的兼容性。此外，多人游戏中的“同步问题”（desync issue）修复至关重要，它确保了所有玩家的游戏状态一致性，维护了竞技的公平性和游戏的稳定性。整体而言，此类更新日志不仅展示了游戏开发团队在视觉表现、运行效率和玩家体验之间持续寻求平衡的工程实践，也突显了为保持一款长寿在线游戏的生命力、玩家粘性及市场竞争力所付出的不懈努力。
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                     </div>
                     
                     <div class="text-md font-serif text-slate-700">
-                        Added smoke effect to the Scrooge McCrocket<br><br><br><br>Fixed prediction error when crouch jumping (community fix from ficool2)<br><br><br><br>Updated the Snow Dome Unusual effect to decrease brightness and opacity of the glass and floor textures<br><br><br><br>Updated the Festive Fleece to fix LOD issues<br><br><br><br>Updated the Puncher's Polar Puffer to fix some skinning issues<br><br><br><br>Updated The Conscientious Objector to fix missing material parameters (community fix from Lindon)<br><br><br><br>Updated koth_winter_ridge to fix a collision error with projectiles on the dead tree at mid<br><br><br><br>Updated 2koth_abbey Fixed small gaps in doorways outside of spawn<br><br>Updated tall crates to add nobuild triggers and make it more obvious they cannot be stood on<br><br>Updated clipping in the river<br><br>Fixed Snipers wearing the Razorback being immune to freezing<br><br><br><br>An update to Team Fortress 2 has been released. The update will be applied automatically when you restart Team Fortress 2. The major changes include:
+                        Fixed minor z-fighting issue with the Wrap Assassin Festivizer<br><br><br><br>Fixed the Taunt: The Critical Fail ending at the incorrect time for the Medic<br><br><br><br>Updated the Hard Carry Unusual effect to fix detachment issues when using the "adjust unusual" slider<br><br><br><br>Updated the Scorching Sensation and Burning Sensation Unusual effects to improve visibility in bright areas<br><br><br><br>Updated the Team Recognition Unusual effect to fix a problem with the parent-child particle system<br><br><br><br>Updated the Frostfire, Spectrum Inferno, and Chromatic Blaze Unusual effects to fix issues with the trail and brightness<br><br><br><br>Updated the Cryogenic Unusual effect to fix obscuring parts of the characters<br><br><br><br>Updated the Air Head to fix a problem with mipmapping<br><br><br><br>Updated 2koth_abbey Fixed broken cliff displacements<br><br>Swapped expensive water for cheap water to improve FPS<br><br>Various fixes and improvements<br><br>Updated plr_matterhorn Fixed hole in spawn barrier (thanks Ctena!)<br><br>Fixed a desync issue with lifts (thanks Skin King!)<br><br>Disabled team swap on new round<br><br>Clipping improvements<br><br>Bread optimization<br><br><br><br>An update to Team Fortress 2 has been released. The update will be applied automatically when you restart Team Fortress 2. The major changes include:
                     </div>
                     
                 </div>
@@ -132,7 +132,7 @@
                     </div>
                     
                     <div class="text-lg zh-text text-slate-800 font-medium">
-                        为吝啬鬼麦克火箭筒添加了烟雾效果<br><br>修复了蹲跳时的预测错误（来自ficool2的社区修复）<br><br>更新了雪球穹顶奇异效果，以降低玻璃和地板纹理的亮度和不透明度<br><br>更新了节日羊毛，修复了LOD问题<br><br>更新了拳击手的极地河豚，修复了一些贴图问题<br><br>更新了良心拒服兵役者，修复了缺失的材质参数（来自Lindon的社区修复）<br><br>更新了koth_winter_ridge地图，修复了中间枯树上与投射物的碰撞错误<br><br>更新了2koth_abbey地图，修复了重生点外门口的小缝隙<br><br>更新了高板条箱，添加了禁止建造触发器，并使其更明显地无法站立<br><br>更新了河流中的裁剪问题<br><br>修复了狙击手佩戴剃刀背时免疫冰冻的问题<br><br>Team Fortress 2 已发布更新。当您重新启动 Team Fortress 2 时，此更新将自动应用。主要更改包括：
+                        修复了Wrap Assassin Festivizer上轻微的Z轴冲突问题<br><br>修复了医生的嘲讽：关键失误在不正确的时间结束的问题<br><br>更新了Hard Carry稀有特效，以修复在使用“调整稀有特效”滑块时出现的脱离问题<br><br>更新了Scorching Sensation和Burning Sensation稀有特效，以提高在明亮区域的可见性<br><br>更新了Team Recognition稀有特效，以修复父子粒子系统的问题<br><br>更新了Frostfire、Spectrum Inferno和Chromatic Blaze稀有特效，以修复拖尾和亮度问题<br><br>更新了Cryogenic稀有特效，以修复遮挡角色部分的问题<br><br>更新了Air Head，以修复纹理映射（mipmap）问题<br><br>更新了2koth_abbey 修复了损坏的悬崖位移<br><br>将高成本的水替换为低成本的水以提高帧率<br><br>各类修复和改进<br><br>更新了plr_matterhorn 修复了重生屏障的漏洞（感谢Ctena！）<br><br>修复了电梯的同步问题（感谢Skin King！）<br><br>在新回合禁用队伍交换<br><br>裁剪改进<br><br>面包优化<br><br>《军团要塞2》已发布一次更新。当您重启《军团要塞2》时，更新将自动应用。主要变化包括：
                     </div>
                     
                 </div>
@@ -141,7 +141,7 @@
 
             <!-- 卡片底部链接 -->
             <footer class="px-8 py-8 md:px-12 bg-slate-50 border-t border-slate-100 text-center">
-                <a href="https://store.steampowered.com/news/259771/" target="_blank" rel="noopener noreferrer"
+                <a href="https://store.steampowered.com/news/259481/" target="_blank" rel="noopener noreferrer"
                     class="inline-flex items-center text-base font-semibold text-indigo-600 hover:text-white hover:bg-indigo-600 border border-indigo-600 px-6 py-3 rounded-full transition-all duration-300 group">
                     View Source Webpage / 访问原始网页
                     <svg class="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
