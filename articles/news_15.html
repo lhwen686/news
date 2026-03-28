@@ -76,7 +76,7 @@
             <!-- 沉浸式头图 -->
             
             <div class="px-8 pt-8 md:px-12 bg-white">
-                <img src="https://store.fastly.steamstatic.com/public/shared/images/responsive/steam_share_image.jpg" alt="Immersive Header Image"
+                <img src="https://store.akamai.steamstatic.com/public/shared/images/responsive/steam_share_image.jpg" alt="Immersive Header Image"
                     class="w-full max-h-96 object-cover rounded-xl shadow-sm">
             </div>
             
@@ -94,7 +94,7 @@
                         <h3 class="text-xl font-bold zh-text">💡 AI 深度解析 (AI Insight)</h3>
                     </div>
                     <div class="text-indigo-900 zh-text leading-relaxed text-[15px] font-medium">
-                        这篇游戏更新日志揭示了视频游戏开发和维护中的几个核心技术概念。首先，"客户端崩溃"（client crash）是游戏应用意外终止的严重问题，通常源于复杂的渲染机制或内存管理不当。"材质代理"（material proxies）是用于优化图形渲染效率的机制，一旦出错便可能导致视觉异常或崩溃。其次，"光照贴图"（lightwarp）是独特的非真实感渲染技术，通过重映射光照强度实现特定视觉风格，其修复确保了游戏艺术风格的统一性。再次，"压缩问题"和"材质缺失"反映了游戏资产管理中的常见挑战，这类问题若不解决，将直接影响游戏画质和沉浸感。最后，"玩家碰撞体"（player clip）、"像素行走"（pixel walks）和"子弹阻挡体"（blockbullets）等概念则深入到关卡设计和物理交互层面，它们确保了玩家在地图内的行动受限、防止玩家利用几何漏洞到达不可玩区域，并维护了射击游戏的公平性。这些修复不仅提升了玩家体验、游戏稳定性和视觉质量，也强调了社区反馈在游戏生命周期中的关键作用，是延长游戏寿命、维护其活跃度的重要实践。
+                        这份游戏更新日志，虽是日常修复，却深刻揭示了现代游戏开发与维护的几个核心技术与运营逻辑。首先，它展现了持续的质量保障（QA）和调试流程，从客户端崩溃（稳定性）、材质渲染（图形引擎效率与视觉保真度）、音效播放（听觉体验），到地图碰撞体（关卡设计与防作弊）等各个层面，不断优化用户体验。这些“材质代理”、“光照贴图”、“玩家碰撞体”等术语，均是游戏引擎图形渲染、物理模拟和关卡构建中的关键技术概念。其次，也是最引人注目的一点，是社区玩家在修复工作中的积极参与。多项修复明确标注为“社区修复”，这体现了一种成熟且高效的“社区驱动型开发”或“众包维护”模式。对于像《军团要塞2》这类运营多年的经典游戏而言，由玩家贡献修复不仅能显著降低开发商的维护成本，延长游戏的生命周期，还能极大地增强玩家群体的归属感和参与度。这种模式在游戏行业中具有深远影响，它证明了即使是老游戏也能通过社区协作保持活力，为游戏的长尾效应和可持续发展提供了宝贵经验。
                     </div>
                 </div>
             </div>
@@ -132,7 +132,7 @@
                     </div>
                     
                     <div class="text-lg zh-text text-slate-800 font-medium">
-                        修复了与材质代理相关的客户端崩溃问题。<br><br>修复了在“曼恩 vs. 机器”模式中，侦察兵的NegativeVocalization04声音因音量设置的拼写错误而无法播放的问题（由That Hat Guy贡献的社区修复）。<br><br>修复了间谍冰锥不使用其冰锥光照贴图的问题（由BreavyTF2贡献的社区修复）。<br><br>更新了cp_coldfront的材质，以修复压缩问题。<br><br>更新了嘲讽：碎心者的道具，以修复材质缺失问题。<br><br>更新了koth_demolition地图，修复了直升机停机坪上一个玩家碰撞体，该碰撞体允许玩家站立在可玩区域之外（感谢Midnite）。<br><br>修复了某些门上的玩家碰撞体像素行走问题。<br><br>修复了一个浮动在BLU队伍重生点上方的子弹阻挡体（感谢True_Boredom）。<br><br>Team Fortress 2 已发布更新。当您重新启动 Team Fortress 2 时，更新将自动应用。主要更改包括：
+                        修复了与材质代理相关的客户端崩溃问题<br><br>修复了曼恩 vs. 机器中侦察兵Scout.NegativeVocalization04音效因音量设置错误而无法播放的问题（社区玩家That Hat Guy的修复）<br><br>修复了间谍冰锥（The Spy-cicle）未正确使用其冰锥光照贴图的问题（社区玩家BreavyTF2的修复）<br><br>更新了cp_coldfront地图的材质以修复压缩问题<br><br>更新了嘲讽动作“心碎者”（Taunt: Heartbreaker）的道具以修复材质缺失问题<br><br>更新了koth_demolition地图 修复了直升机停机坪上一个玩家碰撞体，该碰撞体允许玩家站到可玩区域外（感谢Midnite）<br><br>修复了某些门上的一些玩家碰撞体像素行走问题<br><br>修复了一个浮在BLU重生点上方的子弹阻挡物（感谢True_Boredom）<br><br>Team Fortress 2（军团要塞2）已发布更新。当你重新启动Team Fortress 2时，更新将自动应用。主要更改包括：
                     </div>
                     
                 </div>
