@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer" />
-    <title>我忍不住力挺小型开源AI模型制造商Arcee - Daily Insight</title>
+    <title>派早报：macOS 内核 TCP 协议栈存在溢出漏洞、Google Pixel 10a 推出独占版本等 - Daily Insight</title>
     <!-- 引入 Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- 引入 Google Fonts -->
@@ -63,20 +63,20 @@
             <header class="px-8 py-10 md:px-12 md:py-16 bg-slate-50 border-b border-slate-100 text-center">
                 <span
                     class="inline-block px-3 py-1 mb-6 rounded-full text-sm font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
-                    TechCrunch
+                    少数派
                 </span>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 zh-text leading-tight mb-6 mt-2">
-                    我忍不住力挺小型开源AI模型制造商Arcee
+                    派早报：macOS 内核 TCP 协议栈存在溢出漏洞、Google Pixel 10a 推出独占版本等
                 </h1>
                 <h2 class="text-xl md:text-2xl font-bold text-slate-500 font-serif leading-snug">
-                    I can’t help rooting for tiny open source AI model maker Arcee
+                    派早报：macOS 内核 TCP 协议栈存在溢出漏洞、Google Pixel 10a 推出独占版本等
                 </h2>
             </header>
 
             <!-- 沉浸式头图 -->
             
             <div class="px-8 pt-8 md:px-12 bg-white">
-                <img src="https://techcrunch.com/wp-content/uploads/2026/01/Arcee-founders.jpg?resize=1200,802" alt="Immersive Header Image"
+                <img src="https://rssfile.sspai.com/2026/4/8/article/1f04d84c-9afe-3ba0-5c2c-db901ad37286.jpeg?imageMogr2/auto-orient/format/webp/ignore-error/1" alt="Immersive Header Image"
                     class="w-full max-h-96 object-cover rounded-xl shadow-sm">
             </div>
             
@@ -94,7 +94,7 @@
                         <h3 class="text-xl font-bold zh-text">💡 AI 深度解析 (AI Insight)</h3>
                     </div>
                     <div class="text-indigo-900 zh-text leading-relaxed text-[15px] font-medium">
-                        Arcee发布的Trinity Large Thinking模型，其核心在于“开源权重”（open-weight）的商业和技术战略。开源权重模型允许用户下载模型的底层代码和参数，进行本地化部署、微调训练，并拥有数据的完全控制权。这与Anthropic、OpenAI等公司提供的“闭源”或“API访问”模式形成鲜明对比，后者限制了用户对模型内部机制的访问和数据处理的自主性。从技术原理上讲，开源权重模型通过Apache 2.0等开放许可证，极大地降低了企业使用AI的门槛和风险，尤其是在数据隐私、合规性和定制化需求方面。其行业影响深远。首先，它打破了少数科技巨头对AI模型生态的垄断，促进了市场竞争与创新。企业不再完全依赖于外部API，避免了供应商锁定（vendor lock-in）的风险，例如Anthropic突然更改OpenClaw的订阅政策所示。其次，该策略回应了西方国家对数据主权和国家安全考量的担忧，为希望避免使用潜在受外国政府影响模型的公司提供了可靠的替代方案。通过本地部署，企业能够更好地保护敏感数据，符合地缘政治背景下的商业逻辑。这不仅增强了企业对AI技术的控制力，也推动了更为多元和去中心化的AI生态发展。
+                        这篇文章揭示了macOS系统中一个隐藏的TCP协议栈漏洞，其核心机制在于XNU内核中32位计数器的溢出。当系统连续运行时间累积到特定临界点（49天17小时2分47秒）时，这个计数器会因达到其最大值而无法正确推进TCP内部计时器。这导致了处于特定状态的TCP连接无法被系统正常终止和回收，进而造成“临时端口耗尽”。临时端口是TCP/IP通信中用于标识客户端发起连接的短期端口，一旦这些端口被占用且无法释放，系统便无法建立新的传出TCP连接，网络服务将实际上瘫痪。这种“静默失效”的特性使得用户难以察觉，因为它不引发崩溃或明显错误日志。此漏洞凸显了操作系统底层计时器精确性和资源管理的重要性，即使是最微小的计数器溢出也可能对网络功能造成灾难性影响。然而，文章也指出，Apple的常规更新策略（通常在49天内推送更新并要求重启）在一定程度上意外地缓解了该漏洞的普遍影响，使其主要局限于不常重启的设备。<br><br>Photon 于 4 月 6 日发布的博客披露，macOS 系统中存在一个会导致网络瘫痪的 TCP 协议栈漏洞，该漏洞由 Apple XNU 内核中一个 32 位计数器触发。当系统连续运行时间达到 49 天 17 小时 2 分 47 秒时，内部 TCP 计时器会停止工作，处于特定状态的 TCP 连接无法被正常回收，最终导致临时端口耗尽。结果是，系统无法建立任何新的 TCP 连接，仅 ICMP 等特定网络连接不受影响。经过 Photon 测试确认，这个内核缺陷至少影响 macOS Catalina 10.15 及之后的版本；更老的版本是否有类似问题暂时还不得而知。这个问题也不会引发内核崩溃或者产生明显的错误日志，属于静默失效，所以用户往往难以第一时间定位问题根源。<br><br>值得一提的是，根据 macOS 的系统更新推送频率，Apple 恰好会在这个漏洞的触发窗口内推送系统更新并触发重启，所以此前也只有长时间连续运行且不重启的设备才会受到这个问题影响。<br><br>===AI_EXPLANATION===<br>这篇文章揭示了macOS系统中一个隐藏的TCP协议栈漏洞，其核心机制在于XNU内核中32位计数器的溢出。当系统连续运行时间累积到特定临界点（49天17小时2分47秒）时，这个计数器会因达到其最大值而无法正确推进TCP内部计时器。这导致了处于特定状态的TCP连接无法被系统正常终止和回收，进而造成“临时端口耗尽”。临时端口是TCP/IP通信中用于标识客户端发起连接的短期端口，一旦这些端口被占用且无法释放，系统便无法建立新的传出TCP连接，网络服务将实际上瘫痪。这种“静默失效”的特性使得用户难以察觉，因为它不引发崩溃或明显错误日志。此漏洞凸显了操作系统底层计时器精确性和资源管理的重要性，即使是最微小的计数器溢出也可能对网络功能造成灾难性影响。然而，文章也指出，Apple的常规更新策略（通常在49天内推送更新并要求重启）在一定程度上意外地缓解了该漏洞的普遍影响，使其主要局限于不常重启的设备。
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                     </div>
                     
                     <div class="text-md font-serif text-slate-700">
-                        Arcee, a tiny 26-person U.S. startup that built a massive, 400B-parameter open source LLM on a $20 million shoestring budget, has released its new reasoning model. Arcee calls the model Trinity Large Thinking — and it’s the most capable open-weight model “ever released by a non-Chinese company,” claims CEO Mark McQuade to TechCrunch.<br><br>As that comment implies, Arcee has a goal that I can’t help but root for: It wants to give U.S. and Western companies a model that gives them no reason to use a Chinese-based one.<br><br>While Chinese models are extremely capable, they are perceived as risky, putting power, and perhaps data, into the hands of a government that doesn’t share all of the Western world’s ideals.<br><br>With Arcee, companies can download the model, train it to their own needs, and use it on premises. Companies can also use Arcee’s cloud-hosted version, accessible via API.<br><br>While Arcee’s models are not outperforming the closed source models from the big labs like Anthropic or OpenAI, they’re not being held hostage by the whims of those giants, either.<br><br>For instance, Claude, with its exceptional abilities to code, has been a popular choice for users of open source AI agent tool OpenClaw. But Anthropic pulled the rug out from them last week when it told users that their Anthropic subscriptions will no longer cover OpenClaw usage — they will have to pay additionally for that. (In February, OpenClaw creator Peter Steinberger said he was joining Anthropic’s biggest rival, OpenAI.)<br><br>In contrast, McQuade proudly points to data from OpenRouter that says it has become one of the top models used with OpenClaw.<br><br>Techcrunch event This Week Only: Up to $482 savings for Disrupt 2026 Offer ends April 10, 11:59 p.m. PT<br><br><br><br>Your next round. Your next hire. Your next breakout opportunity. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. Register now to secure these savings. This Week Only: Up to $482 savings for Disrupt 2026 Offer ends April 10, 11:59 p.m. PT<br><br><br><br>Your next round. Your next hire. Your next breakout opportunity. Find it at TechCrunch Disrupt 2026, where 10,000+ founders, investors, and tech leaders gather for three days of 250+ tactical sessions, powerful introductions, and market-defining innovation. Register now to secure these savings. San Francisco, CA | REGISTER NOW<br><br>So, how good is Trinity Large Thinking? It is comparable to some of the other top open source models, according to the benchmark results it shared with TechCrunch.<br><br>Arcee Trinity large thinking Benchmarks Image Credits:Arcee / Arcee<br><br>As we previously reported, it is not a head-to-head threat to the big cheese among U.S.-built open models: Meta’s Llama 4. But it also doesn’t have the odd, not-really open source license issues of Meta’s model. All of Arcee’s Trinity models are released under the gold standard for OS licenses, Apache 2.0.<br><br>Just to be clear, there are also countless other U.S. startups offering open source models and, as a fan of the ingenuity of startups, I’m rooting for them, too.
+                        Photon 于 4 月 6 日发布的博客披露，macOS 系统中存在一个会导致网络瘫痪的 TCP 协议栈漏洞，该漏洞由 Apple XNU 内核中一个 32 位计数器触发，当系统连续运行时间达到 49 天 17 小时 2 分 47 秒时，内部 TCP 计时器会停止工作，处于特定状态的 TCP 连接无法被正常回收，最终导致临时端口耗尽，系统无法建立任何新的 TCP 连接，仅 ICMP 等特定网络连接不受影响。经过 Photon 测试确认，这个内核缺陷至少影响 macOS Catalina 10.15 及之后的版本，更老的版本是否有类似问题暂时还不得而知，这个问题也不会引发内核崩溃或者产生明显的错误日志，属于静默失效，所以用户往往难以第一时间定位问题根源。<br><br>值得一提的是，根据 macOS 的系统更新推送频率，Apple 恰好会在这个漏洞的触发窗口内推送系统更新并触发重启，所以此前也只有长时间连续运行且不重启的设备才会受到这个问题影响。来源
                     </div>
                     
                 </div>
@@ -132,7 +132,7 @@
                     </div>
                     
                     <div class="text-lg zh-text text-slate-800 font-medium">
-                        Arcee，一家由26人组成的美国小型初创公司，以2000万美元的极低预算构建了一个庞大的、拥有4000亿参数的开源大型语言模型（LLM），现已发布其新的推理模型。Arcee将该模型命名为Trinity Large Thinking——据首席执行官马克·麦奎德（Mark McQuade）向TechCrunch声称，它是“非中国公司发布过的最强大的开源权重模型”。<br><br>正如其评论所暗示的，Arcee有一个我忍不住要支持的目标：它希望为美国和西方公司提供一个模型，让它们没有理由再使用基于中国的模型。<br><br>尽管中国模型能力极强，但它们被认为存在风险，因为这可能将权力和数据置于一个不完全认同西方世界理想的政府手中。<br><br>借助Arcee，公司可以下载模型，根据自身需求对其进行训练，并在本地使用。公司也可以通过API访问Arcee的云托管版本。<br><br>尽管Arcee的模型尚未超越Anthropic或OpenAI等大型实验室的闭源模型，但它们也不会受制于这些巨头的反复无常。<br><br>例如，Claude凭借其卓越的编码能力，一直是开源AI代理工具OpenClaw用户的热门选择。但Anthropic上周出人意料地撤销了支持，告知用户其Anthropic订阅将不再涵盖OpenClaw的使用——他们将为此额外付费。（今年二月，OpenClaw的创建者彼得·施泰因伯格（Peter Steinberger）表示他正在加入Anthropic最大的竞争对手OpenAI。）<br><br>相比之下，麦奎德自豪地指出OpenRouter的数据显示，Trinity已成为OpenClaw最常用的模型之一。<br><br>TechCrunch活动本周限定：购买Disrupt 2026门票可节省高达482美元优惠截止日期：太平洋时间4月10日晚11:59。<br><br>您的下一轮融资。您的下一位雇员。您的下一个突破性机遇。在TechCrunch Disrupt 2026寻找这一切，届时将有10,000多名创始人、投资者和科技领袖齐聚一堂，参与为期三天的250多场战术会议、有力的介绍和定义市场的创新活动。立即注册以确保享受这些优惠。本周限定：购买Disrupt 2026门票可节省高达482美元优惠截止日期：太平洋时间4月10日晚11:59。<br><br>您的下一轮融资。您的下一位雇员。您的下一个突破性机遇。在TechCrunch Disrupt 2026寻找这一切，届时将有10,000多名创始人、投资者和科技领袖齐聚一堂，参与为期三天的250多场战术会议、有力的介绍和定义市场的创新活动。立即注册以确保享受这些优惠。加利福尼亚州旧金山 | 立即注册<br><br>那么，Trinity Large Thinking的表现如何？根据其与TechCrunch分享的基准测试结果，它可与一些其他顶级的开源模型相媲美。<br><br>Arcee Trinity大型思考模型基准测试图片来源：Arcee / Arcee<br><br>正如我们此前报道的，它并非对美国开发的开源模型中的佼佼者——Meta的Llama 4构成直接威胁。但它也没有Meta模型那种奇怪的、并非真正开源的许可问题。Arcee所有的Trinity模型均以开源许可的黄金标准Apache 2.0发布。<br><br>需要明确的是，还有无数其他美国初创公司提供开源模型，作为初创公司独创性的拥护者，我也为它们加油。
+                        Photon 于 4 月 6 日发布的博客披露，macOS 系统中存在一个会导致网络瘫痪的 TCP 协议栈漏洞，该漏洞由 Apple XNU 内核中一个 32 位计数器触发。当系统连续运行时间达到 49 天 17 小时 2 分 47 秒时，内部 TCP 计时器会停止工作，处于特定状态的 TCP 连接无法被正常回收，最终导致临时端口耗尽。结果是，系统无法建立任何新的 TCP 连接，仅 ICMP 等特定网络连接不受影响。经过 Photon 测试确认，这个内核缺陷至少影响 macOS Catalina 10.15 及之后的版本；更老的版本是否有类似问题暂时还不得而知。这个问题也不会引发内核崩溃或者产生明显的错误日志，属于静默失效，所以用户往往难以第一时间定位问题根源。<br><br>值得一提的是，根据 macOS 的系统更新推送频率，Apple 恰好会在这个漏洞的触发窗口内推送系统更新并触发重启，所以此前也只有长时间连续运行且不重启的设备才会受到这个问题影响。
                     </div>
                     
                 </div>
@@ -141,7 +141,7 @@
 
             <!-- 卡片底部链接 -->
             <footer class="px-8 py-8 md:px-12 bg-slate-50 border-t border-slate-100 text-center">
-                <a href="https://techcrunch.com/2026/04/07/i-cant-help-rooting-for-tiny-open-source-ai-model-maker-arcee/" target="_blank" rel="noopener noreferrer"
+                <a href="https://sspai.com/post/108380" target="_blank" rel="noopener noreferrer"
                     class="inline-flex items-center text-base font-semibold text-indigo-600 hover:text-white hover:bg-indigo-600 border border-indigo-600 px-6 py-3 rounded-full transition-all duration-300 group">
                     View Source Webpage / 访问原始网页
                     <svg class="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
