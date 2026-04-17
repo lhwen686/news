@@ -94,7 +94,7 @@
                         <h3 class="text-xl font-bold zh-text">💡 AI 深度解析 (AI Insight)</h3>
                     </div>
                     <div class="text-indigo-900 zh-text leading-relaxed text-[15px] font-medium">
-                        这份更新日志揭示了多人在线游戏特别是“实时服务型游戏”运营维护的核心机制。它不仅展示了游戏开发团队对产品持续改进的承诺，也凸显了社区参与在游戏生命周期中的关键作用。专业概念上，首先是“实时服务模型”下的迭代更新，游戏上线并非终点，而是通过定期补丁修复漏洞、优化体验、调整平衡，以保持玩家活跃度和游戏健康。其次是“社区贡献与合作”，更新中多次提及“社区修复”，这表明开发者积极采纳并整合玩家社群发现甚至提出的解决方案，这种开放式协作不仅能加快问题解决速度，更能增强玩家的归属感和对游戏的忠诚度。从技术原理看，修复内容涵盖了从图形渲染（烟雾效果、亮度不透明度、LOD、贴图）到物理碰撞（树木碰撞、跳跃预测）再到游戏逻辑（狙击手免疫冻结）等多个层面，体现了游戏系统的高度复杂性和维护的精细化需求。行业影响方面，这种模式是现代大型多人在线游戏成功的基石，它通过持续的内容更新和问题解决，有效延长了游戏的生命周期，构建了开发者与玩家共赢的生态系统，确保了产品在竞争激烈的市场中保持活力。
+                        此更新日志揭示了游戏《军团要塞2》日常维护的关键技术细节与行业实践。核心技术概念包括材质代理（material proxies）的修复，这通常涉及游戏引擎如何高效渲染复杂视觉效果，避免资源冲突或崩溃。光照扭曲（lightwarp）问题修正，则体现了游戏美术管线中对特定视觉风格（如卡通渲染）的精确控制。更深层次地，玩家碰撞体积（player clip）和子弹阻挡物（blockbullets）的调整，是游戏物理引擎和关卡设计中防止玩家利用漏洞到达地图外区域或产生不公平优势的重要手段。材质压缩问题修复，则指向了游戏资源优化和加载性能的平衡。<br><br>此更新最显著的行业影响是社区驱动式开发的价值。多个修复明确注明来自社区成员的贡献，这突显了活跃玩家群体在发现问题、甚至提供解决方案方面的巨大潜力。对于《军团要塞2》这样一款运营多年的经典游戏而言，由内外部协同进行持续性的bug修复和优化，不仅能显著提升玩家体验、延长游戏生命周期，也为其他长寿型游戏提供了宝贵的运营范例。这种模式通过赋能社区，有效分担了开发团队的维护负担，并强化了玩家对游戏的归属感和参与度，是现代游戏服务化运营（Game-as-a-Service）模式中不可或缺的一环。
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                     </div>
                     
                     <div class="text-md font-serif text-slate-700">
-                        Added smoke effect to the Scrooge McCrocket<br><br><br><br>Fixed prediction error when crouch jumping (community fix from ficool2)<br><br><br><br>Updated the Snow Dome Unusual effect to decrease brightness and opacity of the glass and floor textures<br><br><br><br>Updated the Festive Fleece to fix LOD issues<br><br><br><br>Updated the Puncher's Polar Puffer to fix some skinning issues<br><br><br><br>Updated The Conscientious Objector to fix missing material parameters (community fix from Lindon)<br><br><br><br>Updated koth_winter_ridge to fix a collision error with projectiles on the dead tree at mid<br><br><br><br>Updated 2koth_abbey Fixed small gaps in doorways outside of spawn<br><br>Updated tall crates to add nobuild triggers and make it more obvious they cannot be stood on<br><br>Updated clipping in the river<br><br>Fixed Snipers wearing the Razorback being immune to freezing<br><br><br><br>An update to Team Fortress 2 has been released. The update will be applied automatically when you restart Team Fortress 2. The major changes include:
+                        Fixed client crash related to material proxies<br><br><br><br>Fixed Scout.NegativeVocalization04 sounds in Mann vs. Machine not playing because of a typo in the volume (community fix from That Hat Guy)<br><br><br><br>Fixed The Spy-cicle not using its icicle lightwarp (community fix from BreavyTF2)<br><br><br><br>Updated material for cp_coldfront to fix compression issue<br><br><br><br>Updated the prop for Taunt: Heartbreaker to fix a missing material<br><br><br><br>Updated koth_demolition Fixed a player clip on the helipad allowing players to stand outside the playable area (thanks Midnite)<br><br>Fixed some player clip pixel walks on some doors<br><br>Fixed a blockbullets floating above BLU spawn (thanks True_Boredom)<br><br><br><br>An update to Team Fortress 2 has been released. The update will be applied automatically when you restart Team Fortress 2. The major changes include:
                     </div>
                     
                 </div>
@@ -132,7 +132,7 @@
                     </div>
                     
                     <div class="text-lg zh-text text-slate-800 font-medium">
-                        为吝啬鬼麦克火箭筒添加了烟雾效果<br><br>修复了蹲跳时的预测错误（来自ficool2的社区修复）<br><br>更新了雪球圆顶稀有特效，降低了玻璃和地面纹理的亮度及不透明度<br><br>更新了节日羊毛衫以修复LOD问题<br><br>更新了拳击手的北极河豚以修复一些皮肤贴图问题<br><br>更新了良心反战者以修复材质参数缺失问题（来自Lindon的社区修复）<br><br>更新了koth_winter_ridge地图，修复了中部死树上抛射物的碰撞错误<br><br>更新了2koth_abbey地图，修复了出生点外门口的小间隙<br><br>更新了高板条箱，加入了禁建造触发器，使其更明显地无法站立<br><br>更新了河流中的裁剪<br><br>修复了佩戴剃刀背包的狙击手对冰冻免疫的问题<br><br>Team Fortress 2 已发布更新。当您重新启动 Team Fortress 2 时，此更新将自动应用。主要更改包括：
+                        修复了与材质代理相关的客户端崩溃问题<br><br>修复了曼恩 vs. 机器模式中Scout的NegativeVocalization04声音因音量设置的拼写错误而无法播放的问题（由社区成员That Hat Guy修复）<br><br>修复了间谍冰锥（The Spy-cicle）未正确使用其冰锥光照扭曲的问题（由社区成员BreavyTF2修复）<br><br>更新了cp_coldfront地图的材质，以修复压缩问题<br><br>更新了嘲讽动作“心碎者”（Taunt: Heartbreaker）的道具，以修复材质缺失问题<br><br>更新了koth_demolition地图。修复了直升机停机坪上一个允许玩家站在可玩区域之外的玩家碰撞体积问题（鸣谢Midnite）<br>修复了部分门上的玩家碰撞体积像素行走问题<br>修复了BLU方出生点上方漂浮的子弹阻挡物（鸣谢True_Boredom）<br><br>《军团要塞2》已发布更新。当你重新启动《军团要塞2》时，更新将自动应用。主要更改包括：
                     </div>
                     
                 </div>
@@ -141,7 +141,7 @@
 
             <!-- 卡片底部链接 -->
             <footer class="px-8 py-8 md:px-12 bg-slate-50 border-t border-slate-100 text-center">
-                <a href="https://store.steampowered.com/news/259771/" target="_blank" rel="noopener noreferrer"
+                <a href="https://store.steampowered.com/news/265516/" target="_blank" rel="noopener noreferrer"
                     class="inline-flex items-center text-base font-semibold text-indigo-600 hover:text-white hover:bg-indigo-600 border border-indigo-600 px-6 py-3 rounded-full transition-all duration-300 group">
                     View Source Webpage / 访问原始网页
                     <svg class="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
