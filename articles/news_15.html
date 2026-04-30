@@ -76,7 +76,7 @@
             <!-- 沉浸式头图 -->
             
             <div class="px-8 pt-8 md:px-12 bg-white">
-                <img src="https://store.fastly.steamstatic.com/public/shared/images/responsive/steam_share_image.jpg" alt="Immersive Header Image"
+                <img src="https://store.akamai.steamstatic.com/public/shared/images/responsive/steam_share_image.jpg" alt="Immersive Header Image"
                     class="w-full max-h-96 object-cover rounded-xl shadow-sm">
             </div>
             
@@ -94,7 +94,7 @@
                         <h3 class="text-xl font-bold zh-text">💡 AI 深度解析 (AI Insight)</h3>
                     </div>
                     <div class="text-indigo-900 zh-text leading-relaxed text-[15px] font-medium">
-                        这份《军团要塞2》的游戏更新日志，虽是细节修复，却生动展现了实时服务型游戏（Live-Service Game）开发与维护的技术原理及行业影响。核心技术概念涵盖了游戏资产管理（如材质代理、光照贴图、缺失材质、材质压缩）、碰撞检测（player clips，用于定义玩家可活动区域及防止穿模）和音频系统。材质代理和光照贴图直接影响游戏的视觉呈现和真实感；精确的碰撞体积则是确保游戏公平性和避免作弊行为的关键；而客户端崩溃和音频错误的修复，则关乎游戏最基本的功能稳定性和用户体验。<br><br>其行业影响深远。首先，持续而细致的错误修复是保持一款长寿游戏活力的基础，它能有效提升玩家体验，防止因技术问题导致用户流失。其次，值得注意的是其中提及的“社区修复”，这凸显了在现代游戏开发，尤其对于《军团要塞2》这类运营多年的经典作品，社区力量的重要性。社区贡献不仅能有效补充开发团队的资源，还能增强玩家的归属感和参与度，形成一种健康的开发者与玩家互动模式。这种持续的技术维护和社区协作，共同延长了游戏的生命周期，也为其他数字产品提供了持续运营和维护的宝贵借鉴。
+                        这篇文章详细列举了《军团要塞2》游戏的一次维护性更新，其中涵盖了多项技术层面的修复和优化。核心专业概念包括图形渲染中的“Z轴重叠”（z-fighting），指当两个物体在同一深度平面上渲染时出现的闪烁伪影，修复它能提升视觉平滑度。“稀有特效”的更新则涉及粒子系统的管理，如解决粒子脱离、可见度、轨迹和遮挡问题，这对于依赖饰品和视觉效果来增加玩家沉浸感与游戏经济价值的现代游戏至关重要。此外，“多级渐远纹理”（mipmapping）的修复确保了不同距离下纹理的清晰度。性能优化方面，“将昂贵水体替换为廉价水体”是典型的游戏开发策略，旨在通过降低特定高负荷视觉元素的渲染复杂度，来显著提升游戏帧率（FPS），从而扩大游戏对不同硬件配置的兼容性，提高玩家基数。修复“升降梯同步问题”则关乎网络游戏的核心体验，确保服务器与客户端状态一致，避免玩家因不同步而产生的不公平或困惑。这些细节更新共同反映了游戏长期运营中对用户体验、技术稳定性和性能优化的持续投入，对维持游戏生命力和玩家忠诚度具有深远影响。
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                     </div>
                     
                     <div class="text-md font-serif text-slate-700">
-                        Fixed client crash related to material proxies<br><br><br><br>Fixed Scout.NegativeVocalization04 sounds in Mann vs. Machine not playing because of a typo in the volume (community fix from That Hat Guy)<br><br><br><br>Fixed The Spy-cicle not using its icicle lightwarp (community fix from BreavyTF2)<br><br><br><br>Updated material for cp_coldfront to fix compression issue<br><br><br><br>Updated the prop for Taunt: Heartbreaker to fix a missing material<br><br><br><br>Updated koth_demolition Fixed a player clip on the helipad allowing players to stand outside the playable area (thanks Midnite)<br><br>Fixed some player clip pixel walks on some doors<br><br>Fixed a blockbullets floating above BLU spawn (thanks True_Boredom)<br><br><br><br>An update to Team Fortress 2 has been released. The update will be applied automatically when you restart Team Fortress 2. The major changes include:
+                        Fixed minor z-fighting issue with the Wrap Assassin Festivizer<br><br><br><br>Fixed the Taunt: The Critical Fail ending at the incorrect time for the Medic<br><br><br><br>Updated the Hard Carry Unusual effect to fix detachment issues when using the "adjust unusual" slider<br><br><br><br>Updated the Scorching Sensation and Burning Sensation Unusual effects to improve visibility in bright areas<br><br><br><br>Updated the Team Recognition Unusual effect to fix a problem with the parent-child particle system<br><br><br><br>Updated the Frostfire, Spectrum Inferno, and Chromatic Blaze Unusual effects to fix issues with the trail and brightness<br><br><br><br>Updated the Cryogenic Unusual effect to fix obscuring parts of the characters<br><br><br><br>Updated the Air Head to fix a problem with mipmapping<br><br><br><br>Updated 2koth_abbey Fixed broken cliff displacements<br><br>Swapped expensive water for cheap water to improve FPS<br><br>Various fixes and improvements<br><br>Updated plr_matterhorn Fixed hole in spawn barrier (thanks Ctena!)<br><br>Fixed a desync issue with lifts (thanks Skin King!)<br><br>Disabled team swap on new round<br><br>Clipping improvements<br><br>Bread optimization<br><br><br><br>An update to Team Fortress 2 has been released. The update will be applied automatically when you restart Team Fortress 2. The major changes include:
                     </div>
                     
                 </div>
@@ -132,7 +132,7 @@
                     </div>
                     
                     <div class="text-lg zh-text text-slate-800 font-medium">
-                        修复了与材质代理相关的客户端崩溃问题。<br><br>修复了在“人机大战”模式中，侦察兵的“NegativeVocalization04”音效因音量设置的拼写错误而无法播放的问题（由That Hat Guy提供的社区修复）。<br><br>修复了间谍冰锥不使用其冰锥光照贴图的问题（由BreavyTF2提供的社区修复）。<br><br>更新了cp_coldfront地图的材质，以修复压缩问题。<br><br>更新了嘲讽动作“心碎者”的道具，以修复材质缺失问题。<br><br>更新了koth_demolition地图。修复了直升机停机坪上的一个玩家碰撞体积，该碰撞体积允许玩家站在可玩区域之外（感谢Midnite）。<br>修复了部分门上的玩家碰撞体积像素行走问题。<br>修复了BLU方出生点上方漂浮的子弹阻挡物（感谢True_Boredom）。<br><br>《军团要塞2》已发布一项更新。该更新将在您重启《军团要塞2》时自动应用。主要更改包括：
+                        修复了与“刺客裹尸布”装扮器相关的轻微Z轴重叠问题。<br><br>修复了“嘲讽：致命失败”对医生职业角色结束时间不正确的问题。<br><br>更新了“硬核携带”稀有特效，修复了在使用“调整稀有特效”滑块时出现的脱离问题。<br><br>更新了“炙热感受”和“燃烧感受”稀有特效，以改善在明亮区域的可见度。<br><br>更新了“团队认可”稀有特效，修复了父子粒子系统的问题。<br><br>更新了“冰霜之火”、“光谱地狱”和“彩色火焰”稀有特效，修复了轨迹和亮度问题。<br><br>更新了“低温”稀有特效，修复了其遮挡角色部分身体的问题。<br><br>更新了“空气头盔”，修复了多级渐远纹理（mipmapping）的问题。<br><br>更新了地图2koth_abbey：修复了损坏的悬崖位移。<br>将昂贵的水体替换为廉价水体，以提高帧率。<br>各项修复和改进。<br><br>更新了地图plr_matterhorn：修复了出生点屏障中的一个漏洞（感谢Ctena！）。<br>修复了升降梯的同步问题（感谢Skin King！）。<br>在新一回合中禁用了队伍交换功能。<br>裁剪改进。<br>面包优化。<br><br>《军团要塞2》已发布更新。当你重新启动《军团要塞2》时，更新将自动应用。主要变化包括：
                     </div>
                     
                 </div>
@@ -141,7 +141,7 @@
 
             <!-- 卡片底部链接 -->
             <footer class="px-8 py-8 md:px-12 bg-slate-50 border-t border-slate-100 text-center">
-                <a href="https://store.steampowered.com/news/265516/" target="_blank" rel="noopener noreferrer"
+                <a href="https://store.steampowered.com/news/259481/" target="_blank" rel="noopener noreferrer"
                     class="inline-flex items-center text-base font-semibold text-indigo-600 hover:text-white hover:bg-indigo-600 border border-indigo-600 px-6 py-3 rounded-full transition-all duration-300 group">
                     View Source Webpage / 访问原始网页
                     <svg class="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
