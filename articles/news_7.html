@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer" />
-    <title>自动补全生僻字，让 Kindle 从底层告别小方块 - Daily Insight</title>
+    <title>少数派 × 飞傲 多功能便携 CD 音箱一体机 BEATBOX 预售开启 - Daily Insight</title>
     <!-- 引入 Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- 引入 Google Fonts -->
@@ -66,17 +66,17 @@
                     少数派
                 </span>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 zh-text leading-tight mb-6 mt-2">
-                    自动补全生僻字，让 Kindle 从底层告别小方块
+                    少数派 × 飞傲 多功能便携 CD 音箱一体机 BEATBOX 预售开启
                 </h1>
                 <h2 class="text-xl md:text-2xl font-bold text-slate-500 font-serif leading-snug">
-                    自动补全生僻字，让 Kindle 从底层告别小方块
+                    少数派 × 飞傲 多功能便携 CD 音箱一体机 BEATBOX 预售开启
                 </h2>
             </header>
 
             <!-- 沉浸式头图 -->
             
             <div class="px-8 pt-8 md:px-12 bg-white">
-                <img src="https://rssfile.sspai.com/2026/05/16/a1ea3913a1f635a5d02281cfb9a7a18f.png?imageMogr2/auto-orient/ignore-error/1" alt="Immersive Header Image"
+                <img src="https://rssfile.sspai.com/2026/05/20/eb68da460519b055a791289c254ac1f4.jpg?imageMogr2/auto-orient/ignore-error/1" alt="Immersive Header Image"
                     class="w-full max-h-96 object-cover rounded-xl shadow-sm">
             </div>
             
@@ -94,7 +94,7 @@
                         <h3 class="text-xl font-bold zh-text">💡 AI 深度解析 (AI Insight)</h3>
                     </div>
                     <div class="text-indigo-900 zh-text leading-relaxed text-[15px] font-medium">
-                        本文详细介绍了解决 Kindle 阅读器生僻字显示问题的技术方案。其核心机制在于深入修改设备的底层系统配置。首先，Kindle系统在遇到不识别的字符时，会依据预设的“回退（fallback）”机制，从特定路径加载字体。问题在于，原有的回退机制对于生僻字（如中文扩展B区字符）处理不当，导致显示方块或不美观的系统默认字体。解决方案利用了 Linux 系统中的“upstart”启动管理和“mount --bind”技术。Upstart负责在系统启动时执行自定义脚本，确保字体替换在系统初始化阶段完成。“mount --bind”则是一种文件系统操作，它能将一个文件或目录“绑定”到另一个位置，实现文件重定向。通过将用户提供的“花园明朝（HanaMin）”字库绑定到Kindle系统原有的核心字体路径上，系统在加载字体时实际上加载的是功能更全面的花园明朝，从而完美解决生僻字的显示问题。这种社区驱动的解决方案不仅极大地提升了古籍阅读体验，也展示了通过底层系统定制克服设备原厂限制的可能性，对于数字文化遗产的保存和传播具有重要意义。
+                        BEATBOX CD机通过「盖板设计大赛」引入用户共创，这在消费电子产品领域是一个显著的商业逻辑创新。传统上，硬件设计由厂商主导，而BEATBOX则将用户审美和表达融入产品核心，提升了用户参与感和品牌忠诚度。磁吸式可更换盖板设计不仅是美学上的个性化，更体现了模块化、可定制化的产品趋势，延长了产品的新鲜感和生命周期，也兼容了现代智能生态（如MagSafe）。从技术和功能上看，BEATBOX巧妙地融合了复古与现代。它不只是一台CD机，更是集Hi-Fi音箱、蓝牙、USB、FM及AUX输入于一体的多功能音频中心。这种“实体唱片+流媒体”的混合模式，满足了不同场景和偏好的用户需求，既迎合了对物理介质有情怀的消费者，又提供了数字时代便捷的听音方式。内置的2.1重低音立体声扬声器和Hi-Fi音频技术，确保了音质体验。这种设计策略不仅可能激活CD市场的复兴，也为其他传统电子产品在智能互联时代的生存和发展提供了新思路，即通过深度用户参与和功能复合化来创造独特价值，而非单纯追求技术参数的极致。
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                     </div>
                     
                     <div class="text-md font-serif text-slate-700">
-                        前言<br><br>对于古籍爱好者来说，Kindle 原生系统最令人头痛的就是字库残缺。虽然 Kindle 允许用户设置自定义字体，但系统内核在处理生僻字（Extension B+）时往往会因为回退（fallback）机制优先级问题，直接显示成方块或调用极其难看的系统回退字体。<br><br>本文将分享如何修改 Kindle 底层的 upstart 配置，实现开机自动挂载花园明朝（HanaMin）字体。这不仅能修复字典弹窗，更能让古籍正文中所有生僻字完美显示，达成全系统视觉统一。<br><br>核心原理<br><br>Kindle 系统在显示字符时有一套预设的优先级：当正文或字典遇到不认识的字，会去 /usr/java/lib/fonts 下寻找。<br><br>我们通过 mount --bind 技术，在系统启动时将其内置的黑体、楷体等核心路径「掉包」成全字位的花园明朝字库。<br><br>准备工作<br><br>设备需求： 已越狱的 Kindle (如 PW4, Oasis 3 等)。<br><br>必备字体： HanaMinB.ttf （收录生僻字、扩展 B/C/D 区，下载链接）放置于 /mnt/us/fonts/ 目录。<br><br>操作步骤<br><br>开启系统写入权限<br><br>通过 SSH 连接 Kindle 后执行（前提：KUAL -> KOreader 开启 SSH 服务）：<br><br>ssh -p 222 root@192.168.0.198 # 请用你设备的实际 IP 替换 mntroot rw<br><br>创建自动启动配置文件<br><br>新建 /etc/upstart/fixfonts.conf 。这份脚本经过优化，同时兼顾了系统界面、字典引擎以及正文阅读器：<br><br>cd /etc/upstart/ nano fixfonts.conf<br><br>在编辑器中填入以下内容：<br><br>start on started framework stop on stopping framework export LANG=en_US.utf8 script PATH=/sbin:/usr/sbin:/bin:/usr/bin: $PATH mount -- bind /mnt/us/fonts/HanaMinB.ttf /usr/java/lib/fonts/MTChineseSurrogates.ttf rm -rf /var/cache/fontconfig/* fc-cache -f end script<br><br>设置权限并重启<br><br>保存退出后，执行以下命令赋予权限并保护系统，最后重启设备：<br><br>chmod +x /etc/upstart/fixfonts.conf mntroot ro reboot<br><br>设置与验证<br><br>为了达到最佳阅读效果，建议在打开古籍后前往 Aa 菜单并选择「系统黑体」或「楷体」。因为我们已经将这些路径「掉包」成了花园明朝，所以此时显示的其实是完美的花园明朝。<br><br>你可以打开如《广韵》或《说文》的 mobi/azw3 文件，搜寻 Extension B 区段的字符，你会发现它们现在与普通汉字一样清晰。<br><br>> 下载 少数派 2.0 客户端、关注 少数派公众号，解锁全新阅读体验 📰<br><br>> 实用、好用的 正版软件，少数派为你呈现 🚀
+                        前段时间，少数派联合飞傲一起做了点有意思的事情：开启「BEATBOX CD 机盖板设计大赛」。我们不想它只是一个标准化的 CD 机，而是希望它带着用户自己的审美和表达，一起参与这台 BEATBOX CD 机的共创。<br><br>经过初选、用户投票以及双方团队的最终评审，以下投稿在众多优秀的设计作品中脱颖而出：<br><br>第一名：M.O.DISK（白；以下简称：复古盖板）<br><br>第二名（共计三款）：黑环律动、Let's dance 01、飞傲解霸（浅色版）<br><br>第三名（共计五款）：CD-IIgs、CPC-CD、獭的Flower Dance、方圆之境、Let's dance 03。<br><br>其中第一名@爱搞机 的「复古盖板」，将作为 BEATBOX 首发限量回馈套装中的专属配件，和第一批机器一起送到大家手中。<br><br>而这块设计盖板，将作为 BEATBOX 首发限量回馈套装中的专属配件，和第一批机器一起送到大家手中。<br><br>功能与设计：从交互到功能的完整体验<br><br>BEATBOX 机身采用磁吸式可更换盖板的设计，此次开售版本为「少数派 × 飞傲」联名款，除赠送盖板外，套装内自带一款少数派专属联名设计盖板，可以根据自己的心情、桌面风格，随时更换不同图案的设计盖板。设备兼容 MagSafe 规格的磁吸配件，可吸附于冰箱、支架等金属表面，结合内置 3350mAh 18650 电池，可充电可换电，满足多场景使用需求。<br><br>音频方面，BEATBOX 内置 2.1 重低音立体声扬声器系统，在纤薄机身中提供极具下潜力的低频表现，适用于桌面场景的音乐播放。同时，设备配备 3.5mm 耳机输出接口，延续飞傲的 Hi-Fi 音频技术，提供有线高解析音质输出。<br><br>当然，BEATBOX 也不只是 CD 机，更是 HiFi 音箱。<br><br>功能方面，BEATBOX 还支持蓝牙连接、U 盘读取、FM 调频广播以及 AUX 音频输入，覆盖实体唱片、流媒体、本地文件及电台等多种听歌方式。<br><br>预售开启：首发限定，售完即止<br><br>预售时间：2026 年 5 月 21 日<br><br>发货时间：2026 年 6 月底前<br><br>预售渠道：少数派官网、蔚来商城<br><br>特别说明：「复古盖板」仅限首发限量回馈套装附赠，不单独销售，首批售罄即止。
                     </div>
                     
                 </div>
@@ -132,7 +132,7 @@
                     </div>
                     
                     <div class="text-lg zh-text text-slate-800 font-medium">
-                        前言<br><br>对于古籍爱好者来说，Kindle 原生系统最令人头痛的就是字库残缺。虽然 Kindle 允许用户设置自定义字体，但系统内核在处理生僻字（Extension B+）时往往会因为回退（fallback）机制优先级问题，直接显示成方块或调用极其难看的系统回退字体。<br><br>本文将分享如何修改 Kindle 底层的 upstart 配置，实现开机自动挂载花园明朝（HanaMin）字体。这不仅能修复字典弹窗，更能让古籍正文中所有生僻字完美显示，达成全系统视觉统一。<br><br>核心原理<br><br>Kindle 系统在显示字符时有一套预设的优先级：当正文或字典遇到不认识的字，会去 /usr/java/lib/fonts 下寻找。<br><br>我们通过 mount --bind 技术，在系统启动时将其内置的黑体、楷体等核心路径「掉包」成全字位的花园明朝字库。<br><br>准备工作<br><br>设备需求： 已越狱的 Kindle (如 PW4, Oasis 3 等)。<br><br>必备字体： HanaMinB.ttf （收录生僻字、扩展 B/C/D 区，下载链接）放置于 /mnt/us/fonts/ 目录。<br><br>操作步骤<br><br>开启系统写入权限<br><br>通过 SSH 连接 Kindle 后执行（前提：KUAL -> KOreader 开启 SSH 服务）：<br><br>ssh -p 222 root@192.168.0.198 请用你设备的实际 IP 替换 mntroot rw<br><br>创建自动启动配置文件<br><br>新建 /etc/upstart/fixfonts.conf 。这份脚本经过优化，同时兼顾了系统界面、字典引擎以及正文阅读器：<br><br>cd /etc/upstart/ nano fixfonts.conf<br><br>在编辑器中填入以下内容：<br><br>start on started framework stop on stopping framework export LANG=en_US.utf8 script PATH=/sbin:/usr/sbin:/bin:/usr/bin: $PATH mount -- bind /mnt/us/fonts/HanaMinB.ttf /usr/java/lib/fonts/MTChineseSurrogates.ttf rm -rf /var/cache/fontconfig/* fc-cache -f end script<br><br>设置权限并重启<br><br>保存退出后，执行以下命令赋予权限并保护系统，最后重启设备：<br><br>chmod +x /etc/upstart/fixfonts.conf mntroot ro reboot<br><br>设置与验证<br><br>为了达到最佳阅读效果，建议在打开古籍后前往 Aa 菜单并选择「系统黑体」或「楷体」。因为我们已经将这些路径「掉包」成了花园明朝，所以此时显示的其实是完美的花园明朝。<br><br>你可以打开如《广韵》或《说文》的 mobi/azw3 文件，搜寻 Extension B 区段的字符，你会发现它们现在与普通汉字一样清晰。<br><br>> 下载 少数派 2.0 客户端、关注 少数派公众号，解锁全新阅读体验 📰<br><br>> 实用、好用的 正版软件，少数派为你呈现 🚀
+                        前段时间，少数派联合飞傲一起做了点有意思的事情：开启「BEATBOX CD 机盖板设计大赛」。我们不想它只是一个标准化的 CD 机，而是希望它带着用户自己的审美和表达，一起参与这台 BEATBOX CD 机的共创。<br><br>经过初选、用户投票以及双方团队的最终评审，以下投稿在众多优秀的设计作品中脱颖而出：<br><br>第一名：M.O.DISK（白；以下简称：复古盖板）<br><br>第二名（共计三款）：黑环律动、Let's dance 01、飞傲解霸（浅色版）<br><br>第三名（共计五款）：CD-IIgs、CPC-CD、獭的Flower Dance、方圆之境、Let's dance 03。<br><br>其中第一名@爱搞机 的「复古盖板」，将作为 BEATBOX 首发限量回馈套装中的专属配件，和第一批机器一起送到大家手中。<br><br>而这块设计盖板，将作为 BEATBOX 首发限量回馈套装中的专属配件，和第一批机器一起送到大家手中。<br><br>功能与设计：从交互到功能的完整体验<br><br>BEATBOX 机身采用磁吸式可更换盖板的设计，此次开售版本为「少数派 × 飞傲」联名款，除赠送盖板外，套装内自带一款少数派专属联名设计盖板，可以根据自己的心情、桌面风格，随时更换不同图案的设计盖板。设备兼容 MagSafe 规格的磁吸配件，可吸附于冰箱、支架等金属表面，结合内置 3350mAh 18650 电池，可充电可换电，满足多场景使用需求。<br><br>音频方面，BEATBOX 内置 2.1 重低音立体声扬声器系统，在纤薄机身中提供极具下潜力的低频表现，适用于桌面场景的音乐播放。同时，设备配备 3.5mm 耳机输出接口，延续飞傲的 Hi-Fi 音频技术，提供有线高解析音质输出。<br><br>当然，BEATBOX 也不只是 CD 机，更是 HiFi 音箱。<br><br>功能方面，BEATBOX 还支持蓝牙连接、U 盘读取、FM 调频广播以及 AUX 音频输入，覆盖实体唱片、流媒体、本地文件及电台等多种听歌方式。<br><br>预售开启：首发限定，售完即止<br><br>预售时间：2026 年 5 月 21 日<br><br>发货时间：2026 年 6 月底前<br><br>预售渠道：少数派官网、蔚来商城<br><br>特别说明：「复古盖板」仅限首发限量回馈套装附赠，不单独销售，首批售罄即止。
                     </div>
                     
                 </div>
@@ -141,7 +141,7 @@
 
             <!-- 卡片底部链接 -->
             <footer class="px-8 py-8 md:px-12 bg-slate-50 border-t border-slate-100 text-center">
-                <a href="https://sspai.com/post/109625" target="_blank" rel="noopener noreferrer"
+                <a href="https://sspai.com/post/109957" target="_blank" rel="noopener noreferrer"
                     class="inline-flex items-center text-base font-semibold text-indigo-600 hover:text-white hover:bg-indigo-600 border border-indigo-600 px-6 py-3 rounded-full transition-all duration-300 group">
                     View Source Webpage / 访问原始网页
                     <svg class="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
