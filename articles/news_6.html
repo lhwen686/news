@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer" />
-    <title>macOS 存储管理漫谈：去重是节约空间的最好方法 - Daily Insight</title>
+    <title>OpenAI推出锁定模式，以保护敏感数据免受提示注入攻击 - Daily Insight</title>
     <!-- 引入 Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- 引入 Google Fonts -->
@@ -63,20 +63,20 @@
             <header class="px-8 py-10 md:px-12 md:py-16 bg-slate-50 border-b border-slate-100 text-center">
                 <span
                     class="inline-block px-3 py-1 mb-6 rounded-full text-sm font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
-                    少数派
+                    TechCrunch
                 </span>
                 <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 zh-text leading-tight mb-6 mt-2">
-                    macOS 存储管理漫谈：去重是节约空间的最好方法
+                    OpenAI推出锁定模式，以保护敏感数据免受提示注入攻击
                 </h1>
                 <h2 class="text-xl md:text-2xl font-bold text-slate-500 font-serif leading-snug">
-                    macOS 存储管理漫谈：去重是节约空间的最好方法
+                    OpenAI unveils Lockdown Mode to protect sensitive data from prompt injection attacks
                 </h2>
             </header>
 
             <!-- 沉浸式头图 -->
             
             <div class="px-8 pt-8 md:px-12 bg-white">
-                <img src="https://rssfile.sspai.com/6/1/2026/article/6b1a9647-4c85-92a8-3ee7-7d0bcccead22.jpeg?imageMogr2/auto-orient/ignore-error/1" alt="Immersive Header Image"
+                <img src="https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2201630077.jpg?resize=1200,798" alt="Immersive Header Image"
                     class="w-full max-h-96 object-cover rounded-xl shadow-sm">
             </div>
             
@@ -94,7 +94,7 @@
                         <h3 class="text-xl font-bold zh-text">💡 AI 深度解析 (AI Insight)</h3>
                     </div>
                     <div class="text-indigo-900 zh-text leading-relaxed text-[15px] font-medium">
-                        本文深入探讨了基于大型语言模型（LLM）进行系统垃圾清理的潜在风险与局限性，并揭示了现代操作系统，特别是macOS，在文件管理上的智能机制。核心专业概念在于，LLM识别垃圾文件的主要依据是文件名、路径、大小和修改时间等“表面特征”，其通过“拼字”逻辑生成解释，而非真正理解文件的“意义”或其在系统中的作用。例如，缓存文件（如~/Library/Caches/）是典型的“以空间换时间”机制，删除会影响用户体验；而某些小文件可能是关键的授权或配置文件，被误删则导致软件功能受损。LLM缺乏对操作系统深层逻辑和文件相互依赖关系的理解，无法判断哪些是可删除的“无用”数据，哪些是保持系统或应用流畅运行所必需的。<br><br>其行业影响体现在，尽管LLM在文本生成、总结等领域展现出巨大潜力，但在涉及系统底层操作和数据完整性的任务上，其“拼字”式的推理模式存在严重缺陷。这提醒我们，在将AI技术应用于高风险、低容错场景（如系统清理、数据管理）时需格外谨慎，不能仅凭其表面上的“智能”表现就盲目采纳。同时，文章强调了卸载残留是真正的清理需求，而手动清理操作系统自有管理目录的价值有限，为软件开发者和系统维护工具提供了开发方向——聚焦于精准识别和清除卸载残留，而非触碰系统核心文件。隐私风险也是一个不容忽视的考量，LLM访问个人数据可能导致敏感信息泄露，对数据安全和合规性提出更高要求。
+                        OpenAI推出的“锁定模式”旨在应对大型语言模型（LLM）面临的核心安全挑战——“提示注入攻击”。提示注入是一种利用恶意指令，将其巧妙地隐藏在正常内容（如网页或文档）中，从而操控聊天机器人行为的攻击手段。它不同于传统软件漏洞，而是利用LLM的语义理解和内容处理能力，诱导模型执行非预期操作，甚至泄露敏感信息。锁定模式通过限制ChatGPT的功能来缩小攻击面，例如禁用实时网络浏览和深度研究，这能有效阻止模型从外部恶意来源获取并执行注入指令。然而，文章也指出，攻击仍可能通过缓存内容或上传文件发生，这揭示了LLM安全防御的复杂性与持续性。这项功能对于处理敏感数据的企业和组织尤为关键，它通过降低数据泄露的风险，增强了AI系统在商业应用中的可信度。这不仅体现了AI安全作为新兴领域的重要性，也预示着未来LLM将在安全与功能之间寻求更精细的平衡，以满足不同用户的需求并促进其负责任的普及。
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                     </div>
                     
                     <div class="text-md font-serif text-slate-700">
-                        虽然最近各种用LLM帮忙整理电脑里的文件、删除垃圾数据的帖子很火，但我天然对这种LLM用法抱有一丝警惕，我始终相信电脑里存在的文件都有自己的意义。所以我就想在这篇文章里和大家聊聊macOS里的存储管理 ...<br><br>虽然最近各种用 LLM 帮忙整理电脑里的文件、删除垃圾数据的帖子很火，但我天然对这种 LLM 用法抱有一丝警惕，我始终相信电脑里存在的文件都有自己的意义。<br><br>所以我就想在这篇文章里和大家聊聊 macOS 里的存储管理。<br><br>手动清理「垃圾」到底有多必要<br><br>在前 LLM 时代，macOS 上就有很多的清理软件，但真的有手动清理垃圾的意义吗？但要我说，有很多情况单纯是因为展示出来的数据比较唬人罢了。<br><br>下面我们不妨一起先看看 macOS 中常见的、会被清理软件标记为垃圾的文件夹目录：<br><br>首先 *unix 系统经典的临时目录 /tmp ，很多命令行工具、脚本、编译器、安装器、压缩工具、下载工具会把临时文件放在这里。这个目录 macOS 会通过脚本自动检查，大约每 3 天清理一次，重启电脑时也会自动清理。<br><br>其次就是颇具 macOS 特色的 /private/var/folders/ ，这个是现代 macOS 的运行时目录，很多软件、系统 API 在调用时生成的缓存、编译中间产物、未保存的草稿、应用间通信的临时文件等等数据，都会放到这个目录下。所以这个目录也不能直接清理，需要仔细分辨。好在 macOS 会在启动、注销、周期性维护时清理这个文件里的数据，所以我们大多数时候都不需要清理这个目录。<br><br>最后就是，大多数「清理软件」最爱清理的 ~/Library/Caches/ 了，看起来这个目录随随便便就占了很大的空间，但缓存存在的意义就是用空间换时间，比如 Chrome 浏览器的缓存，就可以很大程度上加快部分网页的加载速度。又比如 HomeBrew 的元数据索引文件 formula.jws.json 也是存放在这个目录里的，如果删除的话，下次 brew 查询软件信息又需要重新下载 。<br><br>所以清理垃圾数据本来就是个半个伪命题，现代操作系统 一般都能很好得管理系统中的各种临时目录。<br><br>而我之所以说是半个伪命题，主要就是确实是有一定种类的「垃圾」需要清理——卸载残留。在 macOS 中，把软件从 /Applications 拖到废纸篓这个过程，通常只删除了应用本身。软件的配置、缓存、日志、后台组件、登录项、扩展还会留在系统的：<br><br>~/Library/Application Support/ ~/Library/Caches/ ~/Library/Preferences/ ~/Library/Saved Application State/ ~/Library/Logs/ ~/Library/ContLLMners/ ~/Library/Group ContLLMners/ ~/Library/LaunchAgents/ /Library/LaunchAgents/ /Library/Application Support/ /Library/Preferences/ /Library/Logs/<br><br>这种情况下，清理软件就能通过整合展示与软件相关的目录，方便你在卸载时顺手把这个软件相关的文件夹一起删掉。<br><br>LLM 清理垃圾的其他问题<br><br>用 LLM 清理垃圾，除了「文件本身是否有意义」这个问题之外，还有一个绕不开的问题：LLM 的机制不能正确判断文件是不是垃圾。<br><br>LLM 识别垃圾文件，主要依赖的是文件的表面特征：文件名、路径、大小、修改时间。它只能根据前面获取到的信息，用「拼字」的方法，生成一个看起来合理的解释，实际上它不能证明这个文件是真的没有用。<br><br>不管怎么样 LLM 就是不知道为什么可以清理<br><br>比如，LLM 虽然说 Adobe Camera Raw 预览和处理缓存是被可以清理的垃圾，但没告诉你清理了以后下次再打开 Lightroom，又要重新生成一次，不然浏览、编辑照片时的响应速度就会很慢。这也是比较经典的缓存用法——用空间换速度。又比如，一个三年没有修改过、体积很小、文件名不在 LLM 训练数据里的文件，LLM 就会认为它是个没什么用的垃圾；但它可能是某个软件的授权文件、或是某个脚本所依赖的配置文件。LLM 删除以后反而会影响正常使用。<br><br>对于写作、总结、分类的场景来说，「拼字」大概率就能生成出一个还算能读的东西，感觉不行还能重新生成一次。但清理电脑垃圾不同，哪怕只有极小的概率删错，后果也是不可接受的。<br><br>如果想在终端里把一个文件放到回收站里需要借助 Apple Script<br><br>此外，文件删除命令 rm 还特别有风险，不小心多个空格，整个硬盘里的数据都会消失。 rm 删除的数据也不会进回收站，真的误删除后，想找回来要不靠备份、要不就得上数据恢复工具。这就显得 LLM 清理垃圾得不偿失了起来。<br><br>最后的最后，就是隐私问题。扫描电脑里的文件，就意味着 LLM 可能接触到文档、聊天记录、照片、信用卡、账单下载记录等高度个人化的数据。哪怕模型和供应商本身没有什么恶意，但依然存在着隐私泄漏的风险。<br><br>我节约 Mac 存储空间的思路
+                        In Brief<br><br>OpenAI announced a new feature that it says will provide additional protection from prompt injection attacks, where malicious chatbot instructions are hidden in webpages and other content sources.<br><br>Among other things, Lockdown Mode will disable live web browsing (so you can only access cached content), the retrieval and display of images from the web (you can still generate images), deep research, and agent mode.<br><br>The company says that even with Lockdown Mode turned on, ChatGPT could still be vulnerable to prompt injections — which could, for example, “appear in cached web content or in an uploaded file, and could still affect the behavior or accuracy of a response.”<br><br>But the goal is to reduce the likelihood that sensitive data gets shared in the process.<br><br>“Lockdown Mode is not intended for everyone,” OpenAI says. “It is designed for people and organizations that handle sensitive data and want stricter protection from data exfiltration risks related to prompt injection.”<br><br>The company says it’s currently rolling Lockdown Mode out to self-serve ChatGPT Business accounts, as well as eligible personal accounts.
                     </div>
                     
                 </div>
@@ -132,7 +132,7 @@
                     </div>
                     
                     <div class="text-lg zh-text text-slate-800 font-medium">
-                        【目标要求】：请将以下英文新闻完整正文翻译成流畅的中文，并严格保留原有的段落排版。在翻译完成后，基于文章内容生成一段 150-250 字的『AI 深度解析』，深入浅出地解释文章中的核心专业概念（如医学机制、技术原理或商业逻辑）及其行业影响。<br>【英文原文】：虽然最近各种用LLM帮忙整理电脑里的文件、删除垃圾数据的帖子很火，但我天然对这种LLM用法抱有一丝警惕，我始终相信电脑里存在的文件都有自己的意义。所以我就想在这篇文章里和大家聊聊macOS里的存储管理 ...<br><br>虽然最近各种用大型语言模型（LLM）帮忙整理电脑里的文件、删除垃圾数据的帖子很火，但我天然对这种LLM用法抱有一丝警惕，我始终相信电脑里存在的文件都有自己的意义。<br><br>所以我就想在这篇文章里和大家聊聊 macOS 里的存储管理。<br><br>手动清理「垃圾」到底有多必要<br><br>在前LLM时代，macOS 上就有很多的清理软件，但真的有手动清理垃圾的意义吗？但要我说，有很多情况单纯是因为展示出来的数据比较唬人罢了。<br><br>下面我们不妨一起先看看 macOS 中常见的、会被清理软件标记为垃圾的文件夹目录：<br><br>首先 *unix 系统经典的临时目录 /tmp ，很多命令行工具、脚本、编译器、安装器、压缩工具、下载工具会把临时文件放在这里。这个目录 macOS 会通过脚本自动检查，大约每 3 天清理一次，重启电脑时也会自动清理。<br><br>其次就是颇具 macOS 特色的 /private/var/folders/ ，这个是现代 macOS 的运行时目录，很多软件、系统 API 在调用时生成的缓存、编译中间产物、未保存的草稿、应用间通信的临时文件等等数据，都会放到这个目录下。所以这个目录也不能直接清理，需要仔细分辨。好在 macOS 会在启动、注销、周期性维护时清理这个文件里的数据，所以我们大多数时候都不需要清理这个目录。<br><br>最后就是，大多数「清理软件」最爱清理的 ~/Library/Caches/ 了，看起来这个目录随随便便就占了很大的空间，但缓存存在的意义就是用空间换时间，比如 Chrome 浏览器的缓存，就可以很大程度上加快部分网页的加载速度。又比如 HomeBrew 的元数据索引文件 formula.jws.json 也是存放在这个目录里的，如果删除的话，下次 brew 查询软件信息又需要重新下载 。<br><br>所以清理垃圾数据本来就是个半个伪命题，现代操作系统 一般都能很好得管理系统中的各种临时目录。<br><br>而我之所以说是半个伪命题，主要就是确实是有一定种类的「垃圾」需要清理——卸载残留。在 macOS 中，把软件从 /Applications 拖到废纸篓这个过程，通常只删除了应用本身。软件的配置、缓存、日志、后台组件、登录项、扩展还会留在系统的：<br><br>~/Library/Application Support/<br>~/Library/Caches/<br>~/Library/Preferences/<br>~/Library/Saved Application State/<br>~/Library/Logs/<br>~/Library/Containers/<br>~/Library/Group Containers/<br>~/Library/LaunchAgents/<br>/Library/LaunchAgents/<br>/Library/Application Support/<br>/Library/Preferences/<br>/Library/Logs/<br><br>这种情况下，清理软件就能通过整合展示与软件相关的目录，方便你在卸载时顺手把这个软件相关的文件夹一起删掉。<br><br>LLM 清理垃圾的其他问题<br><br>用 LLM 清理垃圾，除了「文件本身是否有意义」这个问题之外，还有一个绕不开的问题：LLM 的机制不能正确判断文件是不是垃圾。<br><br>LLM 识别垃圾文件，主要依赖的是文件的表面特征：文件名、路径、大小、修改时间。它只能根据前面获取到的信息，用「拼字」的方法，生成一个看起来合理的解释，实际上它不能证明这个文件是真的没有用。<br><br>不管怎么样 LLM 就是不知道为什么可以清理<br><br>比如，LLM 虽然说 Adobe Camera Raw 预览和处理缓存是可以清理的垃圾，但没告诉你清理了以后下次再打开 Lightroom，又要重新生成一次，不然浏览、编辑照片时的响应速度就会很慢。这也是比较经典的缓存用法——用空间换速度。又比如，一个三年没有修改过、体积很小、文件名不在 LLM 训练数据里的文件，LLM 就会认为它是个没什么用的垃圾；但它可能是某个软件的授权文件、或是某个脚本所依赖的配置文件。LLM 删除以后反而会影响正常使用。<br><br>对于写作、总结、分类的场景来说，「拼字」大概率就能生成出一个还算能读的东西，感觉不行还能重新生成一次。但清理电脑垃圾不同，哪怕只有极小的概率删错，后果也是不可接受的。<br><br>如果想在终端里把一个文件放到回收站里需要借助 Apple Script<br><br>此外，文件删除命令 rm 还特别有风险，不小心多个空格，整个硬盘里的数据都会消失。 rm 删除的数据也不会进回收站，真的误删除后，想找回来要不靠备份、要不就得上数据恢复工具。这就显得 LLM 清理垃圾得不偿失了起来。<br><br>最后的最后，就是隐私问题。扫描电脑里的文件，就意味着 LLM 可能接触到文档、聊天记录、照片、信用卡、账单下载记录等高度个人化的数据。哪怕模型和供应商本身没有什么恶意，但依然存在着隐私泄漏的风险。<br><br>我节约 Mac 存储空间的思路
+                        简讯<br><br>OpenAI宣布了一项新功能，旨在为“提示注入攻击”提供额外保护。提示注入攻击是指恶意聊天机器人指令隐藏在网页及其他内容来源中。<br><br>在其他功能方面，“锁定模式”将禁用实时网络浏览（因此用户只能访问缓存内容）、从网络检索和显示图像（用户仍然可以生成图像）、深度研究以及代理模式。<br><br>该公司表示，即使开启锁定模式，ChatGPT仍可能容易受到提示注入攻击的影响——例如，攻击可能“出现在缓存的网络内容或上传文件中，并仍可能影响响应的行为或准确性。”<br><br>但其目标是降低在此过程中敏感数据被共享的可能性。<br><br>OpenAI表示：“锁定模式并非面向所有人。”“它专为处理敏感数据并希望获得更严格保护，以防范与提示注入相关的数据泄露风险的个人和组织设计。”<br><br>该公司称，目前正在将锁定模式推广至自助服务型ChatGPT企业账户以及符合条件的个人账户。
                     </div>
                     
                 </div>
@@ -141,7 +141,7 @@
 
             <!-- 卡片底部链接 -->
             <footer class="px-8 py-8 md:px-12 bg-slate-50 border-t border-slate-100 text-center">
-                <a href="https://sspai.com/prime/story/macos-storage-management-deduplication" target="_blank" rel="noopener noreferrer"
+                <a href="https://techcrunch.com/2026/06/06/openai-unveils-lockdown-mode-to-protect-sensitive-data-from-prompt-injection-attacks/" target="_blank" rel="noopener noreferrer"
                     class="inline-flex items-center text-base font-semibold text-indigo-600 hover:text-white hover:bg-indigo-600 border border-indigo-600 px-6 py-3 rounded-full transition-all duration-300 group">
                     View Source Webpage / 访问原始网页
                     <svg class="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
