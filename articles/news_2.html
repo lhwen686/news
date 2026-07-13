@@ -4,160 +4,695 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer" />
-    <title>更年期须知：赋能女性的最新指南 - Daily Insight</title>
-    <!-- 引入 Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入 Google Fonts -->
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="一项最新民意调查显示，近半美国人未意识到加工肉类会增加结直肠癌风险，而该癌症已成为50岁以下成年人癌症死亡的主因。多数受访者支持加工肉类贴警示标签。文章强调，植物性饮食、高纤维摄入、保持健康体重及规律运动能显著降低结直肠癌风险。呼吁医疗专业人员加强饮食与癌症关联的宣教，推广富含蔬果、谷物和豆类的饮食。">
+    <meta name="theme-color" content="#f3f0e8">
+    <title>民调发现，近半美国人不知加工肉类与结直肠癌有关联 · Daily Insight</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap"
         rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #f8fafc;
+        :root {
+            --ink: #1b1d19;
+            --muted: #676b63;
+            --paper: #f3f0e8;
+            --surface: #fbfaf6;
+            --accent: #a93d29;
+            --line: rgba(27, 29, 25, 0.16);
+            --line-strong: rgba(27, 29, 25, 0.42);
+            --serif: 'Noto Serif SC', 'Songti SC', SimSun, serif;
+            --sans: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
         }
 
-        .zh-text {
-            font-family: 'Inter', 'Noto Serif SC', serif;
+        * {
+            box-sizing: border-box;
         }
 
         html {
             scroll-behavior: smooth;
+            background: var(--paper);
         }
 
-        /* 沉浸式阅读段落样式 */
-        .article-content p {
-            margin-bottom: 1.5em;
+        body {
+            margin: 0;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 88% 5%, rgba(196, 72, 47, 0.07), transparent 26rem),
+                var(--paper);
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 0.75rem;
+            left: 0.75rem;
+            z-index: 100;
+            padding: 0.75rem 1rem;
+            color: white;
+            background: var(--ink);
+            transform: translateY(-150%);
+            transition: transform 160ms ease;
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 4px;
+            box-shadow: 0 0 0 6px rgba(251, 250, 246, 0.94);
+        }
+
+        .shell {
+            width: min(100%, 78rem);
+            margin-inline: auto;
+            padding-inline: clamp(1.25rem, 4vw, 4rem);
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid var(--line);
+            background: rgba(243, 240, 232, 0.92);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-shell {
+            min-height: 4.5rem;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .back-link,
+        .source-link {
+            min-height: 2.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            width: max-content;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .back-link svg,
+        .source-link svg {
+            width: 1rem;
+            transition: transform 160ms ease;
+        }
+
+        .back-link:hover svg {
+            transform: translateX(-0.25rem);
+        }
+
+        .source-link:hover svg {
+            transform: translate(0.2rem, -0.2rem);
+        }
+
+        .header-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-family: var(--serif);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-mark {
+            width: 2rem;
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+            color: var(--surface);
+            background: var(--ink);
+            font-family: var(--sans);
+            font-size: 0.62rem;
+            letter-spacing: 0.08em;
+        }
+
+        .category-label {
+            justify-self: end;
+            color: var(--muted);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .article-hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 15rem;
+            gap: clamp(2.5rem, 6vw, 6.5rem);
+            align-items: end;
+            padding-block: clamp(4rem, 9vw, 8.5rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .article-kicker {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .article-kicker::before {
+            width: 2.2rem;
+            height: 2px;
+            background: currentColor;
+            content: '';
+        }
+
+        .article-title {
+            max-width: 20ch;
+            margin: 0;
+            font-family: var(--serif);
+            font-size: clamp(2.6rem, 6vw, 5.4rem);
+            font-weight: 900;
+            letter-spacing: -0.06em;
+            line-height: 1.1;
+            overflow-wrap: anywhere;
+        }
+
+        .article-title-en {
+            max-width: 50rem;
+            margin: 1.6rem 0 0;
+            color: var(--muted);
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(1.05rem, 2vw, 1.45rem);
+            font-weight: 400;
+            line-height: 1.55;
+        }
+
+        .article-facts {
+            margin: 0;
+            padding-left: 1.5rem;
+            border-left: 1px solid var(--line-strong);
+        }
+
+        .article-facts div {
+            padding-block: 0.9rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .article-facts div:first-child {
+            padding-top: 0;
+        }
+
+        .article-facts dt {
+            margin-bottom: 0.35rem;
+            color: var(--muted);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .article-facts dd {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: 0.96rem;
+            font-weight: 700;
+            line-height: 1.55;
+        }
+
+        .hero-image {
+            margin-top: -2.5rem;
+            padding-bottom: clamp(4rem, 7vw, 6rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .hero-image img {
+            display: block;
+            width: 100%;
+            max-height: 34rem;
+            object-fit: cover;
+            filter: saturate(0.82) contrast(1.04);
+        }
+
+        .insight-section {
+            padding-block: clamp(3.5rem, 7vw, 6rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .insight-grid {
+            display: grid;
+            grid-template-columns: 12rem minmax(0, 1fr);
+            gap: clamp(2rem, 6vw, 6rem);
+            padding: clamp(1.75rem, 4vw, 3rem);
+            color: var(--surface);
+            background: var(--ink);
+        }
+
+        .section-kicker {
+            margin: 0;
+            color: #f0a086;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .insight-title {
+            margin: 0.65rem 0 0;
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            font-weight: 900;
+            line-height: 1.35;
+        }
+
+        .insight-copy {
+            margin: 0;
+            color: rgba(251, 250, 246, 0.78);
+            font-family: var(--serif);
+            font-size: 1rem;
+            line-height: 2;
+            white-space: pre-line;
+        }
+
+        .reading-section {
+            padding-block: clamp(4rem, 8vw, 7rem);
+        }
+
+        .reading-header {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.65fr);
+            gap: 2rem;
+            align-items: end;
+            margin-bottom: 3rem;
+        }
+
+        .reading-title {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: clamp(2.1rem, 4.5vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 1.1;
+        }
+
+        .reading-intro {
+            margin: 0;
+            color: var(--muted);
+            font-family: var(--serif);
+            font-size: 0.9rem;
             line-height: 1.8;
-            color: #334155;
+        }
+
+        .reading-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            border-block: 1px solid var(--line-strong);
+        }
+
+        .language-column {
+            min-width: 0;
+            padding: 2.25rem clamp(1.5rem, 4vw, 3.5rem) 0 0;
+        }
+
+        .language-column + .language-column {
+            padding-right: 0;
+            padding-left: clamp(1.5rem, 4vw, 3.5rem);
+            border-left: 1px solid var(--line);
+        }
+
+        .language-heading {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1rem;
+            margin: 0 0 2.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .language-heading h3 {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+
+        .language-heading span {
+            color: var(--muted);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .article-prose {
+            padding-bottom: 2rem;
+            color: #353831;
+            font-size: 1rem;
+            line-height: 2;
+            overflow-wrap: anywhere;
+            white-space: pre-line;
+        }
+
+        .prose-en {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.02rem;
+            line-height: 1.95;
+        }
+
+        .prose-zh {
+            font-family: var(--serif);
+            font-size: 1.04rem;
+            line-height: 2.05;
+        }
+
+        .empty-state {
+            margin: 0 0 2rem;
+            padding: 1.25rem;
+            color: var(--muted);
+            border: 1px dashed var(--line-strong);
+            font-family: var(--serif);
+            line-height: 1.7;
+        }
+
+        .source-band {
+            color: var(--surface);
+            background: var(--ink);
+        }
+
+        .source-shell {
+            min-height: 12rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding-block: 2.5rem;
+        }
+
+        .source-title {
+            margin: 0 0 0.45rem;
+            font-family: var(--serif);
+            font-size: clamp(1.55rem, 3vw, 2.4rem);
+            font-weight: 900;
+        }
+
+        .source-copy {
+            margin: 0;
+            color: rgba(251, 250, 246, 0.62);
+            font-size: 0.78rem;
+            line-height: 1.7;
+        }
+
+        .source-link {
+            flex: 0 0 auto;
+            padding: 0.85rem 1.1rem;
+            color: var(--ink);
+            background: var(--surface);
+        }
+
+        .site-footer {
+            padding-block: 2rem;
+            color: var(--muted);
+            background: var(--paper);
+        }
+
+        .footer-shell {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: 0.7rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 760px) {
+            .nav-shell {
+                grid-template-columns: 1fr auto;
+            }
+
+            .header-brand {
+                display: none;
+            }
+
+            .article-hero {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .article-facts {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                padding: 1rem 0 0;
+                border-top: 1px solid var(--line-strong);
+                border-left: 0;
+            }
+
+            .article-facts div {
+                padding: 0 0.8rem;
+                border-right: 1px solid var(--line);
+                border-bottom: 0;
+            }
+
+            .article-facts div:first-child {
+                padding-top: 0;
+                padding-left: 0;
+            }
+
+            .article-facts div:last-child {
+                border-right: 0;
+            }
+
+            .insight-grid,
+            .reading-header {
+                grid-template-columns: 1fr;
+            }
+
+            .reading-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .language-column,
+            .language-column + .language-column {
+                padding: 2rem 0 0;
+                border-left: 0;
+            }
+
+            .language-column + .language-column {
+                border-top: 1px solid var(--line-strong);
+            }
+
+            .source-shell {
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .article-title {
+                font-size: clamp(2.25rem, 12vw, 3.15rem);
+            }
+
+            .article-facts {
+                grid-template-columns: 1fr;
+            }
+
+            .article-facts div,
+            .article-facts div:first-child {
+                padding: 0.8rem 0;
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .article-facts div:last-child {
+                border-bottom: 0;
+            }
+
+            .footer-shell {
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
 
-<body class="text-gray-800 antialiased">
-    <!-- 顶部返回导航 -->
-    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-200">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-            <a href="../index.html"
-                class="inline-flex items-center text-sm font-medium text-slate-500 hover:text-indigo-600 transition-colors group">
-                <svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+<body>
+    <a class="skip-link" href="#article-content">跳至文章正文</a>
+
+    <header class="site-header">
+        <div class="shell nav-shell">
+            <a class="back-link" href="../index.html">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M19 12H5M11 18l-6-6 6-6"></path>
                 </svg>
-                返回首页
+                返回简报
             </a>
-            <span
-                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-100 text-slate-600">
-                医疗
-            </span>
+            <a class="header-brand" href="../index.html" aria-label="Daily Insight 首页">
+                <span class="brand-mark" aria-hidden="true">DI</span>
+                <span>Daily Insight</span>
+            </a>
+            <span class="category-label">医疗</span>
         </div>
     </header>
 
-    <!-- 文章主体 -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
-        <article class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
+    <main id="article-content">
+        <article>
+            <header class="shell article-hero">
+                <div>
+                    <div class="article-kicker">
+                        <span>医疗</span>
+                        <span aria-hidden="true">·</span>
+                        <span>MedicalXpress</span>
+                    </div>
+                    <h1 class="article-title">民调发现，近半美国人不知加工肉类与结直肠癌有关联</h1>
+                    <p class="article-title-en" lang="en">Nearly half of Americans unaware processed meat is tied to colorectal cancer, poll finds</p>
+                </div>
 
-            <!-- 文章标题区 -->
-            <header class="px-8 py-10 md:px-12 md:py-16 bg-slate-50 border-b border-slate-100 text-center">
-                <span
-                    class="inline-block px-3 py-1 mb-6 rounded-full text-sm font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
-                    MedicalXpress
-                </span>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 zh-text leading-tight mb-6 mt-2">
-                    更年期须知：赋能女性的最新指南
-                </h1>
-                <h2 class="text-xl md:text-2xl font-bold text-slate-500 font-serif leading-snug">
-                    What to know about menopause: Latest guidance to empower women
-                </h2>
+                <dl class="article-facts" aria-label="文章信息">
+                    <div>
+                        <dt>Section</dt>
+                        <dd>医疗</dd>
+                    </div>
+                    <div>
+                        <dt>Source</dt>
+                        <dd>MedicalXpress</dd>
+                    </div>
+                    <div>
+                        <dt>Reading</dt>
+                        <dd>中英对照</dd>
+                    </div>
+                </dl>
             </header>
 
-            <!-- 沉浸式头图 -->
-            
-            <div class="px-8 pt-8 md:px-12 bg-white">
-                <img src="https://scx2.b-cdn.net/gfx/news/hires/2026/older-woman-doctor-con.jpg" alt="Immersive Header Image"
-                    class="w-full max-h-96 object-cover rounded-xl shadow-sm">
-            </div>
-            
 
-            <!-- AI 深度解析区 -->
-            
-            <div class="px-8 pt-8 md:px-12 md:pt-12 bg-white">
-                <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-6 shadow-sm">
-                    <div class="flex items-center gap-2 mb-4 text-indigo-700">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
-                            </path>
-                        </svg>
-                        <h3 class="text-xl font-bold zh-text">💡 AI 深度解析 (AI Insight)</h3>
-                    </div>
-                    <div class="text-indigo-900 zh-text leading-relaxed text-[15px] font-medium">
-                        该文深入探讨了更年期这一生理过渡期的最新医学认识与激素替代疗法（HRT）的演变。更年期的核心机制在于卵巢功能衰退，导致雌激素等生殖激素水平显著下降，进而引发一系列血管舒缩（如潮热、盗汗）、骨代谢（骨密度下降）、神经精神（情绪变化、脑雾）及泌尿生殖系统（阴道萎缩）症状。HRT的专业原理是通过外源性补充雌激素，直接或间接作用于靶器官，缓解这些由雌激素缺乏引起的症状，尤其在骨密度维持方面，其作用机制是抑制破骨细胞活性，促进成骨细胞功能。<br><br>行业影响显著。2002年WII研究曾因方法学限制和数据解读偏差，导致HRT使用率骤降并产生持久的负面认知。然而，近年的联邦指南更新和“黑框”警告移除，标志着医学界对HRT风险-收益比的重新评估，强调了“时机假说”（即在更年期早期、60岁前开始治疗的安全性与有效性）和个体化治疗的重要性。这促使临床实践从一刀切的预防策略转向基于患者症状、风险概况和生活质量需求的精准医疗。此外，对大型语言模型（LLM -AI）的运用，预示着未来在理解患者真实体验、优化护理路径和推动更年期长期健康研究（如心血管、骨骼、认知功能）方面，将迎来技术驱动的变革。这种多维度、整合性的方法正逐步消除对更年期的污名化，提升公众认知与护理水平，对女性健康管理产生深远积极影响。
-                    </div>
+
+            <section class="shell reading-section" aria-labelledby="parallel-reading-title">
+                <header class="reading-header">
+                    <h2 id="parallel-reading-title" class="reading-title">中英对照阅读</h2>
+                    <p class="reading-intro">左侧保留英文原文，右侧提供 AI 中文翻译。翻译可能存在偏差，关键信息请以原始报道为准。</p>
+                </header>
+
+                <div class="reading-grid">
+                    <section class="language-column" aria-labelledby="original-heading">
+                        <header class="language-heading">
+                            <h3 id="original-heading">英文原文</h3>
+                            <span lang="en">Original</span>
+                        </header>
+                        <div class="article-prose prose-en" lang="en">This article has been reviewed according to Science X&#39;s editorial process and policies . Editors have highlighted the following attributes while ensuring the content&#39;s credibility:
+
+Credit: Unsplash/CC0 Public Domain
+
+Just before National Colorectal Cancer Awareness Month begins in March, a new Physicians Committee for Responsible Medicine/Morning Consult poll found that nearly half of Americans aren&#39;t aware that eating processed meat increases the risk of developing colorectal cancer.
+
+The poll, which was conducted among 2,202 U.S. adults Feb. 9 to 11, 2026, also found that after being informed that processed meat consumption increases colorectal cancer risk, two-in-three adults would support the implementation of warning labels of colorectal cancer risk on processed meat products.
+
+&#34;In light of colorectal cancer now being the leading cause of cancer deaths in adults under 50, it&#39;s concerning that so many people still don&#39;t know about the strong connection between eating processed meat and the risk of developing colorectal cancer,&#34; said Joseph Barrocas, MD, an internal medicine specialist from Huntersville, N.C.
+
+But on a positive note, Dr. Barrocas said, the survey shows that many people want that information.
+
+The poll also revealed that just one-third of adults say they&#39;ve received information from a health care professional about the link between processed meat consumption and colon cancer.
+
+&#34;More health care practitioners have to be educated about the link between diet and colorectal cancer,&#34; Dr. Barrocas said, &#34;and in addition to recommending screening, discuss with patients the protective benefits of a diet rich in fruits, vegetables, grains, and beans.&#34;
+
+Research has shown:
+
+Those following a plant-based diet had a 22% lower risk for all types of colorectal cancers compared with those who consumed an omnivorous diet. Plant-based diets may be especially protective, because fruits, vegetables, whole grains, and legumes are packed with cancer-fighting phytochemicals.
+
+Maintaining a healthy weight, avoiding alcohol, and exercising regularly decrease the risk of developing colorectal cancer.
+
+Fiber—or the roughage that gives plant foods their bulk—helps fight colorectal cancer. One study found that those that consumed the most fiber had a 72% lower risk of developing colon polyps—which can be precursors to colorectal cancer—compared with those who consumed the least fiber. A high-fiber diet prevents damage to the intestines and speeds up digestive transit.
+
+&#34;Research shows that for every 10 grams of fiber we eat each day, we can lower our colorectal cancer risk by up to 10%,&#34; said Anna Herby, DHSc, RD, CDE, nutrition education specialist for the Physicians Committee. &#34;Simple ways to get that in include eating a little over a cup of raspberries, 2 tablespoons of chia seeds, or two-thirds cup of black beans.&#34;
+
+More information Processed Meat and Colorectal Cancer Poll, pcrm.widen.net/s/vpq8fcgxff/pc … -cancer-poll-2.17.26 In March, the Physicians Committee&#39;s Food for Life plant-based nutrition and cooking class program—developed by doctors and dietitians—is offering classes online and across the United States to teach participants how food can fight cancer.
+
+Provided by Physicians Committee for Responsible Medicine</div>
+                    </section>
+
+                    <section class="language-column" aria-labelledby="translation-heading">
+                        <header class="language-heading">
+                            <h3 id="translation-heading">中文翻译</h3>
+                            <span>AI Translation</span>
+                        </header>
+                        <div class="article-prose prose-zh">本文已根据Science X的编辑流程和政策进行审阅。编辑们在确保内容可信度的同时，强调了以下特性：
+
+图片来源：Unsplash/CC0公共领域
+
+就在三月全国结直肠癌宣传月开始之前，负责任医学医师委员会/Morning Consult的一项最新民意调查发现，近半数美国人不知道食用加工肉会增加罹患结直肠癌的风险。
+
+这项于2026年2月9日至11日对2,202名美国成年人进行的民意调查还发现，在被告知食用加工肉会增加结直肠癌风险后，三分之二的成年人支持在加工肉制品上实施结直肠癌风险警示标签。
+
+“鉴于结直肠癌现在是50岁以下成年人癌症死亡的首要原因，令人担忧的是，仍有如此多的人不了解食用加工肉与罹患结直肠癌风险之间的密切联系，”来自北卡罗来纳州亨特斯维尔的内科专科医师Joseph Barrocas医学博士表示。
+
+但Barrocas博士也指出，积极的一面是，这项调查显示许多人渴望获取这些信息。
+
+该民意调查还显示，仅有三分之一的成年人表示曾从医疗保健专业人员那里获得过关于食用加工肉与结肠癌之间关联的信息。
+
+“更多的医疗保健从业者必须接受关于饮食与结直肠癌之间关联的教育，”Barrocas博士说，“除了推荐筛查，还应与患者讨论富含水果、蔬菜、谷物和豆类的饮食所具有的保护性益处。”
+
+研究表明：
+
+遵循植物性饮食的人群，与食用杂食性饮食的人群相比，患各种类型结直肠癌的风险降低了22%。植物性饮食可能尤其具有保护作用，因为水果、蔬菜、全谷物和豆类富含抗癌植物化学物质。
+
+保持健康体重、避免饮酒和规律运动可以降低罹患结直肠癌的风险。
+
+纤维——即赋予植物性食物体积的粗纤维——有助于对抗结直肠癌。一项研究发现，摄入最多纤维的人群，与摄入最少纤维的人群相比，患结肠息肉（结直肠癌的癌前病变）的风险降低了72%。高纤维饮食可以预防肠道损伤并加速消化道转运。
+
+“研究表明，我们每天每摄入10克纤维，就可以将结直肠癌风险降低高达10%，”负责任医学医师委员会的营养教育专家Anna Herby（健康科学博士，注册营养师，注册糖尿病教育者）表示。“简单的方法包括食用略多于一杯的覆盆子、两汤匙奇亚籽或三分之二杯黑豆。”
+
+更多信息请参阅《加工肉与结直肠癌民意调查》，网址：pcrm.widen.net/s/vpq8fcgxff/pc…-cancer-poll-2.17.26。三月，负责任医学医师委员会的“生命之食”植物性营养与烹饪课程项目——由医生和营养师开发——将在线和全美各地开设课程，教授参与者如何通过食物对抗癌症。
+
+由负责任医学医师委员会提供</div>
+                    </section>
                 </div>
-            </div>
-            
+            </section>
 
-            <!-- 中英对照正文区 -->
-            <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100">
-
-                <!-- 英文原文 (左) -->
-                <div class="p-8 md:p-12 md:w-1/2 flex flex-col article-content bg-white">
-                    <div class="flex items-center gap-2 mb-8 pb-4 border-b border-slate-100 text-slate-400">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129">
-                            </path>
+            <footer class="source-band">
+                <div class="shell source-shell">
+                    <div>
+                        <p class="source-title">继续查看原始报道</p>
+                        <p class="source-copy">来源：MedicalXpress · 将在新窗口打开发布者页面</p>
+                    </div>
+                    <a class="source-link" href="https://medicalxpress.com/news/2026-02-poll-adults-unaware-meat-consumption.html" target="_blank" rel="noopener noreferrer">
+                        访问来源
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M14 5h5v5M19 5l-8 8M19 13v5a1 1 0 01-1 1H6a1 1 0 01-1-1V6a1 1 0 011-1h5"></path>
                         </svg>
-                        <span class="text-sm font-bold uppercase tracking-wider">Original Text</span>
-                    </div>
-                    
-                    <div class="text-md font-serif text-slate-700">
-                        This article has been reviewed according to Science X's editorial process and policies . Editors have highlighted the following attributes while ensuring the content's credibility:<br><br>Credit: CDC from Pexels<br><br>Menopause. Suddenly, the topic is everywhere in the headlines, in our news feeds, on podcasts. Until recently, this normal life stage marking the end of a woman's reproductive years was discussed only in certain circles, limiting knowledge and research. Occurring in middle-aged women, the transition can cause more than 4 out of 5 to suffer debilitating symptoms that can significantly affect their lives.<br><br>For decades, millions took hormone replacement therapy (HRT) to cope with hot flashes, night sweats, thinning bones and other changes triggered by lower estrogen levels. They also used the medication long term as a preventive postmenopausal treatment for conditions such as osteoporosis and heart disease. But the medication's popularity plummeted when a landmark women's health study in 2002 was halted over concerns about stroke, blood clots and breast cancer.<br><br>Those risks were actually limited to certain older, postmenopausal women, but the dangers were viewed broadly and use dropped sharply.<br><br>In recent months, federal guidance changed on hormone therapy. "Black box" warnings were removed, and timing recommendations were updated, with the goal of reducing fear that led to underuse. The changes, however, left many with questions.<br><br>Sondos Al Sad, MD, a UCSF primary care clinician who founded The Menopause Connection at the Women's Health Primary Care Clinic and launched the Menopause Educational and Professional Interest Collaborative across the University of California, explains what to know about menopause and who should take HRT and when.<br><br>What are the stages and common symptoms of menopause?<br><br>Menopause is a transition, not a single moment. It includes perimenopause (when cycles become irregular and symptoms begin), menopause (defined as 12 months without a period), and postmenopause. These stages are a helpful framework, but they are a simplified model and don't fully capture women with underlying endocrine conditions or complex health histories.<br><br>Common symptoms vary widely and can include hot flashes, sleep disruption, mood changes, brain fog, joint aches and vaginal dryness. There is no single "menopause experience"—symptoms differ in type, timing and intensity.<br><br>What can women do to strengthen their bones?<br><br>Bone health requires consistent, proactive habits. The most effective strategies include strength training at least twice weekly with progressive resistance, maintaining adequate vitamin D (through sunlight or supplements), and ensuring sufficient calcium intake through diet. Avoid smoking and limit alcohol. Nutrition patterns that emphasize whole, plant-forward foods (e.g. green leafy vegetables) may further support bone health.<br><br>What benefits do women get from hormone replacement therapy (HRT)?<br><br>When started at the right time with precision for each individual, hormone therapy can significantly reduce hot flashes, improve sleep and help preserve bone density. It may also support pelvic and genitourinary health. The benefits are most meaningful when therapy is tailored to symptoms and individual risk profiles.<br><br>When should women start HRT? How long should they take it?<br><br>For symptomatic women, hormone therapy is generally most effective and safest when started within 10 years of the final menstrual period or before age 60. Duration should be individualized—there is no fixed "stop" date. Many women can continue therapy as long as benefits outweigh risks, with regular reassessment.<br><br>What does the research say about women stopping HRT?<br><br>After studies in the early 2000s raised concerns, many women abruptly stopped hormone therapy. This led to untreated symptoms and likely contributed to increases in conditions such as osteoporosis. It also created lasting fear and confusion about menopause care that we are still working to correct today.<br><br>What has changed in the last year? Why are women now more willing to take HRT?<br><br>We're seeing a shift driven by better science, clearer guidelines and more women in medicine leading this conversation. Patients are also more informed and are actively seeking care that improves quality of life. It's a combination of evidence and advocacy.<br><br>Why are people more willing today to discuss menopause when it used to be in the shadows?<br><br>This is a cultural shift. Social media has opened space for shared experiences, and women are speaking more openly about the effect of menopause on their health, work and daily lives. At the same time, the cumulative demands on women—professionally and personally—are making these symptoms harder to ignore.<br><br>What should we know about UCSF's work on menopause?<br><br>We're focused on building integrated models of menopause care that combine clinical services, education and research. This includes improving access to evidence-based treatments, developing provider training programs, utilizing large language modules (LLM -AI) to explore patients' lived experiences, and studying how menopause affects long-term health outcomes such as cardiovascular disease, bone health and cognitive function.<br><br>Can you tell us about your research on menopause and joint disorders?<br><br>My research examines the relationship between menopause and musculoskeletal symptoms, including joint pain. I review global data on how women experience these symptoms during the menopause transition and use that evidence to better understand how this "musculoskeletal syndrome of menopause" presents in our local population. The goal is to improve recognition and guide more targeted care.
-                    </div>
-                    
+                    </a>
                 </div>
-
-                <!-- 中文翻译 (右) -->
-                <div class="p-8 md:p-12 md:w-1/2 flex flex-col article-content bg-indigo-50/30">
-                    <div class="flex items-center gap-2 mb-8 pb-4 border-b border-indigo-100 text-indigo-400">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129">
-                            </path>
-                        </svg>
-                        <span class="text-sm font-bold uppercase tracking-wider zh-text">AI 机器翻译</span>
-                    </div>
-                    
-                    <div class="text-lg zh-text text-slate-800 font-medium">
-                        本文已根据Science X的编辑流程和政策进行审阅。编辑们在确保内容可信度的同时，强调了以下特点：<br><br>图片来源：CDC，Pexels<br><br>更年期。突然间，这个话题无处不在，占据着新闻头条、我们的新闻推送和播客。直到最近，这个标志着女性生殖期结束的正常人生阶段，还仅限于特定圈子内讨论，限制了相关知识和研究的传播。发生在中年女性身上，这一过渡期可能导致超过五分之四的女性遭受使人衰弱的症状，严重影响她们的生活。<br><br>几十年来，数百万人服用激素替代疗法（HRT）以应对潮热、盗汗、骨骼变薄以及由雌激素水平降低引起的其他变化。她们也曾长期使用这种药物作为绝经后预防骨质疏松症和心脏病等疾病的治疗。然而，在2002年一项里程碑式的女性健康研究因担忧中风、血栓和乳腺癌而中止后，该药物的受欢迎程度骤然下降。<br><br>这些风险实际上仅限于某些年龄较大、已绝经的女性，但危险被普遍看待，导致使用量急剧下降。<br><br>近几个月来，关于激素疗法的联邦指南发生了变化。“黑框”警告被移除，且用药时机建议也得到了更新，旨在减少导致用药不足的恐惧。然而，这些变化也让许多人产生了疑问。<br><br>加州大学旧金山分校（UCSF）初级保健临床医生 Sondos Al Sad 医学博士，创立了女性健康初级保健诊所的“更年期连接”项目，并在加州大学系统内启动了更年期教育与专业兴趣协作组。她解释了关于更年期需要了解的知识，以及谁应该何时服用HRT。<br><br>更年期的阶段和常见症状有哪些？<br><br>更年期是一个过渡过程，而非单一的瞬间。它包括围绝经期（月经周期开始不规律并出现症状）、绝经期（定义为连续12个月没有月经）和绝经后期。这些阶段是一个有用的框架，但它们是一个简化的模型，不能完全涵盖患有潜在内分泌疾病或复杂健康史的女性。<br><br>常见症状差异很大，可能包括潮热、睡眠障碍、情绪变化、脑雾、关节疼痛和阴道干燥。没有单一的“更年期体验”——症状在类型、出现时间和强度上各不相同。<br><br>女性如何强化骨骼？<br><br>骨骼健康需要持之以恒、积极主动的习惯。最有效的策略包括每周至少两次的渐进式抗阻力量训练，保持充足的维生素D（通过阳光或补充剂），并通过饮食确保足够的钙摄入。避免吸烟并限制酒精。强调全食物、以植物为主的饮食模式（例如绿叶蔬菜）可能进一步支持骨骼健康。<br><br>女性从激素替代疗法（HRT）中获得哪些益处？<br><br>在适当的时机，并针对个体精准启动时，激素疗法可以显著减轻潮热、改善睡眠并有助于维持骨密度。它还可能支持盆腔和泌尿生殖系统健康。当治疗方案根据症状和个体风险概况进行定制时，其益处最为显著。<br><br>女性何时应该开始服用HRT？应该服用多久？<br><br>对于有症状的女性，激素疗法通常在末次月经后10年内或60岁之前开始最为有效和安全。疗程应个体化——没有固定的“停止”日期。只要益处大于风险，许多女性可以继续治疗，并定期进行再评估。<br><br>研究对于女性停止服用HRT有何说法？<br><br>21世纪初的研究引发担忧后，许多女性突然停止了激素疗法。这导致症状未得到治疗，并可能导致骨质疏松症等疾病的增加。它还造成了对更年期护理的持久恐惧和困惑，我们至今仍在努力纠正。<br><br>去年发生了哪些变化？为什么现在女性更愿意服用HRT？<br><br>我们正在看到一种转变，这得益于更完善的科学研究、更清晰的指导方针以及医学界更多女性主导这场对话。患者也更加知情，并积极寻求能改善生活质量的护理。这是证据与倡导的结合。<br><br>为什么现在人们更愿意讨论更年期，而过去它一直处于阴影之中？<br><br>这是一场文化转变。社交媒体为分享经验开辟了空间，女性更公开地谈论更年期对其健康、工作和日常生活的影响。与此同时，女性在职业和个人方面的累积需求，使得这些症状更难被忽视。<br><br>我们应该了解加州大学旧金山分校在更年期方面的工作？<br><br>我们专注于构建整合的更年期护理模式，结合临床服务、教育和研究。这包括改善循证治疗的可及性、开发提供者培训项目、利用大型语言模型（LLM -AI）探索患者的亲身体验，并研究更年期如何影响长期健康结果，例如心血管疾病、骨骼健康和认知功能。<br><br>您能介绍一下您在更年期和关节疾病方面的研究吗？<br><br>我的研究探讨了更年期与肌肉骨骼症状（包括关节疼痛）之间的关系。我回顾了全球关于女性在更年期过渡期间如何经历这些症状的数据，并利用这些证据更好地了解这种“更年期肌肉骨骼综合征”在我们当地人群中的表现。目标是提高认知并指导更具针对性的护理。
-                    </div>
-                    
-                </div>
-
-            </div>
-
-            <!-- 卡片底部链接 -->
-            <footer class="px-8 py-8 md:px-12 bg-slate-50 border-t border-slate-100 text-center">
-                <a href="https://medicalxpress.com/news/2026-07-menopause-latest-guidance-empower-women.html" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center text-base font-semibold text-indigo-600 hover:text-white hover:bg-indigo-600 border border-indigo-600 px-6 py-3 rounded-full transition-all duration-300 group">
-                    View Source Webpage / 访问原始网页
-                    <svg class="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
-                        stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                </a>
             </footer>
-
         </article>
     </main>
 
-    <!-- 页脚 -->
-    <footer class="bg-slate-900 text-slate-400 py-12 text-center mt-12">
-        <p class="text-sm font-medium">Generated by AI Agent &bull; Tailwind CSS &bull; Jinja2</p>
+    <footer class="site-footer">
+        <div class="shell footer-shell">
+            <span>Daily Insight · AI 双语新闻简报</span>
+            <span>AI 内容仅供信息参考</span>
+        </div>
     </footer>
 </body>
 

@@ -4,160 +4,747 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer" />
-    <title>抑制蛋白治疗骨髓增殖性肿瘤显示临床前希望 - Daily Insight</title>
-    <!-- 引入 Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入 Google Fonts -->
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="全球青光眼病例预计将显著增加，这种由眼内液压损伤视神经引起的疾病，若不及时治疗将导致不可逆的视力丧失甚至失明。据估算，2040年全球将有2200万人因青光眼失明。青光眼分为慢性（早期无症状）和急性，危险因素包括年龄、家族史和某些疾病。鉴于慢性青光眼早期无明显症状，定期进行眼科检查对于早期诊断和干预至关重要，可有效阻止病情恶化并保护视力。">
+    <meta name="theme-color" content="#f3f0e8">
+    <title>问答：什么是青光眼以及需要注意的主要症状有哪些？ · Daily Insight</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap"
         rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #f8fafc;
+        :root {
+            --ink: #1b1d19;
+            --muted: #676b63;
+            --paper: #f3f0e8;
+            --surface: #fbfaf6;
+            --accent: #a93d29;
+            --line: rgba(27, 29, 25, 0.16);
+            --line-strong: rgba(27, 29, 25, 0.42);
+            --serif: 'Noto Serif SC', 'Songti SC', SimSun, serif;
+            --sans: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
         }
 
-        .zh-text {
-            font-family: 'Inter', 'Noto Serif SC', serif;
+        * {
+            box-sizing: border-box;
         }
 
         html {
             scroll-behavior: smooth;
+            background: var(--paper);
         }
 
-        /* 沉浸式阅读段落样式 */
-        .article-content p {
-            margin-bottom: 1.5em;
+        body {
+            margin: 0;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 88% 5%, rgba(196, 72, 47, 0.07), transparent 26rem),
+                var(--paper);
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 0.75rem;
+            left: 0.75rem;
+            z-index: 100;
+            padding: 0.75rem 1rem;
+            color: white;
+            background: var(--ink);
+            transform: translateY(-150%);
+            transition: transform 160ms ease;
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 4px;
+            box-shadow: 0 0 0 6px rgba(251, 250, 246, 0.94);
+        }
+
+        .shell {
+            width: min(100%, 78rem);
+            margin-inline: auto;
+            padding-inline: clamp(1.25rem, 4vw, 4rem);
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid var(--line);
+            background: rgba(243, 240, 232, 0.92);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-shell {
+            min-height: 4.5rem;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .back-link,
+        .source-link {
+            min-height: 2.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            width: max-content;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .back-link svg,
+        .source-link svg {
+            width: 1rem;
+            transition: transform 160ms ease;
+        }
+
+        .back-link:hover svg {
+            transform: translateX(-0.25rem);
+        }
+
+        .source-link:hover svg {
+            transform: translate(0.2rem, -0.2rem);
+        }
+
+        .header-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-family: var(--serif);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-mark {
+            width: 2rem;
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+            color: var(--surface);
+            background: var(--ink);
+            font-family: var(--sans);
+            font-size: 0.62rem;
+            letter-spacing: 0.08em;
+        }
+
+        .category-label {
+            justify-self: end;
+            color: var(--muted);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .article-hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 15rem;
+            gap: clamp(2.5rem, 6vw, 6.5rem);
+            align-items: end;
+            padding-block: clamp(4rem, 9vw, 8.5rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .article-kicker {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .article-kicker::before {
+            width: 2.2rem;
+            height: 2px;
+            background: currentColor;
+            content: '';
+        }
+
+        .article-title {
+            max-width: 20ch;
+            margin: 0;
+            font-family: var(--serif);
+            font-size: clamp(2.6rem, 6vw, 5.4rem);
+            font-weight: 900;
+            letter-spacing: -0.06em;
+            line-height: 1.1;
+            overflow-wrap: anywhere;
+        }
+
+        .article-title-en {
+            max-width: 50rem;
+            margin: 1.6rem 0 0;
+            color: var(--muted);
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(1.05rem, 2vw, 1.45rem);
+            font-weight: 400;
+            line-height: 1.55;
+        }
+
+        .article-facts {
+            margin: 0;
+            padding-left: 1.5rem;
+            border-left: 1px solid var(--line-strong);
+        }
+
+        .article-facts div {
+            padding-block: 0.9rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .article-facts div:first-child {
+            padding-top: 0;
+        }
+
+        .article-facts dt {
+            margin-bottom: 0.35rem;
+            color: var(--muted);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .article-facts dd {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: 0.96rem;
+            font-weight: 700;
+            line-height: 1.55;
+        }
+
+        .hero-image {
+            margin-top: -2.5rem;
+            padding-bottom: clamp(4rem, 7vw, 6rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .hero-image img {
+            display: block;
+            width: 100%;
+            max-height: 34rem;
+            object-fit: cover;
+            filter: saturate(0.82) contrast(1.04);
+        }
+
+        .insight-section {
+            padding-block: clamp(3.5rem, 7vw, 6rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .insight-grid {
+            display: grid;
+            grid-template-columns: 12rem minmax(0, 1fr);
+            gap: clamp(2rem, 6vw, 6rem);
+            padding: clamp(1.75rem, 4vw, 3rem);
+            color: var(--surface);
+            background: var(--ink);
+        }
+
+        .section-kicker {
+            margin: 0;
+            color: #f0a086;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .insight-title {
+            margin: 0.65rem 0 0;
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            font-weight: 900;
+            line-height: 1.35;
+        }
+
+        .insight-copy {
+            margin: 0;
+            color: rgba(251, 250, 246, 0.78);
+            font-family: var(--serif);
+            font-size: 1rem;
+            line-height: 2;
+            white-space: pre-line;
+        }
+
+        .reading-section {
+            padding-block: clamp(4rem, 8vw, 7rem);
+        }
+
+        .reading-header {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.65fr);
+            gap: 2rem;
+            align-items: end;
+            margin-bottom: 3rem;
+        }
+
+        .reading-title {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: clamp(2.1rem, 4.5vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 1.1;
+        }
+
+        .reading-intro {
+            margin: 0;
+            color: var(--muted);
+            font-family: var(--serif);
+            font-size: 0.9rem;
             line-height: 1.8;
-            color: #334155;
+        }
+
+        .reading-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            border-block: 1px solid var(--line-strong);
+        }
+
+        .language-column {
+            min-width: 0;
+            padding: 2.25rem clamp(1.5rem, 4vw, 3.5rem) 0 0;
+        }
+
+        .language-column + .language-column {
+            padding-right: 0;
+            padding-left: clamp(1.5rem, 4vw, 3.5rem);
+            border-left: 1px solid var(--line);
+        }
+
+        .language-heading {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1rem;
+            margin: 0 0 2.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .language-heading h3 {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+
+        .language-heading span {
+            color: var(--muted);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .article-prose {
+            padding-bottom: 2rem;
+            color: #353831;
+            font-size: 1rem;
+            line-height: 2;
+            overflow-wrap: anywhere;
+            white-space: pre-line;
+        }
+
+        .prose-en {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.02rem;
+            line-height: 1.95;
+        }
+
+        .prose-zh {
+            font-family: var(--serif);
+            font-size: 1.04rem;
+            line-height: 2.05;
+        }
+
+        .empty-state {
+            margin: 0 0 2rem;
+            padding: 1.25rem;
+            color: var(--muted);
+            border: 1px dashed var(--line-strong);
+            font-family: var(--serif);
+            line-height: 1.7;
+        }
+
+        .source-band {
+            color: var(--surface);
+            background: var(--ink);
+        }
+
+        .source-shell {
+            min-height: 12rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding-block: 2.5rem;
+        }
+
+        .source-title {
+            margin: 0 0 0.45rem;
+            font-family: var(--serif);
+            font-size: clamp(1.55rem, 3vw, 2.4rem);
+            font-weight: 900;
+        }
+
+        .source-copy {
+            margin: 0;
+            color: rgba(251, 250, 246, 0.62);
+            font-size: 0.78rem;
+            line-height: 1.7;
+        }
+
+        .source-link {
+            flex: 0 0 auto;
+            padding: 0.85rem 1.1rem;
+            color: var(--ink);
+            background: var(--surface);
+        }
+
+        .site-footer {
+            padding-block: 2rem;
+            color: var(--muted);
+            background: var(--paper);
+        }
+
+        .footer-shell {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: 0.7rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 760px) {
+            .nav-shell {
+                grid-template-columns: 1fr auto;
+            }
+
+            .header-brand {
+                display: none;
+            }
+
+            .article-hero {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .article-facts {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                padding: 1rem 0 0;
+                border-top: 1px solid var(--line-strong);
+                border-left: 0;
+            }
+
+            .article-facts div {
+                padding: 0 0.8rem;
+                border-right: 1px solid var(--line);
+                border-bottom: 0;
+            }
+
+            .article-facts div:first-child {
+                padding-top: 0;
+                padding-left: 0;
+            }
+
+            .article-facts div:last-child {
+                border-right: 0;
+            }
+
+            .insight-grid,
+            .reading-header {
+                grid-template-columns: 1fr;
+            }
+
+            .reading-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .language-column,
+            .language-column + .language-column {
+                padding: 2rem 0 0;
+                border-left: 0;
+            }
+
+            .language-column + .language-column {
+                border-top: 1px solid var(--line-strong);
+            }
+
+            .source-shell {
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .article-title {
+                font-size: clamp(2.25rem, 12vw, 3.15rem);
+            }
+
+            .article-facts {
+                grid-template-columns: 1fr;
+            }
+
+            .article-facts div,
+            .article-facts div:first-child {
+                padding: 0.8rem 0;
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .article-facts div:last-child {
+                border-bottom: 0;
+            }
+
+            .footer-shell {
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
 
-<body class="text-gray-800 antialiased">
-    <!-- 顶部返回导航 -->
-    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-200">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-            <a href="../index.html"
-                class="inline-flex items-center text-sm font-medium text-slate-500 hover:text-indigo-600 transition-colors group">
-                <svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+<body>
+    <a class="skip-link" href="#article-content">跳至文章正文</a>
+
+    <header class="site-header">
+        <div class="shell nav-shell">
+            <a class="back-link" href="../index.html">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M19 12H5M11 18l-6-6 6-6"></path>
                 </svg>
-                返回首页
+                返回简报
             </a>
-            <span
-                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-100 text-slate-600">
-                医疗
-            </span>
+            <a class="header-brand" href="../index.html" aria-label="Daily Insight 首页">
+                <span class="brand-mark" aria-hidden="true">DI</span>
+                <span>Daily Insight</span>
+            </a>
+            <span class="category-label">医疗</span>
         </div>
     </header>
 
-    <!-- 文章主体 -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
-        <article class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
+    <main id="article-content">
+        <article>
+            <header class="shell article-hero">
+                <div>
+                    <div class="article-kicker">
+                        <span>医疗</span>
+                        <span aria-hidden="true">·</span>
+                        <span>MedicalXpress</span>
+                    </div>
+                    <h1 class="article-title">问答：什么是青光眼以及需要注意的主要症状有哪些？</h1>
+                    <p class="article-title-en" lang="en">Q&amp;A: What is glaucoma and what are the main symptoms to look out for?</p>
+                </div>
 
-            <!-- 文章标题区 -->
-            <header class="px-8 py-10 md:px-12 md:py-16 bg-slate-50 border-b border-slate-100 text-center">
-                <span
-                    class="inline-block px-3 py-1 mb-6 rounded-full text-sm font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
-                    MedicalXpress
-                </span>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 zh-text leading-tight mb-6 mt-2">
-                    抑制蛋白治疗骨髓增殖性肿瘤显示临床前希望
-                </h1>
-                <h2 class="text-xl md:text-2xl font-bold text-slate-500 font-serif leading-snug">
-                    Inhibiting protein to treat myeloproliferative neoplasms shows preclinical promise
-                </h2>
+                <dl class="article-facts" aria-label="文章信息">
+                    <div>
+                        <dt>Section</dt>
+                        <dd>医疗</dd>
+                    </div>
+                    <div>
+                        <dt>Source</dt>
+                        <dd>MedicalXpress</dd>
+                    </div>
+                    <div>
+                        <dt>Reading</dt>
+                        <dd>中英对照</dd>
+                    </div>
+                </dl>
             </header>
 
-            <!-- 沉浸式头图 -->
-            
-            <div class="px-8 pt-8 md:px-12 bg-white">
-                <img src="https://scx2.b-cdn.net/gfx/news/2026/inhibiting-menin-to-tr.jpg" alt="Immersive Header Image"
-                    class="w-full max-h-96 object-cover rounded-xl shadow-sm">
-            </div>
-            
 
-            <!-- AI 深度解析区 -->
-            
-            <div class="px-8 pt-8 md:px-12 md:pt-12 bg-white">
-                <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-6 shadow-sm">
-                    <div class="flex items-center gap-2 mb-4 text-indigo-700">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
-                            </path>
-                        </svg>
-                        <h3 class="text-xl font-bold zh-text">💡 AI 深度解析 (AI Insight)</h3>
-                    </div>
-                    <div class="text-indigo-900 zh-text leading-relaxed text-[15px] font-medium">
-                        孟宁蛋白（Menin）抑制剂作为一种治疗骨髓增殖性肿瘤（MPN）的策略，其核心专业概念在于靶向疾病的『源头』。传统上，某些疗法可能针对的是已分化或后期增殖的细胞，如文中所述的极光激酶抑制，其作用更像是“从溢出的水槽里舀水”，仅在疾病发展后期进行干预，效果有限。然而，孟宁蛋白抑制则旨在“关掉水龙头”，通过杀伤早期巨核细胞祖细胞来从根本上遏制异常增殖，这些祖细胞正是大部分恶性细胞的来源。这种机制上的区别解释了为何孟宁抑制在临床前模型中表现出更强的活性，能够显著延长生存期、预防纤维化并使血细胞计数正常化。从行业影响来看，瑞福替尼（revumenib）作为一种已获FDA批准的孟宁抑制剂，其用于其他急性白血病的成功经验和已确立的安全性数据，将极大加速其在MPN患者中的临床试验进程。对于MPN这种发展缓慢但缺乏有效治疗方案的罕见血液癌症，孟宁抑制提供了一个突破性的新选择，满足了未被满足的临床需求。这种靶向早期祖细胞的策略，不仅为MPN患者带来了希望，也可能为未来其他增殖性疾病的药物研发提供了新的思路和范式，即更深入地挖掘和靶向疾病发生的根本分子机制，从而实现更持久和彻底的治疗效果。
-                    </div>
+
+            <section class="shell reading-section" aria-labelledby="parallel-reading-title">
+                <header class="reading-header">
+                    <h2 id="parallel-reading-title" class="reading-title">中英对照阅读</h2>
+                    <p class="reading-intro">左侧保留英文原文，右侧提供 AI 中文翻译。翻译可能存在偏差，关键信息请以原始报道为准。</p>
+                </header>
+
+                <div class="reading-grid">
+                    <section class="language-column" aria-labelledby="original-heading">
+                        <header class="language-heading">
+                            <h3 id="original-heading">英文原文</h3>
+                            <span lang="en">Original</span>
+                        </header>
+                        <div class="article-prose prose-en" lang="en">This article has been reviewed according to Science X&#39;s editorial process and policies . Editors have highlighted the following attributes while ensuring the content&#39;s credibility:
+
+Credit: Unsplash/CC0 Public Domain
+
+Researchers have predicted that cases of glaucoma, a common eye condition that can lead to blindness if not treated, are expected to increase around the world in the coming years.
+
+In the year 2010, some 8.4 million individuals worldwide were assumed to be blinded by this condition. By the year 2040, it&#39;s estimated that some 22 million people worldwide will be blind from glaucoma.
+
+Recent research in the UK has confirmed the rise, forecasting that the number of people affected will rise from 1.1 million to 1.6 million by 2060.
+
+These figures highlight the critical importance of regular eye examinations and early detection of glaucoma. To better understand this condition, Denise Voon, clinical adviser at The College of Optometrists, spoke about what causes it and the key signs to look out for.
+
+What is glaucoma?
+
+&#34;Glaucoma is a group of diseases in which the optic nerve is damaged by pressure of the fluid inside the eye,&#34; explains Voon. &#34;It can affect one or both of your eyes and can lead to sight loss if not treated.&#34;
+
+There are lots of different types of glaucoma, but the two most common types are chronic glaucoma and acute glaucoma.
+
+&#34;Chronic glaucoma develops slowly and is the most common form in the UK, while acute glaucoma (also referred to as acute angle-closure glaucoma) is caused by a rapid increase in the pressure,&#34; says Voon.
+
+Who is more at risk?
+
+&#34;Anyone can develop chronic glaucoma, but the risk increases if you&#39;re over 40, are very short-sighted, are of African or Caribbean origin, or have a close relative (first degree relative, a brother, sister, parent) of someone with chronic glaucoma, if you&#39;re known to have raised pressure in your eyes, if you&#39;re diabetic, and if you have high blood pressure,&#34; explains Voon.
+
+&#34;However, with acute glaucoma, women tend to be more susceptible and you&#39;re also more at risk if you&#39;re over 40, if you&#39;re East Asian or South Asian, if you&#39;ve got a family history of close-angle glaucoma, or if you&#39;re long-sighted because your eyes are a little bit smaller.&#34;
+
+How serious is it?
+
+&#34;Both types of glaucoma can lead to irreversible sight loss if they are not treated,&#34; warns Voon. &#34;In the very late stages of untreated glaucoma, you&#39;ll notice tunnel vision. So, your peripheral vision will slowly decrease more and more until you get to a point where you only retain that central part of your vision.&#34;
+
+What are some common symptoms to look out for?
+
+&#34;With acute glaucoma, the symptoms are usually quite obvious and include pain/aching/discomfort in the eye and blurred vision, perhaps with halos around lights,&#34; says Voon. &#34;You might also notice that your pupils get bigger if you go into the dark.&#34;
+
+The NHS website also lists a red eye, tenderness around the eye, seeing rainbow-colored circles around bright light, feeling sick (nausea) and being sick and/or a headache as other key signs to look out for.
+
+&#34;However, with chronic glaucoma, there aren&#39;t any symptoms in the early stages and the only real way to pick it up is to go and see your optometrist regularly,&#34; says Voon.
+
+How is glaucoma diagnosed?
+
+&#34;There are various tests that optometrists can do and the one that they do a lot is the intraocular pressure test [often called a tonometry] to check the pressure inside your eyes,&#34; explains Voon. &#34;We look for pressure that is abnormally high, or see if there&#39;s been a change in the pressure in your eyes.
+
+&#34;We also look at the optic disk, which is the head of the nerve that joins the eye to the brain, to look for any subtle changes in the structure of the disk which might have been damaged from glaucoma. We can also do visual field tests, so look at your peripheral vision and your field of vision to see if there has been any changes in that.&#34;
+
+How is it treated?
+
+The treatment you&#39;ll have depends on how your sight is affected and the type of glaucoma you have.
+
+&#34;Generally, glaucoma is treated with eye drops,&#34; says Voon. &#34;But there are also different types of surgery and laser treatments that can help reduce the pressure and help that fluid drain away a little bit more.&#34;
+
+Can you do anything to prevent it?
+
+&#34;There&#39;s nothing we know of currently that you can do to prevent glaucoma,&#34; says Voon. &#34;The best thing to do if you are worried about glaucoma is to get your eyes tested regularly. That way, if you develop it, we can find it early, then it can be treated early so it won&#39;t get worse and lead to sight loss.&#34;
+
+2026 dpa GmbH. Distributed by Tribune Content Agency, LLC.</div>
+                    </section>
+
+                    <section class="language-column" aria-labelledby="translation-heading">
+                        <header class="language-heading">
+                            <h3 id="translation-heading">中文翻译</h3>
+                            <span>AI Translation</span>
+                        </header>
+                        <div class="article-prose prose-zh">本文已根据Science X的编辑流程和政策进行审阅。编辑们在确保内容可信度的同时，强调了以下特点：
+
+图片来源：Unsplash/CC0公共领域
+
+研究人员预测，青光眼这种常见的眼科疾病，若不及时治疗可能导致失明，未来几年全球病例预计将有所增加。
+
+2010年，全球约有840万人被认为因青光眼致盲。据估计，到2040年，全球将有约2200万人因青光眼而失明。
+
+英国最近的研究证实了这一增长趋势，预计到2060年，受影响人数将从110万增加到160万。
+
+这些数据凸显了定期眼科检查和青光眼早期发现的至关重要性。为了更好地了解这种疾病，英国验光师学院的临床顾问Denise Voon就其病因和关键症状进行了解释。
+
+什么是青光眼？
+
+“青光眼是一组疾病，其中视神经因眼内液体压力受损，”Voon解释道。“它可能影响单眼或双眼，若不及时治疗可导致视力丧失。”
+
+青光眼有多种不同类型，但最常见的两种是慢性青光眼和急性青光眼。
+
+“慢性青光眼发展缓慢，是英国最常见的类型，而急性青光眼（也称为急性闭角型青光眼）则是由眼压快速升高引起的，”Voon说。
+
+哪些人风险更高？
+
+“任何人都有可能患上慢性青光眼，但如果您年龄超过40岁、高度近视、非洲裔或加勒比裔、有慢性青光眼的一级亲属（兄弟、姐妹、父母）、已知眼压升高、患有糖尿病或高血压，则风险会增加，”Voon解释道。
+
+“然而，对于急性青光眼，女性往往更容易受影响，如果您年龄超过40岁、东亚裔或南亚裔、有闭角型青光眼家族史，或者因为眼睛较小而有远视，您的风险也会更高。”
+
+它有多严重？
+
+“如果未及时治疗，这两种类型的青光眼都可能导致不可逆的视力丧失，”Voon警告说。“在未经治疗的青光眼晚期，您会注意到管状视野。这意味着您的周边视力会逐渐减退，直到您只能保留中央视力。”
+
+有哪些常见症状需要注意？
+
+“对于急性青光眼，症状通常非常明显，包括眼部疼痛/酸痛/不适和视力模糊，可能伴有灯光周围出现光晕，”Voon说。“您可能还会注意到，在黑暗中瞳孔会变大。”
+
+英国国家医疗服务体系（NHS）网站还列出了红眼、眼周压痛、看到亮光周围有彩虹色光圈、恶心（作呕）和呕吐以及/或头痛等其他关键症状。
+
+“然而，对于慢性青光眼，早期没有任何症状，唯一真正发现它的方法是定期去看验光师，”Voon说。
+
+青光眼如何诊断？
+
+“验光师可以进行多种检查，他们常用的一种是眼内压测试[常称为眼压测量法]，以检查您眼睛内部的压力，”Voon解释说。“我们寻找异常高的压力，或者观察您眼压是否有变化。”
+
+“我们还会检查视盘，即连接眼睛和大脑的神经头，以寻找视盘结构中可能因青光眼受损的任何细微变化。我们还可以进行视野检查，观察您的周边视力和视野，以判断是否有任何变化。”
+
+如何治疗？
+
+您将接受的治疗取决于您的视力受损程度和青光眼的类型。
+
+“通常情况下，青光眼通过眼药水治疗，”Voon说。“但也有不同类型的手术和激光治疗，可以帮助降低眼压并帮助液体更好地排出。”
+
+可以采取什么措施预防吗？
+
+“目前我们所知，没有任何方法可以预防青光眼，”Voon说。“如果您担心患青光眼，最好的做法是定期进行眼科检查。这样，如果您患上青光眼，我们可以及早发现，及早治疗，从而避免病情恶化并导致视力丧失。”
+
+2026年dpa有限公司。由Tribune Content Agency, LLC发行。</div>
+                    </section>
                 </div>
-            </div>
-            
+            </section>
 
-            <!-- 中英对照正文区 -->
-            <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100">
-
-                <!-- 英文原文 (左) -->
-                <div class="p-8 md:p-12 md:w-1/2 flex flex-col article-content bg-white">
-                    <div class="flex items-center gap-2 mb-8 pb-4 border-b border-slate-100 text-slate-400">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129">
-                            </path>
+            <footer class="source-band">
+                <div class="shell source-shell">
+                    <div>
+                        <p class="source-title">继续查看原始报道</p>
+                        <p class="source-copy">来源：MedicalXpress · 将在新窗口打开发布者页面</p>
+                    </div>
+                    <a class="source-link" href="https://medicalxpress.com/news/2026-02-qa-glaucoma-main-symptoms.html" target="_blank" rel="noopener noreferrer">
+                        访问来源
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M14 5h5v5M19 5l-8 8M19 13v5a1 1 0 01-1 1H6a1 1 0 01-1-1V6a1 1 0 011-1h5"></path>
                         </svg>
-                        <span class="text-sm font-bold uppercase tracking-wider">Original Text</span>
-                    </div>
-                    
-                    <div class="text-md font-serif text-slate-700">
-                        This article has been reviewed according to Science X's editorial process and policies . Editors have highlighted the following attributes while ensuring the content's credibility:<br><br>Graphical abstract. Credit: Cancer Cell (2026). DOI: 10.1016/j.ccell.2026.06.008<br><br>Inhibiting menin, a protein that supports leukemia growth and is already targeted to treat some forms of leukemia, also holds promise for treating myeloproliferative neoplasms. A new study from scientists at St. Jude Children's Research Hospital showed that inhibiting menin significantly extended survival and reversed multiple disease features in preclinical models. The findings were published today in Cancer Cell.<br><br>Menin is best known as a therapeutic vulnerability in certain types of acute leukemia, including those with KMT2A gene rearrangements or NPM1 mutations. Menin inhibitors, such as revumenib, have greatly improved treatment for these cancers and are approved by the Food and Drug Administration (FDA). However, menin inhibition can reduce megakaryocytes (normal platelet-forming cells) and decrease platelet counts. Producing too many megakaryocytes is a hallmark of diseases called myeloproliferative neoplasms, which are slow-developing, rare blood cancers.<br><br>John Crispino, Ph.D., MBA, St. Jude Division of Experimental Hematology director and Department of Hematology member, tested whether inhibiting menin could be a viable therapeutic strategy for myeloproliferative neoplasms.<br><br>"We were surprised to find that menin inhibition produced one of the best preclinical results we've ever seen for myeloproliferative neoplasms," Crispino said. "We saw very strong activity, extending survival, preventing fibrosis and normalizing blood cell counts."<br><br>The researchers conducted experiments to treat mice with revumenib by itself or in combination with standard therapy. They also tested removing the menin gene itself. They found that most models survived to the end of the study and signs of disease, such as fibrosis, disappeared in nearly all cases, including models created using samples from human tumors.<br><br>Menin targets cancers at their source<br><br>The researchers found no significant toxicity, and because revumenib is already FDA-approved, the findings may help accelerate efforts to test menin inhibition in clinical trials for patients with myeloproliferative neoplasms. Clinical trials are a pivotal step in testing whether what the researchers see in the laboratory will hold true in patients.<br><br>However, Crispino cautioned that previous findings from his lab supporting the use of aurora kinase inhibition (a protein involved in megakaryocyte development) were less effective in a clinical trial. Despite that, findings from the current study provide a plausible explanation for why that approach did not work—and a reason to expect that menin inhibition will perform better in the clinic.<br><br>"When we inhibited aurora kinase, it was like we were bailing water from an overflowing sink by targeting only later-stage megakaryocytes," Crispino said. "We found that when we inhibited menin, we were turning off the faucet—we were killing off the early megakaryocyte progenitor cells that most other malignant cells were coming from and stopping the number of cancerous cells from overflowing."<br><br>By targeting earlier progenitor cells, menin inhibition may strike closer to the source of disease. That distinction provides a rationale for further investigation, especially for patients whose diseases have few effective treatment options.<br><br>"We are really excited that this could make a difference for patients," Crispino said. "Menin inhibition has already been a breakthrough therapy for other aggressive leukemias that we treat at St. Jude every day, so we hope that we can leverage that experience to get this into clinical trials and test it as another agent to potentially help people with myeloproliferative neoplasms."<br><br>Publication details Jeremy Wen et al, Menin-dependent megakaryocyte proliferation and fibrosis in myeloproliferative neoplasms, Cancer Cell (2026). DOI: 10.1016/j.ccell.2026.06.008 Journal information: Cancer Cell<br><br>Key medical concepts Myeloproliferative DisordersrevumenibFibrosis<br><br>Clinical categories Oncology
-                    </div>
-                    
+                    </a>
                 </div>
-
-                <!-- 中文翻译 (右) -->
-                <div class="p-8 md:p-12 md:w-1/2 flex flex-col article-content bg-indigo-50/30">
-                    <div class="flex items-center gap-2 mb-8 pb-4 border-b border-indigo-100 text-indigo-400">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129">
-                            </path>
-                        </svg>
-                        <span class="text-sm font-bold uppercase tracking-wider zh-text">AI 机器翻译</span>
-                    </div>
-                    
-                    <div class="text-lg zh-text text-slate-800 font-medium">
-                        本文已根据Science X的编辑流程和政策进行审阅。编辑们在确保内容可信性的同时，突出了以下特点：<br><br>图形摘要。图片来源：Cancer Cell (2026)。DOI: 10.1016/j.ccell.2026.06.008<br><br>抑制孟宁蛋白（一种支持白血病生长并已被用于治疗某些白血病形式的蛋白质）也有望用于治疗骨髓增殖性肿瘤。圣裘德儿童研究医院的科学家进行的一项新研究表明，在临床前模型中，抑制孟宁蛋白显著延长了生存期并逆转了多种疾病特征。这项发现今天发表在《癌细胞》杂志上。<br><br>孟宁蛋白最著名的是作为某些类型急性白血病的治疗靶点，包括KMT2A基因重排或NPM1突变型白血病。孟宁抑制剂，如瑞福替尼（revumenib），已极大地改善了这些癌症的治疗，并获得了美国食品药品监督管理局（FDA）的批准。然而，孟宁抑制可能会减少巨核细胞（正常的血小板生成细胞）并降低血小板计数。而巨核细胞数量过多是骨髓增殖性肿瘤的标志，这是一种发展缓慢的罕见血液癌症。<br><br>圣裘德实验血液学部门主任兼血液学系成员约翰·克里斯皮诺（John Crispino）博士、工商管理硕士，测试了抑制孟宁蛋白是否能成为治疗骨髓增殖性肿瘤的可行治疗策略。<br><br>克里斯皮诺说：“我们惊讶地发现，孟宁抑制在骨髓增殖性肿瘤方面产生了我们所见过的最佳临床前结果之一。”“我们看到了非常强大的活性，延长了生存期，预防了纤维化，并使血细胞计数正常化。”<br><br>研究人员进行了实验，用瑞福替尼单独或与标准疗法联合治疗小鼠。他们还测试了敲除孟宁基因本身。他们发现，大多数模型存活到研究结束，并且在几乎所有病例中，包括使用人类肿瘤样本创建的模型，纤维化等疾病迹象都消失了。<br><br>孟宁蛋白从源头靶向癌症<br><br>研究人员没有发现显著的毒性，而且由于瑞福替尼已获得FDA批准，这些发现可能有助于加速在骨髓增殖性肿瘤患者中进行孟宁抑制临床试验的努力。临床试验是验证研究人员在实验室中观察到的结果是否能应用于患者的关键一步。<br><br>然而，克里斯皮诺警告说，他实验室先前支持使用极光激酶抑制（一种参与巨核细胞发育的蛋白质）的发现，在临床试验中效果不佳。尽管如此，当前研究的发现为该方法为何不起作用提供了合理解释——也为预期孟宁抑制在临床中表现更好提供了理由。<br><br>克里斯皮诺说：“当我们抑制极光激酶时，就像我们通过仅靶向后期巨核细胞来从溢出的水槽中舀水一样。”“我们发现，当我们抑制孟宁蛋白时，我们是在关掉水龙头——我们正在杀死大部分其他恶性细胞来源的早期巨核细胞祖细胞，并阻止癌细胞数量的溢出。”<br><br>通过靶向更早期的祖细胞，孟宁抑制可能更接近疾病的根源。这一区别为进一步研究提供了理论依据，特别是对于那些治疗选择很少的患者。<br><br>克里斯皮诺说：“我们真的很高兴这能为患者带来改变。”“孟宁抑制已成为我们圣裘德每天治疗的其他侵袭性白血病的突破性疗法，因此我们希望能够利用这些经验将其推进临床试验，并将其作为另一种潜在帮助骨髓增殖性肿瘤患者的药物进行测试。”<br><br>出版详情：Jeremy Wen 等，《孟宁蛋白依赖性骨髓增殖性肿瘤中的巨核细胞增殖和纤维化》，《癌细胞》(2026)。DOI: 10.1016/j.ccell.2026.06.008 期刊信息：《癌细胞》<br><br>主要医学概念：骨髓增殖性疾病、瑞福替尼、纤维化<br><br>临床分类：肿瘤学
-                    </div>
-                    
-                </div>
-
-            </div>
-
-            <!-- 卡片底部链接 -->
-            <footer class="px-8 py-8 md:px-12 bg-slate-50 border-t border-slate-100 text-center">
-                <a href="https://medicalxpress.com/news/2026-07-inhibiting-protein-myeloproliferative-neoplasms-preclinical.html" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center text-base font-semibold text-indigo-600 hover:text-white hover:bg-indigo-600 border border-indigo-600 px-6 py-3 rounded-full transition-all duration-300 group">
-                    View Source Webpage / 访问原始网页
-                    <svg class="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
-                        stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                </a>
             </footer>
-
         </article>
     </main>
 
-    <!-- 页脚 -->
-    <footer class="bg-slate-900 text-slate-400 py-12 text-center mt-12">
-        <p class="text-sm font-medium">Generated by AI Agent &bull; Tailwind CSS &bull; Jinja2</p>
+    <footer class="site-footer">
+        <div class="shell footer-shell">
+            <span>Daily Insight · AI 双语新闻简报</span>
+            <span>AI 内容仅供信息参考</span>
+        </div>
     </footer>
 </body>
 

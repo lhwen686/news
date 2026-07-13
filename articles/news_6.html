@@ -4,160 +4,663 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer" />
-    <title>TechCrunch出行：机器人出租车最后通牒 - Daily Insight</title>
-    <!-- 引入 Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入 Google Fonts -->
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Netflix意外放弃竞购华纳兄弟探索，使得派拉蒙影业有望胜出。Netflix此举出于财务纪律，股东疑虑（股价波动）及派拉蒙高价竞标是主因。据称，其联席CEO萨兰多斯或采纳了前总统特朗普的建议。目前，华纳兄弟员工担忧大规模裁员及CNN面临政治压力。">
+    <meta name="theme-color" content="#f3f0e8">
+    <title>为什么Netflix放弃了收购华纳兄弟的交易？ · Daily Insight</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap"
         rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #f8fafc;
+        :root {
+            --ink: #1b1d19;
+            --muted: #676b63;
+            --paper: #f3f0e8;
+            --surface: #fbfaf6;
+            --accent: #a93d29;
+            --line: rgba(27, 29, 25, 0.16);
+            --line-strong: rgba(27, 29, 25, 0.42);
+            --serif: 'Noto Serif SC', 'Songti SC', SimSun, serif;
+            --sans: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
         }
 
-        .zh-text {
-            font-family: 'Inter', 'Noto Serif SC', serif;
+        * {
+            box-sizing: border-box;
         }
 
         html {
             scroll-behavior: smooth;
+            background: var(--paper);
         }
 
-        /* 沉浸式阅读段落样式 */
-        .article-content p {
-            margin-bottom: 1.5em;
+        body {
+            margin: 0;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 88% 5%, rgba(196, 72, 47, 0.07), transparent 26rem),
+                var(--paper);
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 0.75rem;
+            left: 0.75rem;
+            z-index: 100;
+            padding: 0.75rem 1rem;
+            color: white;
+            background: var(--ink);
+            transform: translateY(-150%);
+            transition: transform 160ms ease;
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 4px;
+            box-shadow: 0 0 0 6px rgba(251, 250, 246, 0.94);
+        }
+
+        .shell {
+            width: min(100%, 78rem);
+            margin-inline: auto;
+            padding-inline: clamp(1.25rem, 4vw, 4rem);
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid var(--line);
+            background: rgba(243, 240, 232, 0.92);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-shell {
+            min-height: 4.5rem;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .back-link,
+        .source-link {
+            min-height: 2.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            width: max-content;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .back-link svg,
+        .source-link svg {
+            width: 1rem;
+            transition: transform 160ms ease;
+        }
+
+        .back-link:hover svg {
+            transform: translateX(-0.25rem);
+        }
+
+        .source-link:hover svg {
+            transform: translate(0.2rem, -0.2rem);
+        }
+
+        .header-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-family: var(--serif);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-mark {
+            width: 2rem;
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+            color: var(--surface);
+            background: var(--ink);
+            font-family: var(--sans);
+            font-size: 0.62rem;
+            letter-spacing: 0.08em;
+        }
+
+        .category-label {
+            justify-self: end;
+            color: var(--muted);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .article-hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 15rem;
+            gap: clamp(2.5rem, 6vw, 6.5rem);
+            align-items: end;
+            padding-block: clamp(4rem, 9vw, 8.5rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .article-kicker {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .article-kicker::before {
+            width: 2.2rem;
+            height: 2px;
+            background: currentColor;
+            content: '';
+        }
+
+        .article-title {
+            max-width: 20ch;
+            margin: 0;
+            font-family: var(--serif);
+            font-size: clamp(2.6rem, 6vw, 5.4rem);
+            font-weight: 900;
+            letter-spacing: -0.06em;
+            line-height: 1.1;
+            overflow-wrap: anywhere;
+        }
+
+        .article-title-en {
+            max-width: 50rem;
+            margin: 1.6rem 0 0;
+            color: var(--muted);
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(1.05rem, 2vw, 1.45rem);
+            font-weight: 400;
+            line-height: 1.55;
+        }
+
+        .article-facts {
+            margin: 0;
+            padding-left: 1.5rem;
+            border-left: 1px solid var(--line-strong);
+        }
+
+        .article-facts div {
+            padding-block: 0.9rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .article-facts div:first-child {
+            padding-top: 0;
+        }
+
+        .article-facts dt {
+            margin-bottom: 0.35rem;
+            color: var(--muted);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .article-facts dd {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: 0.96rem;
+            font-weight: 700;
+            line-height: 1.55;
+        }
+
+        .hero-image {
+            margin-top: -2.5rem;
+            padding-bottom: clamp(4rem, 7vw, 6rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .hero-image img {
+            display: block;
+            width: 100%;
+            max-height: 34rem;
+            object-fit: cover;
+            filter: saturate(0.82) contrast(1.04);
+        }
+
+        .insight-section {
+            padding-block: clamp(3.5rem, 7vw, 6rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .insight-grid {
+            display: grid;
+            grid-template-columns: 12rem minmax(0, 1fr);
+            gap: clamp(2rem, 6vw, 6rem);
+            padding: clamp(1.75rem, 4vw, 3rem);
+            color: var(--surface);
+            background: var(--ink);
+        }
+
+        .section-kicker {
+            margin: 0;
+            color: #f0a086;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .insight-title {
+            margin: 0.65rem 0 0;
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            font-weight: 900;
+            line-height: 1.35;
+        }
+
+        .insight-copy {
+            margin: 0;
+            color: rgba(251, 250, 246, 0.78);
+            font-family: var(--serif);
+            font-size: 1rem;
+            line-height: 2;
+            white-space: pre-line;
+        }
+
+        .reading-section {
+            padding-block: clamp(4rem, 8vw, 7rem);
+        }
+
+        .reading-header {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.65fr);
+            gap: 2rem;
+            align-items: end;
+            margin-bottom: 3rem;
+        }
+
+        .reading-title {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: clamp(2.1rem, 4.5vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 1.1;
+        }
+
+        .reading-intro {
+            margin: 0;
+            color: var(--muted);
+            font-family: var(--serif);
+            font-size: 0.9rem;
             line-height: 1.8;
-            color: #334155;
+        }
+
+        .reading-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            border-block: 1px solid var(--line-strong);
+        }
+
+        .language-column {
+            min-width: 0;
+            padding: 2.25rem clamp(1.5rem, 4vw, 3.5rem) 0 0;
+        }
+
+        .language-column + .language-column {
+            padding-right: 0;
+            padding-left: clamp(1.5rem, 4vw, 3.5rem);
+            border-left: 1px solid var(--line);
+        }
+
+        .language-heading {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1rem;
+            margin: 0 0 2.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .language-heading h3 {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+
+        .language-heading span {
+            color: var(--muted);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .article-prose {
+            padding-bottom: 2rem;
+            color: #353831;
+            font-size: 1rem;
+            line-height: 2;
+            overflow-wrap: anywhere;
+            white-space: pre-line;
+        }
+
+        .prose-en {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.02rem;
+            line-height: 1.95;
+        }
+
+        .prose-zh {
+            font-family: var(--serif);
+            font-size: 1.04rem;
+            line-height: 2.05;
+        }
+
+        .empty-state {
+            margin: 0 0 2rem;
+            padding: 1.25rem;
+            color: var(--muted);
+            border: 1px dashed var(--line-strong);
+            font-family: var(--serif);
+            line-height: 1.7;
+        }
+
+        .source-band {
+            color: var(--surface);
+            background: var(--ink);
+        }
+
+        .source-shell {
+            min-height: 12rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding-block: 2.5rem;
+        }
+
+        .source-title {
+            margin: 0 0 0.45rem;
+            font-family: var(--serif);
+            font-size: clamp(1.55rem, 3vw, 2.4rem);
+            font-weight: 900;
+        }
+
+        .source-copy {
+            margin: 0;
+            color: rgba(251, 250, 246, 0.62);
+            font-size: 0.78rem;
+            line-height: 1.7;
+        }
+
+        .source-link {
+            flex: 0 0 auto;
+            padding: 0.85rem 1.1rem;
+            color: var(--ink);
+            background: var(--surface);
+        }
+
+        .site-footer {
+            padding-block: 2rem;
+            color: var(--muted);
+            background: var(--paper);
+        }
+
+        .footer-shell {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: 0.7rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 760px) {
+            .nav-shell {
+                grid-template-columns: 1fr auto;
+            }
+
+            .header-brand {
+                display: none;
+            }
+
+            .article-hero {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .article-facts {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                padding: 1rem 0 0;
+                border-top: 1px solid var(--line-strong);
+                border-left: 0;
+            }
+
+            .article-facts div {
+                padding: 0 0.8rem;
+                border-right: 1px solid var(--line);
+                border-bottom: 0;
+            }
+
+            .article-facts div:first-child {
+                padding-top: 0;
+                padding-left: 0;
+            }
+
+            .article-facts div:last-child {
+                border-right: 0;
+            }
+
+            .insight-grid,
+            .reading-header {
+                grid-template-columns: 1fr;
+            }
+
+            .reading-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .language-column,
+            .language-column + .language-column {
+                padding: 2rem 0 0;
+                border-left: 0;
+            }
+
+            .language-column + .language-column {
+                border-top: 1px solid var(--line-strong);
+            }
+
+            .source-shell {
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .article-title {
+                font-size: clamp(2.25rem, 12vw, 3.15rem);
+            }
+
+            .article-facts {
+                grid-template-columns: 1fr;
+            }
+
+            .article-facts div,
+            .article-facts div:first-child {
+                padding: 0.8rem 0;
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .article-facts div:last-child {
+                border-bottom: 0;
+            }
+
+            .footer-shell {
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
 
-<body class="text-gray-800 antialiased">
-    <!-- 顶部返回导航 -->
-    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-200">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-            <a href="../index.html"
-                class="inline-flex items-center text-sm font-medium text-slate-500 hover:text-indigo-600 transition-colors group">
-                <svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+<body>
+    <a class="skip-link" href="#article-content">跳至文章正文</a>
+
+    <header class="site-header">
+        <div class="shell nav-shell">
+            <a class="back-link" href="../index.html">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M19 12H5M11 18l-6-6 6-6"></path>
                 </svg>
-                返回首页
+                返回简报
             </a>
-            <span
-                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-100 text-slate-600">
-                科技
-            </span>
+            <a class="header-brand" href="../index.html" aria-label="Daily Insight 首页">
+                <span class="brand-mark" aria-hidden="true">DI</span>
+                <span>Daily Insight</span>
+            </a>
+            <span class="category-label">科技</span>
         </div>
     </header>
 
-    <!-- 文章主体 -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
-        <article class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
+    <main id="article-content">
+        <article>
+            <header class="shell article-hero">
+                <div>
+                    <div class="article-kicker">
+                        <span>科技</span>
+                        <span aria-hidden="true">·</span>
+                        <span>TechCrunch</span>
+                    </div>
+                    <h1 class="article-title">为什么Netflix放弃了收购华纳兄弟的交易？</h1>
+                    <p class="article-title-en" lang="en">Why did Netflix back down from its deal to acquire Warner Bros.?</p>
+                </div>
 
-            <!-- 文章标题区 -->
-            <header class="px-8 py-10 md:px-12 md:py-16 bg-slate-50 border-b border-slate-100 text-center">
-                <span
-                    class="inline-block px-3 py-1 mb-6 rounded-full text-sm font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
-                    TechCrunch
-                </span>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 zh-text leading-tight mb-6 mt-2">
-                    TechCrunch出行：机器人出租车最后通牒
-                </h1>
-                <h2 class="text-xl md:text-2xl font-bold text-slate-500 font-serif leading-snug">
-                    TechCrunch Mobility: A robotaxi ultimatum
-                </h2>
+                <dl class="article-facts" aria-label="文章信息">
+                    <div>
+                        <dt>Section</dt>
+                        <dd>科技</dd>
+                    </div>
+                    <div>
+                        <dt>Source</dt>
+                        <dd>TechCrunch</dd>
+                    </div>
+                    <div>
+                        <dt>Reading</dt>
+                        <dd>中英对照</dd>
+                    </div>
+                </dl>
             </header>
 
-            <!-- 沉浸式头图 -->
-            
-            <div class="px-8 pt-8 md:px-12 bg-white">
-                <img src="https://techcrunch.com/wp-content/uploads/2026/07/waymo-SF-getty.jpg?resize=1200,800" alt="Immersive Header Image"
-                    class="w-full max-h-96 object-cover rounded-xl shadow-sm">
-            </div>
-            
 
-            <!-- AI 深度解析区 -->
-            
-            <div class="px-8 pt-8 md:px-12 md:pt-12 bg-white">
-                <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-6 shadow-sm">
-                    <div class="flex items-center gap-2 mb-4 text-indigo-700">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
-                            </path>
-                        </svg>
-                        <h3 class="text-xl font-bold zh-text">💡 AI 深度解析 (AI Insight)</h3>
-                    </div>
-                    <div class="text-indigo-900 zh-text leading-relaxed text-[15px] font-medium">
-                        本文深入探讨了自动驾驶汽车行业在技术发展、商业合作与监管环境方面的最新动态。核心概念在于自动驾驶技术所面临的“功能不足”挑战，即车辆无法有效识别并响应紧急场景。NHTSA的指令明确指出，干扰急救或执法行为是不可接受的，并要求开发者立即解决此问题。这不仅揭示了技术瓶颈，也强调了自动驾驶汽车在实际部署中对公共安全和基础设施兼容性的高度依赖。商业逻辑方面，优步与Waymo合作关系的破裂及潜在竞争预示着行业从合作走向直接对抗，各方将通过政策游说和技术优势争夺市场份额。同时，Rivian等电动汽车制造商的巨额融资，体现了其在扩大生产和市场占有率上的资金需求，即便尚未盈利，资本市场仍对其增长潜力抱有期待。整体而言，自动驾驶和电动汽车行业正处于快速发展与严格监管并行的关键时期，技术创新、政策合规和资本运作将共同塑造其未来格局。
-                    </div>
+
+            <section class="shell reading-section" aria-labelledby="parallel-reading-title">
+                <header class="reading-header">
+                    <h2 id="parallel-reading-title" class="reading-title">中英对照阅读</h2>
+                    <p class="reading-intro">左侧保留英文原文，右侧提供 AI 中文翻译。翻译可能存在偏差，关键信息请以原始报道为准。</p>
+                </header>
+
+                <div class="reading-grid">
+                    <section class="language-column" aria-labelledby="original-heading">
+                        <header class="language-heading">
+                            <h3 id="original-heading">英文原文</h3>
+                            <span lang="en">Original</span>
+                        </header>
+                        <div class="article-prose prose-en" lang="en">In Brief
+
+Netflix stunned the entertainment world this week when it declined to raise its bid for Warner Bros. Discovery, setting the stage for Paramount Skydance to win ownership of the Hollywood studio.
+
+At the time, Netflix co-CEOs Ted Sarandos and Greg Peters said they were being financially disciplined. Now reporting in Bloomberg offers more details about why Netflix executives backed down from a bidding war that it seemed to win back in December.
+
+For one thing, the streaming giant’s shareholders appeared deeply skeptical that the acquisition was a good deal — Netflix’s share price declined 30% since announcing the deal, while the subsequent news that it was backing down sent Netflix stock up nearly 14%.
+
+For another, Netflix’s commitment to the deal reportedly wavered after Paramount came in with an increased offer and seemed willing to go several more rounds in a bidding war.
+
+By the time Sarandos met with Trump administration officials on Thursday, he may already have decided to concede. In fact, since President Donald Trump had previously warned him not to overpay, Sarandos reportedly told him, “I took your advice.”
+
+Meanwhile, employees at Warner Bros. now worry about major studio layoffs and conservative political pressure on CNN.</div>
+                    </section>
+
+                    <section class="language-column" aria-labelledby="translation-heading">
+                        <header class="language-heading">
+                            <h3 id="translation-heading">中文翻译</h3>
+                            <span>AI Translation</span>
+                        </header>
+                        <div class="article-prose prose-zh">简讯
+
+Netflix本周拒绝提高对华纳兄弟探索的竞标，震惊了娱乐界，这为派拉蒙影业-Skydance赢得这家好莱坞制片公司的所有权铺平了道路。
+
+当时，Netflix联席首席执行官泰德·萨兰多斯和格雷格·彼得斯表示他们正在实行财务自律。现在，彭博社的报道提供了更多细节，说明Netflix高管为何退出这场似乎在去年12月就已胜券在握的竞购战。
+
+首先，这家流媒体巨头的股东似乎对这项收购是否是笔好买卖深表怀疑——自宣布这项交易以来，Netflix的股价下跌了30%，而随后传出的退出消息则让Netflix的股价飙升了近14%。
+
+其次，据报道，在派拉蒙影业提出更高的报价并似乎愿意在竞购战中再战数轮之后，Netflix对这笔交易的承诺动摇了。
+
+到萨兰多斯周四与特朗普政府官员会面时，他可能已经决定让步。事实上，由于唐纳德·特朗普总统此前曾警告他不要出价过高，萨兰多斯据称告诉他：“我听取了您的建议。”
+
+与此同时，华纳兄弟的员工现在担心大规模的制片厂裁员以及CNN面临的保守派政治压力。</div>
+                    </section>
                 </div>
-            </div>
-            
+            </section>
 
-            <!-- 中英对照正文区 -->
-            <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100">
-
-                <!-- 英文原文 (左) -->
-                <div class="p-8 md:p-12 md:w-1/2 flex flex-col article-content bg-white">
-                    <div class="flex items-center gap-2 mb-8 pb-4 border-b border-slate-100 text-slate-400">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129">
-                            </path>
+            <footer class="source-band">
+                <div class="shell source-shell">
+                    <div>
+                        <p class="source-title">继续查看原始报道</p>
+                        <p class="source-copy">来源：TechCrunch · 将在新窗口打开发布者页面</p>
+                    </div>
+                    <a class="source-link" href="https://techcrunch.com/2026/02/28/why-did-netflix-back-down-from-its-deal-to-acquire-warner-bros/" target="_blank" rel="noopener noreferrer">
+                        访问来源
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M14 5h5v5M19 5l-8 8M19 13v5a1 1 0 01-1 1H6a1 1 0 01-1-1V6a1 1 0 011-1h5"></path>
                         </svg>
-                        <span class="text-sm font-bold uppercase tracking-wider">Original Text</span>
-                    </div>
-                    
-                    <div class="text-md font-serif text-slate-700">
-                        Welcome back to TechCrunch Mobility, your hub for the future of transportation and now, more than ever, how AI is playing a part. To get this in your inbox, sign up here for free — just click TechCrunch Mobility!<br><br>I am back from vacation. What did I miss? Turns out, quite a lot — including the end of the Uber-Waymo partnership in Phoenix. Uber and Waymo still have robotaxi service partnerships in Atlanta and Austin. The question is not if, but when will these agreements end? But that isn’t the most intriguing question, in my opinion. I am far more intrigued by how these two companies will behave once the remaining partnerships end.<br><br>There is already tension with Uber executives taking not-so-subtle shots at Waymo. I expect that once the partnerships end, these thinly veiled barbs will be replaced with more direct action. One battleground will be policy, specifically markets where robotaxi companies are angling to get access.<br><br>This week, we saw another interesting development in the autonomous vehicle industry on the federal stage. National Highway Traffic Safety Administration administrator Jonathan Morrison issued a directive to autonomous vehicle developers, stating that it is unacceptable for their vehicles to interfere with first responders or law enforcement.<br><br>The money quote: “Let me be clear: the inability to detect and appropriately respond to such situations represents a functional insufficiency. Emergency scenes are not rare or extreme ‘edge cases.’ As such, NHTSA is today issuing a call to action for AV developers and operators to immediately focus their resources on fixing this issue.”<br><br>Morrison’s letter never calls out any one robotaxi company and it was sent to every AV developer listed in the Department of Transportation’s Standing General Order. But it sure seems like Morrison is directing the agency’s ire at Waymo.<br><br>A previous TechCrunch investigation found that Waymo — which operates the largest robotaxi fleet in the United States, with vehicles in cities such as Los Angeles, Phoenix, and San Francisco — has had repeated run-ins with first responders. And just this week, San Francisco supervisor Bilal Mahmood said he plans to submit a letter of inquiry to examine how autonomous vehicles affected public transit services and emergency responders following a July 4 fireworks show that resulted in massive gridlock. Local news outlets reported that numerous Waymo robotaxis had to be towed after running out of power during the lengthy traffic jam.<br><br>Morrison’s letter has gravitas. But will there be substantive consequences for AV developers? It’s hard to tell at this point. For now, the NHTSA has demanded companies present the agency with “solutions” by the end of the month.<br><br>One more news item from the feds. Take a look at the new 2026 Regulatory Plan and Unified Agenda, which was updated last week. It contains a long list of proposed changes to Federal Motor Vehicle Safety Standards (FMVSS) requirements, which govern vehicle design and equipment requirements. These proposed changes could help autonomous vehicle companies like Tesla and Zoox, which are developing vehicles without steering wheels, pedals, or other features required on human-driven cars.<br><br>A little bird<br><br>Image Credits:Bryce Durbin<br><br>Got a tip for us? Email Kirsten Korosec at kirsten.korosec@techcrunch.com or my Signal at kkorosec.07, or email Sean O’Kane at sean.okane@techcrunch.com.<br><br>Deals!<br><br>Image Credits:Bryce Durbin<br><br>We usually focus on venture deals, but this week I wanted to highlight Rivian and the sale of 86.25 million Class A common shares priced at $15.50 each (that includes an added 11.25 million in additional shares that underwriters opted to buy).<br><br>In all, Rivian said it expects to raise $1.32 billion in new capital. The raise comes at a notable time for the EV maker. The company started delivering its new R2 SUV last month and recently raised its sales forecast for 2026. The company said it now expects to deliver between 65,000 and 70,000 vehicles after outperforming its own expectations in the second quarter due to robust growth quarter-over-quarter in EDV and R1, coupled with the introduction of R2 deliveries.<br><br>The company didn’t explain the reason for the raise. But as a reminder, Rivian is not yet profitable and scaling up production of the R2 — or any vehicle for that matter — isn’t cheap!<br><br>Other deals that got my attention …<br><br>Bidbus, a Los Angeles-based startup that built a digital marketplace where multiple dealers can bid on a car, raised $15 million in a Series A funding round led by Ibex Investors. Mucker Capital, FJ Labs, Motley Fool Ventures, Data Point Capital, Walter Ventures, and the Car Dealership Guy’s Yossi Levi also participated.<br><br>Lyft said it plans to acquire Serveo’s bike-share business in Spain. Terms weren’t disclosed, but the ride-hailing company said it is expected to close this year.<br><br>TaiSan, a U.K. battery startup, raised £4.65 million in a seed funding round co-led by Eos Advisory and the Midlands Engine Investment Fund II. InnoEnergy, AFI Ventures, EverQuest Capital Partners, Exergon, Heartfelt Ventures, Adeline Arts & Science, Techmind, angel investor François Badelon, and matched funding from Innovate UK also participated.<br><br>Notable reads and other tidbits<br><br>Image Credits:Bryce Durbin<br><br>AssuranceAmerica, a U.S. insurance provider, confirmed a data breach that affected the personal information and driver’s license numbers of 6.9 million people, making it the largest known spill of Americans’ driver’s license information this year.<br><br>Beta Technologies, the electric vehicle takeoff and landing developer, completed operational flights conducted under the U.S. Department of Transportation and Federal Aviation Administration’s new eVTOL Integration Pilot Program. The flights covered about 275 nautical miles covering Virginia and Maryland.<br><br>Longtime followers of Tesla will remember the heady days when Elon Musk battled various short sellers of the company’s stock. Musk is more polarizing than ever, and one exchange-traded fund creator has found a way to tap into that negative sentiment with two new anti-Elon exchange-traded funds.<br><br>GM brand Chevrolet built an all-American EV truck. Senior reporter Tim De Chant asks, Why is nobody buying it?<br><br>Manna Aero, the Ireland-based autonomous drone delivery startup, is scaling up in the United States with a factory and operations center in Tulsa, Oklahoma, that it says will employ 1,000 in the next few years.<br><br>Slate Auto teamed up with Crayola to offer its EV truck and SUV customers vehicle wraps in five crayon colors. (Reminder: The basic Slate EV vehicle isn’t painted. Instead, it comes in a gray composite material that can be customized with a vehicle wrap. The company has hundreds of options to choose from.)<br><br>One more thing …<br><br>TechCrunch podcast Build Mode just launched its third season, and it’s a banger. Build Mode is hosted by Isabelle Johannessen, who heads TechCrunch’s Startup Battlefield program. Unlike Equity — the TC podcast I co-host along with Anthony Ha and Sean O’Kane — Build Mode is designed to help early-stage founders.<br><br>The new season kicks off with Precursor Ventures founder and managing partner Charles Hudson, who talks about what early-stage founders need to know before raising their first institutional round.<br><br>Check it out: The new rules of early-stage fundraising with Charles Hudson.
-                    </div>
-                    
+                    </a>
                 </div>
-
-                <!-- 中文翻译 (右) -->
-                <div class="p-8 md:p-12 md:w-1/2 flex flex-col article-content bg-indigo-50/30">
-                    <div class="flex items-center gap-2 mb-8 pb-4 border-b border-indigo-100 text-indigo-400">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129">
-                            </path>
-                        </svg>
-                        <span class="text-sm font-bold uppercase tracking-wider zh-text">AI 机器翻译</span>
-                    </div>
-                    
-                    <div class="text-lg zh-text text-slate-800 font-medium">
-                        欢迎回到TechCrunch出行版块，这里是未来交通的中心，现在，更是人工智能如何发挥作用的关键。若想免费收到此内容，请在此处注册——只需点击TechCrunch出行版块！<br><br>我度假回来了。我错过了什么？原来，错过了不少——包括优步与Waymo在凤凰城的合作告一段落。优步和Waymo在亚特兰大和奥斯汀仍然保持着自动驾驶出租车服务合作关系。问题不在于这些协议是否会结束，而在于何时结束？但在我看来，这并不是最引人入胜的问题。我更感兴趣的是，一旦剩余的合作关系结束，这两家公司将如何行事。<br><br>优步高管已经对Waymo发出不那么微妙的攻击，双方之间已经存在紧张关系。我预计一旦合作关系结束，这些隐晦的嘲讽将演变为更直接的行动。其中一个战场将是政策，特别是自动驾驶出租车公司正在努力争取进入的市场。<br><br>本周，我们看到自动驾驶汽车行业在联邦层面又有了新的发展。国家公路交通安全管理局（NHTSA）局长乔纳森·莫里森向自动驾驶汽车开发者发布了一项指令，声明他们的车辆干扰急救人员或执法人员是不可接受的。<br><br>核心引述：“让我明确一点：无法探测并适当响应此类情况代表着功能上的不足。紧急场景并非罕见或极端的‘边缘情况’。因此，NHTSA今天呼吁自动驾驶汽车开发者和运营商立即集中资源解决此问题。”<br><br>莫里森的信函没有点名任何一家自动驾驶出租车公司，它被发送给了交通部常设总指令中列出的所有自动驾驶汽车开发者。但看起来莫里森似乎是将该机构的怒火指向了Waymo。<br><br>TechCrunch此前的一项调查发现，Waymo——在美国运营着最大的自动驾驶出租车车队，车辆遍布洛杉矶、凤凰城和旧金山等城市——曾多次与急救人员发生冲突。就在本周，旧金山主管比拉勒·马哈茂德表示，他计划提交一份调查函，以审查在7月4日烟花表演导致大规模交通堵塞后，自动驾驶汽车如何影响了公共交通服务和急救人员。当地新闻媒体报道称，许多Waymo自动驾驶出租车在长时间交通堵塞中电量耗尽后不得不被拖走。<br><br>莫里森的信函具有分量。但自动驾驶汽车开发者会面临实质性后果吗？目前还很难说。目前，NHTSA已要求各公司在本月底前向该机构提交“解决方案”。<br><br>联邦政府还有一条新闻。请查看上周更新的2026年监管计划和统一议程。它包含一份很长的拟议修改联邦机动车安全标准（FMVSS）要求的清单，这些要求管理着车辆设计和设备规定。这些拟议的修改可能有助于特斯拉和Zoox等正在开发没有方向盘、踏板或其他人类驾驶汽车所需功能的自动驾驶汽车公司。<br><br>小道消息<br><br>图片来源：Bryce Durbin<br><br>有独家消息要告诉我们吗？请发送电子邮件至Kirsten Korosec，邮箱地址：kirsten.korosec@techcrunch.com，或者我的Signal联系方式：kkorosec.07；或发送电子邮件至Sean O’Kane，邮箱地址：sean.okane@techcrunch.com。<br><br>交易！<br><br>图片来源：Bryce Durbin<br><br>我们通常关注风险投资交易，但本周我想重点介绍Rivian，以及其出售8625万股A类普通股，每股价格为15.50美元（其中包括承销商选择额外购买的1125万股）。<br><br>Rivian表示，预计总共将筹集13.2亿美元的新资本。此次融资对这家电动汽车制造商来说恰逢其时。该公司上月开始交付其新款R2 SUV，并最近上调了2026年的销售预测。该公司表示，在第二季度表现超出自身预期后，现在预计将交付6.5万至7万辆汽车，这得益于EDV和R1车型季度环比的强劲增长，加上R2交付的引入。<br><br>该公司没有解释此次融资的原因。但提醒一下，Rivian尚未实现盈利，扩大R2——或任何车型——的生产成本可不低！<br><br>其他引起我注意的交易……<br><br>Bidbus是一家总部位于洛杉矶的初创公司，它建立了一个数字市场，让多个经销商可以竞标一辆汽车，该公司在由Ibex Investors领投的A轮融资中筹集了1500万美元。Mucker Capital、FJ Labs、Motley Fool Ventures、Data Point Capital、Walter Ventures和Car Dealership Guy的Yossi Levi也参与了此次融资。<br><br>Lyft表示，计划收购Serveo在西班牙的共享单车业务。具体条款未披露，但这家网约车公司表示预计今年内完成交易。<br><br>TaiSan是一家英国电池初创公司，在由Eos Advisory和Midlands Engine Investment Fund II共同领投的种子轮融资中筹集了465万英镑。InnoEnergy、AFI Ventures、EverQuest Capital Partners、Exergon、Heartfelt Ventures、Adeline Arts & Science、Techmind、天使投资人François Badelon以及来自Innovate UK的配套资金也参与了此次融资。<br><br>值得一读的报道和其他趣闻<br><br>图片来源：Bryce Durbin<br><br>美国保险提供商AssuranceAmerica证实了一起数据泄露事件，影响了690万人的个人信息和驾驶执照号码，使其成为今年已知美国人驾驶执照信息泄露规模最大的一次。<br><br>电动垂直起降（eVTOL）飞行器开发商Beta Technologies，在美国交通部和联邦航空管理局新的eVTOL整合试点项目下，完成了运营飞行。飞行范围覆盖弗吉尼亚州和马里兰州，里程约为275海里。<br><br>特斯拉的长期关注者会记得埃隆·马斯克与该公司股票的各种做空者搏斗的激动人心日子。马斯克现在比以往任何时候都更具两极分化性，一位交易所交易基金（ETF）的创建者找到了一种利用这种负面情绪的方法，推出了两只新的反埃隆ETF。<br><br>通用汽车旗下的雪佛兰品牌打造了一款全美电动卡车。资深记者蒂姆·德·尚特问道，为什么没人买？<br><br>爱尔兰的自动无人机送货初创公司Manna Aero正在美国扩张，在俄克拉荷马州塔尔萨设立了一家工厂和运营中心，并表示未来几年将雇用1000人。<br><br>Slate Auto与Crayola合作，为旗下的电动卡车和SUV客户提供五种蜡笔颜色的车身贴膜。（提醒：基本款Slate电动车没有喷漆。相反，它采用灰色复合材料，可以通过车身贴膜进行定制。该公司有数百种选项可供选择。）<br><br>还有一件事……<br><br>TechCrunch播客Build Mode刚刚推出了第三季，内容非常精彩。Build Mode由Isabelle Johannessen主持，她负责TechCrunch的Startup Battlefield项目。与我与Anthony Ha和Sean O’Kane共同主持的TC播客Equity不同，Build Mode旨在帮助早期阶段的创始人。<br><br>新一季以Precursor Ventures创始人兼管理合伙人查尔斯·哈德森的访谈开始，他谈论了早期阶段创始人进行首次机构融资前需要了解的事项。<br><br>请查看：查尔斯·哈德森讲述早期融资新规则。
-                    </div>
-                    
-                </div>
-
-            </div>
-
-            <!-- 卡片底部链接 -->
-            <footer class="px-8 py-8 md:px-12 bg-slate-50 border-t border-slate-100 text-center">
-                <a href="https://techcrunch.com/2026/07/12/techcrunch-mobility-a-robotaxi-ultimatum/" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center text-base font-semibold text-indigo-600 hover:text-white hover:bg-indigo-600 border border-indigo-600 px-6 py-3 rounded-full transition-all duration-300 group">
-                    View Source Webpage / 访问原始网页
-                    <svg class="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
-                        stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                </a>
             </footer>
-
         </article>
     </main>
 
-    <!-- 页脚 -->
-    <footer class="bg-slate-900 text-slate-400 py-12 text-center mt-12">
-        <p class="text-sm font-medium">Generated by AI Agent &bull; Tailwind CSS &bull; Jinja2</p>
+    <footer class="site-footer">
+        <div class="shell footer-shell">
+            <span>Daily Insight · AI 双语新闻简报</span>
+            <span>AI 内容仅供信息参考</span>
+        </div>
     </footer>
 </body>
 

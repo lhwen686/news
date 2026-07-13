@@ -4,160 +4,687 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer" />
-    <title>机体自身的细胞间信息传递载体被研究作为下一代药物的基础 - Daily Insight</title>
-    <!-- 引入 Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入 Google Fonts -->
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="美国一项研究显示，1996至2016年医疗进步使人均健康寿命延长1.3年，但终生医疗支出增加23.4万美元，每健康年花费18.2万美元。艾滋病、缺血性心脏病等治疗成本效益高，乳腺癌等甚至实现健康改善与支出减少。但药物滥用等疾病则高投入低效益。研究强调应聚焦医疗投入效益，而非总量，以优化资源配置，提升医疗价值。">
+    <meta name="theme-color" content="#f3f0e8">
+    <title>美国医疗保健有所改善，但费用和健康状况因疾病而异 · Daily Insight</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap"
         rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #f8fafc;
+        :root {
+            --ink: #1b1d19;
+            --muted: #676b63;
+            --paper: #f3f0e8;
+            --surface: #fbfaf6;
+            --accent: #a93d29;
+            --line: rgba(27, 29, 25, 0.16);
+            --line-strong: rgba(27, 29, 25, 0.42);
+            --serif: 'Noto Serif SC', 'Songti SC', SimSun, serif;
+            --sans: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
         }
 
-        .zh-text {
-            font-family: 'Inter', 'Noto Serif SC', serif;
+        * {
+            box-sizing: border-box;
         }
 
         html {
             scroll-behavior: smooth;
+            background: var(--paper);
         }
 
-        /* 沉浸式阅读段落样式 */
-        .article-content p {
-            margin-bottom: 1.5em;
+        body {
+            margin: 0;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 88% 5%, rgba(196, 72, 47, 0.07), transparent 26rem),
+                var(--paper);
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 0.75rem;
+            left: 0.75rem;
+            z-index: 100;
+            padding: 0.75rem 1rem;
+            color: white;
+            background: var(--ink);
+            transform: translateY(-150%);
+            transition: transform 160ms ease;
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 4px;
+            box-shadow: 0 0 0 6px rgba(251, 250, 246, 0.94);
+        }
+
+        .shell {
+            width: min(100%, 78rem);
+            margin-inline: auto;
+            padding-inline: clamp(1.25rem, 4vw, 4rem);
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid var(--line);
+            background: rgba(243, 240, 232, 0.92);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-shell {
+            min-height: 4.5rem;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .back-link,
+        .source-link {
+            min-height: 2.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            width: max-content;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .back-link svg,
+        .source-link svg {
+            width: 1rem;
+            transition: transform 160ms ease;
+        }
+
+        .back-link:hover svg {
+            transform: translateX(-0.25rem);
+        }
+
+        .source-link:hover svg {
+            transform: translate(0.2rem, -0.2rem);
+        }
+
+        .header-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-family: var(--serif);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-mark {
+            width: 2rem;
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+            color: var(--surface);
+            background: var(--ink);
+            font-family: var(--sans);
+            font-size: 0.62rem;
+            letter-spacing: 0.08em;
+        }
+
+        .category-label {
+            justify-self: end;
+            color: var(--muted);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .article-hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 15rem;
+            gap: clamp(2.5rem, 6vw, 6.5rem);
+            align-items: end;
+            padding-block: clamp(4rem, 9vw, 8.5rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .article-kicker {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .article-kicker::before {
+            width: 2.2rem;
+            height: 2px;
+            background: currentColor;
+            content: '';
+        }
+
+        .article-title {
+            max-width: 20ch;
+            margin: 0;
+            font-family: var(--serif);
+            font-size: clamp(2.6rem, 6vw, 5.4rem);
+            font-weight: 900;
+            letter-spacing: -0.06em;
+            line-height: 1.1;
+            overflow-wrap: anywhere;
+        }
+
+        .article-title-en {
+            max-width: 50rem;
+            margin: 1.6rem 0 0;
+            color: var(--muted);
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(1.05rem, 2vw, 1.45rem);
+            font-weight: 400;
+            line-height: 1.55;
+        }
+
+        .article-facts {
+            margin: 0;
+            padding-left: 1.5rem;
+            border-left: 1px solid var(--line-strong);
+        }
+
+        .article-facts div {
+            padding-block: 0.9rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .article-facts div:first-child {
+            padding-top: 0;
+        }
+
+        .article-facts dt {
+            margin-bottom: 0.35rem;
+            color: var(--muted);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .article-facts dd {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: 0.96rem;
+            font-weight: 700;
+            line-height: 1.55;
+        }
+
+        .hero-image {
+            margin-top: -2.5rem;
+            padding-bottom: clamp(4rem, 7vw, 6rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .hero-image img {
+            display: block;
+            width: 100%;
+            max-height: 34rem;
+            object-fit: cover;
+            filter: saturate(0.82) contrast(1.04);
+        }
+
+        .insight-section {
+            padding-block: clamp(3.5rem, 7vw, 6rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .insight-grid {
+            display: grid;
+            grid-template-columns: 12rem minmax(0, 1fr);
+            gap: clamp(2rem, 6vw, 6rem);
+            padding: clamp(1.75rem, 4vw, 3rem);
+            color: var(--surface);
+            background: var(--ink);
+        }
+
+        .section-kicker {
+            margin: 0;
+            color: #f0a086;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .insight-title {
+            margin: 0.65rem 0 0;
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            font-weight: 900;
+            line-height: 1.35;
+        }
+
+        .insight-copy {
+            margin: 0;
+            color: rgba(251, 250, 246, 0.78);
+            font-family: var(--serif);
+            font-size: 1rem;
+            line-height: 2;
+            white-space: pre-line;
+        }
+
+        .reading-section {
+            padding-block: clamp(4rem, 8vw, 7rem);
+        }
+
+        .reading-header {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.65fr);
+            gap: 2rem;
+            align-items: end;
+            margin-bottom: 3rem;
+        }
+
+        .reading-title {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: clamp(2.1rem, 4.5vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 1.1;
+        }
+
+        .reading-intro {
+            margin: 0;
+            color: var(--muted);
+            font-family: var(--serif);
+            font-size: 0.9rem;
             line-height: 1.8;
-            color: #334155;
+        }
+
+        .reading-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            border-block: 1px solid var(--line-strong);
+        }
+
+        .language-column {
+            min-width: 0;
+            padding: 2.25rem clamp(1.5rem, 4vw, 3.5rem) 0 0;
+        }
+
+        .language-column + .language-column {
+            padding-right: 0;
+            padding-left: clamp(1.5rem, 4vw, 3.5rem);
+            border-left: 1px solid var(--line);
+        }
+
+        .language-heading {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1rem;
+            margin: 0 0 2.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .language-heading h3 {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+
+        .language-heading span {
+            color: var(--muted);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .article-prose {
+            padding-bottom: 2rem;
+            color: #353831;
+            font-size: 1rem;
+            line-height: 2;
+            overflow-wrap: anywhere;
+            white-space: pre-line;
+        }
+
+        .prose-en {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.02rem;
+            line-height: 1.95;
+        }
+
+        .prose-zh {
+            font-family: var(--serif);
+            font-size: 1.04rem;
+            line-height: 2.05;
+        }
+
+        .empty-state {
+            margin: 0 0 2rem;
+            padding: 1.25rem;
+            color: var(--muted);
+            border: 1px dashed var(--line-strong);
+            font-family: var(--serif);
+            line-height: 1.7;
+        }
+
+        .source-band {
+            color: var(--surface);
+            background: var(--ink);
+        }
+
+        .source-shell {
+            min-height: 12rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding-block: 2.5rem;
+        }
+
+        .source-title {
+            margin: 0 0 0.45rem;
+            font-family: var(--serif);
+            font-size: clamp(1.55rem, 3vw, 2.4rem);
+            font-weight: 900;
+        }
+
+        .source-copy {
+            margin: 0;
+            color: rgba(251, 250, 246, 0.62);
+            font-size: 0.78rem;
+            line-height: 1.7;
+        }
+
+        .source-link {
+            flex: 0 0 auto;
+            padding: 0.85rem 1.1rem;
+            color: var(--ink);
+            background: var(--surface);
+        }
+
+        .site-footer {
+            padding-block: 2rem;
+            color: var(--muted);
+            background: var(--paper);
+        }
+
+        .footer-shell {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: 0.7rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 760px) {
+            .nav-shell {
+                grid-template-columns: 1fr auto;
+            }
+
+            .header-brand {
+                display: none;
+            }
+
+            .article-hero {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .article-facts {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                padding: 1rem 0 0;
+                border-top: 1px solid var(--line-strong);
+                border-left: 0;
+            }
+
+            .article-facts div {
+                padding: 0 0.8rem;
+                border-right: 1px solid var(--line);
+                border-bottom: 0;
+            }
+
+            .article-facts div:first-child {
+                padding-top: 0;
+                padding-left: 0;
+            }
+
+            .article-facts div:last-child {
+                border-right: 0;
+            }
+
+            .insight-grid,
+            .reading-header {
+                grid-template-columns: 1fr;
+            }
+
+            .reading-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .language-column,
+            .language-column + .language-column {
+                padding: 2rem 0 0;
+                border-left: 0;
+            }
+
+            .language-column + .language-column {
+                border-top: 1px solid var(--line-strong);
+            }
+
+            .source-shell {
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .article-title {
+                font-size: clamp(2.25rem, 12vw, 3.15rem);
+            }
+
+            .article-facts {
+                grid-template-columns: 1fr;
+            }
+
+            .article-facts div,
+            .article-facts div:first-child {
+                padding: 0.8rem 0;
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .article-facts div:last-child {
+                border-bottom: 0;
+            }
+
+            .footer-shell {
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
 
-<body class="text-gray-800 antialiased">
-    <!-- 顶部返回导航 -->
-    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-200">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-            <a href="../index.html"
-                class="inline-flex items-center text-sm font-medium text-slate-500 hover:text-indigo-600 transition-colors group">
-                <svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+<body>
+    <a class="skip-link" href="#article-content">跳至文章正文</a>
+
+    <header class="site-header">
+        <div class="shell nav-shell">
+            <a class="back-link" href="../index.html">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M19 12H5M11 18l-6-6 6-6"></path>
                 </svg>
-                返回首页
+                返回简报
             </a>
-            <span
-                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-100 text-slate-600">
-                医疗
-            </span>
+            <a class="header-brand" href="../index.html" aria-label="Daily Insight 首页">
+                <span class="brand-mark" aria-hidden="true">DI</span>
+                <span>Daily Insight</span>
+            </a>
+            <span class="category-label">医疗</span>
         </div>
     </header>
 
-    <!-- 文章主体 -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
-        <article class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
+    <main id="article-content">
+        <article>
+            <header class="shell article-hero">
+                <div>
+                    <div class="article-kicker">
+                        <span>医疗</span>
+                        <span aria-hidden="true">·</span>
+                        <span>MedicalXpress</span>
+                    </div>
+                    <h1 class="article-title">美国医疗保健有所改善，但费用和健康状况因疾病而异</h1>
+                    <p class="article-title-en" lang="en">U.S. medical care is improving, but cost and health differ depending on disease</p>
+                </div>
 
-            <!-- 文章标题区 -->
-            <header class="px-8 py-10 md:px-12 md:py-16 bg-slate-50 border-b border-slate-100 text-center">
-                <span
-                    class="inline-block px-3 py-1 mb-6 rounded-full text-sm font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
-                    MedicalXpress
-                </span>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 zh-text leading-tight mb-6 mt-2">
-                    机体自身的细胞间信息传递载体被研究作为下一代药物的基础
-                </h1>
-                <h2 class="text-xl md:text-2xl font-bold text-slate-500 font-serif leading-snug">
-                    Body's own cell-to-cell messaging packets studied as the basis for next-generation medicines
-                </h2>
+                <dl class="article-facts" aria-label="文章信息">
+                    <div>
+                        <dt>Section</dt>
+                        <dd>医疗</dd>
+                    </div>
+                    <div>
+                        <dt>Source</dt>
+                        <dd>MedicalXpress</dd>
+                    </div>
+                    <div>
+                        <dt>Reading</dt>
+                        <dd>中英对照</dd>
+                    </div>
+                </dl>
             </header>
 
-            <!-- 沉浸式头图 -->
-            
-            <div class="px-8 pt-8 md:px-12 bg-white">
-                <img src="https://scx2.b-cdn.net/gfx/news/2026/bst-and-igtp-are-advan.jpg" alt="Immersive Header Image"
-                    class="w-full max-h-96 object-cover rounded-xl shadow-sm">
-            </div>
-            
 
-            <!-- AI 深度解析区 -->
-            
-            <div class="px-8 pt-8 md:px-12 md:pt-12 bg-white">
-                <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-6 shadow-sm">
-                    <div class="flex items-center gap-2 mb-4 text-indigo-700">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
-                            </path>
-                        </svg>
-                        <h3 class="text-xl font-bold zh-text">💡 AI 深度解析 (AI Insight)</h3>
-                    </div>
-                    <div class="text-indigo-900 zh-text leading-relaxed text-[15px] font-medium">
-                        文章核心聚焦于细胞外囊泡（EVs）在未来再生医学和免疫疗法中的颠覆性潜力。EVs是细胞释放的纳米级生物包裹，富含蛋白质、脂质和核酸等生物信息，在细胞间通信、组织再生和炎症调节中发挥关键作用。它们被形象地比作“微型无人机”，能够实现药物和治疗分子的靶向递送，从而提高治疗精准度并降低侵略性。源自间充质干细胞（MSCs）的EVs因其多向分化潜力而尤具临床价值。<br><br>EVs疗法大规模、标准化生产是其走向临床的关键挑战。本研究引入了核磁共振（NMR）作为过程分析技术（PAT），能实时、精确监测生物反应器中细胞培养物的生化状态，确保细胞代谢最佳并符合优良制造规范（GMP）的严格要求。NMR/PAT结合GMP是保障EVs产品质量、安全性和有效性的基石，对于其临床转化至关重要。<br><br>这项研究显著推动了再生医学发展。EVs的应用前景广阔，可用于心肌梗死后的组织修复和血管再生，以及在肿瘤治疗中调节免疫反应、减轻炎症，甚至在基因治疗中递送RNA。由于EVs为非细胞疗法，免疫原性低，排斥风险小，有望彻底改变现有疗法，开启精准医学新篇章。
-                    </div>
+
+            <section class="shell reading-section" aria-labelledby="parallel-reading-title">
+                <header class="reading-header">
+                    <h2 id="parallel-reading-title" class="reading-title">中英对照阅读</h2>
+                    <p class="reading-intro">左侧保留英文原文，右侧提供 AI 中文翻译。翻译可能存在偏差，关键信息请以原始报道为准。</p>
+                </header>
+
+                <div class="reading-grid">
+                    <section class="language-column" aria-labelledby="original-heading">
+                        <header class="language-heading">
+                            <h3 id="original-heading">英文原文</h3>
+                            <span lang="en">Original</span>
+                        </header>
+                        <div class="article-prose prose-en" lang="en">This article has been reviewed according to Science X&#39;s editorial process and policies . Editors have highlighted the following attributes while ensuring the content&#39;s credibility:
+
+Credit: CC0 Public Domain
+
+Over two decades, medical care improvements have increased health spans in the U.S. by 1.3 years and medical spending by $234,000 per person over their lifetime—or about $182,000 per additional healthy year of life gained—when measured from birth. These are among the key findings in a new in-depth national study published today in Value in Health.
+
+Researchers examined how improvements in medical care changed health-adjusted life expectancy (HALE) and lifetime health care spending by evaluating changes in 132 causes of disease across all ages between 1996 and 2016. The analysis is the most comprehensive assessment of what Americans received in return for rising medical costs.
+
+&#34;These findings highlight that the problem is not simply how much the nation spends on health care, but where those dollars go and what they achieve,&#34; said senior author Marcia Weaver, Ph.D., Research Professor at the Institute for Health Metrics and Evaluation (IHME) at the University of Washington School of Medicine.
+
+Bolstering health care resources for roughly 60% of the conditions, including ischemic heart disease, stroke, and HIV/AIDS, produced substantial health gains at relatively modest costs. For example, better medications, devices, and emergency care for ischemic heart disease added a quarter of a healthy year averaged over all Americans at a cost of about $63,000 per healthy year gained. Additionally, HIV/AIDS treatments produced one of the largest increases in survival and quality of life at very low spending of $9,300 per healthy year gained, making them a cost-effective investment in U.S. health care.
+
+The most favorable results occurred when HALE increased and lifetime spending decreased, which was true for 19 causes (14%), including breast cancer. These cost-saving advances in screening and treatment increased people&#39;s health span while reducing lifetime costs, reflecting shifts toward less invasive and more effective care.
+
+In contrast, HALE and lifetime spending decreased for seven causes (5%), such as alcohol use disorders. HALE decreased for 26 causes (20%) as lifetime spending increased, which was the case for chronic kidney disease and drug use disorders. In fact, drug use disorders substantially worsened the overall value of U.S. health care during the study period.
+
+&#34;Disease-level spending estimates provide a foundation for identifying patterns in health care spending and understanding how those patterns relate to health outcomes,&#34; said co-author Abe Dunn, Ph.D., Assistant Chief Economist at the United States Bureau of Economic Analysis.
+
+For many diseases, spending increased early in life, while health improved years or decades later. When researchers recalculated the value of health care starting at age 65, the cost per healthy year gained dropped to about $92,000, about half the estimate of $182,000 when calculated from birth. Measuring spending over a lifetime highlights how early investments in prevention and treatment can pay off later, especially for chronic diseases like diabetes and heart disease.
+
+The results suggest that efforts to control health care costs should focus less on across-the-board spending cuts and more on improving access to care for conditions and interventions that deliver meaningful health improvements. Research and innovation are needed for conditions that drive high costs without improving health.
+
+&#34;Better alignment of spending with health outcomes could significantly improve the overall value of U.S. health care, ultimately saving lives, improving quality of life, and making more effective use of limited resources,&#34; said Prof. Weaver.
+
+More information Calvin Ackley et al, The Value of Healthcare in the United States: Changes in Lifetime Spending and Health-Adjusted Life Expectancy, 1996 to 2016, Value in Health (2026). DOI: 10.1016/j.jval.2026.01.008</div>
+                    </section>
+
+                    <section class="language-column" aria-labelledby="translation-heading">
+                        <header class="language-heading">
+                            <h3 id="translation-heading">中文翻译</h3>
+                            <span>AI Translation</span>
+                        </header>
+                        <div class="article-prose prose-zh">本文已根据Science X的编辑流程和政策进行审阅。编辑们在确保内容可信度的同时，强调了以下特点：
+
+来源：CC0公共领域
+
+在过去的二十年里，美国的医疗改进使健康寿命延长了1.3年，并使每人终生医疗支出增加了23.4万美元——若从出生时算起，约合每增加一个健康寿命年花费18.2万美元。这些是一项新的、深入的全国性研究的主要发现，该研究今天发表在《健康价值》（Value in Health）期刊上。
+
+研究人员通过评估1996年至2016年间所有年龄段132种疾病病因的变化，审视了医疗改进如何改变健康调整期望寿命（HALE）和终生医疗保健支出。这项分析是对美国人因不断上涨的医疗成本而获得的回报进行的最全面评估。
+
+华盛顿大学医学院健康指标与评估研究所（IHME）研究教授、资深作者Marcia Weaver博士表示：“这些发现强调，问题不仅仅在于国家在医疗保健上花费了多少，而在于这些资金去了哪里以及它们实现了什么。”
+
+针对约60%的病症，包括缺血性心脏病、中风和艾滋病毒/艾滋病，加强医疗保健资源投入，以相对适中的成本带来了显著的健康收益。例如，用于缺血性心脏病的更优药物、医疗器械和急诊护理，平均为每位美国人增加了0.25个健康年，每增加一个健康年约花费6.3万美元。此外，艾滋病毒/艾滋病治疗以极低的每健康年9300美元的支出，显著提高了生存率和生活质量，使其成为美国医疗保健领域一项具有成本效益的投资。
+
+当HALE增加且终生支出减少时，出现了最有利的结果，这适用于19种病因（占14%），其中包括乳腺癌。这些在筛查和治疗方面的节约成本的进步，延长了人们的健康寿命，同时降低了终生费用，反映出向侵入性更小、更有效的护理转变。
+
+相比之下，有七种病因（占5%），例如酒精使用障碍，HALE和终生支出均有所下降。另有26种病因（占20%），如慢性肾脏病和药物使用障碍，HALE下降而终生支出增加。事实上，在研究期间，药物使用障碍显著降低了美国医疗保健的整体价值。
+
+美国经济分析局助理首席经济学家、共同作者Abe Dunn博士说：“疾病层面的支出估算为识别医疗保健支出模式以及理解这些模式如何与健康结局相关联奠定了基础。”
+
+对于许多疾病而言，支出发生在生命早期，而健康改善则在几年或几十年后才显现。当研究人员从65岁开始重新计算医疗保健的价值时，每增加一个健康年所花费的成本降至约9.2万美元，约为从出生时算起的18.2万美元估值的一半。衡量终生支出强调了早期在预防和治疗上的投资如何能在后期获得回报，特别是对于糖尿病和心脏病等慢性疾病。
+
+结果表明，控制医疗保健成本的努力应减少对全面削减开支的关注，而应更多地侧重于改善对能带来显著健康改善的病症和干预措施的医疗可及性。对于那些导致高成本却未能改善健康的病症，则需要加强研究和创新。
+
+Weaver教授表示：“使支出与健康结局更好地匹配，可以显著提高美国医疗保健的整体价值，最终挽救生命，提高生活质量，并更有效地利用有限资源。”
+
+更多信息请参阅 Calvin Ackley 等人发表的论文《美国医疗保健的价值：1996年至2016年终生支出和健康调整期望寿命的变化》，刊载于《健康价值》（Value in Health）（2026年）。DOI: 10.1016/j.jval.2026.01.008</div>
+                    </section>
                 </div>
-            </div>
-            
+            </section>
 
-            <!-- 中英对照正文区 -->
-            <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100">
-
-                <!-- 英文原文 (左) -->
-                <div class="p-8 md:p-12 md:w-1/2 flex flex-col article-content bg-white">
-                    <div class="flex items-center gap-2 mb-8 pb-4 border-b border-slate-100 text-slate-400">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129">
-                            </path>
+            <footer class="source-band">
+                <div class="shell source-shell">
+                    <div>
+                        <p class="source-title">继续查看原始报道</p>
+                        <p class="source-copy">来源：MedicalXpress · 将在新窗口打开发布者页面</p>
+                    </div>
+                    <a class="source-link" href="https://medicalxpress.com/news/2026-02-medical-health-differ-disease.html" target="_blank" rel="noopener noreferrer">
+                        访问来源
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M14 5h5v5M19 5l-8 8M19 13v5a1 1 0 01-1 1H6a1 1 0 01-1-1V6a1 1 0 011-1h5"></path>
                         </svg>
-                        <span class="text-sm font-bold uppercase tracking-wider">Original Text</span>
-                    </div>
-                    
-                    <div class="text-md font-serif text-slate-700">
-                        This article has been reviewed according to Science X's editorial process and policies . Editors have highlighted the following attributes while ensuring the content's credibility:<br><br>Graphical Abstract. Credit: Journal of Extracellular Vesicles (2026). DOI: 10.1002/jev2.70330<br><br>The Blood and Tissue Bank is studying how to therapeutically manufacture and use a type of nanoparticles released by the body's cells to communicate with one another, in one of the most promising fields of research for the therapies of the future. New medicines and advanced therapies modify cells (immune cells), genes and tissues to treat diseases such as cancer. However, the next step is to focus on these subcellular packages loaded with biological information, known as extracellular vesicles (EVs), which perform essential functions such as tissue regeneration and the modulation of inflammation.<br><br>The Blood and Tissue Bank (BST), in collaboration with the Germans Trias i Pujol Research Institute (IGTP) and the Reus-based technology company Biosfer Teslab, is playing a leading role in the development and improvement of these therapies through the publication of research aimed at enabling the large-scale manufacture of regenerative medicine products based on these cell-to-cell "information packages," known as extracellular vesicles (EVs).<br><br>Therapies based on these nanoparticles are not yet part of routine clinical practice. Many are still under development, and work is ongoing to demonstrate their safety, the appropriate route, dose and treatment regimen, as well as their efficacy, before they can become widely used treatments.<br><br>The study coordinated by the BST represents a significant boost for the advancement of this therapeutic field and has been published in the Journal of Extracellular Vesicles (JEV). The research demonstrates the potential of a specific technology: Nuclear Magnetic Resonance (NMR) as a Process Analytical Technology (PAT) to monitor, optimize and scale up the manufacture of these extracellular vesicles (EVs). The EVs used are derived from mesenchymal stem cells (MSCs), which have the unique ability to differentiate into other tissues in the body (bone, cartilage or muscle), and have great potential as the basis for new therapies in regenerative medicine and immunology.<br><br>"These nanoparticles could represent a genuine revolution in medicine. They could become a kind of microscopic drone capable of delivering medicines and regenerative molecules directly to the cells that need them, making treatments more precise and less aggressive," explained Dr. Joaquim Vives from the BST Research Department. They could be used, for example, in patients who have suffered a myocardial infarction, "by injecting these nanoparticles into the damaged heart tissue so that the healthy cells can signal and trigger revascularization and regeneration of the damaged tissue," Vives explained, with a much lower risk of rejection because they are not cell-based therapies.<br><br>NMR makes it possible to determine precisely the biochemical status of the cell culture inside the bioreactors where these vesicles are secreted. In other words, it allows researchers to assess whether cell metabolism is optimal and aligned with compliance with Good Manufacturing Practice (GMP) requirements, which are essential for this type of therapy.<br><br>Multiple therapeutic possibilities<br><br>The functions of these nanoparticles are wide-ranging. They act as communication elements with the immune system and are involved in processes such as tissue repair and cell growth, among others. They are currently used as highly useful diagnostic biomarkers for the early detection of diseases, as they are released by tumors and damaged tissues and can be detected directly in blood samples.<br><br>In the future, these nanoparticles could become key biological tools for the targeted delivery of drugs and therapeutic molecules to the cells that need them, as well as for modulating the immune response, reducing excessive inflammation or even enhancing the immune response against tumors. They also open the door to applications in gene therapies through RNA delivery, as well as to the repair of tissues such as the heart, bones and nervous system.<br><br>More information Santiago Roura et al, Integrating Nuclear Magnetic Resonance into Bioprocess Control of Clinical‐Grade Extracellular Vesicle Manufacturing, Journal of Extracellular Vesicles (2026). DOI: 10.1002/jev2.70330
-                    </div>
-                    
+                    </a>
                 </div>
-
-                <!-- 中文翻译 (右) -->
-                <div class="p-8 md:p-12 md:w-1/2 flex flex-col article-content bg-indigo-50/30">
-                    <div class="flex items-center gap-2 mb-8 pb-4 border-b border-indigo-100 text-indigo-400">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129">
-                            </path>
-                        </svg>
-                        <span class="text-sm font-bold uppercase tracking-wider zh-text">AI 机器翻译</span>
-                    </div>
-                    
-                    <div class="text-lg zh-text text-slate-800 font-medium">
-                        本文已根据 Science X 的编辑流程和政策进行审阅。编辑在确保内容可信性的同时，强调了以下特点：<br><br>图示摘要。图片来源：《细胞外囊泡杂志》(2026)。DOI: 10.1002/jev2.70330<br><br>血液和组织库正在研究如何治疗性地生产和利用人体细胞释放的一种用于相互通信的纳米颗粒，这是未来疗法最有前景的研究领域之一。新药和先进疗法通过修饰细胞（免疫细胞）、基因和组织来治疗癌症等疾病。然而，下一步重点是关注这些富含生物信息的亚细胞包裹，即细胞外囊泡（EVs），它们具有组织再生和炎症调节等重要功能。<br><br>血液和组织库（BST）与德国人特里亚斯·伊·普霍尔研究所（IGTP）以及总部位于雷乌斯的科技公司 Biosfer Teslab 合作，正通过发表研究，在这些疗法的开发和改进中发挥主导作用，旨在实现基于这些细胞间“信息包”——即细胞外囊泡（EVs）——的再生医学产品的大规模生产。<br><br>基于这些纳米颗粒的疗法尚未进入常规临床实践。许多仍处于开发阶段，在它们能够成为广泛使用的治疗方法之前，还需要持续努力证明其安全性、合适的给药途径、剂量和治疗方案，以及其疗效。<br><br>由 BST 协调的这项研究为该治疗领域的发展提供了显著推动，并已发表在《细胞外囊泡杂志》（JEV）上。该研究展示了一种特定技术的潜力：核磁共振（NMR）作为一种过程分析技术（PAT），可用于监测、优化和扩大这些细胞外囊泡（EVs）的生产。所使用的 EVs 源自间充质干细胞（MSCs），MSCs 具有分化成体内其他组织（骨骼、软骨或肌肉）的独特能力，在再生医学和免疫学的新疗法中具有巨大潜力。<br><br>“这些纳米颗粒可能代表着医学领域的一场真正革命。它们可以成为一种微型无人机，能够将药物和再生分子直接输送到需要它们的细胞，从而使治疗更加精准且侵略性更小，”BST 研究部门的 Joaquim Vives 博士解释道。他举例说，它们可以用于心肌梗死患者，“通过将这些纳米颗粒注射到受损的心脏组织中，健康的细胞可以发出信号并触发受损组织的血管再生和修复，”Vives 解释说，由于它们不是基于细胞的疗法，因此排斥风险大大降低。<br><br>核磁共振（NMR）使得精确测定分泌这些囊泡的生物反应器内细胞培养物的生化状态成为可能。换句话说，它允许研究人员评估细胞代谢是否处于最佳状态，并符合优良制造规范（GMP）的要求，这对于此类疗法至关重要。<br><br>多种治疗可能性<br><br>这些纳米颗粒的功能广泛。它们充当与免疫系统沟通的要素，并参与组织修复和细胞生长等过程。它们目前被用作疾病早期诊断的非常有用的诊断生物标志物，因为它们由肿瘤和受损组织释放，可以直接在血液样本中检测到。<br><br>未来，这些纳米颗粒可能成为关键的生物工具，用于向需要的细胞靶向递送药物和治疗分子，以及调节免疫反应、减轻过度炎症或甚至增强抗肿瘤免疫反应。它们还为通过 RNA 递送进行基因治疗以及心脏、骨骼和神经系统等组织的修复开辟了应用前景。<br><br>更多信息请参考 Santiago Roura 等人，《将核磁共振整合到临床级细胞外囊泡制造的生物过程控制中》，《细胞外囊泡杂志》(2026)。DOI: 10.1002/jev2.70330
-                    </div>
-                    
-                </div>
-
-            </div>
-
-            <!-- 卡片底部链接 -->
-            <footer class="px-8 py-8 md:px-12 bg-slate-50 border-t border-slate-100 text-center">
-                <a href="https://medicalxpress.com/news/2026-07-body-cell-messaging-packets-basis.html" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center text-base font-semibold text-indigo-600 hover:text-white hover:bg-indigo-600 border border-indigo-600 px-6 py-3 rounded-full transition-all duration-300 group">
-                    View Source Webpage / 访问原始网页
-                    <svg class="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
-                        stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                </a>
             </footer>
-
         </article>
     </main>
 
-    <!-- 页脚 -->
-    <footer class="bg-slate-900 text-slate-400 py-12 text-center mt-12">
-        <p class="text-sm font-medium">Generated by AI Agent &bull; Tailwind CSS &bull; Jinja2</p>
+    <footer class="site-footer">
+        <div class="shell footer-shell">
+            <span>Daily Insight · AI 双语新闻简报</span>
+            <span>AI 内容仅供信息参考</span>
+        </div>
     </footer>
 </body>
 

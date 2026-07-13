@@ -4,160 +4,671 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer" />
-    <title>夜猫子进食时间更晚，选择营养较差的食物，腹部脂肪更多，并显示出更高的代谢风险。 - Daily Insight</title>
-    <!-- 引入 Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入 Google Fonts -->
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="日本东邦大学研究团队开发了一种新型HepaRG细胞模型，显著增强了CYP2D6药物代谢酶活性。该模型将CYP2D6代谢能力提升约8000倍，达到成人肝组织水平，并可通过GFP可视化实时监测。此高活性人肝细胞模型能更准确评估CYP2D6介导的药物性肝毒性，尤其能预测个体间差异造成的毒性，为早期药物安全性评估和替代动物实验提供了重要的体外模型。">
+    <meta name="theme-color" content="#f3f0e8">
+    <title>构建具有增强药物代谢酶活性的人肝细胞模型 · Daily Insight</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap"
         rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #f8fafc;
+        :root {
+            --ink: #1b1d19;
+            --muted: #676b63;
+            --paper: #f3f0e8;
+            --surface: #fbfaf6;
+            --accent: #a93d29;
+            --line: rgba(27, 29, 25, 0.16);
+            --line-strong: rgba(27, 29, 25, 0.42);
+            --serif: 'Noto Serif SC', 'Songti SC', SimSun, serif;
+            --sans: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
         }
 
-        .zh-text {
-            font-family: 'Inter', 'Noto Serif SC', serif;
+        * {
+            box-sizing: border-box;
         }
 
         html {
             scroll-behavior: smooth;
+            background: var(--paper);
         }
 
-        /* 沉浸式阅读段落样式 */
-        .article-content p {
-            margin-bottom: 1.5em;
+        body {
+            margin: 0;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 88% 5%, rgba(196, 72, 47, 0.07), transparent 26rem),
+                var(--paper);
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 0.75rem;
+            left: 0.75rem;
+            z-index: 100;
+            padding: 0.75rem 1rem;
+            color: white;
+            background: var(--ink);
+            transform: translateY(-150%);
+            transition: transform 160ms ease;
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 4px;
+            box-shadow: 0 0 0 6px rgba(251, 250, 246, 0.94);
+        }
+
+        .shell {
+            width: min(100%, 78rem);
+            margin-inline: auto;
+            padding-inline: clamp(1.25rem, 4vw, 4rem);
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid var(--line);
+            background: rgba(243, 240, 232, 0.92);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-shell {
+            min-height: 4.5rem;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .back-link,
+        .source-link {
+            min-height: 2.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            width: max-content;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .back-link svg,
+        .source-link svg {
+            width: 1rem;
+            transition: transform 160ms ease;
+        }
+
+        .back-link:hover svg {
+            transform: translateX(-0.25rem);
+        }
+
+        .source-link:hover svg {
+            transform: translate(0.2rem, -0.2rem);
+        }
+
+        .header-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-family: var(--serif);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-mark {
+            width: 2rem;
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+            color: var(--surface);
+            background: var(--ink);
+            font-family: var(--sans);
+            font-size: 0.62rem;
+            letter-spacing: 0.08em;
+        }
+
+        .category-label {
+            justify-self: end;
+            color: var(--muted);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .article-hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 15rem;
+            gap: clamp(2.5rem, 6vw, 6.5rem);
+            align-items: end;
+            padding-block: clamp(4rem, 9vw, 8.5rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .article-kicker {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .article-kicker::before {
+            width: 2.2rem;
+            height: 2px;
+            background: currentColor;
+            content: '';
+        }
+
+        .article-title {
+            max-width: 20ch;
+            margin: 0;
+            font-family: var(--serif);
+            font-size: clamp(2.6rem, 6vw, 5.4rem);
+            font-weight: 900;
+            letter-spacing: -0.06em;
+            line-height: 1.1;
+            overflow-wrap: anywhere;
+        }
+
+        .article-title-en {
+            max-width: 50rem;
+            margin: 1.6rem 0 0;
+            color: var(--muted);
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(1.05rem, 2vw, 1.45rem);
+            font-weight: 400;
+            line-height: 1.55;
+        }
+
+        .article-facts {
+            margin: 0;
+            padding-left: 1.5rem;
+            border-left: 1px solid var(--line-strong);
+        }
+
+        .article-facts div {
+            padding-block: 0.9rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .article-facts div:first-child {
+            padding-top: 0;
+        }
+
+        .article-facts dt {
+            margin-bottom: 0.35rem;
+            color: var(--muted);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .article-facts dd {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: 0.96rem;
+            font-weight: 700;
+            line-height: 1.55;
+        }
+
+        .hero-image {
+            margin-top: -2.5rem;
+            padding-bottom: clamp(4rem, 7vw, 6rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .hero-image img {
+            display: block;
+            width: 100%;
+            max-height: 34rem;
+            object-fit: cover;
+            filter: saturate(0.82) contrast(1.04);
+        }
+
+        .insight-section {
+            padding-block: clamp(3.5rem, 7vw, 6rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .insight-grid {
+            display: grid;
+            grid-template-columns: 12rem minmax(0, 1fr);
+            gap: clamp(2rem, 6vw, 6rem);
+            padding: clamp(1.75rem, 4vw, 3rem);
+            color: var(--surface);
+            background: var(--ink);
+        }
+
+        .section-kicker {
+            margin: 0;
+            color: #f0a086;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .insight-title {
+            margin: 0.65rem 0 0;
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            font-weight: 900;
+            line-height: 1.35;
+        }
+
+        .insight-copy {
+            margin: 0;
+            color: rgba(251, 250, 246, 0.78);
+            font-family: var(--serif);
+            font-size: 1rem;
+            line-height: 2;
+            white-space: pre-line;
+        }
+
+        .reading-section {
+            padding-block: clamp(4rem, 8vw, 7rem);
+        }
+
+        .reading-header {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.65fr);
+            gap: 2rem;
+            align-items: end;
+            margin-bottom: 3rem;
+        }
+
+        .reading-title {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: clamp(2.1rem, 4.5vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 1.1;
+        }
+
+        .reading-intro {
+            margin: 0;
+            color: var(--muted);
+            font-family: var(--serif);
+            font-size: 0.9rem;
             line-height: 1.8;
-            color: #334155;
+        }
+
+        .reading-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            border-block: 1px solid var(--line-strong);
+        }
+
+        .language-column {
+            min-width: 0;
+            padding: 2.25rem clamp(1.5rem, 4vw, 3.5rem) 0 0;
+        }
+
+        .language-column + .language-column {
+            padding-right: 0;
+            padding-left: clamp(1.5rem, 4vw, 3.5rem);
+            border-left: 1px solid var(--line);
+        }
+
+        .language-heading {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1rem;
+            margin: 0 0 2.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .language-heading h3 {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+
+        .language-heading span {
+            color: var(--muted);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .article-prose {
+            padding-bottom: 2rem;
+            color: #353831;
+            font-size: 1rem;
+            line-height: 2;
+            overflow-wrap: anywhere;
+            white-space: pre-line;
+        }
+
+        .prose-en {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.02rem;
+            line-height: 1.95;
+        }
+
+        .prose-zh {
+            font-family: var(--serif);
+            font-size: 1.04rem;
+            line-height: 2.05;
+        }
+
+        .empty-state {
+            margin: 0 0 2rem;
+            padding: 1.25rem;
+            color: var(--muted);
+            border: 1px dashed var(--line-strong);
+            font-family: var(--serif);
+            line-height: 1.7;
+        }
+
+        .source-band {
+            color: var(--surface);
+            background: var(--ink);
+        }
+
+        .source-shell {
+            min-height: 12rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding-block: 2.5rem;
+        }
+
+        .source-title {
+            margin: 0 0 0.45rem;
+            font-family: var(--serif);
+            font-size: clamp(1.55rem, 3vw, 2.4rem);
+            font-weight: 900;
+        }
+
+        .source-copy {
+            margin: 0;
+            color: rgba(251, 250, 246, 0.62);
+            font-size: 0.78rem;
+            line-height: 1.7;
+        }
+
+        .source-link {
+            flex: 0 0 auto;
+            padding: 0.85rem 1.1rem;
+            color: var(--ink);
+            background: var(--surface);
+        }
+
+        .site-footer {
+            padding-block: 2rem;
+            color: var(--muted);
+            background: var(--paper);
+        }
+
+        .footer-shell {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: 0.7rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 760px) {
+            .nav-shell {
+                grid-template-columns: 1fr auto;
+            }
+
+            .header-brand {
+                display: none;
+            }
+
+            .article-hero {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .article-facts {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                padding: 1rem 0 0;
+                border-top: 1px solid var(--line-strong);
+                border-left: 0;
+            }
+
+            .article-facts div {
+                padding: 0 0.8rem;
+                border-right: 1px solid var(--line);
+                border-bottom: 0;
+            }
+
+            .article-facts div:first-child {
+                padding-top: 0;
+                padding-left: 0;
+            }
+
+            .article-facts div:last-child {
+                border-right: 0;
+            }
+
+            .insight-grid,
+            .reading-header {
+                grid-template-columns: 1fr;
+            }
+
+            .reading-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .language-column,
+            .language-column + .language-column {
+                padding: 2rem 0 0;
+                border-left: 0;
+            }
+
+            .language-column + .language-column {
+                border-top: 1px solid var(--line-strong);
+            }
+
+            .source-shell {
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .article-title {
+                font-size: clamp(2.25rem, 12vw, 3.15rem);
+            }
+
+            .article-facts {
+                grid-template-columns: 1fr;
+            }
+
+            .article-facts div,
+            .article-facts div:first-child {
+                padding: 0.8rem 0;
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .article-facts div:last-child {
+                border-bottom: 0;
+            }
+
+            .footer-shell {
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
 
-<body class="text-gray-800 antialiased">
-    <!-- 顶部返回导航 -->
-    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-200">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-            <a href="../index.html"
-                class="inline-flex items-center text-sm font-medium text-slate-500 hover:text-indigo-600 transition-colors group">
-                <svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+<body>
+    <a class="skip-link" href="#article-content">跳至文章正文</a>
+
+    <header class="site-header">
+        <div class="shell nav-shell">
+            <a class="back-link" href="../index.html">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M19 12H5M11 18l-6-6 6-6"></path>
                 </svg>
-                返回首页
+                返回简报
             </a>
-            <span
-                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-100 text-slate-600">
-                医疗
-            </span>
+            <a class="header-brand" href="../index.html" aria-label="Daily Insight 首页">
+                <span class="brand-mark" aria-hidden="true">DI</span>
+                <span>Daily Insight</span>
+            </a>
+            <span class="category-label">医疗</span>
         </div>
     </header>
 
-    <!-- 文章主体 -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
-        <article class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
+    <main id="article-content">
+        <article>
+            <header class="shell article-hero">
+                <div>
+                    <div class="article-kicker">
+                        <span>医疗</span>
+                        <span aria-hidden="true">·</span>
+                        <span>MedicalXpress</span>
+                    </div>
+                    <h1 class="article-title">构建具有增强药物代谢酶活性的人肝细胞模型</h1>
+                    <p class="article-title-en" lang="en">Developing a human hepatocyte model with enhanced drug-metabolizing enzyme activity</p>
+                </div>
 
-            <!-- 文章标题区 -->
-            <header class="px-8 py-10 md:px-12 md:py-16 bg-slate-50 border-b border-slate-100 text-center">
-                <span
-                    class="inline-block px-3 py-1 mb-6 rounded-full text-sm font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
-                    MedicalXpress
-                </span>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 zh-text leading-tight mb-6 mt-2">
-                    夜猫子进食时间更晚，选择营养较差的食物，腹部脂肪更多，并显示出更高的代谢风险。
-                </h1>
-                <h2 class="text-xl md:text-2xl font-bold text-slate-500 font-serif leading-snug">
-                    Night owls eat later, choose less nutritious food, carry more belly fat and show higher metabolic risk
-                </h2>
+                <dl class="article-facts" aria-label="文章信息">
+                    <div>
+                        <dt>Section</dt>
+                        <dd>医疗</dd>
+                    </div>
+                    <div>
+                        <dt>Source</dt>
+                        <dd>MedicalXpress</dd>
+                    </div>
+                    <div>
+                        <dt>Reading</dt>
+                        <dd>中英对照</dd>
+                    </div>
+                </dl>
             </header>
 
-            <!-- 沉浸式头图 -->
-            
-            <div class="px-8 pt-8 md:px-12 bg-white">
-                <img src="https://scx2.b-cdn.net/gfx/news/hires/2026/night-owls-eat-later-c.jpg" alt="Immersive Header Image"
-                    class="w-full max-h-96 object-cover rounded-xl shadow-sm">
-            </div>
-            
 
-            <!-- AI 深度解析区 -->
-            
-            <div class="px-8 pt-8 md:px-12 md:pt-12 bg-white">
-                <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-6 shadow-sm">
-                    <div class="flex items-center gap-2 mb-4 text-indigo-700">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
-                            </path>
-                        </svg>
-                        <h3 class="text-xl font-bold zh-text">💡 AI 深度解析 (AI Insight)</h3>
-                    </div>
-                    <div class="text-indigo-900 zh-text leading-relaxed text-[15px] font-medium">
-                        本文深入揭示了昼夜节律类型（Chronotype）这一内在生物时钟对代谢健康的关键影响。研究表明，夜型人（晚睡晚起者）由于其独特的进食模式——即白天进食量少而夜晚进食量大，即便总能量摄入相似，仍面临显著的代谢劣势。这主要源于进食时间与身体自然代谢节律的错位，导致一系列不利的生物标志物变化：胰岛素和甘油三酯水平升高预示着胰岛素抵抗和脂质代谢紊乱风险增加；保护性高密度脂蛋白（HDL）胆固醇水平降低则加剧了心血管疾病风险；同时，瘦素（leptin）水平升高和胃饥饿素（ghrelin）水平降低反映了体脂调控与食欲信号的失衡，可能促使脂肪堆积并影响饱腹感。这些机制共同解释了夜型人更高的体脂百分比和中心性肥胖风险。<br><br>这项发现对医疗健康行业具有重要启示，强调了“昼夜节律营养”（Chrono-nutrition）——即饮食时间与生物钟协调性——的重要性。未来的健康管理将超越简单的“吃什么”和“吃多少”，更需关注“何时吃”。医生和营养师在制定个性化干预方案时，应将患者的昼夜节律类型纳入考量，提供定制化的膳食时间建议。这有助于更精准地预防和管理肥胖、代谢综合征及相关心血管疾病，推动医疗实践向更精细化、个体化的方向发展，并为不同族裔人群的健康指南提供科学依据。
-                    </div>
+
+            <section class="shell reading-section" aria-labelledby="parallel-reading-title">
+                <header class="reading-header">
+                    <h2 id="parallel-reading-title" class="reading-title">中英对照阅读</h2>
+                    <p class="reading-intro">左侧保留英文原文，右侧提供 AI 中文翻译。翻译可能存在偏差，关键信息请以原始报道为准。</p>
+                </header>
+
+                <div class="reading-grid">
+                    <section class="language-column" aria-labelledby="original-heading">
+                        <header class="language-heading">
+                            <h3 id="original-heading">英文原文</h3>
+                            <span lang="en">Original</span>
+                        </header>
+                        <div class="article-prose prose-en" lang="en">This article has been reviewed according to Science X&#39;s editorial process and policies . Editors have highlighted the following attributes while ensuring the content&#39;s credibility:
+
+Establishment and characterization of FLAG-CYP2D6 and CYP2D6-iGFP undifferentiated HepaRG cells. Credit: Dr. Shinpei Yamaguchi
+
+A research team led by Associate Professor Shinpei Yamaguchi and the late Professor Masako Tada of the Faculty of Science, together with Professor Yojiro Anzai and Lecturer Yohei Iizaka of the Faculty of Pharmaceutical Sciences at Toho University, have developed a new HepaRG cell line with markedly enhanced activity of CYP2D6, a major drug-metabolizing enzyme. This engineered human hepatocyte model enables more human-relevant evaluation of drug-induced hepatotoxicity mediated by CYP2D6. The study was published in the journal PLOS ONE on December 29, 2025.
+
+The researchers established a next-generation hepatocyte model with metabolic capacity comparable to adult human liver tissue. By enhancing CYP2D6 metabolic activity to approximately 8,000-fold relative to conventional HepaRG cells, the team successfully reproduced expression levels comparable to adult human liver tissue in vitro.
+
+Their robust model demonstrated practical utility, achieved through green fluorescent protein (GFP) visualization and stable functional maintenance. GFP co-expression enabled real-time monitoring of CYP2D6 expression, and high expression levels were maintained even after differentiation into hepatocyte-like cells, allowing detailed tracking of complex drug responses.
+
+The findings have implications for early prediction of drug toxicity and an alternative to animal testing. Experiments with perhexiline, a drug primarily metabolized by CYP2D6, demonstrated improved cell viability in the CYP2D6-enhanced HepaRG cell model. This system facilitates prediction of toxicity associated with inter-individual variability in human CYP2D6 activity, which is difficult to reproduce in animal models, thereby supporting early-stage drug safety assessments and serving as a promising in vitro alternative to animal testing.
+
+Publication details Chizuka Obara et al, Development of a CYP2D6-enhanced HepaRG cell model with improved CYP2D6 metabolic capacity, PLOS One (2025). DOI: 10.1371/journal.pone.0339559 Journal information: PLoS ONE
+
+Key medical concepts Cytochrome P-450 CYP2D6
+
+Clinical categories Clinical pharmacology</div>
+                    </section>
+
+                    <section class="language-column" aria-labelledby="translation-heading">
+                        <header class="language-heading">
+                            <h3 id="translation-heading">中文翻译</h3>
+                            <span>AI Translation</span>
+                        </header>
+                        <div class="article-prose prose-zh">本文已根据Science X的编辑流程和政策进行审阅。编辑们在确保内容可信度的同时，强调了以下特性：
+
+FLAG-CYP2D6和CYP2D6-iGFP未分化HepaRG细胞的建立与表征。图片来源：山口真平博士
+
+由东邦大学理学部副教授山口真平及已故多田真砂子教授，以及药学部教授安西洋次郎及讲师饭坂洋平共同领导的研究团队，开发出一种新型HepaRG细胞系，其CYP2D6（一种主要的药物代谢酶）活性显著增强。这种工程化的人肝细胞模型能够对CYP2D6介导的药物性肝毒性进行更具人体相关性的评估。该研究于2025年12月29日发表在《PLOS ONE》杂志上。
+
+研究人员建立了一种具有与成人肝脏组织相当的代谢能力的新一代肝细胞模型。通过将CYP2D6代谢活性相对于传统HepaRG细胞提高了约8,000倍，该团队成功地在体外再现了与成人肝脏组织相当的表达水平。
+
+他们强大的模型展示了实用性，通过绿色荧光蛋白（GFP）可视化和稳定的功能维持来实现。GFP的共表达使得CYP2D6表达的实时监测成为可能，并且即使在分化为肝细胞样细胞后，高表达水平仍能维持，从而实现对复杂药物反应的详细追踪。
+
+这些发现对药物毒性的早期预测以及动物试验替代方案具有重要意义。使用主要由CYP2D6代谢的药物哌西林进行的实验，在CYP2D6增强型HepaRG细胞模型中显示出改善的细胞活力。该系统有助于预测与人类CYP2D6活性个体间差异相关的毒性，而这种差异在动物模型中难以重现，从而支持早期药物安全性评估，并作为一种有前景的体外动物试验替代方案。
+
+发表详情 小原千束 等，开发一种具有改善CYP2D6代谢能力的CYP2D6增强型HepaRG细胞模型，PLOS One (2025)。DOI: 10.1371/journal.pone.0339559 期刊信息：《PLoS ONE》
+
+关键医学概念 细胞色素P-450 CYP2D6
+
+临床类别 临床药理学</div>
+                    </section>
                 </div>
-            </div>
-            
+            </section>
 
-            <!-- 中英对照正文区 -->
-            <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100">
-
-                <!-- 英文原文 (左) -->
-                <div class="p-8 md:p-12 md:w-1/2 flex flex-col article-content bg-white">
-                    <div class="flex items-center gap-2 mb-8 pb-4 border-b border-slate-100 text-slate-400">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129">
-                            </path>
+            <footer class="source-band">
+                <div class="shell source-shell">
+                    <div>
+                        <p class="source-title">继续查看原始报道</p>
+                        <p class="source-copy">来源：MedicalXpress · 将在新窗口打开发布者页面</p>
+                    </div>
+                    <a class="source-link" href="https://medicalxpress.com/news/2026-02-human-hepatocyte-drug-metabolizing-enzyme.html" target="_blank" rel="noopener noreferrer">
+                        访问来源
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M14 5h5v5M19 5l-8 8M19 13v5a1 1 0 01-1 1H6a1 1 0 01-1-1V6a1 1 0 011-1h5"></path>
                         </svg>
-                        <span class="text-sm font-bold uppercase tracking-wider">Original Text</span>
-                    </div>
-                    
-                    <div class="text-md font-serif text-slate-700">
-                        This article has been reviewed according to Science X's editorial process and policies . Editors have highlighted the following attributes while ensuring the content's credibility:<br><br>Evening types had higher obesity-related measures than morning and intermediate types combined. Credit: Pexels.<br><br>For generations, early to bed and early to rise was seen as the blueprint for a healthy life, and any departure from it was often considered unhealthy. Scientists, however, have discovered that whether someone is an early bird who wakes up early and starts the day with energy or a night owl who naturally stays up late and wakes up later is far more than a lifestyle choice. This pattern reflects the body's natural preference for the timing of sleep and wake cycles within a 24-hour day.<br><br>A recent study, however, suggests that being a night owl might come with its own set of metabolic disadvantages.<br><br>Meals are also timing cues for the body's internal clock, and when we eat can influence metabolism. In a recent paper, researchers explored whether a person's chronotype is linked to eating habits, body composition and overall metabolic health.<br><br>The study followed a group of healthy women living in Auckland, New Zealand, and found that night owls consumed less energy and fewer micronutrient-dense foods than those with a morning-type chronotype. Higher calorie intake in the evening was associated with a higher body fat percentage and a greater risk of obesity.<br><br>Because most night owls ate very little in the morning and consumed a large portion of their food late at night, they tended to have a higher body mass index (BMI) and body fat percentage than early birds.<br><br>The findings were published in Frontiers in Nutrition.<br><br>A–D the effect of chronotype and time window on the distribution of mean energy. Credit: Frontiers in Nutrition (2026). DOI: 10.3389/fnut.2026.1862060<br><br>Sleep, food and biomarkers<br><br>Studies suggest that chronotype influences more than when we sleep—it also shapes our eating habits. While most studies have focused on total food intake, they have paid less attention to the timing of calories and nutrients, even though both what we eat and when we eat can vary by chronotype.<br><br>Evening types are more likely to eat later in the day, make less healthy food choices and have poorer eating habits overall. They have also been associated with a higher BMI. However, BMI alone cannot distinguish between muscle mass and body fat. This is particularly relevant in New Zealand, where Pacific women typically have a larger body build and greater muscle mass than those of European descent.<br><br>In this study, the researchers went beyond BMI. The team applied the Munich Chronotype Questionnaire (MCTQ) to determine the chronotypes of 130 New Zealand Pacific women and 157 New Zealand European women ages 18 to 45. Based on their sleep-wake patterns, participants were classified as morning, intermediate or evening types. Women who typically went to sleep at 11 p.m. and woke up at 8 a.m. were categorized as intermediate types.<br><br>Participants then recorded everything they ate and drank over five nonconsecutive days—three weekdays and two weekend days. Dietitians later interviewed each participant to verify portion sizes and ensure the dietary records were accurate.<br><br>Instead of relying solely on body weight, the researchers used DXA scans, a type of X-ray, to measure how much body fat the women had and where it was stored, including around the belly and hips. They also measured blood biomarkers, including blood sugar, cholesterol and fat-related hormone levels.<br><br>Night owls had poorer results across nearly every health marker researchers measured, compared with morning and intermediate types. They had a higher average BMI and carried more body fat overall, with a higher android-to-gynoid ratio, indicating more weight around the midsection rather than the hips—a pattern known to raise the risk of health problems. They ate less healthy food, consumed less fiber and fell short on essential vitamins and minerals.<br><br>Blood work revealed that evening types had higher insulin and triglyceride levels and lower levels of protective HDL cholesterol. They also showed increased levels of leptin, a hormone linked to body fat, and lower levels of ghrelin, the hormone that signals hunger, compared with other chronotypes.<br><br>The findings show that although all chronotype groups consumed similar amounts of calories and macronutrients, evening-type women had less favorable metabolic biomarker, body fat and nutrient profiles.<br><br>The researchers say more research is needed on this link between chrono-nutrition and obesity, especially in ethnically diverse populations. This will help scientists understand chronotype's true impact and eventually build personalized health interventions.<br><br>Written for you by our author Sanjukta Mondal, edited by Sadie Harley, and fact-checked and reviewed by Andrew Zinin—this article is the result of careful human work. We rely on readers like you to keep independent science journalism alive. If this reporting matters to you, please consider a donation (especially monthly). You'll get an ad-free account as a thank-you.<br><br>Publication details Carlien van der Merwe et al, Chronotype and associations with dietary intake, meal timing, body composition, and metabolic biomarkers, Frontiers in Nutrition (2026). DOI: 10.3389/fnut.2026.1862060 Journal information: Frontiers in Nutrition<br><br>Key medical concepts ChronotypeInsulinTriglycerides<br><br>© 2026 Science X Network
-                    </div>
-                    
+                    </a>
                 </div>
-
-                <!-- 中文翻译 (右) -->
-                <div class="p-8 md:p-12 md:w-1/2 flex flex-col article-content bg-indigo-50/30">
-                    <div class="flex items-center gap-2 mb-8 pb-4 border-b border-indigo-100 text-indigo-400">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129">
-                            </path>
-                        </svg>
-                        <span class="text-sm font-bold uppercase tracking-wider zh-text">AI 机器翻译</span>
-                    </div>
-                    
-                    <div class="text-lg zh-text text-slate-800 font-medium">
-                        本文已根据Science X的编辑流程和政策进行审阅。编辑在确保内容可信度的同时，重点突出了以下特点：<br><br>夜型人（晚睡晚起者）的肥胖相关指标高于早型人（早睡早起者）和中间型人（作息介于两者之间）的总和。图片来源：Pexels。<br><br>世代以来，早睡早起一直被视为健康生活的蓝图，任何偏离都常被认为是不健康的。然而，科学家们发现，一个人是早起并精力充沛地开始一天事务的“早鸟”，还是自然晚睡晚起的“夜猫子”，远不止是一种生活方式选择。这种模式反映了身体在24小时周期内对睡眠和觉醒时间节律的自然偏好。<br><br>然而，最近一项研究表明，作为夜型人可能伴随着一系列代谢劣势。<br><br>膳食也是身体内部时钟的时间提示，我们进食的时间会影响新陈代谢。在最近的一篇论文中，研究人员探讨了一个人的昼夜节律类型是否与饮食习惯、身体成分和整体代谢健康相关。<br><br>这项研究追踪了一群居住在新西兰奥克兰的健康女性，发现夜型人摄入的能量和微量营养素密度高的食物少于早型人。晚上较高的卡路里摄入量与较高的体脂百分比和更大的肥胖风险相关。<br><br>由于大多数夜型人在早上吃得很少，并在深夜摄入大部分食物，他们往往比早型人拥有更高的体重指数（BMI）和体脂百分比。<br><br>研究结果发表在《营养前沿》（Frontiers in Nutrition）杂志上。<br><br>A–D 昼夜节律类型和时间窗口对平均能量分布的影响。图片来源：《营养前沿》（2026）。DOI：10.3389/fnut.2026.1862060<br><br>睡眠、食物与生物标志物<br><br>研究表明，昼夜节律类型不仅影响我们的睡眠时间，还塑造我们的饮食习惯。虽然大多数研究关注总食物摄入量，但对卡路里和营养素的摄入时间关注较少，尽管我们吃什么和何时吃都可能因昼夜节律类型而异。<br><br>夜型人更倾向于在一天中较晚的时间进食，做出不健康的食物选择，并且整体饮食习惯较差。他们也与较高的BMI相关。然而，单独的BMI无法区分肌肉量和体脂肪。这在新西兰尤为重要，因为太平洋裔女性通常比欧洲裔女性拥有更大的体格和更多的肌肉量。<br><br>在这项研究中，研究人员超越了BMI的局限。研究团队应用慕尼黑昼夜节律问卷（MCTQ）来确定130名18至45岁的新西兰太平洋裔女性和157名新西兰欧洲裔女性的昼夜节律类型。根据她们的睡眠-觉醒模式，参与者被归类为早型人、中间型人或夜型人。通常在晚上11点睡觉、早上8点醒来的女性被归类为中间型人。<br><br>随后，参与者记录了他们在五个非连续日（三个工作日和两个周末日）内所吃所喝的一切。营养师随后采访每位参与者，以核实份量并确保膳食记录的准确性。<br><br>研究人员没有仅仅依赖体重，而是使用了双能X射线吸收法（DXA）扫描，这是一种X射线技术，用于测量女性的体脂肪量及其储存位置，包括腹部和臀部。他们还测量了血液生物标志物，包括血糖、胆固醇和脂肪相关激素水平。<br><br>与早型人和中间型人相比，夜型人在研究人员测量的几乎所有健康指标上都表现更差。他们平均BMI更高，整体体脂量更大，并且雄性脂肪分布（android-to-gynoid ratio）更高，表明体重更多集中在腰腹部而非臀部——这种模式已知会增加健康问题的风险。他们摄入的健康食物更少，纤维摄入量不足，且缺乏必需的维生素和矿物质。<br><br>血液检查显示，夜型人胰岛素和甘油三酯水平更高，而保护性高密度脂蛋白（HDL）胆固醇水平更低。与其他昼夜节律类型相比，他们还表现出瘦素（一种与体脂肪相关的激素）水平升高，以及胃饥饿素（ghrelin，一种发出饥饿信号的激素）水平降低。<br><br>研究结果表明，尽管所有昼夜节律类型组摄入的卡路里和宏量营养素总量相似，但夜型女性的代谢生物标志物、体脂肪和营养素状况均较不理想。<br><br>研究人员表示，需要更多研究来探讨昼夜节律营养（chrono-nutrition）与肥胖之间的这种联系，尤其是在不同族裔人群中。这将帮助科学家理解昼夜节律类型的真正影响，并最终构建个性化的健康干预措施。<br><br>本文由Sanjukta Mondal撰写，Sadie Harley编辑，Andrew Zinin事实核查和审阅——这是严谨人工劳动的成果。我们依赖像您这样的读者来维持独立科学新闻的生命力。如果这份报道对您有意义，请考虑捐赠（尤其是每月捐赠）。作为感谢，您将获得一个无广告账户。<br><br>出版详情：Carlien van der Merwe 等人，《昼夜节律类型与膳食摄入、进餐时间、身体成分和代谢生物标志物的关联》，《营养前沿》（2026）。DOI：10.3389/fnut.2026.1862060 期刊信息：《营养前沿》<br><br>关键医学概念：昼夜节律类型、胰岛素、甘油三酯<br><br>© 2026 Science X Network
-                    </div>
-                    
-                </div>
-
-            </div>
-
-            <!-- 卡片底部链接 -->
-            <footer class="px-8 py-8 md:px-12 bg-slate-50 border-t border-slate-100 text-center">
-                <a href="https://medicalxpress.com/news/2026-07-night-owls-nutritious-food-belly.html" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center text-base font-semibold text-indigo-600 hover:text-white hover:bg-indigo-600 border border-indigo-600 px-6 py-3 rounded-full transition-all duration-300 group">
-                    View Source Webpage / 访问原始网页
-                    <svg class="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
-                        stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                </a>
             </footer>
-
         </article>
     </main>
 
-    <!-- 页脚 -->
-    <footer class="bg-slate-900 text-slate-400 py-12 text-center mt-12">
-        <p class="text-sm font-medium">Generated by AI Agent &bull; Tailwind CSS &bull; Jinja2</p>
+    <footer class="site-footer">
+        <div class="shell footer-shell">
+            <span>Daily Insight · AI 双语新闻简报</span>
+            <span>AI 内容仅供信息参考</span>
+        </div>
     </footer>
 </body>
 
