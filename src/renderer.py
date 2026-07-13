@@ -1,8 +1,7 @@
 import json
 import os
-import shutil
 from collections import defaultdict
-from jinja2 import Environment, FileSystemLoader
+from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 # 配置路径
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,9 +20,7 @@ def render_html():
     with open(DATA_FILE, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
-    # 清理并重建 articles 文件夹
-    if os.path.exists(ARTICLES_DIR):
-        shutil.rmtree(ARTICLES_DIR)
+    # 保留目录并覆盖本次生成的文章，避免批量删除已有文件。
     os.makedirs(ARTICLES_DIR, exist_ok=True)
 
     # 注入全局 ID，用于生成静态文件名
@@ -39,7 +36,12 @@ def render_html():
     print("正在使用 Jinja2 渲染 HTML ...")
 
     # 初始化 Jinja2 环境
-    env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
+    env = Environment(
+        loader=FileSystemLoader(TEMPLATE_DIR),
+        autoescape=select_autoescape(["html", "xml"]),
+        trim_blocks=True,
+        lstrip_blocks=True,
+    )
     index_template = env.get_template('index.html')
     article_template = env.get_template('article.html')
 
@@ -54,7 +56,12 @@ def render_html():
     print(f"  -> {len(data)} 篇详情 HTML 页面成功生成在 {ARTICLES_DIR}。")
 
     # 2. 渲染主页并传入带 ID 的数据
-    index_html = index_template.render(grouped_news=grouped_news)
+    index_html = index_template.render(
+        grouped_news=grouped_news,
+        featured_item=data[0] if data else None,
+        total_news=len(data),
+        category_count=len(grouped_news),
+    )
     
     # 写入最终的 index.html
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:

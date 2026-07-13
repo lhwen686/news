@@ -9,7 +9,7 @@ Daily Insight 是一个全自动的 AI 驱动双语新闻聚合平台，每日�
 - **AI 深度解析** — 每篇文章附带 150-250 字的 AI Insight 分析
 - **全自动化流水线** — GitHub Actions 每日定时执行，零人工干预
 - **双语展示** — 中英文内容同步呈现，适合不同语言背景的读者
-- **响应式设计** — 基于 Tailwind CSS，支持桌面端与移动端浏览
+- **响应式设计** — 基于项目内 CSS，支持桌面端与移动端浏览
 
 ## 新闻来源
 
@@ -52,7 +52,7 @@ raw_news.json     processed_news.json      index.html +
 | 新闻抓取 | feedparser, newspaper3k, BeautifulSoup4 |
 | AI 处理 | Google Gemini 2.5 Flash (google-genai) |
 | 模板渲染 | Jinja2 |
-| 前端样式 | Tailwind CSS, Google Fonts (Inter, Noto Serif SC) |
+| 前端样式 | 项目内 CSS, Google Fonts (Inter, Noto Serif SC) |
 | 自动化部署 | GitHub Actions, GitHub Pages |
 
 ## 项目结构

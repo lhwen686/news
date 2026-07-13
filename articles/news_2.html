@@ -4,138 +4,695 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>民调发现，近半美国人不知加工肉类与结直肠癌有关联 - Daily Insight</title>
-    <!-- 引入 Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入 Google Fonts -->
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="一项最新民意调查显示，近半美国人未意识到加工肉类会增加结直肠癌风险，而该癌症已成为50岁以下成年人癌症死亡的主因。多数受访者支持加工肉类贴警示标签。文章强调，植物性饮食、高纤维摄入、保持健康体重及规律运动能显著降低结直肠癌风险。呼吁医疗专业人员加强饮食与癌症关联的宣教，推广富含蔬果、谷物和豆类的饮食。">
+    <meta name="theme-color" content="#f3f0e8">
+    <title>民调发现，近半美国人不知加工肉类与结直肠癌有关联 · Daily Insight</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap"
         rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #f8fafc;
+        :root {
+            --ink: #1b1d19;
+            --muted: #676b63;
+            --paper: #f3f0e8;
+            --surface: #fbfaf6;
+            --accent: #a93d29;
+            --line: rgba(27, 29, 25, 0.16);
+            --line-strong: rgba(27, 29, 25, 0.42);
+            --serif: 'Noto Serif SC', 'Songti SC', SimSun, serif;
+            --sans: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
         }
 
-        .zh-text {
-            font-family: 'Inter', 'Noto Serif SC', serif;
+        * {
+            box-sizing: border-box;
         }
 
         html {
             scroll-behavior: smooth;
+            background: var(--paper);
         }
 
-        /* 沉浸式阅读段落样式 */
-        .article-content p {
-            margin-bottom: 1.5em;
+        body {
+            margin: 0;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 88% 5%, rgba(196, 72, 47, 0.07), transparent 26rem),
+                var(--paper);
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 0.75rem;
+            left: 0.75rem;
+            z-index: 100;
+            padding: 0.75rem 1rem;
+            color: white;
+            background: var(--ink);
+            transform: translateY(-150%);
+            transition: transform 160ms ease;
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 4px;
+            box-shadow: 0 0 0 6px rgba(251, 250, 246, 0.94);
+        }
+
+        .shell {
+            width: min(100%, 78rem);
+            margin-inline: auto;
+            padding-inline: clamp(1.25rem, 4vw, 4rem);
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid var(--line);
+            background: rgba(243, 240, 232, 0.92);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-shell {
+            min-height: 4.5rem;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .back-link,
+        .source-link {
+            min-height: 2.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            width: max-content;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .back-link svg,
+        .source-link svg {
+            width: 1rem;
+            transition: transform 160ms ease;
+        }
+
+        .back-link:hover svg {
+            transform: translateX(-0.25rem);
+        }
+
+        .source-link:hover svg {
+            transform: translate(0.2rem, -0.2rem);
+        }
+
+        .header-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-family: var(--serif);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-mark {
+            width: 2rem;
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+            color: var(--surface);
+            background: var(--ink);
+            font-family: var(--sans);
+            font-size: 0.62rem;
+            letter-spacing: 0.08em;
+        }
+
+        .category-label {
+            justify-self: end;
+            color: var(--muted);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .article-hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 15rem;
+            gap: clamp(2.5rem, 6vw, 6.5rem);
+            align-items: end;
+            padding-block: clamp(4rem, 9vw, 8.5rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .article-kicker {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .article-kicker::before {
+            width: 2.2rem;
+            height: 2px;
+            background: currentColor;
+            content: '';
+        }
+
+        .article-title {
+            max-width: 20ch;
+            margin: 0;
+            font-family: var(--serif);
+            font-size: clamp(2.6rem, 6vw, 5.4rem);
+            font-weight: 900;
+            letter-spacing: -0.06em;
+            line-height: 1.1;
+            overflow-wrap: anywhere;
+        }
+
+        .article-title-en {
+            max-width: 50rem;
+            margin: 1.6rem 0 0;
+            color: var(--muted);
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(1.05rem, 2vw, 1.45rem);
+            font-weight: 400;
+            line-height: 1.55;
+        }
+
+        .article-facts {
+            margin: 0;
+            padding-left: 1.5rem;
+            border-left: 1px solid var(--line-strong);
+        }
+
+        .article-facts div {
+            padding-block: 0.9rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .article-facts div:first-child {
+            padding-top: 0;
+        }
+
+        .article-facts dt {
+            margin-bottom: 0.35rem;
+            color: var(--muted);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .article-facts dd {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: 0.96rem;
+            font-weight: 700;
+            line-height: 1.55;
+        }
+
+        .hero-image {
+            margin-top: -2.5rem;
+            padding-bottom: clamp(4rem, 7vw, 6rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .hero-image img {
+            display: block;
+            width: 100%;
+            max-height: 34rem;
+            object-fit: cover;
+            filter: saturate(0.82) contrast(1.04);
+        }
+
+        .insight-section {
+            padding-block: clamp(3.5rem, 7vw, 6rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .insight-grid {
+            display: grid;
+            grid-template-columns: 12rem minmax(0, 1fr);
+            gap: clamp(2rem, 6vw, 6rem);
+            padding: clamp(1.75rem, 4vw, 3rem);
+            color: var(--surface);
+            background: var(--ink);
+        }
+
+        .section-kicker {
+            margin: 0;
+            color: #f0a086;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .insight-title {
+            margin: 0.65rem 0 0;
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            font-weight: 900;
+            line-height: 1.35;
+        }
+
+        .insight-copy {
+            margin: 0;
+            color: rgba(251, 250, 246, 0.78);
+            font-family: var(--serif);
+            font-size: 1rem;
+            line-height: 2;
+            white-space: pre-line;
+        }
+
+        .reading-section {
+            padding-block: clamp(4rem, 8vw, 7rem);
+        }
+
+        .reading-header {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.65fr);
+            gap: 2rem;
+            align-items: end;
+            margin-bottom: 3rem;
+        }
+
+        .reading-title {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: clamp(2.1rem, 4.5vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 1.1;
+        }
+
+        .reading-intro {
+            margin: 0;
+            color: var(--muted);
+            font-family: var(--serif);
+            font-size: 0.9rem;
             line-height: 1.8;
-            color: #334155;
+        }
+
+        .reading-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            border-block: 1px solid var(--line-strong);
+        }
+
+        .language-column {
+            min-width: 0;
+            padding: 2.25rem clamp(1.5rem, 4vw, 3.5rem) 0 0;
+        }
+
+        .language-column + .language-column {
+            padding-right: 0;
+            padding-left: clamp(1.5rem, 4vw, 3.5rem);
+            border-left: 1px solid var(--line);
+        }
+
+        .language-heading {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1rem;
+            margin: 0 0 2.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .language-heading h3 {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+
+        .language-heading span {
+            color: var(--muted);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .article-prose {
+            padding-bottom: 2rem;
+            color: #353831;
+            font-size: 1rem;
+            line-height: 2;
+            overflow-wrap: anywhere;
+            white-space: pre-line;
+        }
+
+        .prose-en {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.02rem;
+            line-height: 1.95;
+        }
+
+        .prose-zh {
+            font-family: var(--serif);
+            font-size: 1.04rem;
+            line-height: 2.05;
+        }
+
+        .empty-state {
+            margin: 0 0 2rem;
+            padding: 1.25rem;
+            color: var(--muted);
+            border: 1px dashed var(--line-strong);
+            font-family: var(--serif);
+            line-height: 1.7;
+        }
+
+        .source-band {
+            color: var(--surface);
+            background: var(--ink);
+        }
+
+        .source-shell {
+            min-height: 12rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding-block: 2.5rem;
+        }
+
+        .source-title {
+            margin: 0 0 0.45rem;
+            font-family: var(--serif);
+            font-size: clamp(1.55rem, 3vw, 2.4rem);
+            font-weight: 900;
+        }
+
+        .source-copy {
+            margin: 0;
+            color: rgba(251, 250, 246, 0.62);
+            font-size: 0.78rem;
+            line-height: 1.7;
+        }
+
+        .source-link {
+            flex: 0 0 auto;
+            padding: 0.85rem 1.1rem;
+            color: var(--ink);
+            background: var(--surface);
+        }
+
+        .site-footer {
+            padding-block: 2rem;
+            color: var(--muted);
+            background: var(--paper);
+        }
+
+        .footer-shell {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: 0.7rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 760px) {
+            .nav-shell {
+                grid-template-columns: 1fr auto;
+            }
+
+            .header-brand {
+                display: none;
+            }
+
+            .article-hero {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .article-facts {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                padding: 1rem 0 0;
+                border-top: 1px solid var(--line-strong);
+                border-left: 0;
+            }
+
+            .article-facts div {
+                padding: 0 0.8rem;
+                border-right: 1px solid var(--line);
+                border-bottom: 0;
+            }
+
+            .article-facts div:first-child {
+                padding-top: 0;
+                padding-left: 0;
+            }
+
+            .article-facts div:last-child {
+                border-right: 0;
+            }
+
+            .insight-grid,
+            .reading-header {
+                grid-template-columns: 1fr;
+            }
+
+            .reading-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .language-column,
+            .language-column + .language-column {
+                padding: 2rem 0 0;
+                border-left: 0;
+            }
+
+            .language-column + .language-column {
+                border-top: 1px solid var(--line-strong);
+            }
+
+            .source-shell {
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .article-title {
+                font-size: clamp(2.25rem, 12vw, 3.15rem);
+            }
+
+            .article-facts {
+                grid-template-columns: 1fr;
+            }
+
+            .article-facts div,
+            .article-facts div:first-child {
+                padding: 0.8rem 0;
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .article-facts div:last-child {
+                border-bottom: 0;
+            }
+
+            .footer-shell {
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
 
-<body class="text-gray-800 antialiased">
-    <!-- 顶部返回导航 -->
-    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-200">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-            <a href="../index.html"
-                class="inline-flex items-center text-sm font-medium text-slate-500 hover:text-indigo-600 transition-colors group">
-                <svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+<body>
+    <a class="skip-link" href="#article-content">跳至文章正文</a>
+
+    <header class="site-header">
+        <div class="shell nav-shell">
+            <a class="back-link" href="../index.html">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M19 12H5M11 18l-6-6 6-6"></path>
                 </svg>
-                返回首页
+                返回简报
             </a>
-            <span
-                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-100 text-slate-600">
-                医疗
-            </span>
+            <a class="header-brand" href="../index.html" aria-label="Daily Insight 首页">
+                <span class="brand-mark" aria-hidden="true">DI</span>
+                <span>Daily Insight</span>
+            </a>
+            <span class="category-label">医疗</span>
         </div>
     </header>
 
-    <!-- 文章主体 -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
-        <article class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
+    <main id="article-content">
+        <article>
+            <header class="shell article-hero">
+                <div>
+                    <div class="article-kicker">
+                        <span>医疗</span>
+                        <span aria-hidden="true">·</span>
+                        <span>MedicalXpress</span>
+                    </div>
+                    <h1 class="article-title">民调发现，近半美国人不知加工肉类与结直肠癌有关联</h1>
+                    <p class="article-title-en" lang="en">Nearly half of Americans unaware processed meat is tied to colorectal cancer, poll finds</p>
+                </div>
 
-            <!-- 文章标题区 -->
-            <header class="px-8 py-10 md:px-12 md:py-16 bg-slate-50 border-b border-slate-100 text-center">
-                <span
-                    class="inline-block px-3 py-1 mb-6 rounded-full text-sm font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
-                    MedicalXpress
-                </span>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 zh-text leading-tight mb-6 mt-2">
-                    民调发现，近半美国人不知加工肉类与结直肠癌有关联
-                </h1>
-                <h2 class="text-xl md:text-2xl font-bold text-slate-500 font-serif leading-snug">
-                    Nearly half of Americans unaware processed meat is tied to colorectal cancer, poll finds
-                </h2>
+                <dl class="article-facts" aria-label="文章信息">
+                    <div>
+                        <dt>Section</dt>
+                        <dd>医疗</dd>
+                    </div>
+                    <div>
+                        <dt>Source</dt>
+                        <dd>MedicalXpress</dd>
+                    </div>
+                    <div>
+                        <dt>Reading</dt>
+                        <dd>中英对照</dd>
+                    </div>
+                </dl>
             </header>
 
-            <!-- 沉浸式头图 -->
-            
 
-            <!-- AI 深度解析区 -->
-            
 
-            <!-- 中英对照正文区 -->
-            <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100">
+            <section class="shell reading-section" aria-labelledby="parallel-reading-title">
+                <header class="reading-header">
+                    <h2 id="parallel-reading-title" class="reading-title">中英对照阅读</h2>
+                    <p class="reading-intro">左侧保留英文原文，右侧提供 AI 中文翻译。翻译可能存在偏差，关键信息请以原始报道为准。</p>
+                </header>
 
-                <!-- 英文原文 (左) -->
-                <div class="p-8 md:p-12 md:w-1/2 flex flex-col article-content bg-white">
-                    <div class="flex items-center gap-2 mb-8 pb-4 border-b border-slate-100 text-slate-400">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129">
-                            </path>
-                        </svg>
-                        <span class="text-sm font-bold uppercase tracking-wider">Original Text</span>
-                    </div>
-                    
-                    <div class="text-md font-serif text-slate-700">
-                        This article has been reviewed according to Science X's editorial process and policies . Editors have highlighted the following attributes while ensuring the content's credibility:<br><br>Credit: Unsplash/CC0 Public Domain<br><br>Just before National Colorectal Cancer Awareness Month begins in March, a new Physicians Committee for Responsible Medicine/Morning Consult poll found that nearly half of Americans aren't aware that eating processed meat increases the risk of developing colorectal cancer.<br><br>The poll, which was conducted among 2,202 U.S. adults Feb. 9 to 11, 2026, also found that after being informed that processed meat consumption increases colorectal cancer risk, two-in-three adults would support the implementation of warning labels of colorectal cancer risk on processed meat products.<br><br>"In light of colorectal cancer now being the leading cause of cancer deaths in adults under 50, it's concerning that so many people still don't know about the strong connection between eating processed meat and the risk of developing colorectal cancer," said Joseph Barrocas, MD, an internal medicine specialist from Huntersville, N.C.<br><br>But on a positive note, Dr. Barrocas said, the survey shows that many people want that information.<br><br>The poll also revealed that just one-third of adults say they've received information from a health care professional about the link between processed meat consumption and colon cancer.<br><br>"More health care practitioners have to be educated about the link between diet and colorectal cancer," Dr. Barrocas said, "and in addition to recommending screening, discuss with patients the protective benefits of a diet rich in fruits, vegetables, grains, and beans."<br><br>Research has shown:<br><br>Those following a plant-based diet had a 22% lower risk for all types of colorectal cancers compared with those who consumed an omnivorous diet. Plant-based diets may be especially protective, because fruits, vegetables, whole grains, and legumes are packed with cancer-fighting phytochemicals.<br><br>Maintaining a healthy weight, avoiding alcohol, and exercising regularly decrease the risk of developing colorectal cancer.<br><br>Fiber—or the roughage that gives plant foods their bulk—helps fight colorectal cancer. One study found that those that consumed the most fiber had a 72% lower risk of developing colon polyps—which can be precursors to colorectal cancer—compared with those who consumed the least fiber. A high-fiber diet prevents damage to the intestines and speeds up digestive transit.<br><br>"Research shows that for every 10 grams of fiber we eat each day, we can lower our colorectal cancer risk by up to 10%," said Anna Herby, DHSc, RD, CDE, nutrition education specialist for the Physicians Committee. "Simple ways to get that in include eating a little over a cup of raspberries, 2 tablespoons of chia seeds, or two-thirds cup of black beans."<br><br>More information Processed Meat and Colorectal Cancer Poll, pcrm.widen.net/s/vpq8fcgxff/pc … -cancer-poll-2.17.26 In March, the Physicians Committee's Food for Life plant-based nutrition and cooking class program—developed by doctors and dietitians—is offering classes online and across the United States to teach participants how food can fight cancer.<br><br>Provided by Physicians Committee for Responsible Medicine
-                    </div>
-                    
+                <div class="reading-grid">
+                    <section class="language-column" aria-labelledby="original-heading">
+                        <header class="language-heading">
+                            <h3 id="original-heading">英文原文</h3>
+                            <span lang="en">Original</span>
+                        </header>
+                        <div class="article-prose prose-en" lang="en">This article has been reviewed according to Science X&#39;s editorial process and policies . Editors have highlighted the following attributes while ensuring the content&#39;s credibility:
+
+Credit: Unsplash/CC0 Public Domain
+
+Just before National Colorectal Cancer Awareness Month begins in March, a new Physicians Committee for Responsible Medicine/Morning Consult poll found that nearly half of Americans aren&#39;t aware that eating processed meat increases the risk of developing colorectal cancer.
+
+The poll, which was conducted among 2,202 U.S. adults Feb. 9 to 11, 2026, also found that after being informed that processed meat consumption increases colorectal cancer risk, two-in-three adults would support the implementation of warning labels of colorectal cancer risk on processed meat products.
+
+&#34;In light of colorectal cancer now being the leading cause of cancer deaths in adults under 50, it&#39;s concerning that so many people still don&#39;t know about the strong connection between eating processed meat and the risk of developing colorectal cancer,&#34; said Joseph Barrocas, MD, an internal medicine specialist from Huntersville, N.C.
+
+But on a positive note, Dr. Barrocas said, the survey shows that many people want that information.
+
+The poll also revealed that just one-third of adults say they&#39;ve received information from a health care professional about the link between processed meat consumption and colon cancer.
+
+&#34;More health care practitioners have to be educated about the link between diet and colorectal cancer,&#34; Dr. Barrocas said, &#34;and in addition to recommending screening, discuss with patients the protective benefits of a diet rich in fruits, vegetables, grains, and beans.&#34;
+
+Research has shown:
+
+Those following a plant-based diet had a 22% lower risk for all types of colorectal cancers compared with those who consumed an omnivorous diet. Plant-based diets may be especially protective, because fruits, vegetables, whole grains, and legumes are packed with cancer-fighting phytochemicals.
+
+Maintaining a healthy weight, avoiding alcohol, and exercising regularly decrease the risk of developing colorectal cancer.
+
+Fiber—or the roughage that gives plant foods their bulk—helps fight colorectal cancer. One study found that those that consumed the most fiber had a 72% lower risk of developing colon polyps—which can be precursors to colorectal cancer—compared with those who consumed the least fiber. A high-fiber diet prevents damage to the intestines and speeds up digestive transit.
+
+&#34;Research shows that for every 10 grams of fiber we eat each day, we can lower our colorectal cancer risk by up to 10%,&#34; said Anna Herby, DHSc, RD, CDE, nutrition education specialist for the Physicians Committee. &#34;Simple ways to get that in include eating a little over a cup of raspberries, 2 tablespoons of chia seeds, or two-thirds cup of black beans.&#34;
+
+More information Processed Meat and Colorectal Cancer Poll, pcrm.widen.net/s/vpq8fcgxff/pc … -cancer-poll-2.17.26 In March, the Physicians Committee&#39;s Food for Life plant-based nutrition and cooking class program—developed by doctors and dietitians—is offering classes online and across the United States to teach participants how food can fight cancer.
+
+Provided by Physicians Committee for Responsible Medicine</div>
+                    </section>
+
+                    <section class="language-column" aria-labelledby="translation-heading">
+                        <header class="language-heading">
+                            <h3 id="translation-heading">中文翻译</h3>
+                            <span>AI Translation</span>
+                        </header>
+                        <div class="article-prose prose-zh">本文已根据Science X的编辑流程和政策进行审阅。编辑们在确保内容可信度的同时，强调了以下特性：
+
+图片来源：Unsplash/CC0公共领域
+
+就在三月全国结直肠癌宣传月开始之前，负责任医学医师委员会/Morning Consult的一项最新民意调查发现，近半数美国人不知道食用加工肉会增加罹患结直肠癌的风险。
+
+这项于2026年2月9日至11日对2,202名美国成年人进行的民意调查还发现，在被告知食用加工肉会增加结直肠癌风险后，三分之二的成年人支持在加工肉制品上实施结直肠癌风险警示标签。
+
+“鉴于结直肠癌现在是50岁以下成年人癌症死亡的首要原因，令人担忧的是，仍有如此多的人不了解食用加工肉与罹患结直肠癌风险之间的密切联系，”来自北卡罗来纳州亨特斯维尔的内科专科医师Joseph Barrocas医学博士表示。
+
+但Barrocas博士也指出，积极的一面是，这项调查显示许多人渴望获取这些信息。
+
+该民意调查还显示，仅有三分之一的成年人表示曾从医疗保健专业人员那里获得过关于食用加工肉与结肠癌之间关联的信息。
+
+“更多的医疗保健从业者必须接受关于饮食与结直肠癌之间关联的教育，”Barrocas博士说，“除了推荐筛查，还应与患者讨论富含水果、蔬菜、谷物和豆类的饮食所具有的保护性益处。”
+
+研究表明：
+
+遵循植物性饮食的人群，与食用杂食性饮食的人群相比，患各种类型结直肠癌的风险降低了22%。植物性饮食可能尤其具有保护作用，因为水果、蔬菜、全谷物和豆类富含抗癌植物化学物质。
+
+保持健康体重、避免饮酒和规律运动可以降低罹患结直肠癌的风险。
+
+纤维——即赋予植物性食物体积的粗纤维——有助于对抗结直肠癌。一项研究发现，摄入最多纤维的人群，与摄入最少纤维的人群相比，患结肠息肉（结直肠癌的癌前病变）的风险降低了72%。高纤维饮食可以预防肠道损伤并加速消化道转运。
+
+“研究表明，我们每天每摄入10克纤维，就可以将结直肠癌风险降低高达10%，”负责任医学医师委员会的营养教育专家Anna Herby（健康科学博士，注册营养师，注册糖尿病教育者）表示。“简单的方法包括食用略多于一杯的覆盆子、两汤匙奇亚籽或三分之二杯黑豆。”
+
+更多信息请参阅《加工肉与结直肠癌民意调查》，网址：pcrm.widen.net/s/vpq8fcgxff/pc…-cancer-poll-2.17.26。三月，负责任医学医师委员会的“生命之食”植物性营养与烹饪课程项目——由医生和营养师开发——将在线和全美各地开设课程，教授参与者如何通过食物对抗癌症。
+
+由负责任医学医师委员会提供</div>
+                    </section>
                 </div>
+            </section>
 
-                <!-- 中文翻译 (右) -->
-                <div class="p-8 md:p-12 md:w-1/2 flex flex-col article-content bg-indigo-50/30">
-                    <div class="flex items-center gap-2 mb-8 pb-4 border-b border-indigo-100 text-indigo-400">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129">
-                            </path>
+            <footer class="source-band">
+                <div class="shell source-shell">
+                    <div>
+                        <p class="source-title">继续查看原始报道</p>
+                        <p class="source-copy">来源：MedicalXpress · 将在新窗口打开发布者页面</p>
+                    </div>
+                    <a class="source-link" href="https://medicalxpress.com/news/2026-02-poll-adults-unaware-meat-consumption.html" target="_blank" rel="noopener noreferrer">
+                        访问来源
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M14 5h5v5M19 5l-8 8M19 13v5a1 1 0 01-1 1H6a1 1 0 01-1-1V6a1 1 0 011-1h5"></path>
                         </svg>
-                        <span class="text-sm font-bold uppercase tracking-wider zh-text">AI 机器翻译</span>
-                    </div>
-                    
-                    <div class="text-lg zh-text text-slate-800 font-medium">
-                        本文已根据Science X的编辑流程和政策进行审阅。编辑们在确保内容可信度的同时，强调了以下特性：<br><br>图片来源：Unsplash/CC0公共领域<br><br>就在三月全国结直肠癌宣传月开始之前，负责任医学医师委员会/Morning Consult的一项最新民意调查发现，近半数美国人不知道食用加工肉会增加罹患结直肠癌的风险。<br><br>这项于2026年2月9日至11日对2,202名美国成年人进行的民意调查还发现，在被告知食用加工肉会增加结直肠癌风险后，三分之二的成年人支持在加工肉制品上实施结直肠癌风险警示标签。<br><br>“鉴于结直肠癌现在是50岁以下成年人癌症死亡的首要原因，令人担忧的是，仍有如此多的人不了解食用加工肉与罹患结直肠癌风险之间的密切联系，”来自北卡罗来纳州亨特斯维尔的内科专科医师Joseph Barrocas医学博士表示。<br><br>但Barrocas博士也指出，积极的一面是，这项调查显示许多人渴望获取这些信息。<br><br>该民意调查还显示，仅有三分之一的成年人表示曾从医疗保健专业人员那里获得过关于食用加工肉与结肠癌之间关联的信息。<br><br>“更多的医疗保健从业者必须接受关于饮食与结直肠癌之间关联的教育，”Barrocas博士说，“除了推荐筛查，还应与患者讨论富含水果、蔬菜、谷物和豆类的饮食所具有的保护性益处。”<br><br>研究表明：<br><br>遵循植物性饮食的人群，与食用杂食性饮食的人群相比，患各种类型结直肠癌的风险降低了22%。植物性饮食可能尤其具有保护作用，因为水果、蔬菜、全谷物和豆类富含抗癌植物化学物质。<br><br>保持健康体重、避免饮酒和规律运动可以降低罹患结直肠癌的风险。<br><br>纤维——即赋予植物性食物体积的粗纤维——有助于对抗结直肠癌。一项研究发现，摄入最多纤维的人群，与摄入最少纤维的人群相比，患结肠息肉（结直肠癌的癌前病变）的风险降低了72%。高纤维饮食可以预防肠道损伤并加速消化道转运。<br><br>“研究表明，我们每天每摄入10克纤维，就可以将结直肠癌风险降低高达10%，”负责任医学医师委员会的营养教育专家Anna Herby（健康科学博士，注册营养师，注册糖尿病教育者）表示。“简单的方法包括食用略多于一杯的覆盆子、两汤匙奇亚籽或三分之二杯黑豆。”<br><br>更多信息请参阅《加工肉与结直肠癌民意调查》，网址：pcrm.widen.net/s/vpq8fcgxff/pc…-cancer-poll-2.17.26。三月，负责任医学医师委员会的“生命之食”植物性营养与烹饪课程项目——由医生和营养师开发——将在线和全美各地开设课程，教授参与者如何通过食物对抗癌症。<br><br>由负责任医学医师委员会提供
-                    </div>
-                    
+                    </a>
                 </div>
-
-            </div>
-
-            <!-- 卡片底部链接 -->
-            <footer class="px-8 py-8 md:px-12 bg-slate-50 border-t border-slate-100 text-center">
-                <a href="https://medicalxpress.com/news/2026-02-poll-adults-unaware-meat-consumption.html" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center text-base font-semibold text-indigo-600 hover:text-white hover:bg-indigo-600 border border-indigo-600 px-6 py-3 rounded-full transition-all duration-300 group">
-                    View Source Webpage / 访问原始网页
-                    <svg class="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
-                        stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                </a>
             </footer>
-
         </article>
     </main>
 
-    <!-- 页脚 -->
-    <footer class="bg-slate-900 text-slate-400 py-12 text-center mt-12">
-        <p class="text-sm font-medium">Generated by AI Agent &bull; Tailwind CSS &bull; Jinja2</p>
+    <footer class="site-footer">
+        <div class="shell footer-shell">
+            <span>Daily Insight · AI 双语新闻简报</span>
+            <span>AI 内容仅供信息参考</span>
+        </div>
     </footer>
 </body>
 

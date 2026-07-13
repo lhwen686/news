@@ -4,127 +4,749 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer" />
-    <title>AI 驱动双语新闻聚合器</title>
-    <!-- 引入 Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入 Google Fonts -->
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Daily Insight 汇集医疗、科技、金融与游戏领域的双语新闻摘要与 AI 解析。">
+    <meta name="theme-color" content="#f3f0e8">
+    <title>Daily Insight · AI 双语新闻简报</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700;900&display=swap"
         rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #f8fafc;
+        :root {
+            --ink: #1b1d19;
+            --muted: #676b63;
+            --paper: #f3f0e8;
+            --surface: #fbfaf6;
+            --accent: #a93d29;
+            --line: rgba(27, 29, 25, 0.16);
+            --line-strong: rgba(27, 29, 25, 0.42);
+            --serif: 'Noto Serif SC', 'Songti SC', SimSun, serif;
+            --sans: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
         }
 
-        .zh-text {
-            font-family: 'Inter', 'Noto Serif SC', serif;
+        * {
+            box-sizing: border-box;
         }
 
-        /* 增加平滑的锚点滚动 */
         html {
             scroll-behavior: smooth;
+            background: var(--paper);
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 8% 2%, rgba(196, 72, 47, 0.07), transparent 24rem),
+                var(--paper);
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 0.75rem;
+            left: 0.75rem;
+            z-index: 100;
+            padding: 0.75rem 1rem;
+            color: white;
+            background: var(--ink);
+            transform: translateY(-150%);
+            transition: transform 160ms ease;
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 4px;
+            box-shadow: 0 0 0 6px rgba(251, 250, 246, 0.94);
+        }
+
+        .shell {
+            width: min(100%, 82rem);
+            margin-inline: auto;
+            padding-inline: clamp(1.25rem, 4vw, 4rem);
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid var(--line);
+            background: rgba(243, 240, 232, 0.92);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-shell {
+            min-height: 4.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .brand {
+            min-height: 2.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.9rem;
+            flex: 0 0 auto;
+        }
+
+        .brand-mark {
+            width: 2.35rem;
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--ink);
+            color: var(--surface);
+            background: var(--ink);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+        }
+
+        .brand-copy {
+            display: grid;
+            gap: 0.1rem;
+        }
+
+        .brand-name {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-tagline {
+            color: var(--muted);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .category-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .category-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-nav a {
+            min-width: max-content;
+            min-height: 2.75rem;
+            display: inline-flex;
+            align-items: center;
+            padding-inline: 0.9rem;
+            color: var(--muted);
+            border-bottom: 2px solid transparent;
+            font-size: 0.83rem;
+            font-weight: 600;
+            transition: color 160ms ease, border-color 160ms ease;
+        }
+
+        .category-nav a:hover {
+            color: var(--ink);
+            border-color: var(--accent);
+        }
+
+        .briefing-hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.06fr) minmax(20rem, 0.94fr);
+            gap: clamp(2.5rem, 6vw, 6.5rem);
+            align-items: end;
+            padding-block: clamp(4rem, 8vw, 7.5rem);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            margin: 0 0 1.35rem;
+            color: var(--accent);
+            font-size: 0.73rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            width: 2.25rem;
+            height: 2px;
+            background: currentColor;
+            content: '';
+        }
+
+        .hero-title {
+            max-width: 13ch;
+            margin: 0;
+            font-family: var(--serif);
+            font-size: clamp(2.75rem, 6.3vw, 5.8rem);
+            font-weight: 900;
+            letter-spacing: -0.065em;
+            line-height: 1.02;
+        }
+
+        .hero-intro {
+            max-width: 39rem;
+            margin: 1.65rem 0 2.25rem;
+            color: var(--muted);
+            font-family: var(--serif);
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            line-height: 1.8;
+        }
+
+        .briefing-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            max-width: 36rem;
+            margin: 0;
+            padding: 1rem 0;
+            border-block: 1px solid var(--line-strong);
+        }
+
+        .briefing-stats div {
+            padding-inline: 1rem;
+            border-left: 1px solid var(--line);
+        }
+
+        .briefing-stats div:first-child {
+            padding-left: 0;
+            border-left: 0;
+        }
+
+        .briefing-stats dt {
+            margin-bottom: 0.3rem;
+            color: var(--muted);
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .briefing-stats dd {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: 1.35rem;
+            font-weight: 900;
+        }
+
+        .lead-story {
+            position: relative;
+            min-height: 31rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: clamp(1.8rem, 4vw, 3.25rem);
+            overflow: hidden;
+            color: var(--surface);
+            background: var(--ink);
+        }
+
+        .lead-story::after {
+            position: absolute;
+            right: -0.08em;
+            bottom: -0.24em;
+            color: rgba(255, 255, 255, 0.045);
+            font-family: var(--serif);
+            font-size: 14rem;
+            font-weight: 900;
+            line-height: 1;
+            content: '01';
+            pointer-events: none;
+        }
+
+        .lead-kicker,
+        .story-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.55rem;
+            color: rgba(251, 250, 246, 0.66);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .lead-kicker .dot {
+            width: 0.42rem;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .lead-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .lead-title {
+            max-width: 16ch;
+            margin: 0 0 1.4rem;
+            font-family: var(--serif);
+            font-size: clamp(1.9rem, 3.5vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.035em;
+            line-height: 1.28;
+        }
+
+        .lead-summary {
+            max-width: 35rem;
+            margin: 0 0 2rem;
+            color: rgba(251, 250, 246, 0.7);
+            font-family: var(--serif);
+            font-size: 0.95rem;
+            line-height: 1.85;
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+        }
+
+        .text-link {
+            min-height: 2.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            width: max-content;
+            border-bottom: 1px solid currentColor;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .text-link svg,
+        .story-link svg {
+            width: 1.05rem;
+            transition: transform 160ms ease;
+        }
+
+        .text-link:hover svg,
+        .story-row:hover .story-link svg {
+            transform: translateX(0.25rem);
+        }
+
+        .news-directory {
+            background: var(--surface);
+            border-top: 1px solid var(--line);
+        }
+
+        .category-section {
+            padding-block: clamp(4rem, 7vw, 6.5rem);
+            scroll-margin-top: 5.5rem;
+        }
+
+        .category-section + .category-section {
+            border-top: 1px solid var(--line-strong);
+        }
+
+        .section-heading {
+            display: grid;
+            grid-template-columns: 4rem minmax(0, 1fr) auto;
+            gap: 1.5rem;
+            align-items: end;
+            margin-bottom: 1.6rem;
+        }
+
+        .section-number {
+            color: var(--accent);
+            font-family: var(--serif);
+            font-size: 0.8rem;
+            font-weight: 900;
+            letter-spacing: 0.12em;
+        }
+
+        .section-title {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: clamp(2.25rem, 5vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: -0.055em;
+            line-height: 1;
+        }
+
+        .section-count {
+            padding-bottom: 0.35rem;
+            color: var(--muted);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .story-list {
+            border-top: 1px solid var(--line-strong);
+        }
+
+        .story-row {
+            display: grid;
+            grid-template-columns: 4rem minmax(0, 1fr) 11rem;
+            gap: 1.5rem;
+            padding-block: 2rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .story-index {
+            padding-top: 0.2rem;
+            color: var(--muted);
+            font-family: var(--serif);
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .story-meta {
+            margin-bottom: 0.7rem;
+            color: var(--muted);
+        }
+
+        .story-title {
+            max-width: 31ch;
+            margin: 0;
+            font-family: var(--serif);
+            font-size: clamp(1.35rem, 2.25vw, 2rem);
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1.45;
+            transition: color 160ms ease;
+        }
+
+        .story-row:hover .story-title {
+            color: var(--accent);
+        }
+
+        .story-summary {
+            max-width: 47rem;
+            margin: 0.95rem 0 0;
+            color: var(--muted);
+            font-family: var(--serif);
+            font-size: 0.91rem;
+            line-height: 1.85;
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+
+        .story-side {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .story-type {
+            color: var(--muted);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-align: right;
+            text-transform: uppercase;
+        }
+
+        .story-link {
+            min-height: 2.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            color: var(--ink);
+            font-size: 0.76rem;
+            font-weight: 700;
+        }
+
+        .site-footer {
+            padding-block: 3.25rem;
+            color: rgba(251, 250, 246, 0.7);
+            background: var(--ink);
+        }
+
+        .footer-shell {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .footer-title {
+            margin: 0 0 0.4rem;
+            color: var(--surface);
+            font-family: var(--serif);
+            font-size: 1.35rem;
+            font-weight: 900;
+        }
+
+        .footer-copy,
+        .footer-tech {
+            margin: 0;
+            font-size: 0.75rem;
+            line-height: 1.7;
+        }
+
+        .footer-tech {
+            text-align: right;
+        }
+
+        @media (max-width: 900px) {
+            .nav-shell {
+                min-height: auto;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 0.65rem;
+                padding-block: 0.85rem;
+            }
+
+            .category-nav {
+                width: 100%;
+            }
+
+            .category-nav a:first-child {
+                padding-left: 0;
+            }
+
+            .briefing-hero {
+                grid-template-columns: 1fr;
+                align-items: stretch;
+            }
+
+            .lead-story {
+                min-height: 27rem;
+            }
+
+            .story-row {
+                grid-template-columns: 3rem minmax(0, 1fr);
+            }
+
+            .story-side {
+                grid-column: 2;
+                align-items: flex-start;
+                flex-direction: row;
+            }
+
+            .story-type {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .brand-tagline {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: clamp(2.65rem, 14vw, 4.2rem);
+            }
+
+            .hero-intro {
+                margin-top: 1.25rem;
+            }
+
+            .briefing-stats div {
+                padding-inline: 0.7rem;
+            }
+
+            .briefing-stats dd {
+                font-size: 1.1rem;
+            }
+
+            .lead-story {
+                min-height: 28rem;
+            }
+
+            .lead-story::after {
+                font-size: 10rem;
+            }
+
+            .section-heading {
+                grid-template-columns: 2.25rem minmax(0, 1fr);
+                gap: 0.75rem;
+            }
+
+            .section-count {
+                grid-column: 2;
+            }
+
+            .story-row {
+                grid-template-columns: 2.25rem minmax(0, 1fr);
+                gap: 0.75rem;
+                padding-block: 1.65rem;
+            }
+
+            .story-summary {
+                -webkit-line-clamp: 4;
+            }
+
+            .footer-shell {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .footer-tech {
+                text-align: left;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
 
-<body class="text-gray-800 antialiased">
-    <!-- 导航栏 / 头部 -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center">
-            <div>
-                <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-3">
-                    <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15M9 11l3 3L22 4">
-                        </path>
-                    </svg>
-                    Daily Insight
-                </h1>
-                <p class="mt-1 text-sm text-slate-500">AI-Translated Academic & Tech Highlights · 全球权威资讯双语速递</p>
-            </div>
+<body>
+    <a class="skip-link" href="#main-content">跳至主要内容</a>
 
-            <!-- 快捷导航 -->
-            <nav class="mt-4 md:mt-0 flex gap-4">
+    <header class="site-header">
+        <div class="shell nav-shell">
+            <a class="brand" href="index.html" aria-label="Daily Insight 首页">
+                <span class="brand-mark" aria-hidden="true">DI</span>
+                <span class="brand-copy">
+                    <span class="brand-name">Daily Insight</span>
+                    <span class="brand-tagline">Bilingual intelligence briefing</span>
+                </span>
+            </a>
+
+            <nav class="category-nav" aria-label="新闻分类">
                 {% for category in grouped_news.keys() %}
-                <a href="#cat-{{ category }}"
-                    class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors bg-slate-100 hover:bg-indigo-50 px-3 py-1.5 rounded-full">
-                    {{ category }}
-                </a>
+                <a href="#cat-{{ category }}">{{ category }}</a>
                 {% endfor %}
             </nav>
         </div>
     </header>
 
-    <!-- 主体内容 -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        {% for category, items in grouped_news.items() %}
-        <!-- 板块: {{ category }} -->
-        <section id="cat-{{ category }}" class="mb-16 scroll-mt-24">
-            <div class="flex items-center mb-8">
-                <h2 class="text-2xl font-bold text-slate-800 tracking-wide">{{ category }} 板块</h2>
-                <div class="ml-4 flex-grow h-px bg-slate-200"></div>
+    <main id="main-content">
+        <section class="shell briefing-hero" aria-labelledby="briefing-title">
+            <div>
+                <p class="eyebrow">AI curated · Bilingual</p>
+                <h1 id="briefing-title" class="hero-title">看世界，先抓住真正重要的变化。</h1>
+                <p class="hero-intro">从医疗、科技、金融到游戏，用中文摘要快速判断价值，再进入中英对照全文。这里保留信息密度，也保留阅读的从容。</p>
+
+                <dl class="briefing-stats" aria-label="本期简报统计">
+                    <div>
+                        <dt>Stories</dt>
+                        <dd>{{ total_news }}</dd>
+                    </div>
+                    <div>
+                        <dt>Sections</dt>
+                        <dd>{{ category_count }}</dd>
+                    </div>
+                    <div>
+                        <dt>Format</dt>
+                        <dd>中 / EN</dd>
+                    </div>
+                </dl>
             </div>
 
-            <div class="grid grid-cols-1 gap-8">
-                {% for item in items %}
-                <!-- 单条新闻卡片 -->
-                <article
-                    class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 flex flex-col">
-
-                    {% if item.image_url %}
-                    <!-- 头图 (如果有) -->
-                    <img src="{{ item.image_url }}" alt="Header Image"
-                        class="w-full h-48 object-cover border-b border-slate-100">
+            {% if featured_item %}
+            <article class="lead-story" aria-labelledby="lead-story-title">
+                <div class="lead-kicker">
+                    <span class="dot" aria-hidden="true"></span>
+                    <span>本期精选</span>
+                    <span aria-hidden="true">·</span>
+                    <span>{{ featured_item.category }}</span>
+                </div>
+                <div class="lead-content">
+                    <div class="story-meta">
+                        <span>{{ featured_item.source }}</span>
+                        <span aria-hidden="true">/</span>
+                        <span>AI Summary</span>
+                    </div>
+                    <h2 id="lead-story-title" class="lead-title">{{ featured_item.title_zh }}</h2>
+                    {% if featured_item.summary_zh %}
+                    <p class="lead-summary">{{ featured_item.summary_zh }}</p>
                     {% endif %}
+                    <a class="text-link" href="articles/news_{{ featured_item.id }}.html">
+                        阅读精选
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M5 12h14M13 6l6 6-6 6"></path>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            {% endif %}
+        </section>
 
-                    <!-- 卡片 Header: 来源标识 -->
-                    <div class="px-6 py-4 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
-                        <span
-                            class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
-                            {{ item.source }}
-                        </span>
+        <div class="news-directory">
+            <div class="shell">
+                {% for category, items in grouped_news.items() %}
+                <section id="cat-{{ category }}" class="category-section" aria-labelledby="heading-{{ loop.index }}">
+                    <header class="section-heading">
+                        <span class="section-number" aria-hidden="true">0{{ loop.index }}</span>
+                        <h2 id="heading-{{ loop.index }}" class="section-title">{{ category }}</h2>
+                        <span class="section-count">{{ items|length }} stories</span>
+                    </header>
+
+                    <div class="story-list">
+                        {% for item in items %}
+                        <article class="story-row" aria-labelledby="story-{{ item.id }}">
+                            <span class="story-index" aria-hidden="true">{{ "%02d"|format(loop.index) }}</span>
+                            <div>
+                                <div class="story-meta">
+                                    <span>{{ item.source }}</span>
+                                    <span aria-hidden="true">·</span>
+                                    <span>{{ category }}</span>
+                                </div>
+                                <h3 id="story-{{ item.id }}" class="story-title">
+                                    <a href="articles/news_{{ item.id }}.html">{{ item.title_zh }}</a>
+                                </h3>
+                                {% if item.summary_zh %}
+                                <p class="story-summary">{{ item.summary_zh }}</p>
+                                {% endif %}
+                            </div>
+                            <div class="story-side">
+                                <span class="story-type">中文摘要<br>双语全文</span>
+                                <a class="story-link" href="articles/news_{{ item.id }}.html"
+                                    aria-label="阅读《{{ item.title_zh }}》">
+                                    阅读
+                                    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.8">
+                                        <path d="M5 12h14M13 6l6 6-6 6"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
+                        {% endfor %}
                     </div>
-
-                    <!-- 卡片 Body: 中文标题和摘要 -->
-                    <div class="p-8 flex flex-col gap-5 flex-grow">
-                        <h3 class="text-2xl font-bold text-slate-900 zh-text leading-snug">
-                            {{ item.title_zh|replace('\n', '<br>')|safe }}
-                        </h3>
-
-                        {% if item.summary_zh %}
-                        <div
-                            class="prose prose-sm prose-slate text-slate-600 max-w-none zh-text leading-relaxed bg-slate-50 p-5 rounded-xl border border-slate-100">
-                            <strong>150 字摘要：</strong><br>
-                            {{ item.summary_zh|replace('\n', '<br>')|safe }}
-                        </div>
-                        {% endif %}
-                    </div>
-
-                    <!-- 卡片 Footer: 静态页面链接按钮 -->
-                    <div class="px-8 py-5 border-t border-slate-100 bg-white">
-                        <a href="articles/news_{{ item.id }}.html"
-                            class="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm transition-colors shadow-sm shadow-indigo-200 group">
-                            阅读全文 (Read Full Text)
-                            <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                            </svg>
-                        </a>
-                    </div>
-
-                </article>
+                </section>
                 {% endfor %}
             </div>
-        </section>
-        {% endfor %}
+        </div>
     </main>
 
-    <!-- 页脚 -->
-    <footer class="bg-slate-900 text-slate-400 py-8 text-center mt-8">
-        <p class="text-sm">Generated by AI Agent &bull; Tailwind CSS &bull; Jinja2</p>
+    <footer class="site-footer">
+        <div class="shell footer-shell">
+            <div>
+                <p class="footer-title">Daily Insight</p>
+                <p class="footer-copy">全球资讯，双语阅读。AI 内容仅供信息参考。</p>
+            </div>
+            <p class="footer-tech">Curated with AI<br>Built with Jinja2 &amp; project CSS</p>
+        </div>
     </footer>
 </body>
 

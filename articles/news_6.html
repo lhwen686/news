@@ -4,138 +4,663 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>为什么Netflix放弃了收购华纳兄弟的交易？ - Daily Insight</title>
-    <!-- 引入 Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入 Google Fonts -->
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Netflix意外放弃竞购华纳兄弟探索，使得派拉蒙影业有望胜出。Netflix此举出于财务纪律，股东疑虑（股价波动）及派拉蒙高价竞标是主因。据称，其联席CEO萨兰多斯或采纳了前总统特朗普的建议。目前，华纳兄弟员工担忧大规模裁员及CNN面临政治压力。">
+    <meta name="theme-color" content="#f3f0e8">
+    <title>为什么Netflix放弃了收购华纳兄弟的交易？ · Daily Insight</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap"
         rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #f8fafc;
+        :root {
+            --ink: #1b1d19;
+            --muted: #676b63;
+            --paper: #f3f0e8;
+            --surface: #fbfaf6;
+            --accent: #a93d29;
+            --line: rgba(27, 29, 25, 0.16);
+            --line-strong: rgba(27, 29, 25, 0.42);
+            --serif: 'Noto Serif SC', 'Songti SC', SimSun, serif;
+            --sans: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
         }
 
-        .zh-text {
-            font-family: 'Inter', 'Noto Serif SC', serif;
+        * {
+            box-sizing: border-box;
         }
 
         html {
             scroll-behavior: smooth;
+            background: var(--paper);
         }
 
-        /* 沉浸式阅读段落样式 */
-        .article-content p {
-            margin-bottom: 1.5em;
+        body {
+            margin: 0;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 88% 5%, rgba(196, 72, 47, 0.07), transparent 26rem),
+                var(--paper);
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 0.75rem;
+            left: 0.75rem;
+            z-index: 100;
+            padding: 0.75rem 1rem;
+            color: white;
+            background: var(--ink);
+            transform: translateY(-150%);
+            transition: transform 160ms ease;
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 4px;
+            box-shadow: 0 0 0 6px rgba(251, 250, 246, 0.94);
+        }
+
+        .shell {
+            width: min(100%, 78rem);
+            margin-inline: auto;
+            padding-inline: clamp(1.25rem, 4vw, 4rem);
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid var(--line);
+            background: rgba(243, 240, 232, 0.92);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-shell {
+            min-height: 4.5rem;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .back-link,
+        .source-link {
+            min-height: 2.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            width: max-content;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .back-link svg,
+        .source-link svg {
+            width: 1rem;
+            transition: transform 160ms ease;
+        }
+
+        .back-link:hover svg {
+            transform: translateX(-0.25rem);
+        }
+
+        .source-link:hover svg {
+            transform: translate(0.2rem, -0.2rem);
+        }
+
+        .header-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-family: var(--serif);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-mark {
+            width: 2rem;
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+            color: var(--surface);
+            background: var(--ink);
+            font-family: var(--sans);
+            font-size: 0.62rem;
+            letter-spacing: 0.08em;
+        }
+
+        .category-label {
+            justify-self: end;
+            color: var(--muted);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .article-hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 15rem;
+            gap: clamp(2.5rem, 6vw, 6.5rem);
+            align-items: end;
+            padding-block: clamp(4rem, 9vw, 8.5rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .article-kicker {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .article-kicker::before {
+            width: 2.2rem;
+            height: 2px;
+            background: currentColor;
+            content: '';
+        }
+
+        .article-title {
+            max-width: 20ch;
+            margin: 0;
+            font-family: var(--serif);
+            font-size: clamp(2.6rem, 6vw, 5.4rem);
+            font-weight: 900;
+            letter-spacing: -0.06em;
+            line-height: 1.1;
+            overflow-wrap: anywhere;
+        }
+
+        .article-title-en {
+            max-width: 50rem;
+            margin: 1.6rem 0 0;
+            color: var(--muted);
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(1.05rem, 2vw, 1.45rem);
+            font-weight: 400;
+            line-height: 1.55;
+        }
+
+        .article-facts {
+            margin: 0;
+            padding-left: 1.5rem;
+            border-left: 1px solid var(--line-strong);
+        }
+
+        .article-facts div {
+            padding-block: 0.9rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .article-facts div:first-child {
+            padding-top: 0;
+        }
+
+        .article-facts dt {
+            margin-bottom: 0.35rem;
+            color: var(--muted);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .article-facts dd {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: 0.96rem;
+            font-weight: 700;
+            line-height: 1.55;
+        }
+
+        .hero-image {
+            margin-top: -2.5rem;
+            padding-bottom: clamp(4rem, 7vw, 6rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .hero-image img {
+            display: block;
+            width: 100%;
+            max-height: 34rem;
+            object-fit: cover;
+            filter: saturate(0.82) contrast(1.04);
+        }
+
+        .insight-section {
+            padding-block: clamp(3.5rem, 7vw, 6rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .insight-grid {
+            display: grid;
+            grid-template-columns: 12rem minmax(0, 1fr);
+            gap: clamp(2rem, 6vw, 6rem);
+            padding: clamp(1.75rem, 4vw, 3rem);
+            color: var(--surface);
+            background: var(--ink);
+        }
+
+        .section-kicker {
+            margin: 0;
+            color: #f0a086;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .insight-title {
+            margin: 0.65rem 0 0;
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            font-weight: 900;
+            line-height: 1.35;
+        }
+
+        .insight-copy {
+            margin: 0;
+            color: rgba(251, 250, 246, 0.78);
+            font-family: var(--serif);
+            font-size: 1rem;
+            line-height: 2;
+            white-space: pre-line;
+        }
+
+        .reading-section {
+            padding-block: clamp(4rem, 8vw, 7rem);
+        }
+
+        .reading-header {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.65fr);
+            gap: 2rem;
+            align-items: end;
+            margin-bottom: 3rem;
+        }
+
+        .reading-title {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: clamp(2.1rem, 4.5vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 1.1;
+        }
+
+        .reading-intro {
+            margin: 0;
+            color: var(--muted);
+            font-family: var(--serif);
+            font-size: 0.9rem;
             line-height: 1.8;
-            color: #334155;
+        }
+
+        .reading-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            border-block: 1px solid var(--line-strong);
+        }
+
+        .language-column {
+            min-width: 0;
+            padding: 2.25rem clamp(1.5rem, 4vw, 3.5rem) 0 0;
+        }
+
+        .language-column + .language-column {
+            padding-right: 0;
+            padding-left: clamp(1.5rem, 4vw, 3.5rem);
+            border-left: 1px solid var(--line);
+        }
+
+        .language-heading {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1rem;
+            margin: 0 0 2.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .language-heading h3 {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+
+        .language-heading span {
+            color: var(--muted);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .article-prose {
+            padding-bottom: 2rem;
+            color: #353831;
+            font-size: 1rem;
+            line-height: 2;
+            overflow-wrap: anywhere;
+            white-space: pre-line;
+        }
+
+        .prose-en {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.02rem;
+            line-height: 1.95;
+        }
+
+        .prose-zh {
+            font-family: var(--serif);
+            font-size: 1.04rem;
+            line-height: 2.05;
+        }
+
+        .empty-state {
+            margin: 0 0 2rem;
+            padding: 1.25rem;
+            color: var(--muted);
+            border: 1px dashed var(--line-strong);
+            font-family: var(--serif);
+            line-height: 1.7;
+        }
+
+        .source-band {
+            color: var(--surface);
+            background: var(--ink);
+        }
+
+        .source-shell {
+            min-height: 12rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding-block: 2.5rem;
+        }
+
+        .source-title {
+            margin: 0 0 0.45rem;
+            font-family: var(--serif);
+            font-size: clamp(1.55rem, 3vw, 2.4rem);
+            font-weight: 900;
+        }
+
+        .source-copy {
+            margin: 0;
+            color: rgba(251, 250, 246, 0.62);
+            font-size: 0.78rem;
+            line-height: 1.7;
+        }
+
+        .source-link {
+            flex: 0 0 auto;
+            padding: 0.85rem 1.1rem;
+            color: var(--ink);
+            background: var(--surface);
+        }
+
+        .site-footer {
+            padding-block: 2rem;
+            color: var(--muted);
+            background: var(--paper);
+        }
+
+        .footer-shell {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: 0.7rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 760px) {
+            .nav-shell {
+                grid-template-columns: 1fr auto;
+            }
+
+            .header-brand {
+                display: none;
+            }
+
+            .article-hero {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .article-facts {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                padding: 1rem 0 0;
+                border-top: 1px solid var(--line-strong);
+                border-left: 0;
+            }
+
+            .article-facts div {
+                padding: 0 0.8rem;
+                border-right: 1px solid var(--line);
+                border-bottom: 0;
+            }
+
+            .article-facts div:first-child {
+                padding-top: 0;
+                padding-left: 0;
+            }
+
+            .article-facts div:last-child {
+                border-right: 0;
+            }
+
+            .insight-grid,
+            .reading-header {
+                grid-template-columns: 1fr;
+            }
+
+            .reading-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .language-column,
+            .language-column + .language-column {
+                padding: 2rem 0 0;
+                border-left: 0;
+            }
+
+            .language-column + .language-column {
+                border-top: 1px solid var(--line-strong);
+            }
+
+            .source-shell {
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .article-title {
+                font-size: clamp(2.25rem, 12vw, 3.15rem);
+            }
+
+            .article-facts {
+                grid-template-columns: 1fr;
+            }
+
+            .article-facts div,
+            .article-facts div:first-child {
+                padding: 0.8rem 0;
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .article-facts div:last-child {
+                border-bottom: 0;
+            }
+
+            .footer-shell {
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
 
-<body class="text-gray-800 antialiased">
-    <!-- 顶部返回导航 -->
-    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-200">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-            <a href="../index.html"
-                class="inline-flex items-center text-sm font-medium text-slate-500 hover:text-indigo-600 transition-colors group">
-                <svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+<body>
+    <a class="skip-link" href="#article-content">跳至文章正文</a>
+
+    <header class="site-header">
+        <div class="shell nav-shell">
+            <a class="back-link" href="../index.html">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M19 12H5M11 18l-6-6 6-6"></path>
                 </svg>
-                返回首页
+                返回简报
             </a>
-            <span
-                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-100 text-slate-600">
-                科技
-            </span>
+            <a class="header-brand" href="../index.html" aria-label="Daily Insight 首页">
+                <span class="brand-mark" aria-hidden="true">DI</span>
+                <span>Daily Insight</span>
+            </a>
+            <span class="category-label">科技</span>
         </div>
     </header>
 
-    <!-- 文章主体 -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
-        <article class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
+    <main id="article-content">
+        <article>
+            <header class="shell article-hero">
+                <div>
+                    <div class="article-kicker">
+                        <span>科技</span>
+                        <span aria-hidden="true">·</span>
+                        <span>TechCrunch</span>
+                    </div>
+                    <h1 class="article-title">为什么Netflix放弃了收购华纳兄弟的交易？</h1>
+                    <p class="article-title-en" lang="en">Why did Netflix back down from its deal to acquire Warner Bros.?</p>
+                </div>
 
-            <!-- 文章标题区 -->
-            <header class="px-8 py-10 md:px-12 md:py-16 bg-slate-50 border-b border-slate-100 text-center">
-                <span
-                    class="inline-block px-3 py-1 mb-6 rounded-full text-sm font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
-                    TechCrunch
-                </span>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 zh-text leading-tight mb-6 mt-2">
-                    为什么Netflix放弃了收购华纳兄弟的交易？
-                </h1>
-                <h2 class="text-xl md:text-2xl font-bold text-slate-500 font-serif leading-snug">
-                    Why did Netflix back down from its deal to acquire Warner Bros.?
-                </h2>
+                <dl class="article-facts" aria-label="文章信息">
+                    <div>
+                        <dt>Section</dt>
+                        <dd>科技</dd>
+                    </div>
+                    <div>
+                        <dt>Source</dt>
+                        <dd>TechCrunch</dd>
+                    </div>
+                    <div>
+                        <dt>Reading</dt>
+                        <dd>中英对照</dd>
+                    </div>
+                </dl>
             </header>
 
-            <!-- 沉浸式头图 -->
-            
 
-            <!-- AI 深度解析区 -->
-            
 
-            <!-- 中英对照正文区 -->
-            <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100">
+            <section class="shell reading-section" aria-labelledby="parallel-reading-title">
+                <header class="reading-header">
+                    <h2 id="parallel-reading-title" class="reading-title">中英对照阅读</h2>
+                    <p class="reading-intro">左侧保留英文原文，右侧提供 AI 中文翻译。翻译可能存在偏差，关键信息请以原始报道为准。</p>
+                </header>
 
-                <!-- 英文原文 (左) -->
-                <div class="p-8 md:p-12 md:w-1/2 flex flex-col article-content bg-white">
-                    <div class="flex items-center gap-2 mb-8 pb-4 border-b border-slate-100 text-slate-400">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129">
-                            </path>
-                        </svg>
-                        <span class="text-sm font-bold uppercase tracking-wider">Original Text</span>
-                    </div>
-                    
-                    <div class="text-md font-serif text-slate-700">
-                        In Brief<br><br>Netflix stunned the entertainment world this week when it declined to raise its bid for Warner Bros. Discovery, setting the stage for Paramount Skydance to win ownership of the Hollywood studio.<br><br>At the time, Netflix co-CEOs Ted Sarandos and Greg Peters said they were being financially disciplined. Now reporting in Bloomberg offers more details about why Netflix executives backed down from a bidding war that it seemed to win back in December.<br><br>For one thing, the streaming giant’s shareholders appeared deeply skeptical that the acquisition was a good deal — Netflix’s share price declined 30% since announcing the deal, while the subsequent news that it was backing down sent Netflix stock up nearly 14%.<br><br>For another, Netflix’s commitment to the deal reportedly wavered after Paramount came in with an increased offer and seemed willing to go several more rounds in a bidding war.<br><br>By the time Sarandos met with Trump administration officials on Thursday, he may already have decided to concede. In fact, since President Donald Trump had previously warned him not to overpay, Sarandos reportedly told him, “I took your advice.”<br><br>Meanwhile, employees at Warner Bros. now worry about major studio layoffs and conservative political pressure on CNN.
-                    </div>
-                    
+                <div class="reading-grid">
+                    <section class="language-column" aria-labelledby="original-heading">
+                        <header class="language-heading">
+                            <h3 id="original-heading">英文原文</h3>
+                            <span lang="en">Original</span>
+                        </header>
+                        <div class="article-prose prose-en" lang="en">In Brief
+
+Netflix stunned the entertainment world this week when it declined to raise its bid for Warner Bros. Discovery, setting the stage for Paramount Skydance to win ownership of the Hollywood studio.
+
+At the time, Netflix co-CEOs Ted Sarandos and Greg Peters said they were being financially disciplined. Now reporting in Bloomberg offers more details about why Netflix executives backed down from a bidding war that it seemed to win back in December.
+
+For one thing, the streaming giant’s shareholders appeared deeply skeptical that the acquisition was a good deal — Netflix’s share price declined 30% since announcing the deal, while the subsequent news that it was backing down sent Netflix stock up nearly 14%.
+
+For another, Netflix’s commitment to the deal reportedly wavered after Paramount came in with an increased offer and seemed willing to go several more rounds in a bidding war.
+
+By the time Sarandos met with Trump administration officials on Thursday, he may already have decided to concede. In fact, since President Donald Trump had previously warned him not to overpay, Sarandos reportedly told him, “I took your advice.”
+
+Meanwhile, employees at Warner Bros. now worry about major studio layoffs and conservative political pressure on CNN.</div>
+                    </section>
+
+                    <section class="language-column" aria-labelledby="translation-heading">
+                        <header class="language-heading">
+                            <h3 id="translation-heading">中文翻译</h3>
+                            <span>AI Translation</span>
+                        </header>
+                        <div class="article-prose prose-zh">简讯
+
+Netflix本周拒绝提高对华纳兄弟探索的竞标，震惊了娱乐界，这为派拉蒙影业-Skydance赢得这家好莱坞制片公司的所有权铺平了道路。
+
+当时，Netflix联席首席执行官泰德·萨兰多斯和格雷格·彼得斯表示他们正在实行财务自律。现在，彭博社的报道提供了更多细节，说明Netflix高管为何退出这场似乎在去年12月就已胜券在握的竞购战。
+
+首先，这家流媒体巨头的股东似乎对这项收购是否是笔好买卖深表怀疑——自宣布这项交易以来，Netflix的股价下跌了30%，而随后传出的退出消息则让Netflix的股价飙升了近14%。
+
+其次，据报道，在派拉蒙影业提出更高的报价并似乎愿意在竞购战中再战数轮之后，Netflix对这笔交易的承诺动摇了。
+
+到萨兰多斯周四与特朗普政府官员会面时，他可能已经决定让步。事实上，由于唐纳德·特朗普总统此前曾警告他不要出价过高，萨兰多斯据称告诉他：“我听取了您的建议。”
+
+与此同时，华纳兄弟的员工现在担心大规模的制片厂裁员以及CNN面临的保守派政治压力。</div>
+                    </section>
                 </div>
+            </section>
 
-                <!-- 中文翻译 (右) -->
-                <div class="p-8 md:p-12 md:w-1/2 flex flex-col article-content bg-indigo-50/30">
-                    <div class="flex items-center gap-2 mb-8 pb-4 border-b border-indigo-100 text-indigo-400">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129">
-                            </path>
+            <footer class="source-band">
+                <div class="shell source-shell">
+                    <div>
+                        <p class="source-title">继续查看原始报道</p>
+                        <p class="source-copy">来源：TechCrunch · 将在新窗口打开发布者页面</p>
+                    </div>
+                    <a class="source-link" href="https://techcrunch.com/2026/02/28/why-did-netflix-back-down-from-its-deal-to-acquire-warner-bros/" target="_blank" rel="noopener noreferrer">
+                        访问来源
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M14 5h5v5M19 5l-8 8M19 13v5a1 1 0 01-1 1H6a1 1 0 01-1-1V6a1 1 0 011-1h5"></path>
                         </svg>
-                        <span class="text-sm font-bold uppercase tracking-wider zh-text">AI 机器翻译</span>
-                    </div>
-                    
-                    <div class="text-lg zh-text text-slate-800 font-medium">
-                        简讯<br><br>Netflix本周拒绝提高对华纳兄弟探索的竞标，震惊了娱乐界，这为派拉蒙影业-Skydance赢得这家好莱坞制片公司的所有权铺平了道路。<br><br>当时，Netflix联席首席执行官泰德·萨兰多斯和格雷格·彼得斯表示他们正在实行财务自律。现在，彭博社的报道提供了更多细节，说明Netflix高管为何退出这场似乎在去年12月就已胜券在握的竞购战。<br><br>首先，这家流媒体巨头的股东似乎对这项收购是否是笔好买卖深表怀疑——自宣布这项交易以来，Netflix的股价下跌了30%，而随后传出的退出消息则让Netflix的股价飙升了近14%。<br><br>其次，据报道，在派拉蒙影业提出更高的报价并似乎愿意在竞购战中再战数轮之后，Netflix对这笔交易的承诺动摇了。<br><br>到萨兰多斯周四与特朗普政府官员会面时，他可能已经决定让步。事实上，由于唐纳德·特朗普总统此前曾警告他不要出价过高，萨兰多斯据称告诉他：“我听取了您的建议。”<br><br>与此同时，华纳兄弟的员工现在担心大规模的制片厂裁员以及CNN面临的保守派政治压力。
-                    </div>
-                    
+                    </a>
                 </div>
-
-            </div>
-
-            <!-- 卡片底部链接 -->
-            <footer class="px-8 py-8 md:px-12 bg-slate-50 border-t border-slate-100 text-center">
-                <a href="https://techcrunch.com/2026/02/28/why-did-netflix-back-down-from-its-deal-to-acquire-warner-bros/" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center text-base font-semibold text-indigo-600 hover:text-white hover:bg-indigo-600 border border-indigo-600 px-6 py-3 rounded-full transition-all duration-300 group">
-                    View Source Webpage / 访问原始网页
-                    <svg class="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
-                        stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                </a>
             </footer>
-
         </article>
     </main>
 
-    <!-- 页脚 -->
-    <footer class="bg-slate-900 text-slate-400 py-12 text-center mt-12">
-        <p class="text-sm font-medium">Generated by AI Agent &bull; Tailwind CSS &bull; Jinja2</p>
+    <footer class="site-footer">
+        <div class="shell footer-shell">
+            <span>Daily Insight · AI 双语新闻简报</span>
+            <span>AI 内容仅供信息参考</span>
+        </div>
     </footer>
 </body>
 

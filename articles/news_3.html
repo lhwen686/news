@@ -4,138 +4,747 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>问答：什么是青光眼以及需要注意的主要症状有哪些？ - Daily Insight</title>
-    <!-- 引入 Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入 Google Fonts -->
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="全球青光眼病例预计将显著增加，这种由眼内液压损伤视神经引起的疾病，若不及时治疗将导致不可逆的视力丧失甚至失明。据估算，2040年全球将有2200万人因青光眼失明。青光眼分为慢性（早期无症状）和急性，危险因素包括年龄、家族史和某些疾病。鉴于慢性青光眼早期无明显症状，定期进行眼科检查对于早期诊断和干预至关重要，可有效阻止病情恶化并保护视力。">
+    <meta name="theme-color" content="#f3f0e8">
+    <title>问答：什么是青光眼以及需要注意的主要症状有哪些？ · Daily Insight</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap"
         rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background-color: #f8fafc;
+        :root {
+            --ink: #1b1d19;
+            --muted: #676b63;
+            --paper: #f3f0e8;
+            --surface: #fbfaf6;
+            --accent: #a93d29;
+            --line: rgba(27, 29, 25, 0.16);
+            --line-strong: rgba(27, 29, 25, 0.42);
+            --serif: 'Noto Serif SC', 'Songti SC', SimSun, serif;
+            --sans: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
         }
 
-        .zh-text {
-            font-family: 'Inter', 'Noto Serif SC', serif;
+        * {
+            box-sizing: border-box;
         }
 
         html {
             scroll-behavior: smooth;
+            background: var(--paper);
         }
 
-        /* 沉浸式阅读段落样式 */
-        .article-content p {
-            margin-bottom: 1.5em;
+        body {
+            margin: 0;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 88% 5%, rgba(196, 72, 47, 0.07), transparent 26rem),
+                var(--paper);
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 0.75rem;
+            left: 0.75rem;
+            z-index: 100;
+            padding: 0.75rem 1rem;
+            color: white;
+            background: var(--ink);
+            transform: translateY(-150%);
+            transition: transform 160ms ease;
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 4px;
+            box-shadow: 0 0 0 6px rgba(251, 250, 246, 0.94);
+        }
+
+        .shell {
+            width: min(100%, 78rem);
+            margin-inline: auto;
+            padding-inline: clamp(1.25rem, 4vw, 4rem);
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid var(--line);
+            background: rgba(243, 240, 232, 0.92);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-shell {
+            min-height: 4.5rem;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .back-link,
+        .source-link {
+            min-height: 2.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            width: max-content;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .back-link svg,
+        .source-link svg {
+            width: 1rem;
+            transition: transform 160ms ease;
+        }
+
+        .back-link:hover svg {
+            transform: translateX(-0.25rem);
+        }
+
+        .source-link:hover svg {
+            transform: translate(0.2rem, -0.2rem);
+        }
+
+        .header-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-family: var(--serif);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-mark {
+            width: 2rem;
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+            color: var(--surface);
+            background: var(--ink);
+            font-family: var(--sans);
+            font-size: 0.62rem;
+            letter-spacing: 0.08em;
+        }
+
+        .category-label {
+            justify-self: end;
+            color: var(--muted);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .article-hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 15rem;
+            gap: clamp(2.5rem, 6vw, 6.5rem);
+            align-items: end;
+            padding-block: clamp(4rem, 9vw, 8.5rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .article-kicker {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .article-kicker::before {
+            width: 2.2rem;
+            height: 2px;
+            background: currentColor;
+            content: '';
+        }
+
+        .article-title {
+            max-width: 20ch;
+            margin: 0;
+            font-family: var(--serif);
+            font-size: clamp(2.6rem, 6vw, 5.4rem);
+            font-weight: 900;
+            letter-spacing: -0.06em;
+            line-height: 1.1;
+            overflow-wrap: anywhere;
+        }
+
+        .article-title-en {
+            max-width: 50rem;
+            margin: 1.6rem 0 0;
+            color: var(--muted);
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(1.05rem, 2vw, 1.45rem);
+            font-weight: 400;
+            line-height: 1.55;
+        }
+
+        .article-facts {
+            margin: 0;
+            padding-left: 1.5rem;
+            border-left: 1px solid var(--line-strong);
+        }
+
+        .article-facts div {
+            padding-block: 0.9rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .article-facts div:first-child {
+            padding-top: 0;
+        }
+
+        .article-facts dt {
+            margin-bottom: 0.35rem;
+            color: var(--muted);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .article-facts dd {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: 0.96rem;
+            font-weight: 700;
+            line-height: 1.55;
+        }
+
+        .hero-image {
+            margin-top: -2.5rem;
+            padding-bottom: clamp(4rem, 7vw, 6rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .hero-image img {
+            display: block;
+            width: 100%;
+            max-height: 34rem;
+            object-fit: cover;
+            filter: saturate(0.82) contrast(1.04);
+        }
+
+        .insight-section {
+            padding-block: clamp(3.5rem, 7vw, 6rem);
+            border-bottom: 1px solid var(--line-strong);
+        }
+
+        .insight-grid {
+            display: grid;
+            grid-template-columns: 12rem minmax(0, 1fr);
+            gap: clamp(2rem, 6vw, 6rem);
+            padding: clamp(1.75rem, 4vw, 3rem);
+            color: var(--surface);
+            background: var(--ink);
+        }
+
+        .section-kicker {
+            margin: 0;
+            color: #f0a086;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .insight-title {
+            margin: 0.65rem 0 0;
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            font-weight: 900;
+            line-height: 1.35;
+        }
+
+        .insight-copy {
+            margin: 0;
+            color: rgba(251, 250, 246, 0.78);
+            font-family: var(--serif);
+            font-size: 1rem;
+            line-height: 2;
+            white-space: pre-line;
+        }
+
+        .reading-section {
+            padding-block: clamp(4rem, 8vw, 7rem);
+        }
+
+        .reading-header {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.65fr);
+            gap: 2rem;
+            align-items: end;
+            margin-bottom: 3rem;
+        }
+
+        .reading-title {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: clamp(2.1rem, 4.5vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 1.1;
+        }
+
+        .reading-intro {
+            margin: 0;
+            color: var(--muted);
+            font-family: var(--serif);
+            font-size: 0.9rem;
             line-height: 1.8;
-            color: #334155;
+        }
+
+        .reading-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            border-block: 1px solid var(--line-strong);
+        }
+
+        .language-column {
+            min-width: 0;
+            padding: 2.25rem clamp(1.5rem, 4vw, 3.5rem) 0 0;
+        }
+
+        .language-column + .language-column {
+            padding-right: 0;
+            padding-left: clamp(1.5rem, 4vw, 3.5rem);
+            border-left: 1px solid var(--line);
+        }
+
+        .language-heading {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1rem;
+            margin: 0 0 2.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .language-heading h3 {
+            margin: 0;
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+
+        .language-heading span {
+            color: var(--muted);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .article-prose {
+            padding-bottom: 2rem;
+            color: #353831;
+            font-size: 1rem;
+            line-height: 2;
+            overflow-wrap: anywhere;
+            white-space: pre-line;
+        }
+
+        .prose-en {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.02rem;
+            line-height: 1.95;
+        }
+
+        .prose-zh {
+            font-family: var(--serif);
+            font-size: 1.04rem;
+            line-height: 2.05;
+        }
+
+        .empty-state {
+            margin: 0 0 2rem;
+            padding: 1.25rem;
+            color: var(--muted);
+            border: 1px dashed var(--line-strong);
+            font-family: var(--serif);
+            line-height: 1.7;
+        }
+
+        .source-band {
+            color: var(--surface);
+            background: var(--ink);
+        }
+
+        .source-shell {
+            min-height: 12rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding-block: 2.5rem;
+        }
+
+        .source-title {
+            margin: 0 0 0.45rem;
+            font-family: var(--serif);
+            font-size: clamp(1.55rem, 3vw, 2.4rem);
+            font-weight: 900;
+        }
+
+        .source-copy {
+            margin: 0;
+            color: rgba(251, 250, 246, 0.62);
+            font-size: 0.78rem;
+            line-height: 1.7;
+        }
+
+        .source-link {
+            flex: 0 0 auto;
+            padding: 0.85rem 1.1rem;
+            color: var(--ink);
+            background: var(--surface);
+        }
+
+        .site-footer {
+            padding-block: 2rem;
+            color: var(--muted);
+            background: var(--paper);
+        }
+
+        .footer-shell {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: 0.7rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 760px) {
+            .nav-shell {
+                grid-template-columns: 1fr auto;
+            }
+
+            .header-brand {
+                display: none;
+            }
+
+            .article-hero {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .article-facts {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                padding: 1rem 0 0;
+                border-top: 1px solid var(--line-strong);
+                border-left: 0;
+            }
+
+            .article-facts div {
+                padding: 0 0.8rem;
+                border-right: 1px solid var(--line);
+                border-bottom: 0;
+            }
+
+            .article-facts div:first-child {
+                padding-top: 0;
+                padding-left: 0;
+            }
+
+            .article-facts div:last-child {
+                border-right: 0;
+            }
+
+            .insight-grid,
+            .reading-header {
+                grid-template-columns: 1fr;
+            }
+
+            .reading-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .language-column,
+            .language-column + .language-column {
+                padding: 2rem 0 0;
+                border-left: 0;
+            }
+
+            .language-column + .language-column {
+                border-top: 1px solid var(--line-strong);
+            }
+
+            .source-shell {
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .article-title {
+                font-size: clamp(2.25rem, 12vw, 3.15rem);
+            }
+
+            .article-facts {
+                grid-template-columns: 1fr;
+            }
+
+            .article-facts div,
+            .article-facts div:first-child {
+                padding: 0.8rem 0;
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .article-facts div:last-child {
+                border-bottom: 0;
+            }
+
+            .footer-shell {
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
 
-<body class="text-gray-800 antialiased">
-    <!-- 顶部返回导航 -->
-    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-200">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-            <a href="../index.html"
-                class="inline-flex items-center text-sm font-medium text-slate-500 hover:text-indigo-600 transition-colors group">
-                <svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+<body>
+    <a class="skip-link" href="#article-content">跳至文章正文</a>
+
+    <header class="site-header">
+        <div class="shell nav-shell">
+            <a class="back-link" href="../index.html">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M19 12H5M11 18l-6-6 6-6"></path>
                 </svg>
-                返回首页
+                返回简报
             </a>
-            <span
-                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-100 text-slate-600">
-                医疗
-            </span>
+            <a class="header-brand" href="../index.html" aria-label="Daily Insight 首页">
+                <span class="brand-mark" aria-hidden="true">DI</span>
+                <span>Daily Insight</span>
+            </a>
+            <span class="category-label">医疗</span>
         </div>
     </header>
 
-    <!-- 文章主体 -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
-        <article class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
+    <main id="article-content">
+        <article>
+            <header class="shell article-hero">
+                <div>
+                    <div class="article-kicker">
+                        <span>医疗</span>
+                        <span aria-hidden="true">·</span>
+                        <span>MedicalXpress</span>
+                    </div>
+                    <h1 class="article-title">问答：什么是青光眼以及需要注意的主要症状有哪些？</h1>
+                    <p class="article-title-en" lang="en">Q&amp;A: What is glaucoma and what are the main symptoms to look out for?</p>
+                </div>
 
-            <!-- 文章标题区 -->
-            <header class="px-8 py-10 md:px-12 md:py-16 bg-slate-50 border-b border-slate-100 text-center">
-                <span
-                    class="inline-block px-3 py-1 mb-6 rounded-full text-sm font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800">
-                    MedicalXpress
-                </span>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 zh-text leading-tight mb-6 mt-2">
-                    问答：什么是青光眼以及需要注意的主要症状有哪些？
-                </h1>
-                <h2 class="text-xl md:text-2xl font-bold text-slate-500 font-serif leading-snug">
-                    Q&A: What is glaucoma and what are the main symptoms to look out for?
-                </h2>
+                <dl class="article-facts" aria-label="文章信息">
+                    <div>
+                        <dt>Section</dt>
+                        <dd>医疗</dd>
+                    </div>
+                    <div>
+                        <dt>Source</dt>
+                        <dd>MedicalXpress</dd>
+                    </div>
+                    <div>
+                        <dt>Reading</dt>
+                        <dd>中英对照</dd>
+                    </div>
+                </dl>
             </header>
 
-            <!-- 沉浸式头图 -->
-            
 
-            <!-- AI 深度解析区 -->
-            
 
-            <!-- 中英对照正文区 -->
-            <div class="flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100">
+            <section class="shell reading-section" aria-labelledby="parallel-reading-title">
+                <header class="reading-header">
+                    <h2 id="parallel-reading-title" class="reading-title">中英对照阅读</h2>
+                    <p class="reading-intro">左侧保留英文原文，右侧提供 AI 中文翻译。翻译可能存在偏差，关键信息请以原始报道为准。</p>
+                </header>
 
-                <!-- 英文原文 (左) -->
-                <div class="p-8 md:p-12 md:w-1/2 flex flex-col article-content bg-white">
-                    <div class="flex items-center gap-2 mb-8 pb-4 border-b border-slate-100 text-slate-400">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129">
-                            </path>
-                        </svg>
-                        <span class="text-sm font-bold uppercase tracking-wider">Original Text</span>
-                    </div>
-                    
-                    <div class="text-md font-serif text-slate-700">
-                        This article has been reviewed according to Science X's editorial process and policies . Editors have highlighted the following attributes while ensuring the content's credibility:<br><br>Credit: Unsplash/CC0 Public Domain<br><br>Researchers have predicted that cases of glaucoma, a common eye condition that can lead to blindness if not treated, are expected to increase around the world in the coming years.<br><br>In the year 2010, some 8.4 million individuals worldwide were assumed to be blinded by this condition. By the year 2040, it's estimated that some 22 million people worldwide will be blind from glaucoma.<br><br>Recent research in the UK has confirmed the rise, forecasting that the number of people affected will rise from 1.1 million to 1.6 million by 2060.<br><br>These figures highlight the critical importance of regular eye examinations and early detection of glaucoma. To better understand this condition, Denise Voon, clinical adviser at The College of Optometrists, spoke about what causes it and the key signs to look out for.<br><br>What is glaucoma?<br><br>"Glaucoma is a group of diseases in which the optic nerve is damaged by pressure of the fluid inside the eye," explains Voon. "It can affect one or both of your eyes and can lead to sight loss if not treated."<br><br>There are lots of different types of glaucoma, but the two most common types are chronic glaucoma and acute glaucoma.<br><br>"Chronic glaucoma develops slowly and is the most common form in the UK, while acute glaucoma (also referred to as acute angle-closure glaucoma) is caused by a rapid increase in the pressure," says Voon.<br><br>Who is more at risk?<br><br>"Anyone can develop chronic glaucoma, but the risk increases if you're over 40, are very short-sighted, are of African or Caribbean origin, or have a close relative (first degree relative, a brother, sister, parent) of someone with chronic glaucoma, if you're known to have raised pressure in your eyes, if you're diabetic, and if you have high blood pressure," explains Voon.<br><br>"However, with acute glaucoma, women tend to be more susceptible and you're also more at risk if you're over 40, if you're East Asian or South Asian, if you've got a family history of close-angle glaucoma, or if you're long-sighted because your eyes are a little bit smaller."<br><br>How serious is it?<br><br>"Both types of glaucoma can lead to irreversible sight loss if they are not treated," warns Voon. "In the very late stages of untreated glaucoma, you'll notice tunnel vision. So, your peripheral vision will slowly decrease more and more until you get to a point where you only retain that central part of your vision."<br><br>What are some common symptoms to look out for?<br><br>"With acute glaucoma, the symptoms are usually quite obvious and include pain/aching/discomfort in the eye and blurred vision, perhaps with halos around lights," says Voon. "You might also notice that your pupils get bigger if you go into the dark."<br><br>The NHS website also lists a red eye, tenderness around the eye, seeing rainbow-colored circles around bright light, feeling sick (nausea) and being sick and/or a headache as other key signs to look out for.<br><br>"However, with chronic glaucoma, there aren't any symptoms in the early stages and the only real way to pick it up is to go and see your optometrist regularly," says Voon.<br><br>How is glaucoma diagnosed?<br><br>"There are various tests that optometrists can do and the one that they do a lot is the intraocular pressure test [often called a tonometry] to check the pressure inside your eyes," explains Voon. "We look for pressure that is abnormally high, or see if there's been a change in the pressure in your eyes.<br><br>"We also look at the optic disk, which is the head of the nerve that joins the eye to the brain, to look for any subtle changes in the structure of the disk which might have been damaged from glaucoma. We can also do visual field tests, so look at your peripheral vision and your field of vision to see if there has been any changes in that."<br><br>How is it treated?<br><br>The treatment you'll have depends on how your sight is affected and the type of glaucoma you have.<br><br>"Generally, glaucoma is treated with eye drops," says Voon. "But there are also different types of surgery and laser treatments that can help reduce the pressure and help that fluid drain away a little bit more."<br><br>Can you do anything to prevent it?<br><br>"There's nothing we know of currently that you can do to prevent glaucoma," says Voon. "The best thing to do if you are worried about glaucoma is to get your eyes tested regularly. That way, if you develop it, we can find it early, then it can be treated early so it won't get worse and lead to sight loss."<br><br>2026 dpa GmbH. Distributed by Tribune Content Agency, LLC.
-                    </div>
-                    
+                <div class="reading-grid">
+                    <section class="language-column" aria-labelledby="original-heading">
+                        <header class="language-heading">
+                            <h3 id="original-heading">英文原文</h3>
+                            <span lang="en">Original</span>
+                        </header>
+                        <div class="article-prose prose-en" lang="en">This article has been reviewed according to Science X&#39;s editorial process and policies . Editors have highlighted the following attributes while ensuring the content&#39;s credibility:
+
+Credit: Unsplash/CC0 Public Domain
+
+Researchers have predicted that cases of glaucoma, a common eye condition that can lead to blindness if not treated, are expected to increase around the world in the coming years.
+
+In the year 2010, some 8.4 million individuals worldwide were assumed to be blinded by this condition. By the year 2040, it&#39;s estimated that some 22 million people worldwide will be blind from glaucoma.
+
+Recent research in the UK has confirmed the rise, forecasting that the number of people affected will rise from 1.1 million to 1.6 million by 2060.
+
+These figures highlight the critical importance of regular eye examinations and early detection of glaucoma. To better understand this condition, Denise Voon, clinical adviser at The College of Optometrists, spoke about what causes it and the key signs to look out for.
+
+What is glaucoma?
+
+&#34;Glaucoma is a group of diseases in which the optic nerve is damaged by pressure of the fluid inside the eye,&#34; explains Voon. &#34;It can affect one or both of your eyes and can lead to sight loss if not treated.&#34;
+
+There are lots of different types of glaucoma, but the two most common types are chronic glaucoma and acute glaucoma.
+
+&#34;Chronic glaucoma develops slowly and is the most common form in the UK, while acute glaucoma (also referred to as acute angle-closure glaucoma) is caused by a rapid increase in the pressure,&#34; says Voon.
+
+Who is more at risk?
+
+&#34;Anyone can develop chronic glaucoma, but the risk increases if you&#39;re over 40, are very short-sighted, are of African or Caribbean origin, or have a close relative (first degree relative, a brother, sister, parent) of someone with chronic glaucoma, if you&#39;re known to have raised pressure in your eyes, if you&#39;re diabetic, and if you have high blood pressure,&#34; explains Voon.
+
+&#34;However, with acute glaucoma, women tend to be more susceptible and you&#39;re also more at risk if you&#39;re over 40, if you&#39;re East Asian or South Asian, if you&#39;ve got a family history of close-angle glaucoma, or if you&#39;re long-sighted because your eyes are a little bit smaller.&#34;
+
+How serious is it?
+
+&#34;Both types of glaucoma can lead to irreversible sight loss if they are not treated,&#34; warns Voon. &#34;In the very late stages of untreated glaucoma, you&#39;ll notice tunnel vision. So, your peripheral vision will slowly decrease more and more until you get to a point where you only retain that central part of your vision.&#34;
+
+What are some common symptoms to look out for?
+
+&#34;With acute glaucoma, the symptoms are usually quite obvious and include pain/aching/discomfort in the eye and blurred vision, perhaps with halos around lights,&#34; says Voon. &#34;You might also notice that your pupils get bigger if you go into the dark.&#34;
+
+The NHS website also lists a red eye, tenderness around the eye, seeing rainbow-colored circles around bright light, feeling sick (nausea) and being sick and/or a headache as other key signs to look out for.
+
+&#34;However, with chronic glaucoma, there aren&#39;t any symptoms in the early stages and the only real way to pick it up is to go and see your optometrist regularly,&#34; says Voon.
+
+How is glaucoma diagnosed?
+
+&#34;There are various tests that optometrists can do and the one that they do a lot is the intraocular pressure test [often called a tonometry] to check the pressure inside your eyes,&#34; explains Voon. &#34;We look for pressure that is abnormally high, or see if there&#39;s been a change in the pressure in your eyes.
+
+&#34;We also look at the optic disk, which is the head of the nerve that joins the eye to the brain, to look for any subtle changes in the structure of the disk which might have been damaged from glaucoma. We can also do visual field tests, so look at your peripheral vision and your field of vision to see if there has been any changes in that.&#34;
+
+How is it treated?
+
+The treatment you&#39;ll have depends on how your sight is affected and the type of glaucoma you have.
+
+&#34;Generally, glaucoma is treated with eye drops,&#34; says Voon. &#34;But there are also different types of surgery and laser treatments that can help reduce the pressure and help that fluid drain away a little bit more.&#34;
+
+Can you do anything to prevent it?
+
+&#34;There&#39;s nothing we know of currently that you can do to prevent glaucoma,&#34; says Voon. &#34;The best thing to do if you are worried about glaucoma is to get your eyes tested regularly. That way, if you develop it, we can find it early, then it can be treated early so it won&#39;t get worse and lead to sight loss.&#34;
+
+2026 dpa GmbH. Distributed by Tribune Content Agency, LLC.</div>
+                    </section>
+
+                    <section class="language-column" aria-labelledby="translation-heading">
+                        <header class="language-heading">
+                            <h3 id="translation-heading">中文翻译</h3>
+                            <span>AI Translation</span>
+                        </header>
+                        <div class="article-prose prose-zh">本文已根据Science X的编辑流程和政策进行审阅。编辑们在确保内容可信度的同时，强调了以下特点：
+
+图片来源：Unsplash/CC0公共领域
+
+研究人员预测，青光眼这种常见的眼科疾病，若不及时治疗可能导致失明，未来几年全球病例预计将有所增加。
+
+2010年，全球约有840万人被认为因青光眼致盲。据估计，到2040年，全球将有约2200万人因青光眼而失明。
+
+英国最近的研究证实了这一增长趋势，预计到2060年，受影响人数将从110万增加到160万。
+
+这些数据凸显了定期眼科检查和青光眼早期发现的至关重要性。为了更好地了解这种疾病，英国验光师学院的临床顾问Denise Voon就其病因和关键症状进行了解释。
+
+什么是青光眼？
+
+“青光眼是一组疾病，其中视神经因眼内液体压力受损，”Voon解释道。“它可能影响单眼或双眼，若不及时治疗可导致视力丧失。”
+
+青光眼有多种不同类型，但最常见的两种是慢性青光眼和急性青光眼。
+
+“慢性青光眼发展缓慢，是英国最常见的类型，而急性青光眼（也称为急性闭角型青光眼）则是由眼压快速升高引起的，”Voon说。
+
+哪些人风险更高？
+
+“任何人都有可能患上慢性青光眼，但如果您年龄超过40岁、高度近视、非洲裔或加勒比裔、有慢性青光眼的一级亲属（兄弟、姐妹、父母）、已知眼压升高、患有糖尿病或高血压，则风险会增加，”Voon解释道。
+
+“然而，对于急性青光眼，女性往往更容易受影响，如果您年龄超过40岁、东亚裔或南亚裔、有闭角型青光眼家族史，或者因为眼睛较小而有远视，您的风险也会更高。”
+
+它有多严重？
+
+“如果未及时治疗，这两种类型的青光眼都可能导致不可逆的视力丧失，”Voon警告说。“在未经治疗的青光眼晚期，您会注意到管状视野。这意味着您的周边视力会逐渐减退，直到您只能保留中央视力。”
+
+有哪些常见症状需要注意？
+
+“对于急性青光眼，症状通常非常明显，包括眼部疼痛/酸痛/不适和视力模糊，可能伴有灯光周围出现光晕，”Voon说。“您可能还会注意到，在黑暗中瞳孔会变大。”
+
+英国国家医疗服务体系（NHS）网站还列出了红眼、眼周压痛、看到亮光周围有彩虹色光圈、恶心（作呕）和呕吐以及/或头痛等其他关键症状。
+
+“然而，对于慢性青光眼，早期没有任何症状，唯一真正发现它的方法是定期去看验光师，”Voon说。
+
+青光眼如何诊断？
+
+“验光师可以进行多种检查，他们常用的一种是眼内压测试[常称为眼压测量法]，以检查您眼睛内部的压力，”Voon解释说。“我们寻找异常高的压力，或者观察您眼压是否有变化。”
+
+“我们还会检查视盘，即连接眼睛和大脑的神经头，以寻找视盘结构中可能因青光眼受损的任何细微变化。我们还可以进行视野检查，观察您的周边视力和视野，以判断是否有任何变化。”
+
+如何治疗？
+
+您将接受的治疗取决于您的视力受损程度和青光眼的类型。
+
+“通常情况下，青光眼通过眼药水治疗，”Voon说。“但也有不同类型的手术和激光治疗，可以帮助降低眼压并帮助液体更好地排出。”
+
+可以采取什么措施预防吗？
+
+“目前我们所知，没有任何方法可以预防青光眼，”Voon说。“如果您担心患青光眼，最好的做法是定期进行眼科检查。这样，如果您患上青光眼，我们可以及早发现，及早治疗，从而避免病情恶化并导致视力丧失。”
+
+2026年dpa有限公司。由Tribune Content Agency, LLC发行。</div>
+                    </section>
                 </div>
+            </section>
 
-                <!-- 中文翻译 (右) -->
-                <div class="p-8 md:p-12 md:w-1/2 flex flex-col article-content bg-indigo-50/30">
-                    <div class="flex items-center gap-2 mb-8 pb-4 border-b border-indigo-100 text-indigo-400">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129">
-                            </path>
+            <footer class="source-band">
+                <div class="shell source-shell">
+                    <div>
+                        <p class="source-title">继续查看原始报道</p>
+                        <p class="source-copy">来源：MedicalXpress · 将在新窗口打开发布者页面</p>
+                    </div>
+                    <a class="source-link" href="https://medicalxpress.com/news/2026-02-qa-glaucoma-main-symptoms.html" target="_blank" rel="noopener noreferrer">
+                        访问来源
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M14 5h5v5M19 5l-8 8M19 13v5a1 1 0 01-1 1H6a1 1 0 01-1-1V6a1 1 0 011-1h5"></path>
                         </svg>
-                        <span class="text-sm font-bold uppercase tracking-wider zh-text">AI 机器翻译</span>
-                    </div>
-                    
-                    <div class="text-lg zh-text text-slate-800 font-medium">
-                        本文已根据Science X的编辑流程和政策进行审阅。编辑们在确保内容可信度的同时，强调了以下特点：<br><br>图片来源：Unsplash/CC0公共领域<br><br>研究人员预测，青光眼这种常见的眼科疾病，若不及时治疗可能导致失明，未来几年全球病例预计将有所增加。<br><br>2010年，全球约有840万人被认为因青光眼致盲。据估计，到2040年，全球将有约2200万人因青光眼而失明。<br><br>英国最近的研究证实了这一增长趋势，预计到2060年，受影响人数将从110万增加到160万。<br><br>这些数据凸显了定期眼科检查和青光眼早期发现的至关重要性。为了更好地了解这种疾病，英国验光师学院的临床顾问Denise Voon就其病因和关键症状进行了解释。<br><br>什么是青光眼？<br><br>“青光眼是一组疾病，其中视神经因眼内液体压力受损，”Voon解释道。“它可能影响单眼或双眼，若不及时治疗可导致视力丧失。”<br><br>青光眼有多种不同类型，但最常见的两种是慢性青光眼和急性青光眼。<br><br>“慢性青光眼发展缓慢，是英国最常见的类型，而急性青光眼（也称为急性闭角型青光眼）则是由眼压快速升高引起的，”Voon说。<br><br>哪些人风险更高？<br><br>“任何人都有可能患上慢性青光眼，但如果您年龄超过40岁、高度近视、非洲裔或加勒比裔、有慢性青光眼的一级亲属（兄弟、姐妹、父母）、已知眼压升高、患有糖尿病或高血压，则风险会增加，”Voon解释道。<br><br>“然而，对于急性青光眼，女性往往更容易受影响，如果您年龄超过40岁、东亚裔或南亚裔、有闭角型青光眼家族史，或者因为眼睛较小而有远视，您的风险也会更高。”<br><br>它有多严重？<br><br>“如果未及时治疗，这两种类型的青光眼都可能导致不可逆的视力丧失，”Voon警告说。“在未经治疗的青光眼晚期，您会注意到管状视野。这意味着您的周边视力会逐渐减退，直到您只能保留中央视力。”<br><br>有哪些常见症状需要注意？<br><br>“对于急性青光眼，症状通常非常明显，包括眼部疼痛/酸痛/不适和视力模糊，可能伴有灯光周围出现光晕，”Voon说。“您可能还会注意到，在黑暗中瞳孔会变大。”<br><br>英国国家医疗服务体系（NHS）网站还列出了红眼、眼周压痛、看到亮光周围有彩虹色光圈、恶心（作呕）和呕吐以及/或头痛等其他关键症状。<br><br>“然而，对于慢性青光眼，早期没有任何症状，唯一真正发现它的方法是定期去看验光师，”Voon说。<br><br>青光眼如何诊断？<br><br>“验光师可以进行多种检查，他们常用的一种是眼内压测试[常称为眼压测量法]，以检查您眼睛内部的压力，”Voon解释说。“我们寻找异常高的压力，或者观察您眼压是否有变化。”<br><br>“我们还会检查视盘，即连接眼睛和大脑的神经头，以寻找视盘结构中可能因青光眼受损的任何细微变化。我们还可以进行视野检查，观察您的周边视力和视野，以判断是否有任何变化。”<br><br>如何治疗？<br><br>您将接受的治疗取决于您的视力受损程度和青光眼的类型。<br><br>“通常情况下，青光眼通过眼药水治疗，”Voon说。“但也有不同类型的手术和激光治疗，可以帮助降低眼压并帮助液体更好地排出。”<br><br>可以采取什么措施预防吗？<br><br>“目前我们所知，没有任何方法可以预防青光眼，”Voon说。“如果您担心患青光眼，最好的做法是定期进行眼科检查。这样，如果您患上青光眼，我们可以及早发现，及早治疗，从而避免病情恶化并导致视力丧失。”<br><br>2026年dpa有限公司。由Tribune Content Agency, LLC发行。
-                    </div>
-                    
+                    </a>
                 </div>
-
-            </div>
-
-            <!-- 卡片底部链接 -->
-            <footer class="px-8 py-8 md:px-12 bg-slate-50 border-t border-slate-100 text-center">
-                <a href="https://medicalxpress.com/news/2026-02-qa-glaucoma-main-symptoms.html" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center text-base font-semibold text-indigo-600 hover:text-white hover:bg-indigo-600 border border-indigo-600 px-6 py-3 rounded-full transition-all duration-300 group">
-                    View Source Webpage / 访问原始网页
-                    <svg class="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
-                        stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                </a>
             </footer>
-
         </article>
     </main>
 
-    <!-- 页脚 -->
-    <footer class="bg-slate-900 text-slate-400 py-12 text-center mt-12">
-        <p class="text-sm font-medium">Generated by AI Agent &bull; Tailwind CSS &bull; Jinja2</p>
+    <footer class="site-footer">
+        <div class="shell footer-shell">
+            <span>Daily Insight · AI 双语新闻简报</span>
+            <span>AI 内容仅供信息参考</span>
+        </div>
     </footer>
 </body>
 
