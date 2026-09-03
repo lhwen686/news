@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
-    <meta name="description" content="Netflix意外放弃竞购华纳兄弟探索，使得派拉蒙影业有望胜出。Netflix此举出于财务纪律，股东疑虑（股价波动）及派拉蒙高价竞标是主因。据称，其联席CEO萨兰多斯或采纳了前总统特朗普的建议。目前，华纳兄弟员工担忧大规模裁员及CNN面临政治压力。">
+    <meta name="description" content="Windows自动更新常导致工作中断和数据丢失，其35天暂停上限无法满足长期项目需求。自Windows 10起，微软更新频繁，影响系统稳定性。为解决此困扰，可利用注册表修改：用户在Windows设置中暂停更新后，以管理员身份运行终端或PowerShell，输入特定代码，即可将更新暂停至自定义日期（如2030年），突破35天限制。此方法赋予更大灵活性，但建议工作完成后及时恢复更新，确保系统安全。">
     <meta name="theme-color" content="#f3f0e8">
-    <title>为什么Netflix放弃了收购华纳兄弟的交易？ · Daily Insight</title>
+    <title>一日一技 | 借助 PowerShell 自定义 Windows 更新暂停时间 · Daily Insight</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -566,10 +566,10 @@
                     <div class="article-kicker">
                         <span>科技</span>
                         <span aria-hidden="true">·</span>
-                        <span>TechCrunch</span>
+                        <span>少数派</span>
                     </div>
-                    <h1 class="article-title">为什么Netflix放弃了收购华纳兄弟的交易？</h1>
-                    <p class="article-title-en" lang="en">Why did Netflix back down from its deal to acquire Warner Bros.?</p>
+                    <h1 class="article-title">一日一技 | 借助 PowerShell 自定义 Windows 更新暂停时间</h1>
+                    <p class="article-title-en" lang="en">一日一技 | 借助 PowerShell 自定义 Windows 更新暂停时间</p>
                 </div>
 
                 <dl class="article-facts" aria-label="文章信息">
@@ -579,7 +579,7 @@
                     </div>
                     <div>
                         <dt>Source</dt>
-                        <dd>TechCrunch</dd>
+                        <dd>少数派</dd>
                     </div>
                     <div>
                         <dt>Reading</dt>
@@ -588,7 +588,21 @@
                 </dl>
             </header>
 
+            <figure class="shell hero-image">
+                <img src="https://rssfile.sspai.com/7/3/2023/article/d8f0b313-a0b5-2150-2e90-cadb07fc4e9d.jpg?imageMogr2/auto-orient/ignore-error/1" alt="" aria-hidden="true">
+            </figure>
 
+            <section class="shell insight-section" aria-labelledby="insight-title">
+                <div class="insight-grid">
+                    <div>
+                        <p class="section-kicker">AI Insight</p>
+                        <h2 id="insight-title" class="insight-title">深度解析</h2>
+                    </div>
+                    <p class="insight-copy">本文深入剖析了Windows系统更新机制的演变及其对不同用户群的影响。核心专业概念包括：从Windows 7/8时代的“服务包”（Service Packs）更新模式，到Windows 10开始采用的“软件即服务”（SaaS）模式。SaaS模式下，微软通过“版本更新”（Feature Updates）引入新功能，并通过“累积更新”（Cumulative Updates）修复安全漏洞和提高稳定性。这种高频率的更新带来了新功能，但也牺牲了部分系统稳定性。为应对测试压力，微软推出了“Windows 预览体验计划”（Windows Insider Program），将用户变为实际测试者，形成了从实验（Experimental）到测试（Beta）、发布预览（Release Preview）等多个渠道的测试生态。对于企业用户，微软提供了更精细的更新管理方案，如延迟功能更新（最长365天）、质量更新（最长30天）以及“长期服务版”（LTSC），确保系统稳定性。对于普通用户，在无法通过系统界面长期暂停更新时，文章提供了通过修改注册表（借助PowerShell）来强制延长暂停期的技术方案。
+
+其行业影响在于，微软积极的更新策略推动了操作系统功能的快速迭代和安全防护的及时更新，但也迫使企业和个人用户重新审视其IT管理和使用习惯。企业需要投入更多资源进行更新测试和部署管理，以平衡新功能与系统稳定性的需求。同时，PowerShell等底层工具的使用，也凸显了高级用户对系统自主控制的渴望，为IT专业人员和技术爱好者提供了解决实际问题的能力。这种模式的演变，也反映了软件行业从传统产品交付向持续服务交付的深刻转型，挑战与机遇并存。</p>
+                </div>
+            </section>
 
             <section class="shell reading-section" aria-labelledby="parallel-reading-title">
                 <header class="reading-header">
@@ -602,19 +616,149 @@
                             <h3 id="original-heading">英文原文</h3>
                             <span lang="en">Original</span>
                         </header>
-                        <div class="article-prose prose-en" lang="en">In Brief
+                        <div class="article-prose prose-en" lang="en">TL;DR
 
-Netflix stunned the entertainment world this week when it declined to raise its bid for Warner Bros. Discovery, setting the stage for Paramount Skydance to win ownership of the Hollywood studio.
+首先，打开「Windows 设置」，前往「Windows 更新」，选择任何一个日历上的日期暂停更新。
 
-At the time, Netflix co-CEOs Ted Sarandos and Greg Peters said they were being financially disciplined. Now reporting in Bloomberg offers more details about why Netflix executives backed down from a bidding war that it seemed to win back in December.
+接着，在 Windows 徽标上右键并选择「终端（管理员）」或「Windows PowerShell（管理员）」，在弹出来的黑色窗口中输入下列代码，并敲击回车。
 
-For one thing, the streaming giant’s shareholders appeared deeply skeptical that the acquisition was a good deal — Netflix’s share price declined 30% since announcing the deal, while the subsequent news that it was backing down sent Netflix stock up nearly 14%.
+$path = &#34;HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings&#34; $end = (Get-Date &#34;2030-01-01&#34;).ToUniversalTime().ToString(&#34;yyyy-MM-ddTHH:mm:ssZ&#34;) Set-ItemProperty -Path $path -Name &#34;PauseUpdatesExpiryTime&#34; -Value $end Set-ItemProperty -Path $path -Name &#34;PauseFeatureUpdatesEndTime&#34; -Value $end Set-ItemProperty -Path $path -Name &#34;PauseQualityUpdatesEndTime&#34; -Value $end
 
-For another, Netflix’s commitment to the deal reportedly wavered after Paramount came in with an increased offer and seemed willing to go several more rounds in a bidding war.
+最后，重新前往「Windows 更新」，确认是不是已经暂停到 2030 年 01 月 01 日了。
 
-By the time Sarandos met with Trump administration officials on Thursday, he may already have decided to concede. In fact, since President Donald Trump had previously warned him not to overpay, Sarandos reportedly told him, “I took your advice.”
+你可以将上面代码中的 2030-01-01 修改为任意的、符合年月日格式的日期，来暂停到更合适的日期。
 
-Meanwhile, employees at Warner Bros. now worry about major studio layoffs and conservative political pressure on CNN.</div>
+不得不品尝的 Windows 自动更新
+
+某日早晨我如常来到办公室，输入密码进入电脑桌面，进行工作日的第一件事： 打开少数派摸獭。 当我发现派早报内的「的地得」错误，准备截图发给群里「的地得」警察朋友们一起批判的时候，发现常用 IM 工具没有在任务栏托盘里。
+
+本来以为没什么，但当我打开开始菜单准备启动 IM 的时候，又发现任务栏上的图标比昨晚下班的时候少了很多。
+
+平时工作展开后的任务栏
+
+我随即意识到 Windows 自动更新了。
+
+Oh no, nooooooooo!
+
+可能对于不少人来说这不是一件大事，重新把软件打开就行，但近一个月都在和一项比较复杂的项目做「搏斗」，系统、软件、文件开得都很多，虽然有手动保存的习惯，但不一定能覆盖所有的软件。好在这一次，只丢失了一个 PDF 文件里的批注。
+
+我知道 Windows 可以直接暂停更新，但那个暂停最长也就能暂停 35 天，像我这样要处理超过一个月的大型项目的时候，就不得不品尝 Windows 的自动更新了。
+
+作为一个 80 后，我记得 Windows 10 以前的电脑没有更新地那么频繁，所以我也就开始了我的调查之旅。
+
+Windows 系统各版本的更新策略
+
+Windows 10 以前
+
+在 Windows 7 及之前的版本，微软将更新分为两个大类：一类为「重要更新和可选更新」，其中重要更新包括了安全补丁、错误修复和性能改进，而可选更新主要包括硬件驱动更新、功能升级和其他非关键性修复。这类更新通常能在 Windows Update 中看到。
+
+另一类则为「服务包（Service Packs）更新」，这可以理解成一种大型更新；这类大型更新往往都会引入一些可以提高用户体验的新功能或现有功能的改进、新硬件的支持以及系统组件更新；服务包的发布频率相对较低，通常每个 Windows 版本仅发布几个服务包，还需要用户手动下载和安装。
+
+Windows 8 的更新策略与 Windows 7 类似，也同样分为「重要更新和可选更新」以及「服务包（Service Packs，SP）更新」两类。在「服务包更新」方面，Windows 8.1 可视为 Windows 8 的一个服务包，用户需要手动下载和安装 Windows 8.1。而在「重要更新和可选更新」方面，Windows 8 的更新周期略有缩短，微软有意加快了新功能和性能改进的发布速度。
+
+而从 Windows 10 开始，微软引入了「软件即服务（Software as a Service，简称 SaaS）」的更新模式，在这种更新模式下微软会定期发布更新不断改进操作系统，而不再像以前一样发布服务包了。
+
+Windows 10 以后
+
+微软从 Windows 10 开始就一直给我一种「不更新不行」的压迫感，隔三差五就会弹一条要更新的通知，甚至催着你更新的通知一天能弹好几条，这样的更新频率真的让我很头疼。
+
+细细数下来 Windows 10 和 11 目前分为以下的更新类型：
+
+版本更新（Feature Updates），有时也被称为功能更新，Windows 11 中则被称为 Moment 更新
+
+累积更新（Cumulative Updates），有时也被称为质量更新（Quality Updates）
+
+驱动程序更新
+
+微软产品更新
+
+Windows Defender更新
+
+选件功能更新
+
+首先聊聊 Windows 10 开始的「版本更新」，这类更新和之前的服务包类似，「版本更新」主要会引入新功能、并提供一些既有功能改进，比如：17 年 10 月的 Windows 10 版本 1709 更新中引入了 Fluent Design 系统，18 年 10 月的Windows 10 版本 1809 更新中引入了剪贴板历史记录、文件资源管理器的深色模式等功能。
+
+Windows 10 开始，版本更新每个版本更新通常会按照每年发布两次，一次在春季（通常在 3 到 5 月之间发布）、一次在秋季（通常在 9 到 11 月之间发布），版本更新通常需要在 Windows Update 里手动点击安装。
+
+Windows 11 开始功能下放得更密集了起来，几乎每个季度都有一次，这个更新也被称为称为 Moment 更新，而「版本更新」则放缓为一年一次，时间约在秋季。
+
+但从 Windows 11 22H2 开始，微软也开始逐步淡化这种一年一次的「阶段性功能投放」更新策略；新功能会通过每个月的月度更新（也就是下面提到的累积更新、非安全预览更新等）直接安装到用户电脑上。
+
+而「累积更新」主要关注于系统的稳定性、安全性和错误修复，每个修复的问题都会让版本号最后的修订号递增；累积更新通常每月发布一次，与 Windows 的更新传统「补丁星期二」（每月的第二个星期二）相对应。
+
+在紧急情况下，微软也会发布额外的累积更新（OOB），来修复一些比较严重的安全、稳定或是错误问题，比如 2026 年的 1 月、3 月、7 月都有额外的累积更新（OOB）来修复紧急问题。
+
+值得注意的是，每个月还有一个可选的非安全预览更新，一般在每个月的第四周星期二发布，在当月你只能在 Windows 下的可选更新中找到，这类更新会随着第二个月的「补丁周二」一起推送给用户。可选更新通常还会包括驱动程序、微软产品或是其他一些选件的更新。
+
+不过，Windows 10 开始频繁发布新版本势必会牺牲的系统稳定性，原因倒也很简单，开发团队需要在较短的时间内完成新功能的开发和测试。在时间压力下，可能无法对所有更改进行充分的测试，这可能导致一些隐藏的问题和漏洞被引入到新版本中，从而影响系统的稳定性。
+
+既然没有测试人员，那么不妨找用户来试一试
+
+自 Windows 10 时代起，微软便推出了 Windows 预览体验计划（Windows Insider Program），邀请全球用户提前体验并参与系统测试。该计划最初采用 Rings 体系，后于 2020 年更名为 Dev（开发者）、Beta（测试）和 Release Preview（发布预览）三大渠道；2023 年 3 月 6 日，微软又增设了面向超前底层开发的 Canary 渠道。
+
+随着测试分支逐渐臃肿，2026 年 4 月 10 日，微软对预览体验计划进行了重磅简化，将核心开发测试重构为两大主要渠道：Experimental（实验渠道）与 Beta（测试渠道）（Release Preview 仍保留用于最终发版验证）。原 Dev 渠道直接过渡为 Experimental；Canary 则不再作为独立主渠道，而是按底层平台内核演变为 Experimental 下的不同分支。
+
+调整后的 Windows 预览体验计划架构与分支定位如下：
+
+Experimental 渠道（实验渠道）：用于测试积极开发中的全新功能与前沿概念，是过去 Dev 渠道的延续。此渠道功能推送节奏最快，但稳定性和完成度较低，部分实验性功能随时可能调整、甚至取消。微软在此渠道中引入了 Feature Flags 控制台，允许用户在设置中主动开启或关闭特定的实验功能；
+
+Experimental（Future Platforms）：Experimental 下最激进的、版本最新的分支，主要用于测试未来 Windows 底层架构、系统核心组件与全新 API。它不对应具体的年度正式版本（定位等同于原 Canary 渠道），变更幅度最大、兼容性风险最高，仅适合开发者、专业测试人员与极客群体；
+
+Experimental（特定 Core Version，如 26H1）：针对特定硬件平台或系统版本的 Windows 内核分支，比如搭载高通Snapdragon X2 芯片的设备，它们所搭载的 Windows 11 就是 26H1，其他设备的 Experimental 则为 25H2 或 26H2；
+
+Beta 渠道（测试渠道）：用于测试完成度高、接近正式推送的新功能与体验改进，稳定性和可靠性显著高于 Experimental。微软通常将计划在数周内进入正式版的功能放入 Beta，适合追求新特性又需要兼顾日常使用稳定性的用户。此外，2026 年调整后 Beta 渠道彻底取消了随机分批开启的 Feature Flags 机制，只要安装了对应版本的 Beta 系统，所有的功能就开启。
+
+那么多更新，追求稳定的企业怎么办？
+
+而在企业中稳定才是最重要的，从 Windows 10 开始这样隔三差五的补丁更新万一有一个没有测试出问题，就很有可能会让企业蒙受损失。Windows 企业版（包括了 Windows 专业版）在不进行额外的控制下，更新频率和消费者版是一样的。
+
+对于受管理的 Windows 设备，管理员可以通过组策略、MDM 或 Windows Update for Business 设置更新延迟策略，其中功能更新最多可延迟 365 天，质量更新最多可延迟 30 天；如果使用 WSUS，则还可以通过批准和拒绝更新来进一步控制更新部署时机。
+
+Windows 10 时代，微软还曾使用 Semi-Annual Channel（半年频道，SAC）等服务频道概念来区分企业设备接收功能更新的阶段。随着 Windows 11 改为一年一次年度功能更新，微软逐渐取消了 Windows 客户端以 SAC 等「就绪频道」区分功能更新部署阶段的做法，转而主要通过 Windows Update for Business 的更新策略、目标版本策略和部署环来控制企业设备何时接收功能更新。
+
+在 Windows 企业版之上还有个长期服务版（LTSC 版），微软通常大约每 2-3 年发布一个新的 LTSC 版本，而已经部署的 LTSC 系统在其支持周期内不会通过 Windows Update 接收常规功能更新，相对会更稳定一些。而 LTSC 的 Windows 版本累积更新依旧是每月 1 次。
+
+虽然企业版也不能完全不更新，但至少可以推迟更长时间。
+
+关联阅读：《你的名字到底有几种写法？——聊聊 Windows 和 macOS 的版本号》
+
+普通人可以怎么办
+
+可惜的是我们公司没有专业的 IT 部门，而在 Windows 11 系统界面上最长也就只能选择 35 天内的任意日期暂停，35 天以后一定要更新了才能继续暂停。不过，Windows 目前还可以通过注册表直接写入暂停时间来暂停：
+
+$path = &#34;HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings&#34; $end = (Get-Date &#34;2030-01-01&#34;).ToUniversalTime().ToString(&#34;yyyy-MM-ddTHH:mm:ssZ&#34;) Set-ItemProperty -Path $path -Name &#34;PauseUpdatesExpiryTime&#34; -Value $end Set-ItemProperty -Path $path -Name &#34;PauseFeatureUpdatesEndTime&#34; -Value $end Set-ItemProperty -Path $path -Name &#34;PauseQualityUpdatesEndTime&#34; -Value $end
+
+$path ... ：定义注册表路径变量，指向 Windows Update 的 UX 设置项；
+
+：定义注册表路径变量，指向 Windows Update 的 UX 设置项； $end = (Get-Date &#34;2030-01-01&#34;)：将 2030-01-01 解析为日期时间对象，你可以改成任意你觉得合适的时间；
+
+解析为日期时间对象，你可以改成任意你觉得合适的时间； .ToUniversalTime() ：将该时间转换为 UTC 时间；
+
+：将该时间转换为 UTC 时间； .ToString(&#34;yyyy-MM-ddTHH:mm:ssZ&#34;) ：把时间转换成 Windows Update 更新所用的 ISO 8601 格式；
+
+：把时间转换成 Windows Update 更新所用的 ISO 8601 格式； Set-ItemProperty ：修改注册表中已有的值；
+
+：修改注册表中已有的值； -Path $path ：指定要修改的注册表位置，也就是一开始定义的注册表位置；
+
+：指定要修改的注册表位置，也就是一开始定义的注册表位置； -Name &#34;PauseUpdatesExpiryTime&#34; ：指定要修改的注册表值名称，这里的 PauseUpdatesExpiryTime 表示 Windows Update 的暂停截止时间；后面 2 条中的 PauseFeatureUpdatesEndTime 和 PauseQualityUpdatesEndTime 也类似，分别对应功能更新暂停时间和质量暂停时间。
+
+：指定要修改的注册表值名称，这里的 PauseUpdatesExpiryTime 表示 Windows Update 的暂停截止时间；后面 2 条中的 和 也类似，分别对应功能更新暂停时间和质量暂停时间。 -Value $end ：将前面生成的 UTC 格式时间写入 PauseUpdatesExpiryTime ，从而把 Windows Update 的暂停截止日期设置为指定时间。
+
+总的来说这串代码的意思就是设置 Windows Update 设置下，将暂停日期设置为固定的日期，远远突破了原先 35 天的限制，也更灵活。
+
+使用方法也很简单：首先打开「Windows 设置」，前往「Windows 更新」，选择任何一个日历上的日子暂停更新。
+
+接着，右键点击 Windows 开始徽标并选择「终端（管理员）」或「Windows PowerShell（管理员）」，在弹出的窗口中输入上述代码并按下回车。最后打开「Windows 设置」，进入「Windows 更新」，确认更新是否已成功暂停以及暂停的目标日期是否正确即可。
+
+写在最后
+
+系统更新其实很重要，Windows 下的累计更新会修复大量的安全漏洞，如果不是因为工作比较复杂，涉及的软件很多我也愿意及时更新。在我看来如果不是真的有必要的话，延长 2-3 个月足矣。
+
+只不过活干完了以后，要记得点击「继续更新」，免得下次焦头烂额的时候 Windows 又来提醒你要更新了。
+
+&gt; 下载 少数派 2.0 客户端、关注 少数派公众号，解锁全新阅读体验 📰
+
+&gt; 实用、好用的 正版软件，少数派为你呈现 🚀</div>
                     </section>
 
                     <section class="language-column" aria-labelledby="translation-heading">
@@ -622,19 +766,149 @@ Meanwhile, employees at Warner Bros. now worry about major studio layoffs and co
                             <h3 id="translation-heading">中文翻译</h3>
                             <span>AI Translation</span>
                         </header>
-                        <div class="article-prose prose-zh">简讯
+                        <div class="article-prose prose-zh">太长不看
 
-Netflix本周拒绝提高对华纳兄弟探索的竞标，震惊了娱乐界，这为派拉蒙影业-Skydance赢得这家好莱坞制片公司的所有权铺平了道路。
+首先，打开「Windows 设置」，前往「Windows 更新」，选择任何一个日历上的日期暂停更新。
 
-当时，Netflix联席首席执行官泰德·萨兰多斯和格雷格·彼得斯表示他们正在实行财务自律。现在，彭博社的报道提供了更多细节，说明Netflix高管为何退出这场似乎在去年12月就已胜券在握的竞购战。
+接着，在 Windows 徽标上右键并选择「终端（管理员）」或「Windows PowerShell（管理员）」，在弹出来的黑色窗口中输入下列代码，并敲击回车。
 
-首先，这家流媒体巨头的股东似乎对这项收购是否是笔好买卖深表怀疑——自宣布这项交易以来，Netflix的股价下跌了30%，而随后传出的退出消息则让Netflix的股价飙升了近14%。
+$path = &#34;HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings&#34; $end = (Get-Date &#34;2030-01-01&#34;).ToUniversalTime().ToString(&#34;yyyy-MM-ddTHH:mm:ssZ&#34;) Set-ItemProperty -Path $path -Name &#34;PauseUpdatesExpiryTime&#34; -Value $end Set-ItemProperty -Path $path -Name &#34;PauseFeatureUpdatesEndTime&#34; -Value $end Set-ItemProperty -Path $path -Name &#34;PauseQualityUpdatesEndTime&#34; -Value $end
 
-其次，据报道，在派拉蒙影业提出更高的报价并似乎愿意在竞购战中再战数轮之后，Netflix对这笔交易的承诺动摇了。
+最后，重新前往「Windows 更新」，确认是不是已经暂停到 2030 年 01 月 01 日了。
 
-到萨兰多斯周四与特朗普政府官员会面时，他可能已经决定让步。事实上，由于唐纳德·特朗普总统此前曾警告他不要出价过高，萨兰多斯据称告诉他：“我听取了您的建议。”
+你可以将上面代码中的 2030-01-01 修改为任意的、符合年月日格式的日期，来暂停到更合适的日期。
 
-与此同时，华纳兄弟的员工现在担心大规模的制片厂裁员以及CNN面临的保守派政治压力。</div>
+不得不品尝的 Windows 自动更新
+
+某日早晨我如常来到办公室，输入密码进入电脑桌面，进行工作日的第一件事： 打开少数派摸獭。 当我发现派早报内的「的地得」错误，准备截图发给群里「的地得」警察朋友们一起批判的时候，发现常用 IM 工具没有在任务栏托盘里。
+
+本来以为没什么，但当我打开开始菜单准备启动 IM 的时候，又发现任务栏上的图标比昨晚下班的时候少了很多。
+
+平时工作展开后的任务栏
+
+我随即意识到 Windows 自动更新了。
+
+哦不，不不不！
+
+可能对于不少人来说这不是一件大事，重新把软件打开就行，但近一个月都在和一项比较复杂的项目做「搏斗」，系统、软件、文件开得都很多，虽然有手动保存的习惯，但不一定能覆盖所有的软件。好在这一次，只丢失了一个 PDF 文件里的批注。
+
+我知道 Windows 可以直接暂停更新，但那个暂停最长也就能暂停 35 天，像我这样要处理超过一个月的大型项目的时候，就不得不品尝 Windows 的自动更新了。
+
+作为一个 80 后，我记得 Windows 10 以前的电脑没有更新地那么频繁，所以我也就开始了我的调查之旅。
+
+Windows 系统各版本的更新策略
+
+Windows 10 以前
+
+在 Windows 7 及之前的版本，微软将更新分为两个大类：一类为「重要更新和可选更新」，其中重要更新包括了安全补丁、错误修复和性能改进，而可选更新主要包括硬件驱动更新、功能升级和其他非关键性修复。这类更新通常能在 Windows Update 中看到。
+
+另一类则为「服务包（Service Packs）更新」，这可以理解成一种大型更新；这类大型更新往往都会引入一些可以提高用户体验的新功能或现有功能的改进、新硬件的支持以及系统组件更新；服务包的发布频率相对较低，通常每个 Windows 版本仅发布几个服务包，还需要用户手动下载和安装。
+
+Windows 8 的更新策略与 Windows 7 类似，也同样分为「重要更新和可选更新」以及「服务包（Service Packs，SP）更新」两类。在「服务包更新」方面，Windows 8.1 可视为 Windows 8 的一个服务包，用户需要手动下载和安装 Windows 8.1。而在「重要更新和可选更新」方面，Windows 8 的更新周期略有缩短，微软有意加快了新功能和性能改进的发布速度。
+
+而从 Windows 10 开始，微软引入了「软件即服务（Software as a Service，简称 SaaS）」的更新模式，在这种更新模式下微软会定期发布更新不断改进操作系统，而不再像以前一样发布服务包了。
+
+Windows 10 以后
+
+微软从 Windows 10 开始就一直给我一种「不更新不行」的压迫感，隔三差五就会弹一条要更新的通知，甚至催着你更新的通知一天能弹好几条，这样的更新频率真的让我很头疼。
+
+细细数下来 Windows 10 和 11 目前分为以下的更新类型：
+
+版本更新（Feature Updates），有时也被称为功能更新，Windows 11 中则被称为 Moment 更新
+
+累积更新（Cumulative Updates），有时也被称为质量更新（Quality Updates）
+
+驱动程序更新
+
+微软产品更新
+
+Windows Defender更新
+
+选件功能更新
+
+首先聊聊 Windows 10 开始的「版本更新」，这类更新和之前的服务包类似，「版本更新」主要会引入新功能、并提供一些既有功能改进，比如：17 年 10 月的 Windows 10 版本 1709 更新中引入了 Fluent Design 系统，18 年 10 月的Windows 10 版本 1809 更新中引入了剪贴板历史记录、文件资源管理器的深色模式等功能。
+
+Windows 10 开始，版本更新每个版本更新通常会按照每年发布两次，一次在春季（通常在 3 到 5 月之间发布）、一次在秋季（通常在 9 到 11 月之间发布），版本更新通常需要在 Windows Update 里手动点击安装。
+
+Windows 11 开始功能下放得更密集了起来，几乎每个季度都有一次，这个更新也被称为称为 Moment 更新，而「版本更新」则放缓为一年一次，时间约在秋季。
+
+但从 Windows 11 22H2 开始，微软也开始逐步淡化这种一年一次的「阶段性功能投放」更新策略；新功能会通过每个月的月度更新（也就是下面提到的累积更新、非安全预览更新等）直接安装到用户电脑上。
+
+而「累积更新」主要关注于系统的稳定性、安全性和错误修复，每个修复的问题都会让版本号最后的修订号递增；累积更新通常每月发布一次，与 Windows 的更新传统「补丁星期二」（每月的第二个星期二）相对应。
+
+在紧急情况下，微软也会发布额外的累积更新（OOB），来修复一些比较严重的安全、稳定或是错误问题，比如 2026 年的 1 月、3 月、7 月都有额外的累积更新（OOB）来修复紧急问题。
+
+值得注意的是，每个月还有一个可选的非安全预览更新，一般在每个月的第四周星期二发布，在当月你只能在 Windows 下的可选更新中找到，这类更新会随着第二个月的「补丁周二」一起推送给用户。可选更新通常还会包括驱动程序、微软产品或是其他一些选件的更新。
+
+不过，Windows 10 开始频繁发布新版本势必会牺牲的系统稳定性，原因倒也很简单，开发团队需要在较短的时间内完成新功能的开发和测试。在时间压力下，可能无法对所有更改进行充分的测试，这可能导致一些隐藏的问题和漏洞被引入到新版本中，从而影响系统的稳定性。
+
+既然没有测试人员，那么不妨找用户来试一试
+
+自 Windows 10 时代起，微软便推出了 Windows 预览体验计划（Windows Insider Program），邀请全球用户提前体验并参与系统测试。该计划最初采用 Rings 体系，后于 2020 年更名为 Dev（开发者）、Beta（测试）和 Release Preview（发布预览）三大渠道；2023 年 3 月 6 日，微软又增设了面向超前底层开发的 Canary 渠道。
+
+随着测试分支逐渐臃肿，2026 年 4 月 10 日，微软对预览体验计划进行了重磅简化，将核心开发测试重构为两大主要渠道：Experimental（实验渠道）与 Beta（测试渠道）（Release Preview 仍保留用于最终发版验证）。原 Dev 渠道直接过渡为 Experimental；Canary 则不再作为独立主渠道，而是按底层平台内核演变为 Experimental 下的不同分支。
+
+调整后的 Windows 预览体验计划架构与分支定位如下：
+
+Experimental 渠道（实验渠道）：用于测试积极开发中的全新功能与前沿概念，是过去 Dev 渠道的延续。此渠道功能推送节奏最快，但稳定性和完成度较低，部分实验性功能随时可能调整、甚至取消。微软在此渠道中引入了 Feature Flags 控制台，允许用户在设置中主动开启或关闭特定的实验功能；
+
+Experimental（Future Platforms）：Experimental 下最激进的、版本最新的分支，主要用于测试未来 Windows 底层架构、系统核心组件与全新 API。它不对应具体的年度正式版本（定位等同于原 Canary 渠道），变更幅度最大、兼容性风险最高，仅适合开发者、专业测试人员与极客群体；
+
+Experimental（特定 Core Version，如 26H1）：针对特定硬件平台或系统版本的 Windows 内核分支，比如搭载高通Snapdragon X2 芯片的设备，它们所搭载的 Windows 11 就是 26H1，其他设备的 Experimental 则为 25H2 或 26H2；
+
+Beta 渠道（测试渠道）：用于测试完成度高、接近正式推送的新功能与体验改进，稳定性和可靠性显著高于 Experimental。微软通常将计划在数周内进入正式版的功能放入 Beta，适合追求新特性又需要兼顾日常使用稳定性的用户。此外，2026 年调整后 Beta 渠道彻底取消了随机分批开启的 Feature Flags 机制，只要安装了对应版本的 Beta 系统，所有的功能就开启。
+
+那么多更新，追求稳定的企业怎么办？
+
+而在企业中稳定才是最重要的，从 Windows 10 开始这样隔三差五的补丁更新万一有一个没有测试出问题，就很有可能会让企业蒙受损失。Windows 企业版（包括了 Windows 专业版）在不进行额外的控制下，更新频率和消费者版是一样的。
+
+对于受管理的 Windows 设备，管理员可以通过组策略、MDM 或 Windows Update for Business 设置更新延迟策略，其中功能更新最多可延迟 365 天，质量更新最多可延迟 30 天；如果使用 WSUS，则还可以通过批准和拒绝更新来进一步控制更新部署时机。
+
+Windows 10 时代，微软还曾使用 Semi-Annual Channel（半年频道，SAC）等服务频道概念来区分企业设备接收功能更新的阶段。随着 Windows 11 改为一年一次年度功能更新，微软逐渐取消了 Windows 客户端以 SAC 等「就绪频道」区分功能更新部署阶段的做法，转而主要通过 Windows Update for Business 的更新策略、目标版本策略和部署环来控制企业设备何时接收功能更新。
+
+在 Windows 企业版之上还有个长期服务版（LTSC 版），微软通常大约每 2-3 年发布一个新的 LTSC 版本，而已经部署的 LTSC 系统在其支持周期内不会通过 Windows Update 接收常规功能更新，相对会更稳定一些。而 LTSC 的 Windows 版本累积更新依旧是每月 1 次。
+
+虽然企业版也不能完全不更新，但至少可以推迟更长时间。
+
+关联阅读：《你的名字到底有几种写法？——聊聊 Windows 和 macOS 的版本号》
+
+普通人可以怎么办
+
+可惜的是我们公司没有专业的 IT 部门，而在 Windows 11 系统界面上最长也就只能选择 35 天内的任意日期暂停，35 天以后一定要更新了才能继续暂停。不过，Windows 目前还可以通过注册表直接写入暂停时间来暂停：
+
+$path = &#34;HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings&#34; $end = (Get-Date &#34;2030-01-01&#34;).ToUniversalTime().ToString(&#34;yyyy-MM-ddTHH:mm:ssZ&#34;) Set-ItemProperty -Path $path -Name &#34;PauseUpdatesExpiryTime&#34; -Value $end Set-ItemProperty -Path $path -Name &#34;PauseFeatureUpdatesEndTime&#34; -Value $end Set-ItemProperty -Path $path -Name &#34;PauseQualityUpdatesEndTime&#34; -Value $end
+
+$path ... ：定义注册表路径变量，指向 Windows Update 的 UX 设置项；
+
+$end = (Get-Date &#34;2030-01-01&#34;)：将 2030-01-01 解析为日期时间对象，你可以改成任意你觉得合适的时间；
+
+.ToUniversalTime() ：将该时间转换为 UTC 时间；
+
+.ToString(&#34;yyyy-MM-ddTHH:mm:ssZ&#34;) ：把时间转换成 Windows Update 更新所用的 ISO 8601 格式；
+
+Set-ItemProperty ：修改注册表中已有的值；
+
+-Path $path ：指定要修改的注册表位置，也就是一开始定义的注册表位置；
+
+-Name &#34;PauseUpdatesExpiryTime&#34; ：指定要修改的注册表值名称，这里的 PauseUpdatesExpiryTime 表示 Windows Update 的暂停截止时间；后面 2 条中的 PauseFeatureUpdatesEndTime 和 PauseQualityUpdatesEndTime 也类似，分别对应功能更新暂停时间和质量暂停时间。
+
+-Value $end ：将前面生成的 UTC 格式时间写入 PauseUpdatesExpiryTime ，从而把 Windows Update 的暂停截止日期设置为指定时间。
+
+总的来说这串代码的意思就是设置 Windows Update 设置下，将暂停日期设置为固定的日期，远远突破了原先 35 天的限制，也更灵活。
+
+使用方法也很简单：首先打开「Windows 设置」，前往「Windows 更新」，选择任何一个日历上的日子暂停更新。
+
+接着，右键点击 Windows 开始徽标并选择「终端（管理员）」或「Windows PowerShell（管理员）」，在弹出的窗口中输入上述代码并按下回车。最后打开「Windows 设置」，进入「Windows 更新」，确认更新是否已成功暂停以及暂停的目标日期是否正确即可。
+
+写在最后
+
+系统更新其实很重要，Windows 下的累计更新会修复大量的安全漏洞，如果不是因为工作比较复杂，涉及的软件很多我也愿意及时更新。在我看来如果不是真的有必要的话，延长 2-3 个月足矣。
+
+只不过活干完了以后，要记得点击「继续更新」，免得下次焦头烂额的时候 Windows 又来提醒你要更新了。
+
+&gt; 下载 少数派 2.0 客户端、关注 少数派公众号，解锁全新阅读体验 📰
+
+&gt; 实用、好用的 正版软件，少数派为你呈现 🚀</div>
                     </section>
                 </div>
             </section>
@@ -643,9 +917,9 @@ Netflix本周拒绝提高对华纳兄弟探索的竞标，震惊了娱乐界，�
                 <div class="shell source-shell">
                     <div>
                         <p class="source-title">继续查看原始报道</p>
-                        <p class="source-copy">来源：TechCrunch · 将在新窗口打开发布者页面</p>
+                        <p class="source-copy">来源：少数派 · 将在新窗口打开发布者页面</p>
                     </div>
-                    <a class="source-link" href="https://techcrunch.com/2026/02/28/why-did-netflix-back-down-from-its-deal-to-acquire-warner-bros/" target="_blank" rel="noopener noreferrer">
+                    <a class="source-link" href="https://sspai.com/post/80562" target="_blank" rel="noopener noreferrer">
                         访问来源
                         <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                             <path d="M14 5h5v5M19 5l-8 8M19 13v5a1 1 0 01-1 1H6a1 1 0 01-1-1V6a1 1 0 011-1h5"></path>
