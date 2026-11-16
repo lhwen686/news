@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
-    <meta name="description" content="英伟达首席执行官黄仁勋因多段婚外情面临质疑并离职，其关系包括一家被美国怀疑向中国输送英伟达芯片的新加坡公司Megaspeed的高管。此前，首席安全官David Reber以健康原因辞职。文章质疑英伟达安全团队对此类事件的了解。安全专家指出，高管婚外情可能制造易被外国情报机构利用的安全漏洞。他们批评企业安全团队资金不足、职能狭隘，常忽视内部威胁及通过人际关系获取敏感信息的风险。专家们特别强调，中国情报机构擅长利用长期人际关系进行渗透，此事件应警醒美国行业警惕其情报策略。">
+    <meta name="description" content="macOS自带的航拍壁纸无法随时间自动切换，用户选择的场景会固定不变。为此，开发者推出免费开源的菜单栏工具“Aerial Switcher”，旨在解决这一痛点。该工具能根据当前时间，自动切换金门海峡等多地点的多时段航拍壁纸，并可自动下载缺失视频。用户能自定义24小时时间轴上的切换时刻，精度达15分钟。应用在Mac开机、登录或从睡眠中唤醒时，均会检查并切换壁纸。其通过修改macOS内部plist文件实现，会备份原有设置。尽管依赖非公开机制，未来兼容性存在风险，但已在macOS 26、27版本测试通过。用户可从GitHub免费下载，首次打开需在系统设置中手动放行。">
     <meta name="theme-color" content="#f3f0e8">
-    <title>英伟达安全团队何在？ · Daily Insight</title>
+    <title>航拍切换器：给 Mac 的航拍壁纸排个时间表 · Daily Insight</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -566,10 +566,10 @@
                     <div class="article-kicker">
                         <span>科技</span>
                         <span aria-hidden="true">·</span>
-                        <span>TechCrunch</span>
+                        <span>少数派</span>
                     </div>
-                    <h1 class="article-title">英伟达安全团队何在？</h1>
-                    <p class="article-title-en" lang="en">Where was Nvidia’s security team?</p>
+                    <h1 class="article-title">航拍切换器：给 Mac 的航拍壁纸排个时间表</h1>
+                    <p class="article-title-en" lang="en">Aerial Switcher：给 Mac 的航拍壁纸排个时间表</p>
                 </div>
 
                 <dl class="article-facts" aria-label="文章信息">
@@ -579,7 +579,7 @@
                     </div>
                     <div>
                         <dt>Source</dt>
-                        <dd>TechCrunch</dd>
+                        <dd>少数派</dd>
                     </div>
                     <div>
                         <dt>Reading</dt>
@@ -589,7 +589,7 @@
             </header>
 
             <figure class="shell hero-image">
-                <img src="https://techcrunch.com/wp-content/uploads/2026/11/Jensen-Huang-1.jpg?w=1024" alt="" aria-hidden="true">
+                <img src="https://rssfile.sspai.com/2026/11/04/ba02047ccfaec684db562efe3aaa6fc0.jpg?imageMogr2/auto-orient/ignore-error/1" alt="" aria-hidden="true">
             </figure>
 
             <section class="shell insight-section" aria-labelledby="insight-title">
@@ -598,11 +598,9 @@
                         <p class="section-kicker">AI Insight</p>
                         <h2 id="insight-title" class="insight-title">深度解析</h2>
                     </div>
-                    <p class="insight-copy">这篇文章揭示了企业安全领域一个被忽视但至关重要的方面：由个人脆弱性放大的“内部威胁”。它深入探讨了外国情报机构如何利用个人关系，特别是涉及高管的关系，来获取敏感信息或政策洞察的可能性。
+                    <p class="insight-copy">本文介绍了一款名为 Aerial Switcher 的 macOS 小工具，它解决了系统自带航拍壁纸无法按时间自动切换的痛点。从技术原理来看，该应用的核心在于其对 macOS 内部机制的探索和利用。由于苹果未提供公开的 API 来直接控制航拍壁纸切换，开发者不得不深入挖掘系统配置文件（如 plist 文件）并重启相关的系统代理（WallpaperAgent）。这种依赖非公开接口的做法，虽然能实现特定功能，但其潜在风险也显而易见：未来的 macOS 系统更新可能导致这些内部机制失效，从而影响应用的兼容性和稳定性。
 
-文章讨论的核心专业概念是“人力情报（HUMINT）对人类脆弱性的利用”。与侧重技术黑客攻击的传统网络安全不同，这种机制利用个人联系、婚外情或利益冲突。这个过程通常始于“培养”——建立长期关系（如文章所述，通常持续数年而非数周），而非快速打击。这使得情报机构能够巧妙地提取信息，影响决策，或识别组织内的“症结所在”（阻碍）。
-
-其行业影响是深远的。首先，它暴露出企业安全的一个重大盲区。许多公司将安全狭隘地定义为设施保护、网络防御和物理威胁，却忽视了复杂的人为因素。这种疏忽导致安全团队资金不足，未能充分关注主动的内部威胁检测。其次，对于涉及关键技术或国家安全利益的行业，如拥有先进芯片的英伟达，这种脆弱性可能导致巨大的知识产权损失和地缘政治影响，正如对Megaspeed的怀疑以及芯片可能被输送到中国的情况所示。这篇文章敲响了警钟，强调了在当今复杂的威胁环境中，仅限于“合规，一分钱都不能多”的心态是远远不够的。</p>
+此项目以免费开源的形式发布于 GitHub，并采用 MIT 许可证，这体现了开源社区在解决用户需求和推动技术进步方面的巨大价值。它不仅降低了用户使用门槛，也鼓励了其他开发者参与贡献和学习。同时，应用发布时遇到的 macOS 安全拦截问题（未公证），也反映了操作系统在安全与灵活性之间的权衡。用户需手动操作才能运行未公证应用，这既是系统对用户安全负责的体现，也是小型独立开发者面临的挑战之一。总而言之，Aerial Switcher 是一个通过创新技术手段和社区协作，有效提升用户体验的典型案例。</p>
                 </div>
             </section>
 
@@ -618,35 +616,61 @@
                             <h3 id="original-heading">英文原文</h3>
                             <span lang="en">Original</span>
                         </header>
-                        <div class="article-prose prose-en" lang="en">Outsiders had little reason to notice when Nvidia’s longtime chief security officer and head of product security stepped down in August. Just two and a half months later, CEO Jensen Huang himself left the company over growing questions about his extramarital relationships — starting with an executive at Megaspeed, a Singapore data center company that U.S. investigators suspect of funneling Nvidia chips to China, then widening to reports about two separate affairs with Nvidia employees.
+                        <div class="article-prose prose-en" lang="en">Matrix 首页推荐
 
-At the time, David Reber, who spent four years as CSO and seven at Nvidia overall, said he was leaving for health reasons. “This wasn’t a pivot I had planned. But I know what needs to come first: family and health,” he wrote on LinkedIn in late August, disclosing that he’d been diagnosed with young-onset Parkinson’s more than two years ago.
+Matrix 是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选 Matrix 最优质的文章，展示来自用户的最真实的体验和观点。
 
-Reber’s replacement, Saša Zdjelar, previously spent 17 years at ExxonMobil in Houston, leaving as a senior IT manager before spending one year at Salesforce and several years at the cybersecurity company ReversingLabs. Zdjelar didn’t respond to questions Thursday about the transition or what the security team knew.
+文章代表作者个人观点，少数派仅对标题和排版略作修改。
 
-Nothing public connects Reber’s or Zdjelar’s role changes to the Megaspeed matter, but it seems fair to wonder what Nvidia’s security team knew about the government’s scrutiny of Megaspeed and about Huang’s relationships, and whether anyone raised concerns. Reber didn’t respond to questions Thursday. Nvidia also has not answered our related questions.
+macOS 自带的航拍壁纸有个挺奇怪的地方：Apple 给太浩湖（Tahoe）、红杉国家公园（Sequoia）、金门海峡（Golden Gate）等地方各拍了好几个时段的版本，比如 macOS 27 新增的金门海峡，就有白天、日落、傍晚和夜晚四段视频。但在系统设置里，它们是四张独立的壁纸。
 
-Not all of those relationships are the business of the security team. Relationships with subordinates typically fall to HR, legal, and the board. But an affair with an executive at a company under federal investigation is a different animal. (Megaspeed has denied any wrongdoing.) Security specialists say affairs can create vulnerabilities that foreign intelligence services look to exploit.
+你选了日落，第二天早上打开电脑，看到的还是日落。
 
-Catching that kind of exposure isn’t easy. The way intelligence services collect information, much of it through everyday conversation rather than hacking, makes it especially difficult for security teams to identify risks, according to retired senior intelligence officer Nicholas Eftimiades, who says he has trained more than 1,000 corporate security professionals.
+我觉得有点可惜。既然 Apple 已经把同一个地方从早到晚拍了一遍，为什么不能让它们跟着时间自动切换？
 
-Some people inside Nvidia clearly knew parts of the picture. Nvidia’s top lawyer was engaged with the government’s Megaspeed inquiry more than a year ago, The New York Times reported earlier this week. (Nvidia has said it regularly contacts officials.) Reports about Huang’s relationships with employees suggest colleagues also knew of them, even if the behavior is not expressly forbidden by Nvidia’s code of conduct. The Times cited five Nvidia employees who said he was involved with a vice president who reported directly to him, and Reuters, citing two people, later reported a second relationship. What’s unclear is whether any of that reached security.
+于是就有了 Aerial Switcher，一个简洁的菜单栏小工具，让 macOS 航拍壁纸按时间切换。
 
-Even if it had reached Nvidia’s security team, Eftimiades, who wrote Chinese Espionage Operations and Tactics in 2020, said a security team’s resources are often limited. For one thing, they’re often underfunded because, unlike some other cost centers, they don’t drive revenue. It’s astonishingly common for CEOs to answer a security team’s warnings with “not a nickel more than compliance,” he said.
+金门海峡的白天、日落、傍晚和夜晚
 
-Many companies also define security very narrowly, specialists say. In an opinion piece in The Hill, Don Aviv, CEO of the corporate investigations firm Interfor International, and author Jeremy Hurewitz, wrote, “Too many companies still approach security primarily as a matter of protecting facilities, preventing cyberattacks, and responding to physical threats.” The two argued that “[s]ecurity teams need to pay greater attention to insider threats, including the cultivation of executives and employees by foreign intelligence services, suspicious business relationships, conflicts of interest and attempts to obtain sensitive information through trusted personal contacts.”
+从早晨到夜晚
 
-Still, some of it is beyond what any team can do. Speaking generally, not about Huang, Eftimiades offered a hypothetical in which a CEO complains that he can’t do something because “I’m fighting a board who doesn’t want to do this.” That tells an intelligence asset who the obstacle is. The service then asks, “Who’s the sticking point here?” and looks for ways into that person’s email and phone.
+第一次打开 Aerial Switcher 会出现一个设置窗口，选好喜欢的地点后，应用会自动检查并下载缺少的航拍视频，然后切换到当前时间的对应版本。
 
-What a rival intelligence service wants is often less technology than policy insight, including who’s pushing to change export rules and who the biggest blocker is. “Intel world tends to be like cancer,” he said. “Once it gets into the body, it looks to spread and looks to reach out.”
+默认的时间安排是早晨 06:00、白天 12:00、日落 17:00、傍晚 18:00、夜晚 21:00。不同地点的视频数量不一样，比如 Sequoia 只有早晨、白天和夜晚——这些时间不一定符合你的心意。所以我做了一条 24 小时的时间轴，可以直接拖动上面的把手调整切换时间，每次移动 15 分钟。
 
-The playbook isn’t new, Eftimiades added, “particularly for China.” Any executive dealing with the country “will tell you that they’ve been approached.” He said there are also “tons of diplomat stories” of U.S. diplomats walking into a hotel room to find a woman on the bed. He said what’s newer compared with Soviet era spying is the relationships these services cultivate now often last years, not weeks.
+比如冬天天黑得早，就可以把日落提前到 16:30。
 
-Technology can augment that human intelligence, Eftimiades said, pointing to IMSI catchers are one example. These devices mimic a cell tower so that nearby phones connect to them. A basic version can cost about $1,000 and fit in a suitcase, he said, though government-grade models cost far more.
+设置完成后就不用管它了。应用会待在菜单栏里，图标显示当前时段，点开可以看到下一次切换的时间，也可以换一组壁纸。如果某一段风景特别好看你也可以暂停，让它一直停在这里，不想继续使用的话，关掉自动切换就会恢复原来的壁纸。
 
-Eftimiades says no one knows yet if these were used against Huang, whose phone was presumably hardened such that compromises could be detected, if not stopped altogether. But either way, what Nvidia’s security team knew, and whether it could have acted on it, should become clearer as the board’s independent investigation and federal inquiries proceed.
+Mac 开机、登录或从睡眠中唤醒时，应用也会检查一遍时间，避免错过切换。
 
-In the meantime, Eftimiades said he hopes the whole episode is “a wake-up call” for U.S. industry, which he said is mostly “clueless” about China’s tactics. “We have lost trillions [of dollars] in intellectual property,” is his guess. “Whatever we think we’re doing isn’t working.”</div>
+macOS 的壁纸原来是这么工作的
+
+这个工具最早只是一个需要通过 make 调用的命令行程序，后来慢慢做成现在的菜单栏 App。
+
+实现过程中，我发现 macOS 并没有提供直接设置航拍壁纸的公开 API。不过系统的壁纸配置其实保存在一个 plist 文件里：
+
+~/Library/Application Support/com.apple.wallpaper/Store/Index.plist
+
+修改其中的配置再重启 WallpaperAgent ，就能让系统加载另一段航拍视频。这里还有个小坑：航拍视频不一定已经下载到本机。如果直接切换到一段不存在的视频，macOS 并不会自动下载它，而是显示默认壁纸。
+
+所以我才加上了自动下载功能。应用会从 Apple 的服务器获取缺少的视频，存放到 macOS 原本的航拍目录中。每段视频可能有几百 MB，第一次选择壁纸组时需要稍等一会儿。
+
+为了避免影响原来的桌面设置，应用在接管壁纸之前会备份配置，关闭切换时再恢复。如果你期间自己换过壁纸，也会保留你的修改。
+
+不过这些方法都依赖 macOS 没有公开文档的内部机制，将来的系统更新可能让它失效。目前已经在 macOS 26、27 大小版本上测试过兼容性。
+
+下载
+
+Aerial Switcher 已经放到了 GitHub 上，免费开源，使用 MIT 许可证。你可以在仓库的 Releases 页面下载，解压后拖进「应用程序」文件夹安装。整个 App 大约 2 MB。同时应用目前还没有经过 Apple 公证，所以第一次打开可能会被 macOS 拦截，需要进入「系统设置 › 隐私与安全性」，滚动到底部，选择「仍要打开」。
+
+这是我第一次把自己做的 macOS 小工具完整地打包、发布出来。功能不多，界面也还有不少可以改进的地方，但总算从最初的命令行程序变成了一个可以直接安装使用的 App。
+
+有问题欢迎在 GitHub 提 Issue，也欢迎在评论区交流。
+
+&gt; 关注少数派小红书，感受精彩数字生活 🍃
+
+&gt; 实用、好用的正版软件，少数派为你呈现 🚀</div>
                     </section>
 
                     <section class="language-column" aria-labelledby="translation-heading">
@@ -654,35 +678,61 @@ In the meantime, Eftimiades said he hopes the whole episode is “a wake-up call
                             <h3 id="translation-heading">中文翻译</h3>
                             <span>AI Translation</span>
                         </header>
-                        <div class="article-prose prose-zh">外界鲜有关注的理由，当英伟达（Nvidia）长期任职的首席安全官兼产品安全主管于八月离职时。仅仅两个半月后，首席执行官黄仁勋本人也离开了公司，原因是他婚外情的问题日益增多——最初是一名Megaspeed公司的高管，该公司是一家新加坡数据中心企业，美国调查人员怀疑其将英伟达芯片输送至中国；随后又传出他与两名英伟达员工有染的报道。
+                        <div class="article-prose prose-zh">Matrix 首页推荐
 
-当时，在英伟达担任了四年首席安全官，总共七年的大卫·雷伯（David Reber）表示他因健康原因离职。“这并非我计划中的转变。但我知道什么才是第一位的：家庭和健康。”他在八月下旬的领英（LinkedIn）上写道，并透露自己在两年多前被诊断出患有早发性帕金森症。
+Matrix 是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选 Matrix 最优质的文章，展示来自用户的最真实的体验和观点。
 
-雷伯的继任者，萨沙·兹德耶拉（Saša Zdjelar），此前曾在休斯顿的埃克森美孚（ExxonMobil）工作17年，离职时担任高级IT经理，之后在Salesforce工作了一年，并在网络安全公司ReversingLabs工作了数年。兹德耶拉周四未回应有关此次过渡或安全团队所知情况的问题。
+文章代表作者个人观点，少数派仅对标题和排版略作修改。
 
-公开信息并未将雷伯或兹德耶拉的职位变动与Megaspeed事件联系起来，但我们有理由怀疑英伟达安全团队对政府审查Megaspeed以及黄仁勋的关系了解多少，以及是否有人提出过担忧。雷伯周四未回应提问。英伟达也未回答我们提出的相关问题。
+macOS 自带的航拍壁纸有个挺奇怪的地方：Apple 给太浩湖（Tahoe）、红杉国家公园（Sequoia）、金门海峡（Golden Gate）等地方各拍了好几个时段的版本，比如 macOS 27 新增的金门海峡，就有白天、日落、傍晚和夜晚四段视频。但在系统设置里，它们是四张独立的壁纸。
 
-并非所有这些关系都属于安全团队的职责范畴。与下属的关系通常由人力资源、法务部门和董事会处理。但与一家正接受联邦调查的公司高管发生婚外情则性质不同。（Megaspeed否认有任何不当行为。）安全专家表示，婚外情可能制造出外国情报机构试图利用的漏洞。
+你选了日落，第二天早上打开电脑，看到的还是日落。
 
-发现这类泄密并不容易。据已退休的高级情报官员尼古拉斯·埃夫蒂米亚德斯（Nicholas Eftimiades）称，情报机构收集信息的方式，其中很多是通过日常对话而非黑客手段，这使得安全团队尤其难以识别风险。他表示曾培训过1000多名企业安全专业人士。
+我觉得有点可惜。既然 Apple 已经把同一个地方从早到晚拍了一遍，为什么不能让它们跟着时间自动切换？
 
-英伟达内部的一些人显然了解部分情况。《纽约时报》本周早些时候报道称，英伟达的首席律师一年多前就已参与政府对Megaspeed的调查。（英伟达曾表示会定期与官方接触。）关于黄仁勋与员工关系的报道表明，同事们也知晓这些关系，即便这种行为并未被英伟达的行为准则明确禁止。《纽约时报》援引五名英伟达员工的话说，黄仁勋与一名直接向他汇报的副总裁有染；路透社随后援引两人的话报道了第二段关系。不清楚的是，这些信息是否传达到了安全部门。
+于是就有了 Aerial Switcher，一个简洁的菜单栏小工具，让 macOS 航拍壁纸按时间切换。
 
-即使这些信息传达到了英伟达的安全团队，埃夫蒂米亚德斯，他曾在2020年撰写《中国间谍行动与战术》一书，表示安全团队的资源通常有限。首先，他们通常资金不足，因为与其他一些成本中心不同，他们不产生收入。他说，首席执行官们对安全团队的警告做出“除了合规，一分钱都不能多”的回复，这种情况非常普遍。
+金门海峡的白天、日落、傍晚和夜晚
 
-专家们表示，许多公司对安全的定义也非常狭隘。在《国会山报》的一篇评论文章中，企业调查公司Interfor International的首席执行官唐·阿维夫（Don Aviv）和作家杰里米·赫雷维茨（Jeremy Hurewitz）写道：“太多公司仍然主要将安全视为保护设施、预防网络攻击和应对物理威胁的问题。”两人认为，“安全团队需要更加关注内部威胁，包括外国情报机构对高管和员工的策反、可疑的商业关系、利益冲突以及通过可信的个人联系获取敏感信息的企图。”
+从早晨到夜晚
 
-然而，有些事情超出了任何团队的能力范围。埃夫蒂米亚德斯一般性地（并非特指黄仁勋）提出了一个假设情景：一位首席执行官抱怨他无法做某事，因为“我正在与一个不愿做此事的董事会抗争。”这就告诉了情报人员谁是阻碍。情报机构随后会问：“症结在哪？”并寻找方法入侵那个人的电子邮件和手机。
+第一次打开 Aerial Switcher 会出现一个设置窗口，选好喜欢的地点后，应用会自动检查并下载缺少的航拍视频，然后切换到当前时间的对应版本。
 
-竞争情报机构想要的往往不是技术，而是政策洞察，包括谁在推动改变出口规定，以及谁是最大的阻碍者。他说：“情报界就像癌症。一旦进入体内，它就会寻求扩散并向外伸展。”
+默认的时间安排是早晨 06:00、白天 12:00、日落 17:00、傍晚 18:00、夜晚 21:00。不同地点的视频数量不一样，比如 Sequoia 只有早晨、白天和夜晚——这些时间不一定符合你的心意。所以我做了一条 24 小时的时间轴，可以直接拖动上面的把手调整切换时间，每次移动 15 分钟。
 
-埃夫蒂米亚德斯补充说，这种策略并非新鲜事，“尤其是对于中国而言。”任何与该国打交道的高管“都会告诉你他们曾被接触过。”他说，还有“大量外交官的故事”，讲述美国外交官走进酒店房间，发现床上有一名女性。他说，与苏联时期的间谍活动相比，更新颖的是，这些机构现在培养的关系通常持续数年而非数周。
+比如冬天天黑得早，就可以把日落提前到 16:30。
 
-埃夫蒂米亚德斯表示，技术可以增强这种人力情报，他以IMSI捕捉器为例。这些设备模仿手机信号塔，以便附近的手机连接到它们。他说，一个基本版本可能花费约1000美元，并能装进手提箱，尽管政府级别的型号要昂贵得多。
+设置完成后就不用管它了。应用会待在菜单栏里，图标显示当前时段，点开可以看到下一次切换的时间，也可以换一组壁纸。如果某一段风景特别好看你也可以暂停，让它一直停在这里，不想继续使用的话，关掉自动切换就会恢复原来的壁纸。
 
-埃夫蒂米亚德斯说，目前尚无人知晓这些技术是否曾被用于对付黄仁勋，他的手机可能经过加固，即使无法完全阻止入侵，也能检测到。但无论如何，随着董事会的独立调查和联邦调查的推进，英伟达安全团队的所知情况以及他们是否能采取行动，应该会变得更加明朗。
+Mac 开机、登录或从睡眠中唤醒时，应用也会检查一遍时间，避免错过切换。
 
-同时，埃夫蒂米亚德斯表示，他希望整个事件能给美国工业界“敲响警钟”，他说，美国工业界对中国的策略大多“一无所知”。他猜测：“我们已经损失了数万亿美元的知识产权。”“无论我们认为自己正在做什么，都行不通。”</div>
+macOS 的壁纸原来是这么工作的
+
+这个工具最早只是一个需要通过 make 调用的命令行程序，后来慢慢做成现在的菜单栏 App。
+
+实现过程中，我发现 macOS 并没有提供直接设置航拍壁纸的公开 API。不过系统的壁纸配置其实保存在一个 plist 文件里：
+
+~/Library/Application Support/com.apple.wallpaper/Store/Index.plist
+
+修改其中的配置再重启 WallpaperAgent ，就能让系统加载另一段航拍视频。这里还有个小坑：航拍视频不一定已经下载到本机。如果直接切换到一段不存在的视频，macOS 并不会自动下载它，而是显示默认壁纸。
+
+所以我才加上了自动下载功能。应用会从 Apple 的服务器获取缺少的视频，存放到 macOS 原本的航拍目录中。每段视频可能有几百 MB，第一次选择壁纸组时需要稍等一会儿。
+
+为了避免影响原来的桌面设置，应用在接管壁纸之前会备份配置，关闭切换时再恢复。如果你期间自己换过壁纸，也会保留你的修改。
+
+不过这些方法都依赖 macOS 没有公开文档的内部机制，将来的系统更新可能让它失效。目前已经在 macOS 26、27 大小版本上测试过兼容性。
+
+下载
+
+Aerial Switcher 已经放到了 GitHub 上，免费开源，使用 MIT 许可证。你可以在仓库的 Releases 页面下载，解压后拖进「应用程序」文件夹安装。整个 App 大约 2 MB。同时应用目前还没有经过 Apple 公证，所以第一次打开可能会被 macOS 拦截，需要进入「系统设置 › 隐私与安全性」，滚动到底部，选择「仍要打开」。
+
+这是我第一次把自己做的 macOS 小工具完整地打包、发布出来。功能不多，界面也还有不少可以改进的地方，但总算从最初的命令行程序变成了一个可以直接安装使用的 App。
+
+有问题欢迎在 GitHub 提 Issue，也欢迎在评论区交流。
+
+关注少数派小红书，感受精彩数字生活 🍃
+
+实用、好用的正版软件，少数派为你呈现 🚀</div>
                     </section>
                 </div>
             </section>
@@ -691,9 +741,9 @@ In the meantime, Eftimiades said he hopes the whole episode is “a wake-up call
                 <div class="shell source-shell">
                     <div>
                         <p class="source-title">继续查看原始报道</p>
-                        <p class="source-copy">来源：TechCrunch · 将在新窗口打开发布者页面</p>
+                        <p class="source-copy">来源：少数派 · 将在新窗口打开发布者页面</p>
                     </div>
-                    <a class="source-link" href="https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/" target="_blank" rel="noopener noreferrer">
+                    <a class="source-link" href="https://sspai.com/post/118392" target="_blank" rel="noopener noreferrer">
                         访问来源
                         <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                             <path d="M14 5h5v5M19 5l-8 8M19 13v5a1 1 0 01-1 1H6a1 1 0 01-1-1V6a1 1 0 011-1h5"></path>
